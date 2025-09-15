@@ -1,0 +1,84 @@
+<div class="um-authorization-groups-page">
+    <div class="p-x p-t p-b-sm">
+        <div class="input-container">
+            <!-- ko if: isVisible()-->
+                <div class="search-btns pull-right m-l  btn-group-sm">
+                    <button data-bind="click: onAddClick.bind($data)" type="button" class="btn btn-success">
+                        <span class="wf wf-add-round m-r-sm" aria-hidden="true"></span>
+                        {{connector.translate('I4SCADA_UM_Add')()}}
+                    </button>
+                </div>
+            <!-- /ko -->
+
+            <div class="input-group m-b-sm input-group-sm">
+                <input data-bind="textInput: searchText" type="text" class="form-control">
+                <span class="input-group-addon">
+                    <i class="wf wf-search m-r-sm"></i>
+                </span>
+            </div>
+            <i class="text-info wf wf-info m-r-sm"></i>
+            <span class="text-info" data-bind="text: tableViewDS().length"></span>
+            <span class="text-info">{{connector.translate('I4SCADA_UM_Of')()}}</span>
+            <span class="text-info" data-bind="text: tableDS().length"></span>
+            <span class="text-info">{{connector.translate('I4SCADA_UM_Dispayed')()}}</span>
+        </div>
+    </div>
+
+    <div style="top: 110px;bottom: 1px;right: 1px;left: 1px;position: absolute;">
+        <div class="panel-body relative p-a-0" style="height:100%">
+            <div class="overflow-y-scroll" data-bind="attr: {id: 'wrap_aug'}" style="height:100%">
+
+                <table class="table table-striped table-hover " data-bind="fixTableHeader:{ wrapperId: 'wrap_aug'}, sortTable: {sortFunction: function(index, asc) { sortingData({ index: index, asc: asc }); }, iconCssClass: 'm-l-sm', excludeColumnIndexs: [4]}">
+                    <thead>
+                        <tr>
+                            <th data-bind="click: onSortClick.bind($data, 'Name')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_Name')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'Name' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'Name' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'Description')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_Description')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'Description' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'Description' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'CheckAccessGroups')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_CheckAccessGroups')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'CheckAccessGroups' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'CheckAccessGroups' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th>{{connector.translate('I4SCADA_UM_Actions')()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: tableViewDS">
+                        <tr>
+                            <td data-bind="text: Name"></td>
+                            <td data-bind="text: Description"></td>
+                            <td>
+                                <input type="checkbox" data-bind="checked: $data.CheckAccessGroups" disabled="disabled">
+                            </td>
+                            <td class="um-action-cell">
+                                <button class="btn btn-xs btn-default" data-bind="click: $parent.onCloneClick.bind($parent, $data)"><i class="fa fa-clone m-r-0"></i></button>
+                                <button class="btn btn-xs btn-default" data-bind="click: $parent.onEditClick.bind($parent, $data)"><i class="wf wf-edit"></i></button>
+                                <button class="btn btn-xs btn-danger" data-bind="click: $parent.onDeleteClick.bind($parent, $data)"><i class="wf wf-close-round"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DIALOGS -->
+<wf-um-confirmation-dialog params="showModalFromOutside: confirmDialog.show,
+                           confirmCallBackMethod: confirmDialog.responseMethod" ></wf-um-confirmation-dialog>
+
+<wf-um-cloned-name-dialog params="showModalFromOutside: cloneNameDialog.show,
+                          confirmCallBackMethod: cloneNameDialog.responseMethod,
+                          selectedItem: cloneNameDialog.selectedItem,
+                          tableData: cloneNameDialog.tableData" ></wf-um-cloned-name-dialog>
+
+<wf-um-add-edit-auth-groups-dialog params="showModalFromOutside: addEditDialog.show,
+                                   actionType: addEditDialog.actionType,
+                                   authorizationGroup: addEditDialog.selectedItem,
+                                   confirmCallBackMethod: addEditDialog.responseMethod" ></wf-um-add-edit-auth-groups-dialog>

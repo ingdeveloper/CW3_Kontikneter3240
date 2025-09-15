@@ -1,0 +1,20 @@
+<!-- ko if:hasAuthorization-->
+<div class="inline">
+    <div class="inline-block" data-bind="css: css(), attr : {title: tooltipText}, style: {width: elemBreite, fontSize: fontSize}">
+        <div class="nowrap" data-bind="css: css()">
+            <div data-bind="text: signalValue, style:{width: elemBreiteVal, fontSize: fontSize,text-align: textAlign }, event: {contextmenu: function(){aliasInfo()}}" style="display: inline-block;" oncontextmenu="return false"></div>
+            <!-- ko if: staticUnitText -->
+            <div class="ccw-wf-input-tastatur-display" data-bind="text: staticUnitText, style:{fontSize: fontSize }"></div>
+            <!-- /ko -->
+        </div>
+
+        <!-- ko if: unitLabel -->
+        <!-- ko ifnot: staticUnitText -->
+        <span>
+            <wf-signal-information params="signalName: signalName, propertyName: 'Unit'"></wf-signal-information>
+        </span>
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+</div>
+<!-- /ko -->

@@ -1,0 +1,24 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <!-- ko if: txtKopf() -->
+            <div class="modal-header">
+                <span type="button" class="btn btn-primary close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</span>
+                <h4 class="modal-title">
+                    <span data-bind="html: txtKopf"></span>
+                </h4>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: txtInhalt() -->
+            <div class="modal-body">
+                <div data-bind="html: txtInhalt"></div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: txtFuss() -->
+            <div class="modal-footer">
+                <div data-bind="html: txtFuss"></div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

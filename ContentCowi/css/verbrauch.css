@@ -1,0 +1,80 @@
+﻿.verbrauchValueRahmen {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 100%;
+    /*position:absolute;
+    bottom: 0px;*/
+}
+
+.verbrauchHr { 
+    width: 100%; 
+    height: 2px; 
+    margin: 2px auto;
+    color: #808080;
+    background: #808080;
+}
+
+.verbrauchRahmen {
+    background-color: #ff6a00;
+    padding: 0px 0px !important;
+    margin: 0px 0px !important;
+}
+
+.verbrauchTabelle{
+    font-size: small;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    vertical-align: middle;
+}
+
+.verbrauchText1000L{
+    text-align: center;
+    font-size: smaller;
+}
+
+.verbrauchTabelleTd{
+    vertical-align: middle !important;
+    text-align: right;
+
+}
+
+.verbrauchTabelle2Weg{
+    margin-top: 120px;
+}
+
+
+
+.verbrauchTabelleRahmen{
+    padding-bottom: 1px;
+    padding-top: 1px;
+    min-height: 20px;
+}
+
+.verbrauchTabelleWegSpalteFaerben{
+    background-color: #eae3da !important;
+}
+
+.verbrauchTabelleRahmenLinks{
+    border-left: 1px dashed grey !important;
+}
+.verbrauchTabelleRahmenOben{
+    border-top: 1px dashed grey !important;
+}
+.verbrauchTabelleRahmenRechts{
+    border-right: 1px dashed grey !important;
+}
+.verbrauchTabelleRahmenUnten{
+    border-bottom: 1px dashed grey !important;
+}
+.verbrauchTabellePadding{
+    padding: 2px !important;
+}
+
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    .verbrauchTabelle2Weg {
+        margin-top: 10px;
+    }
+}

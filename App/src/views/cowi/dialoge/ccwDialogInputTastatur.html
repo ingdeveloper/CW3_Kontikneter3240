@@ -1,0 +1,149 @@
+<div class="modal">
+<div class="modal-dialog modal-top" data-bind="event: { keyup: keyupEventHandler2}">
+<div class="modal-content" data-bind="style:{width: (breite() + 'px')}">
+            <div class="modal-body">
+
+                <!-- ZIFFERN-TASTATUR ANZEIGEN -->
+                <div data-bind="visible: isEditingZiffer()">
+                    <div>
+                        <span>
+                            <i class="fa fa-keyboard-o fa-2x ccw-zifferIconEcke" data-bind="click: function (){toggleAnzeigeZifferBuchstaben()}"></i>
+                        </span>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span class="ccw-wf-input-tastatur-zifferUeberschrift">Anlage:&nbsp;</span>
+                                </td>
+                                <td>
+                                    <span data-bind="text: signalWfDbWert" class="ccw-wf-input-tastatur-zifferWertRahmen"></span>
+                                    <span data-bind="text: unit" style="font-size: 18px; font-family: Arial;"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="ccw-wf-input-tastatur-zifferUeberschrift2">Eingabe:&nbsp;</span>
+                                </td>
+                                <td>
+                                    <span data-bind="text: uncommittedValue, css: displayClassNames" class="ccw-wf-input-tastatur-zifferWertRahmen2"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(1)}">1</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(2)}">2</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(3)}">3</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(4)}">4</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(5)}">5</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(6)}">6</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(7)}">7</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(8)}">8</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(9)}">9</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setPlusMinus()}">+/-</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setZiffer(0)}">0</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setKomma()}">,</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ziffertd">
+                                    <button class="btn btn-primary ccw-zifferButton" type="button" data-bind="click: resetInputValue">
+                                        <i class="wf wf-arrow-undo"></i>
+                                    </button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-success ccw-zifferButton" type="button" data-bind="click: function(){setCLR()}">CLR</button>
+                                </td>
+                                <td class="ziffertd">
+                                    <button class="btn btn-warning ccw-zifferButton" type="button" data-bind="click: writeInputValue">OK</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- BUCHSTABEN-TASTATUR ANZEIGEN -->
+                <div data-bind="visible: isEditingString(), css: cssAusrichtung()">
+                    <div>
+                        <div>
+                            <span>
+                                <i class="fa fa-th fa-2x ccw-zifferIconEcke" data-bind="click: function (){toggleAnzeigeZifferBuchstaben()}"></i>
+                            </span>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <span class="ccw-wf-input-tastatur-zifferUeberschrift">Anlage:&nbsp;</span>
+                                    </td>
+                                    <td>
+                                        <span data-bind="text: signalWfDbWert" class="ccw-wf-input-tastatur-zifferWertRahmen"></span>
+                                        <span data-bind="text: unit" style="font-size: 18px; font-family: Arial;"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="ccw-wf-input-tastatur-zifferUeberschrift2">Eingabe:&nbsp;</span>
+                                    </td>
+                                    <td>
+                                        <span data-bind="text: uncommittedValue" class="ccw-wf-input-tastatur-zifferWertRahmen2"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div data-bind="foreach: keyboardTastenAnzeigen()">
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <!-- ko foreach: $data -->
+                                <!-- Zeile für Zeile lesen und die Array-Indexe ausgeben -->
+                                <div class="zeichentd inline-block">
+                                    <button class="btn ccw-zeichenButton" type="button" data-bind="html: $data.char, style: {min-width: ($data.minWidth + 'px')} ,click: function(){$parents[1].setZeichen($parentContext.$index(),$index())}, css: $data.bgcolor">a</button>
+                                </div>
+                                <!--$parents[1] geht ein Eltern-Element zurück-->
+                                <!-- /ko -->
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

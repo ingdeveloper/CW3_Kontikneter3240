@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" enable-background="new 0 0 100 100" viewBox="0 0 100 100" version="1.1">
+<style>
+	.style_base{
+		stroke:	#fff;
+		fill:	#eee;
+    stroke-thickness: 1;
+	}
+</style>
+  
+ <defs>
+    <linearGradient id="bg_grey1" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#ffffff" offset="0%" />
+      <stop stop-color="#828282" offset="100%" />
+    </linearGradient>   
+   <linearGradient id="bg_white1" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#ffffff" stop-opacity=".7" offset="0%" />
+      <stop stop-color="#ffffff" stop-opacity="0" offset="70%" />
+    </linearGradient>		 
+    <linearGradient id="grey" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#828282" offset="0%" />
+      <stop stop-color="#ffffff" offset="100%" />
+    </linearGradient>	
+    <linearGradient id="green" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#408123" offset="0%" />
+      <stop stop-color="#A4FF4E" offset="100%" />
+    </linearGradient>
+    <linearGradient id="red" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#9B0000" offset="0%" />
+      <stop stop-color="#FF0000" offset="100%" />
+    </linearGradient>
+    <linearGradient id="yellow" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#AD7700" offset="0%" />
+      <stop stop-color="#FDFF2A" offset="100%" />
+    </linearGradient>
+    <linearGradient id="blue" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#0047AF" offset="0%" />
+      <stop stop-color="#00DAFB" offset="100%" />
+    </linearGradient>	 
+</defs>  
+  
+<g>
+      <g >
+        <circle fill="url(#bg_grey1)" r="50" cx="50" cy="50"/>
+        <circle fill="url(#grey)" r="45" cx="50" cy="50"/>
+        <circle fill="url(#bg_white1)" r="42" cx="50" cy="50"/>
+      </g>
+</g>
+
+</svg>

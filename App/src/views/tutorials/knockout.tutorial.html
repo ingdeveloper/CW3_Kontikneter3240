@@ -1,0 +1,75 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">
+            Tutorial Knockout JS Basics
+        </h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <h2>KO Binding - Checked</h2>
+            <p>
+                <input type="checkbox" data-bind="checked: displayDetailedView" /> Advanced view
+            </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h2>Simple Binding</h2>
+            <span data-bind="visible: displayDetailedView">Simple Binding to the variable
+                <strong>myProperty</strong>
+            </span>
+            <h1 data-bind="text: myProperty"></h1>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h2>Observable Binding (2-ways-binding)</h2>
+            <span data-bind="visible: displayDetailedView">Observable Binding to the variable
+                <strong>myObservableProperty</strong>
+            </span>
+            <h1 data-bind="text: myObservableProperty"></h1>
+            <input type="text" class="form-control" data-bind="textInput: myObservableProperty, visible: displayDetailedView" />
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h2>Computed Observable Binding </h2>
+            <span data-bind="visible: displayDetailedView">Observable Binding to the variable
+                <strong>myComputedProperty</strong>
+            </span>
+            <h1 data-bind="text: myComputedProperty"></h1>
+        </div>
+    </div>
+
+    <div class="row" data-bind="fadeVisible: displayDetailedView">
+        <div class="col-xs-12 col-sm-4">
+            <h2>KO Binding - Click</h2>
+            <button type="button" class="btn btn-default" data-bind="click: buttonClick">Push the Button!</button>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <h2></h2>
+
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" data-bind="click: function() { setValue(0); }">0</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning" data-bind="click: function() { setValue(50); }">50</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-danger" data-bind="click: function() { setValue(100); }">100</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-lg p-t-lg b-t">
+        <div class="col-xs-12 col-sm-4">
+            <p>
+                <input type="checkbox" data-bind="checked: displayDetailedView" /> Advanced View
+            </p>
+            <div class="panel panel-default" data-bind="fadeVisible: displayDetailedView()">
+                <div class="panel-body">
+                    Extended Informations
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

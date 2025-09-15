@@ -1,0 +1,30 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if:isVisible()-->
+<!--ko with:logs-->
+<wf-chart-1 params="lines : $data,
+        autoUpdate: true,
+        title:'',
+        legendText: 'AliasName',
+        exportFileName: $component.objectName,
+        dateTimeFileName: true,
+        projectAuthorization: $component.projectAuthorization, 
+        securityDenyAccessBehavior: $component.securityDenyAccessBehavior, 
+        systemAuthorization: $component.systemAuthorization
+        enableSignalName: $component.settings.enableSignalName,
+        enableSignalValue: $component.settings.enableSignalValue,
+        enableOperator: $component.settings.enableOperator,
+        visibilitySignalName: $component.settings.visibilitySignalName,
+        visibilitySignalValue: $component.settings.visibilitySignalValue,
+        visibilityOperator: $component.settings.visibilityOperator,
+        objectID: $component.objectID,
+        parameters: { SP: $component.signalPrefix, OID: $component.objectID, ONID: $component.objectNameID },
+        initialConfiguration: $component.settings.initialConfiguration,
+        configurationNamespace: $component.settings.configurationNamespace,
+        showOnlyOwnConfigurations: $component.settings.showOnlyOwnConfigurations,
+        startOffset: $component.timeSettings.startOffset,
+        startOffsetIntervall: $component.timeSettings.startOffsetIntervall,
+        maxResults: 5000">
+</wf-chart-1>
+<!--/ko-->
+<!--/ko-->
+<!--/ko-->

@@ -1,0 +1,667 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="wf-recipe-management" data-bind="style: { height: height() ? height() + 'px' : 'auto' }">
+    <div class="wf-panel" style="height: inherit;" data-bind="css: panelBarCssClass">
+        <!-- ko if: headerVisibility -->
+        <div class="panel-heading">
+            <div class="pull-right wf-panel-toolbar">
+
+                <button type="button" data-bind="css: buttonBarCssClass, click: onRefresh" class="btn btn-default"
+                    title="{{connector.translate('I4SCADA_Refresh')()}}">
+                    <i class="wf wf-arrow-refresh-right"></i>
+                </button>
+
+                <!-- ko if: typeSelectionButtonVisibility -->
+                <div class="wf-type-selection">
+                    <select class="form-control" data-bind="value: recipeType">
+                        <option value="RecipeDefinition">{{connector.translate('I4SCADA_Recipe_Definition')()}}</option>
+                        <option value="Recipe">{{connector.translate('I4SCADA_Recipe')()}}</option>
+                    </select>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: settingsButtonVisibility() -->
+
+                <div class="m-r-sm inline-block"></div>
+
+                <!-- ko if: importButtonVisibility -->
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showImportDialog"
+                    title="{{connector.translate('I4SCADA_Import')()}}">
+                    <span class="wf wf-upload"></span>
+                </button>
+                <!-- /ko -->
+                <!-- ko if: exportButtonVisibility -->
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showExportDialog, enable: isExportButtonEnable"
+                    title="{{connector.translate('I4SCADA_Export')()}}">
+                    <span class="wf wf-download"></span>
+                </button>
+                <!-- /ko -->
+
+                <div class="m-r-sm inline-block"></div>
+
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showLoadDialog"
+                    title="{{connector.translate('I4SCADA_Load')()}}">
+                    <span class="wf wf-cog"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showAddDialog"
+                    title="{{connector.translate('I4SCADA_Add')()}}">
+                    <span class="wf wf-add"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showEditDialog, enable: isSaveEnabled"
+                    title="{{connector.translate('I4SCADA_Edit')()}}">
+                    <span class="wf wf-edit"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: onSave, enable: isSaveEnabled"
+                    title="{{connector.translate('I4SCADA_Save')()}}">
+                    <span class="wf wf-save"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-bind="css: buttonBarCssClass, click: showDeleteDialog, enable: isSaveEnabled"
+                    title="{{connector.translate('I4SCADA_Delete')()}}">
+                    <span class="wf wf-bin"></span>
+                </button>
+                <!-- /ko -->
+
+            </div>
+            <h3 class="panel-title p-r-md overflow-x-ellipsis" data-part="panelHeader">
+                <span>{{connector.translate(titleText())}}</span>
+            </h3>
+        </div>
+        <!-- /ko -->
+
+        <div class="relative">
+            <div class="panel-body p-a-0">
+
+                <div class="col-sm-12 p-a-md wf-recipe-headder b-b">
+                    <h3 class="panel-title" style="display: inline-block;">
+                        <span>{{recipeType() == 'RecipeDefinition' ? recipeDefinitionName: recipeName}}</span>
+                    </h3>
+
+                    <div class="pull-right">
+                        <!--ko if: recipeType() == 'Recipe'-->
+                        <!-- ko if: headderLoadCurrenValuesButtonVisibility-->
+                        <button class="btn btn-default btn-sm" title="{{connector.translate('I4SCADA_Load_current_values')()}}"
+                            data-bind="click: onLoadCurrentValues, enable: isSaveEnabled() && recipes().length > 0">
+                            <span class="wf wf-download"></span>
+                        </button>
+                        <!-- /ko -->
+                        <!-- ko if: headderConcatenateButtonVisibility-->
+                        <button class="btn btn-default btn-sm" title="{{connector.translate('I4SCADA_Concatenate_from_recipe_definition')()}}"
+                            data-bind="click: showConcatenateRecipeDefinitionsDialog, enable: isSaveEnabled()">
+                            <span class="wf wf-files-o"></span>
+                        </button>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <!-- ko if: headderAddButtonVisibility-->
+                        <button type="button" class="btn btn-success btn-sm" data-bind="click:showSignalBrowserDialog, enable: isSaveEnabled"
+                            title="{{connector.translate(recipeType() == 'RecipeDefinition' ? 'I4SCADA_Add_recipe_definition_item' : 'I4SCADA_Add_recipe_item')()}}">
+                            <span class="wf wf-add"></span>
+                        </button>
+                        <!-- /ko -->
+                    </div>
+                </div>
+
+                <div class="overflow-y-scroll p-x-md" data-bind="style: {height: panelBodyHeight() ? panelBodyHeight() + 'px' : 'auto' }, attr: {id: 'wrap_' + id() }">
+                    <!--ko if: recipeType() == 'RecipeDefinition'-->
+                    <div class="row">
+                        <!-- ko if: recipeDefinitionId-->
+                        <table class="table table-striped table-hover wf-table-recipe-definitions">
+                            <thead>
+                                <tr>
+                                    <th>{{connector.translate('I4SCADA_AliasName')()}}</th>
+                                    <th>{{connector.translate('I4SCADA_Description')()}}</th>
+                                    <!-- ko if: contentDeleteButtonVisibility()-->
+                                    <th>{{connector.translate('I4SCADA_Action')()}}</th>
+                                    <!-- /ko -->
+                                </tr>
+                                <!-- ko if: searchVisibility-->
+                                <tr>
+                                    <th colspan="3">
+                                        <div class="flexbox">
+                                            <div class="relative flex-auto">
+                                                <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+                                                <input style="font-weight: normal;" type="text" class="form-control"
+                                                    data-bind="textInput: recipeDefinitionPattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}" />
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <!--/ko-->
+                            </thead>
+                            <tbody>
+                                <!-- ko foreach: recipeDefinitionItems-->
+                                <tr>
+                                    <td>{{aliasName}}</td>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm" data-bind="value: description">
+                                                <button class="btn btn-sm btn-default" data-bind="click: $parent.onResetDescriptionRecipeDefinition"
+                                                    title="{{$parent.connector.translate('I4SCADA_Reset')()}}"><i class="wf wf-arrow-undo"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- ko if: $parent.contentDeleteButtonVisibility-->
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" title="{{$parent.connector.translate('I4SCADA_Delete')()}}"
+                                            data-bind="click: $parent.onDeleteRecipeDefinitionItem">
+                                            <span class="wf wf-bin"></span>
+                                        </button>
+                                    </td>
+                                    <!--/ko-->
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                        <!--/ko-->
+                        <!-- ko ifnot: recipeDefinitionId -->
+                        <div class="col-sm-12">
+                            <div class="wf-callout-box wf-callout-box-info animated fadeIn m-t-md">
+                                {{ connector.translate('I4SCADA_No_recipe_definition_selected')() }}
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: recipeType() == 'Recipe'-->
+                    <div class="row">
+                        <!-- ko if: recipeId-->
+                        <table class="table table-striped table-hover wf-table-recipes">
+                            <thead>
+                                <tr>
+                                    <th>{{connector.translate('I4SCADA_AliasName')()}}</th>
+                                    <th>{{connector.translate('I4SCADA_Description')()}}</th>
+                                    <th>{{connector.translate('I4SCADA_Value')()}}</th>
+                                    <!-- ko if: contentLoadCurrenValueDeleteButtonVisibility() || contentDeleteButtonVisibility()-->
+                                    <th>{{connector.translate('I4SCADA_Action')()}}</th>
+                                    <!--/ko-->
+                                </tr>
+                                <!-- ko if: searchVisibility-->
+                                <tr>
+                                    <th colspan="4">
+                                        <div class="flexbox">
+                                            <div class="relative flex-auto">
+                                                <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+                                                <input style="font-weight: normal;" type="text" class="form-control"
+                                                    data-bind="textInput: recipePattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}" />
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <!--/ko-->
+                            </thead>
+                            <tbody>
+                                <!-- ko foreach: recipeItems-->
+                                <tr>
+                                    <td>{{aliasName}}</td>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm" data-bind="value:description">
+                                                <button class="btn btn-sm btn-default" data-bind="click: $parent.onResetDescriptionRecipe"
+                                                    title="{{$parent.connector.translate('I4SCADA_Reset')()}}"><i class="wf wf-arrow-undo"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm" data-bind="value:value, numeralNumber: format">
+                                                <button class="btn btn-sm btn-default" data-bind="click: $parent.onResetValueRecipe"
+                                                    title="{{$parent.connector.translate('I4SCADA_Reset')()}}"><i class="wf wf-arrow-undo"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- ko if: $parent.contentLoadCurrenValueDeleteButtonVisibility() || $parent.contentDeleteButtonVisibility -->
+                                    <td>
+                                        <!-- ko if: $parent.contentLoadCurrenValueDeleteButtonVisibility-->
+                                        <button class="btn btn-default btn-sm" title="{{$parent.connector.translate('I4SCADA_Load_current_value')()}}"
+                                            data-bind="click: $parent.onLoadCurrentValue">
+                                            <span class="wf wf-download"></span>
+                                        </button>
+                                        <!--/ko-->
+                                        <!-- ko if: $parent.contentDeleteButtonVisibility-->
+                                        <button class="btn btn-danger btn-sm" title="{{$parent.connector.translate('I4SCADA_Delete')()}}"
+                                            data-bind="click: $parent.onDeleteRecipeItem">
+                                            <span class="wf wf-bin"></span>
+                                        </button>
+                                        <!--/ko-->
+                                    </td>
+                                    <!--/ko-->
+                                </tr>
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                        <!-- /ko -->
+                        <!-- ko ifnot: recipeId -->
+                        <div class="col-sm-12">
+                            <div class="wf-callout-box wf-callout-box-info animated fadeIn m-t-md">
+                                {{ connector.translate('I4SCADA_No_recipe_selected')() }}
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-add-edit-recipe-name-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showAddEdit, draggable: isModalDialogsDraggable}, attr: { id: 'modal-add-edit-recipe-name-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content panel-warning">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeAddEditDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{addEditNameTitle}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>{{ connector.translate('I4SCADA_Name')()}}</label>
+                                    <input data-bind="textInput:newName" type="text" class="form-control">
+                                </div>
+                                <!-- ko ifnot: isNameValid-->
+                                <div class="alert alert-danger" role="alert">
+                                    {{ connector.translate('I4SCADA_Name_has_to_be_unique')()}}
+                                </div>
+                                <!--/ko-->
+                            </div>
+                        </div>
+                        <!-- ko if: recipeType() == 'Recipe' -->
+                        <!-- ko if: isAddMode-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>{{connector.translate('I4SCADA_Clone_items_from_recipe_definition')()}}</label>
+                                <div class="flexbox">
+                                    <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+                                    <select class="form-control flex-auto" data-bind="selectpicker: {
+                                                    options: $parent.cloneRecipeDefinitionItems,
+                                                    optionsTitle: $data,
+                                                    size: 20,
+                                                    selectedOptions: $parent.selectedCloneRecipeDefinitionId,
+                                                    liveSearch: true},
+                                                    optionsText:'Name',
+                                                    optionsValue:'ID'"></select>
+                                    <!--/ko-->
+                                    <button type="button" class="m-l-md btn btn-default" title="{{connector.translate('i4SCADA_Copy_name')()}}"
+                                        data-bind="click: onCopySelectedName" disabled={{!isCopyButtonEnabled()}}>
+                                        <i class="wf wf-files-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ko ifnot: showOnlyOwnConfigurations -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label data-bind="enable: connector.currentLoggedInUser()">
+                                        <input type="checkbox" data-bind="checked: isOnlyOwnConfig, enable: connector.currentLoggedInUser()">
+                                        {{connector.translate('I4SCADA_Show_owned_configurations_only')()}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ko -->
+                        <!--/ko-->
+                        <!--/ko-->
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-success" data-bind="click: applyAddEditDialog, enable: isNameValid">
+                                <i class="wf-lg wf-check"></i>
+                                {{connector.translate('I4SCADA_Apply')()}}
+                            </button>
+                            <button class="btn btn-default" data-bind="click: closeAddEditDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_Close')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-concatenate-recipe-definitions-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showConcatenateRecipeDefinitions, draggable: isModalDialogsDraggable}, attr: { id: 'modal-concatenate-recipe-definitions-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content panel-warning">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeConcatenateRecipeDefinitionsDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{connector.translate('I4SCADA_Concatenate_from_recipe_definition')}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="flexbox">
+                                    <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+                                    <select class="form-control flex-auto" data-bind="selectpicker: {
+                                                    options: $parent.concatenateRecipeDefinitionItems,
+                                                    optionsTitle: $data,
+                                                    size: 20,
+                                                    selectedOptions: $parent.selectedConcatenateRecipeDefinitionId,
+                                                    liveSearch: true},
+                                                    optionsText:'Name',
+                                                    optionsValue:'ID'"></select>
+                                    <!--/ko-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ko ifnot: showOnlyOwnConfigurations -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label data-bind="enable: connector.currentLoggedInUser()">
+                                        <input type="checkbox" data-bind="checked: isOnlyOwnConfig, enable: connector.currentLoggedInUser()">
+                                        {{connector.translate('I4SCADA_Show_owned_configurations_only')()}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-success" data-bind="click: applyConcatenateRecipeDefinitionsDialog">
+                                <i class="wf-lg wf-check"></i>
+                                {{connector.translate('I4SCADA_Apply')()}}
+                            </button>
+                            <button class="btn btn-default" data-bind="click: closeConcatenateRecipeDefinitionsDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_Close')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-delete-recipe-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showDelete, draggable: isModalDialogsDraggable}, attr: { id: 'modal-delete-recipe-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-warning">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeDeleteDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{deleteTitle}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{deleteContent}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-success" data-bind="click: applyDeleteDialog">
+                                <i class="wf-lg wf-check"></i>
+                                {{connector.translate('I4SCADA_Yes')()}}
+                            </button>
+                            <button class="btn btn-default" data-bind="click: closeDeleteDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_No')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-load-recipe-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showLoad, draggable: isModalDialogsDraggable}, attr: { id: 'modal-load-recipe-' + id() }"
+            style="display: none;">
+            <div class="modal-lg modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeLoadDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{loadTitle}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-config">
+                        <div class="row">
+                            <div class="overflow-y-scroll b-b">
+                                <table class="table table-responsive table-condensed table-striped">
+                                    <thead data-part="header">
+                                        <tr>
+                                            <th class="p-l-md">{{connector.translate('I4SCADA_Name')()}}</th>
+                                            <th>{{connector.translate('I4SCADA_Owner')()}}</th>
+                                            <th>{{connector.translate('I4SCADA_CreatedOn')()}}</th>
+                                            <th class="col-xs-2"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-part="rows" data-bind="foreach: configurationItems">
+                                        <tr>
+                                            <td class="p-l-md" data-bind="text: Name"></td>
+                                            <td data-bind="text: Owner"></td>
+                                            <td data-bind="formattedDate: { value: CreatedOn }"></td>
+                                            <td>
+                                                <div class="form-inline">
+                                                    <div class="form-group">
+                                                        <button class="btn-success btn-xs" data-bind="click: $parent.onLoadConfig, css: $parent.operationButtonCssClass"
+                                                            title="{{$parent.connector.translate('I4SCADA_Load')()}}">
+                                                            <i class="wf wf-download"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn-danger btn-xs" data-bind="click: $parent.onRemoveConfig, css: $parent.operationButtonCssClass, enable: canRemoveItem"
+                                                            title="{{$parent.connector.translate('I4SCADA_Delete')()}}">
+                                                            <i class="wf wf-bin"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ko ifnot: showOnlyOwnConfigurations -->
+                        <div class="row">
+                            <div class="checkbox m-x m-b-0">
+                                <label data-bind="enable: connector.currentLoggedInUser()">
+                                    <input type="checkbox" data-bind="checked: isOnlyOwnConfig, enable: connector.currentLoggedInUser()">
+                                    {{connector.translate('I4SCADA_Show_owned_configurations_only')()}}
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-default" data-bind="click: closeLoadDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_Close')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-recipe-signal-browser-container-' + id() }">
+        <div class="wf-signal-browser modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1"
+            role="dialog" data-bind="modalDialog: {show: showSignalBrowser, draggable: isModalDialogsDraggable}, attr: { id: 'modal-recipe-signal-browser-' + id() }"
+            style="display: none;">
+            <div class="modal-lg modal-dialog modal-top">
+                <div class="modal-content panel-warning">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeSignalBrowserDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{connector.translate('I4SCADA_Select_Signal')}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-settings p-y-0">
+                        <div class="row bg-light m-b-md b-b p-t p-b-md">
+                            <div class="col-xs-12 m-b">
+                                <label>{{connector.translate('I4SCADA_Group')()}}</label>
+                                <div class="flexbox">
+                                    <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+                                    <select class="form-control flex-auto" data-bind="selectpicker: {
+                                            options: $parent.groupItems,
+                                            optionsTitle: $data,
+                                            size: 20,
+                                            selectedOptions: $parent.selectedGroupId,
+                                            liveSearch: true },
+                                            optionsText:'Name',
+                                            optionsValue:'ID'"></select>
+                                    <!--/ko-->
+                                    <button type="button" class="m-l-md btn btn-success" data-bind="click: addGroup, visible: selectedGroupId() || isLoading()">
+                                        <i class="wf wf-parent-unit"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label>{{connector.translate('I4SCADA_Signal_Name')()}}</label>
+                                <div class="flexbox">
+                                    <div class="relative flex-auto">
+                                        <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+
+                                        <input type="text" class="form-control" data-bind="textInput:pattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}" />
+                                        <!-- ko if: isLoading-->
+                                        <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+                                        <!-- /ko-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <!-- ko ifnot: signalItems().length-->
+                                <div class="alert alert-info text-center animated fadeIn">
+                                    <i class="wf wf-info"></i> {{ connector.translate('I4SCADA_No_data_available')() }}
+                                </div>
+                                <!--/ko-->
+
+                                <!-- ko if: signalItems().length -->
+                                <label>{{connector.translate('I4SCADA_Signals')()}}</label>
+                                <span class="label label-default" data-bind="text: signalItems().length"></span>
+                                <!-- ko if: hasMoreSignals -->
+                                <div class="label label-info">
+                                    <i class="wf wf-info"></i>
+                                    {{ connector.translate('I4SCADA_Has_more')() }}
+                                </div>
+                                <!--/ko-->
+
+                                <ul class="list-group list-group-hover wf-signal-list b-a">
+                                    <!-- ko foreach:signalItems-->
+                                    <li class="list-group-item wf-signal-item clickable flexbox flexbox-v-center"
+                                        data-bind="click:$parent.onSignalClicked, css: {'active disabled': selected }">
+                                        <i class="wf wf-sine-wave m-r-sm"></i>
+                                        <div>{{ item.Name}}</div>
+                                        <i class="wf wf-add-round-o wf-icon-action" data-bind="css: {'active wf-check-round-o': selected }"></i>
+                                    </li>
+                                    <!--/ko-->
+                                </ul>
+                                <!--/ko-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-success" data-bind="click: applySignalBrowserDialog">
+                                <i class="wf-lg wf-check"></i>
+                                {{connector.translate('I4SCADA_Apply')()}}
+                            </button>
+                            <button class="btn btn-default" data-bind="click: closeSignalBrowserDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_Close')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div data-bind="attr: { id: 'modal-recipe-import-container-' + id() }">
+        <div class="wf-signal-browser modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1"
+            role="dialog" data-bind="modalDialog: {show: showImport, draggable: isModalDialogsDraggable}, attr: { id: 'modal-recipe-import-' + id() }"
+            style="display: none;">
+            <div class="modal-lg modal-dialog modal-top">
+                <div class="modal-content panel-warning">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeImportDialog">&times;</button>
+                        <div class="modal-title">
+                            <span>{{connector.translate(recipeType() == 'RecipeDefinition' ?
+                                'I4SCADA_Import_RecipeDefinition':'I4SCADA_Import_Recipe')()}}</span>
+                        </div>
+                    </div>
+                    <div class="modal-body wf-panel-settings">
+                        <div class="form-group">
+                            <button class="btn btn-primary" data-bind="click: onFile">{{connector.translate('I4SCADA_Select_File')}}</button>
+                            <input type="file" id="{{'input-'+id()}}" data-bind="event: { change: onChangeFile }"
+                                accept=".json" multiple="multiple" style="display:none">
+                        </div>
+                        <div class="form-group">
+                            <ul data-bind="foreach: selectedFiles">
+                                <li>{{$data}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" data-bind="checked: overwriteConfigurationOnImport">
+                                    {{connector.translate('I4SCADA_Overwrite_existing_configuration')()}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-success" data-bind="click: applyImportDialog">
+                                <i class="wf-lg wf-check"></i>
+                                {{connector.translate('I4SCADA_Apply')()}}
+                            </button>
+                            <button class="btn btn-default" data-bind="click: closeImportDialog">
+                                <i class="wf wf-close-round-o"></i>
+                                {{connector.translate('I4SCADA_Close')()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--/ko-->
+<!--/ko-->

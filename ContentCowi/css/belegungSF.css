@@ -1,0 +1,208 @@
+.sf-statusBelegung-frei {
+    background: linear-gradient(#a0a0a0, #404040) !important;
+}
+
+.sf-statusBelegung-belegt {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sf-statusBelegung-links {
+    background: linear-gradient(#ffffd0, #ffff00) !important;
+}
+
+.sf-statusBelegung-rechts {
+    background: linear-gradient(#30a0ff, #0070ff) !important;
+}
+
+.sf-statusBelegung-Res1 {
+    background: linear-gradient(#30b030, #008000) !important;
+}
+
+.sf-statusBelegung-Res2 {
+    background: linear-gradient(#c09050, #906020) !important;
+}
+
+.sf-statusBelegung-Eisbrecher {
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.sf-statusBelegung-2Wahl {
+    background: linear-gradient(#ffc0ff, #ff00ff) !important;
+}
+
+.sf-feldStyle {
+    border: 1px solid #404040;
+    border-radius: 50px;
+    position: absolute;
+    width: 20px;
+    height: 10px;
+}
+
+.sf-feldStyle2 {
+    border: 1px solid #404040;
+    border-radius: 50px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+
+
+.sf-feldStyle3 {
+    border: 1px solid #ff0000;
+    border-radius: 50px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+
+
+
+
+.sf-feld01 {
+    left: 0px;
+}
+
+.sf-feld02 {
+    left: 20px;
+}
+
+.sf-feld03 {
+    left: 40px;
+}
+
+.sf-feld04 {
+    left: 60px;
+}
+
+.sf-feld05 {
+    left: 80px;
+}
+
+.sf-feld06 {
+    left: 100px;
+}
+
+.sf-feld07 {
+    left: 120px;
+}
+
+.sf-feld08 {
+    left: 140px;
+}
+
+.sf-feld09 {
+    left: 160px;
+}
+
+.sf-feld10 {
+    left: 180px;
+}
+
+.sf-feld11 {
+    left: 200px;
+}
+
+.sf-feld12 {
+    left: 220px;
+}
+
+.sf-feld13 {
+    left: 240px;
+}
+
+.sf-feld14 {
+    left: 260px;
+}
+
+.sf-feld15 {
+    left: 280px;
+}
+
+.sf-feld16 {
+    left: 300px;
+}
+
+.sf-ub-feld01 {
+    left: 0px;
+}
+
+.sf-ub-feld02 {
+    left: 10px;
+}
+
+.sf-ub-feld03 {
+    left: 20px;
+}
+
+.sf-ub-feld04 {
+    left: 30px;
+}
+
+.sf-ub-feld05 {
+    left: 40px;
+}
+
+.sf-ub-feld06 {
+    left: 50px;
+}
+
+.sf-ub-feld07 {
+    left: 60px;
+}
+
+.sf-ub-feld08 {
+    left: 70px;
+}
+
+.sf-ub-feld09 {
+    left: 80px;
+}
+
+.sf-ub-feld10 {
+    left: 90px;
+}
+
+.sf-ub-feld11 {
+    left: 100px;
+}
+
+.sf-ub-feld12 {
+    left: 110px;
+}
+
+.sf-ub-feld13 {
+    left: 120px;
+}
+
+.sf-ub-feld14 {
+    left: 130px;
+}
+
+.sf-ub-feld15 {
+    left: 140px;
+}
+
+.sf-ub-feld16 {
+    left: 150px;
+}
+
+.cssAus {
+    background: #a0a0a0 !important;
+    border: 5px solid #ffffff !important;
+}
+
+.cssFrosten {
+    background: #30a0ff !important;
+    border: 5px solid #ffffff !important;
+    
+}
+
+.cssLagern {
+    background: #ff00ff !important;
+    border: 5px solid #ffffff !important;
+}
+
+.cssReinigen {
+    background: #c0ffc0 !important;
+    border: 5px solid #ffffff !important;
+}

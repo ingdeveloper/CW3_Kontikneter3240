@@ -1,0 +1,49 @@
+
+/*--------------------------------------------------------------------------------------------------
+ *  WEBfactory Icon Font Version 3.6.0 by - http://webfactory-world.de
+ *  WEBfactory Detailed Icon Font Version 2.8.2 by - http://webfactory-world.de
+ *  Copyright  WEBfactory GmbH - http://webfactory-world.de
+ *--------------------------------------------------------------------------------------------------*/
+
+/* CCW Icon Font */ 
+@font-face {
+  font-family: 'ccwIconFont';
+  src:  url('../svg/icons/ccwIconFont.eot?dbaz9h');
+  src:  url('../svg/icons/ccwIconFont.eot?dbaz9h#iefix') format('embedded-opentype'),
+    url('../svg/icons/ccwIconFont.ttf?dbaz9h') format('truetype'),
+    url('../svg/icons/ccwIconFont.woff?dbaz9h') format('woff'),
+    url('../svg/icons/ccwIconFont.svg?dbaz9h#WFIconFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+
+.cw, .cw-lg {
+    font-family: 'ccwIconFont';
+    -webkit-speak: none;
+    -moz-speak: none;
+    -ms-speak: none;
+    -o-speak: none;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-variant: normal;
+    -moz-font-variant: normal;
+    -ms-font-variant: normal;
+    -o-font-variant: normal;
+    font-variant: normal;
+    text-transform: none;
+    /*line-height: 1;*/
+    display: inline-block;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ICONS
+ * -------------------------- */
+
+.cw-add2:before {
+  content: "\e600";
+}

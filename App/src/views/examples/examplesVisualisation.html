@@ -1,0 +1,271 @@
+﻿<div class="container-fluid">
+    <header>
+        <h1 class="page-header">
+            {{connector.translate("I4SCADA_Visualization")()}}
+            <small>
+                {{connector.translate("I4SCADA_Visualization_Description")()}}
+            </small>
+        </h1>
+    </header>
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">Status Indicator</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-state-indicator class="inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName2: 'Setpoint 1', maskSignal2: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName3: 'Setpoint 1', maskSignal3: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName4: 'Setpoint 1', maskSignal4: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName5: 'Setpoint 1', maskSignal5: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName6: 'Setpoint 1', maskSignal6: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName7: 'Setpoint 1', maskSignal7: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName8: 'Setpoint 1', maskSignal8: 1,  operator1: '<='"></wf-state-indicator>
+                    <wf-state-indicator class="inline-block" params="stateSignalName5: 'Setpoint 1', maskSignal5: 0, stateSignalName6: 'Setpoint 1', maskSignal6: 1, stateSignalName7: 'Setpoint 1', maskSignal7: 2, stateSignalName8: 'Setpoint 1', maskSignal8: 3">
+                        <div class="wf-indicator-content">
+                            <wf-value class="lead font-weight-bold" parasm="signalName: 'Local Second'"></wf-value>
+                        </div>
+                    </wf-state-indicator>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Class State Widget</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-electric wf-transformer-2-coil', conditionRule1: '%Setpoint 1% != 0', cssClassState1: 'wf-electric wf-transformer-2-coil running'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-hvac wf-blower', conditionRule1: '%Setpoint 2% == 1', cssClassState1: 'wf-hvac wf-blower running', conditionRule2: '%Setpoint 2% > 1', cssClassState2: 'wf-hvac wf-blower error'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-lg wf-heating-oil-o', conditionRule1: '%Setpoint 3% == 1', cssClassState1: 'wf-lg wf-heating-oil-o', conditionRule2: '%Setpoint 3% > 1', cssClassState2: 'wf-lg wf-heating-oil-o critical'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-pid wf-3-way-valve-off',
+                                                                        conditionRule1: '%Setpoint 1% == 1', cssClassState1: 'wf-pid wf-3-way-valve-a-c warning',
+                                                                        conditionRule2: '%Setpoint 1% == 2', cssClassState2: 'wf-pid wf-3-way-valve-a-b running',
+                                                                        conditionRule3: '%Setpoint 1% >= 3', cssClassState3: 'wf-pid wf-3-way-valve-c-b running'"></wf-state-symbol>
+
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-lg wf-compressed-air1', cssClassState1: 'wf-lg wf-compressed-air1 critical', conditionRule1: '%Local Second% < 30', cssClassState2: 'wf-lg wf-compressed-air1 maintenance', conditionRule2: '%Local Second% >= 30'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="cssClassNormalState: 'wf-pid wf-filter-2', cssClassState1: 'wf-pid wf-filter-2 running', conditionRule1: '%Local Second% > 10'"></wf-state-symbol>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status Display & Statustext Widget</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <wf-state-text class="col-xs-6" params="stateSignalName1: 'MachineOP', maskSignal1: 0, symbolicTextState1: 'Automatik', stateSignalName2: 'MachineOP', maskSignal2: 1, symbolicTextState2: 'Maschinenstillstand', stateSignalName3: 'MachineOP', maskSignal3: 2, symbolicTextState3: 'Wartung', stateSignalName4: 'MachineOP', maskSignal4: 3, symbolicTextState4: 'Handbetrieb', maskSignal5: 4, symbolicTextState5: 'Störung', symbolicTextNormalState: 'Standby'"></wf-state-text>
+                        <div class="col-xs-6">
+                            <p>
+                                <strong>Ventilation 1 Status:</strong>
+                                <br />
+                                <wf-state-text params="stateSignalName1: 'MachineOP', maskSignal1: 0, symbolicTextState1: 'AUS', stateSignalName2: 'MachineOP', maskSignal2: 1, symbolicTextState2: 'Einschaltbereit', stateSignalName3: 'MachineOP', maskSignal3: 2, symbolicTextState3: 'Normalbetrieb', stateSignalName4: 'MachineOP', maskSignal4: 3, symbolicTextState4: 'Umluftbetrieb', maskSignal5: 4, symbolicTextState5: 'Handbetrieb', symbolicTextNormalState: 'AUS'"></wf-state-text>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-3 col-sm-5 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Indicator - additional sizes</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-state-indicator class="indicator-lg inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', label: '-lg'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-md inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', label: 'md'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-sm inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', label: 'sm'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-xs inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', label: 'xs'"></wf-state-indicator>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-5 col-sm-7 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Indicator - with icon setting</h3>
+                </div>
+                <div class="panel-body">
+
+                    <wf-state-indicator class="indicator-lg inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', iconClass: 'wf wf-fan'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-md inline-block" params="stateSignalName2: 'Setpoint 1', maskSignal2: 3, operator2: '<=', iconClass: 'wf wf-server'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-sm inline-block" params="stateSignalName3: 'Setpoint 1', maskSignal3: 3, operator3: '<=', iconClass: 'wf wf-tank-horizontal'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-xs inline-block" params="stateSignalName4: 'Setpoint 1', maskSignal4: 3, operator4: '<=', iconClass: 'wf wf-drop'"></wf-state-indicator>
+
+                    <wf-state-indicator class="indicator-lg inline-block" params="stateSignalName5: 'Setpoint 1', maskSignal5: 3, operator5: '<=', iconClass: 'wf wf-flash'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-md inline-block" params="stateSignalName6: 'Setpoint 1', maskSignal6: 3, operator6: '<=', iconClass: 'wf wf-blower'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-sm inline-block" params="stateSignalName7: 'Setpoint 1', maskSignal7: 3, operator7: '<=', iconClass: 'wf wf-light-bulb-eco'"></wf-state-indicator>
+                    <wf-state-indicator class="indicator-xs inline-block" params="stateSignalName8: 'Setpoint 1', maskSignal8: 3, operator8: '<=', iconClass: 'wf wf-fan-symbol'"></wf-state-indicator>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status display</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>Signal "Temperature 2" properties</h4>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            Description:
+                            <wf-signal-information params="signalName: 'Temperature 2', propertyName: 'Description'"></wf-signal-information>
+                        </div>
+                        <div class="col-sm-6 col-xs-4">
+                            Unit:
+                            <wf-signal-information params="signalName: 'Temperature 2', propertyName: 'Unit'"></wf-signal-information>
+                        </div>
+                        <div class="col-sm-6 col-xs-4">
+                            Minimum:
+                            <wf-signal-information params="signalName: 'Temperature 2', propertyName: 'Maximum'"></wf-signal-information>
+                        </div>
+                        <div class="col-sm-6 col-xs-4">
+                            Maximum:
+                            <wf-signal-information params="signalName: 'Temperature 2', propertyName: 'Minimum'"></wf-signal-information>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Gauge Components</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h3 class="text-center font-weight-bold">Title Text</h3>
+                            <br />
+                            <wf-gauge-1 params="signalName: 'Local Second', width: 275, lowRangeStart: 0.01, lowRangeEnd: 20, majorTicks: 11, iconClass: 'wf-lg wf-heating-motor fa-3x'"></wf-gauge-1>
+                        </div>
+                        <div class="col-sm-4">
+                            <wf-gauge-1 params="width: 125, signalName: 'Temperature 1', minRange: 0, maxRange: 50, highRangeStart: 20, majorTicks: 6, minorTicks: 5, innerRadius: 0.8, iconClass: 'wf wf-brightness fa-2x', iconBackgroundColor: '#F0AD4E', backgroundFillColor: '#5BC0DE', lowRangeFillColor: 'transparent'"></wf-gauge-1>
+                            <hr class="divider" />
+                            <wf-gauge-1 params="width: 125, signalName: 'Temperature 1', minRange: 0, maxRange: 50, highRangeStart: 20, majorTicks: 6, minorTicks: 5, innerRadius: 0.8, iconClass: 'wf-lg wf-heating-oil-o fa-2x', iconBackgroundColor: '#F0AD4E', backgroundFillColor: '#5BC0DE', lowRangeFillColor: 'transparent'"></wf-gauge-1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Arc Components</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-arc class="pull-left" params="signalName: 'Local Second'"></wf-arc>
+                    <wf-arc class="pull-left" params="signalName: 'Local Minute', startAngle: 0.0, endAngle: 360, maxRange: 60, width: 180, height: 180, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#005FCC', iconClass: 'wf wf-drop fa-2x'"></wf-arc>
+                    <wf-arc class="pull-left" params="signalName: 'Local Second', startAngle: -180.0, endAngle: 90, maxRange: 90, width: 180, height: 170, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#EB9316', iconClass: 'wf wf-flash fa-2x', showTickLabels: true, majorTicks: 9"></wf-arc>
+                    <div class="pull-left" style="width: 180px; height: 180px;">
+                        <wf-arc class="absolute" params="signalName: 'Local Hour', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360, maxRange: 60, width: 180, height: 180, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#005FCC', iconClass: 'none'"></wf-arc>
+                        <wf-arc class="absolute" style="margin: 15px" params="signalName: 'Local Minute', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360, maxRange: 60, width: 150, height: 150, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#EAEAEA', foregroundColor: '#EB9316', iconClass: 'none'"></wf-arc>
+                        <wf-arc class="absolute" style="margin: 28px" params="signalName: 'Local Second', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360, maxRange: 60, width: 124, height: 124, innerRadius: 0.8, marginBottom: 5, majorTicks: 40, backgroundColor: '#EFEFEF', foregroundColor: '#880000', iconClass: 'none'">
+                            <div class="wf-arc-content text-center" data-part="content">
+                                <i class="wf-electric wf-transformer-3-coil wf-3x"></i>
+                            </div>
+                        </wf-arc>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <wf-arc class="pull-left" params="signalName: 'Temperature 1', maxRange: 25, width: 75, height: 75, backgroundColor: '#EFEFEF', foregroundColor: '#880000', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360,  innerRadius: 0.5, strokeWidth: 0, marginBottom: 5,  iconClass: 'none', majorTicks: 4"></wf-arc>
+                            <wf-arc class="pull-left" params="signalName: 'Servo 1', maxRange: 15, width: 75, height: 75, backgroundColor: '#EFEFEF', foregroundColor: '#880000', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360,  innerRadius: 0.5, strokeWidth: 0, marginBottom: 5,  iconClass: 'none', majorTicks: 6"></wf-arc>
+                            <wf-arc class="pull-left" params="signalName: 'Servo 2', maxRange: 25, width: 75, height: 75, backgroundColor: '#EFEFEF', foregroundColor: '#880000', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360,  innerRadius: 0.5, strokeWidth: 0, marginBottom: 5,  iconClass: 'none', majorTicks: 6"></wf-arc>
+                            <wf-arc class="pull-left" params="signalName: 'Temperature 1', maxRange: 60, width: 75, height: 75, backgroundColor: '#EFEFEF', foregroundColor: '#880000', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360,  innerRadius: 0.5, strokeWidth: 0, marginBottom: 5,  iconClass: 'none', majorTicks: 4"></wf-arc>
+                            <wf-arc class="pull-left" params="signalName: 'Temperature 2', maxRange: 100, width: 75, height: 75, backgroundColor: '#EFEFEF', foregroundColor: '#880000', showValueLabel: false, showSignalUnit: false, startAngle: 0.0, endAngle: 360,  innerRadius: 0.5, strokeWidth: 0, marginBottom: 5,  iconClass: 'none', majorTicks: 20"></wf-arc>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bargraph Components</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Temperature 1', titleText: 'Temperature 1', cssClass: 'progress-bar-danger', orientation: 'horizontal right'"></wf-bargraph>
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Servo 1', progressBarSize: 'progress-sm', titleText: 'Vibrarionssensor 1', cssClass: 'progress-bar-warning', orientation: 'horizontal right'"></wf-bargraph>
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Local Second', progressBarSize: 'progress-sm', titleText: 'Generator', cssClass: 'progress-bar-success', orientation: 'horizontal right', showTickLabels: true, iconClass: 'wf wf-motor-electric'"></wf-bargraph>
+                        </div>
+                        <div class="col-xs-6">
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Temperature 2', titleText: 'Temperatur 2'"></wf-bargraph>
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Servo 2', progressBarSize: 'progress-sm', titleText: 'Vibrarionssensor 2'"></wf-bargraph>
+                            <wf-bargraph class="block m-b-sm" params="signalName: 'Local Second', progressBarSize: 'progress-sm', titleText: 'RPM', showTickLabels: true, iconClass: 'wf wf-speed-gauge'"></wf-bargraph>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Online Signal Display</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-value-display class="signalDisplay" params="signalName: 'Level 2', unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Vibration 4', label: 'LABEL TEXT', unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Temperature 2', label: 'LABEL TEXT', iconClass: 'wf wf-fan', unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', signalNameLabel: true, unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-default'"></wf-value-display>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Online Signal Values</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h3 class="panel-title">Basic signal vlaue</h3>
+                    <wf-value params="signalName: 'Local Second'"></wf-value>
+                    <wf-value params="signalName: 'Local Second', format: '0,0.00'"></wf-value>
+
+
+                    <h3 class="panel-title">Sensor Components with pointer</h3>
+                    <br />
+                    <wf-sensor params="pointerLength: '18', pointerRotation: '0', sensorText: 'T', signalName: 'Local Hour', staticUnitText: '°C'"></wf-sensor>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

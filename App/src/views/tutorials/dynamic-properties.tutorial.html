@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <header>
+        <h1 class="page-header">WEBfactory HTML/JS Tutorial - Dynamische Properties</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form">
+                <div class="form-group">
+                    <label>Component Name</label>
+                    <select class="form-control" data-bind="options: components, optionsText:'name', value: component"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>Component Properties</label>
+                    <!-- ko with: component -->
+                    <textarea rows="2" class="form-control" data-bind="textInput: params, valueUpdate: afterkeydown" />
+                    <!-- /ko-->
+                </div>
+
+                <div class="form-group">
+                    <label>Result</label>
+                    <!-- ko with: paramObject -->
+                    <div data-bind='component: {name: name, params: params}'></div>
+                    <!-- /ko-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

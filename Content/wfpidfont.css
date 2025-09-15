@@ -1,0 +1,396 @@
+
+/*--------------------------------------------------------------------------------------------------
+ *  WEBfactory P&ID Symbols - Icon Font Version 2.1.3 by WEBfactory GmbH - http://webfactory-world.de
+ *  Copyright  WEBfactory GmbH - http://webfactory-world.de
+ *--------------------------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'WFPIDSymbolsFont';
+    src: url('fonts/WFPIDSymbolsFont.eot?2oj7jc');
+    src: url('fonts/WFPIDSymbolsFont.eot?2oj7jc#iefix') format('embedded-opentype'), url('fonts/WFPIDSymbolsFont.ttf?2oj7jc') format('truetype'), url('fonts/WFPIDSymbolsFont.woff?2oj7jc') format('woff'), url('fonts/WFPIDSymbolsFont.svg?2oj7jc#WFPIDSymbolsFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wf-pid
+{
+    font-family: 'WFPIDSymbolsFont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    position: relative;
+}
+
+.wf-pid:after {
+    position:absolute;
+    left: 0;
+    top: 0;
+}
+
+.wf-pid:before
+{
+    color:lightgrey; 
+    z-index:-1;
+}
+
+.wf-pid.wf-2-way-valve-1:before {
+    content: "\e600";
+}
+.wf-pid.wf-2-way-valve-1:after {
+    content: "\e601";
+}
+.wf-pid.wf-2-way-valve-2:before {
+    content: "\e602";
+}
+.wf-pid.wf-2-way-valve-2:after {
+    content: "\e603";
+}
+.wf-pid.wf-3-way-valve-c-b:before {
+    content: "\e604";
+}
+.wf-pid.wf-3-way-valve-c-b:after {
+    content: "\e605";
+}
+.wf-pid.wf-air-filter:before {
+    content: "\e606";
+}
+.wf-pid.wf-air-filter:after {
+    content: "\e607";
+}
+.wf-pid.wf-axial-fan:before {
+    content: "\e608";
+}
+.wf-pid.wf-axial-fan:after {
+    content: "\e609";
+}
+.wf-pid.wf-backdraft-damper:before {
+    content: "\e60a";
+}
+.wf-pid.wf-backdraft-damper:after {
+    content: "\e60b";
+}
+.wf-pid.wf-bag:before {
+    content: "\e60c";
+}
+.wf-pid.wf-bag:after {
+    content: "\e60d";
+}
+.wf-pid.wf-cooled-or-heated-pipe:after {
+    content: "\e60e";
+}
+.wf-pid.wf-cooler:before {
+    content: "\e60f";
+}
+.wf-pid.wf-cooler:after {
+    content: "\e610";
+}
+.wf-pid.wf-cooling-1:before {
+    content: "\e611";
+}
+.wf-pid.wf-cooling-1:after {
+    content: "\e612";
+}
+.wf-pid.wf-cooling-2:before {
+    content: "\e613";
+}
+.wf-pid.wf-cooling-2:after {
+    content: "\e614";
+}
+.wf-pid.wf-dryer:before {
+    content: "\e615";
+}
+.wf-pid.wf-dryer:after {
+    content: "\e616";
+}
+.wf-pid.wf-filter-1:before {
+    content: "\e617";
+}
+.wf-pid.wf-filter-1:after {
+    content: "\e618";
+}
+.wf-pid.wf-filter-2:before {
+    content: "\e619";
+}
+.wf-pid.wf-filter-2:after {
+    content: "\e61a";
+}
+.wf-pid.wf-flap-1:before {
+    content: "\e61b";
+}
+.wf-pid.wf-flap-2:before {
+    content: "\e61c";
+}
+.wf-pid.wf-flap-2:after {
+    content: "\e61d";
+}
+.wf-pid.wf-flap-3:before {
+    content: "\e61e";
+}
+.wf-pid.wf-flap-3:after {
+    content: "\e61f";
+}
+.wf-pid.wf-flap-4:after {
+    content: "\e620";
+}
+.wf-pid.wf-heat-exchanger-1:before {
+    content: "\e621";
+}
+.wf-pid.wf-heat-exchanger-1:after {
+    content: "\e622";
+}
+.wf-pid.wf-heat-exchanger-3:before {
+    content: "\e623";
+}
+.wf-pid.wf-heat-exchanger-3:after {
+    content: "\e624";
+}
+.wf-pid.wf-heating:before {
+    content: "\e625";
+}
+.wf-pid.wf-heating:after {
+    content: "\e626";
+}
+.wf-pid.wf-manual-valve:before {
+    content: "\e627";
+}
+.wf-pid.wf-manual-valve:after {
+    content: "\e628";
+}
+.wf-pid.wf-needle-valve:before {
+    content: "\e629";
+}
+.wf-pid.wf-needle-valve:after {
+    content: "\e62a";
+}
+.wf-pid.wf-pipe:after {
+    content: "\e62b";
+}
+.wf-pid.wf-plate-heat-exchanger:before {
+    content: "\e62c";
+}
+.wf-pid.wf-plate-heat-exchanger:after {
+    content: "\e62d";
+}
+.wf-pid.wf-pressure-1:before {
+    content: "\e62e";
+}
+.wf-pid.wf-pressure-1:after {
+    content: "\e62f";
+}
+.wf-pid.wf-pressure-2:before {
+    content: "\e630";
+}
+.wf-pid.wf-pressure-2:after {
+    content: "\e631";
+}
+.wf-pid.wf-pressure-valve:before {
+    content: "\e632";
+}
+.wf-pid.wf-pressure-valve:after {
+    content: "\e633";
+}
+.wf-pid.wf-pressurized-horizontal-vessel:before {
+    content: "\e634";
+}
+.wf-pid.wf-pressurized-horizontal-vessel:after {
+    content: "\e635";
+}
+.wf-pid.wf-pressurized-vertical-vessel:before {
+    content: "\e636";
+}
+.wf-pid.wf-pressurized-vertical-vessel:after {
+    content: "\e637";
+}
+.wf-pid.wf-pump:before {
+    content: "\e638";
+}
+.wf-pid.wf-pump:after {
+    content: "\e639";
+}
+.wf-pid.wf-thermally-insulated-pipe:after {
+    content: "\e63a";
+}
+.wf-pid.wf-tray-column:before {
+    content: "\e63b";
+}
+.wf-pid.wf-tray-column:after {
+    content: "\e63c";
+}
+.wf-pid.wf-valve:before {
+    content: "\e63d";
+}
+.wf-pid.wf-valve:after {
+    content: "\e63e";
+}
+.wf-pid.wf-pump-general:before {
+    content: "\e63f";
+}
+.wf-pid.wf-pump-general:after {
+    content: "\e640";
+}
+.wf-pid.wf-cooled-or-heated-pipe:before {
+    content: "\e641";
+}
+.wf-pid.wf-flap-4:before {
+    content: "\e642";
+}
+.wf-pid.wf-pipe:before {
+    content: "\e643";
+}
+.wf-pid.wf-thermally-insulated-pipe:before {
+    content: "\e644";
+}
+.wf-pid.wf-2-way-valve-1-off:before {
+    content: "\e645";
+}
+.wf-pid.wf-2-way-valve-1-off:after {
+    content: "\e646";
+}
+.wf-pid.wf-2-way-valve-2-off:before {
+    content: "\e647";
+}
+.wf-pid.wf-2-way-valve-2-off:after {
+    content: "\e648";
+}
+.wf-pid.wf-3-way-valve-a-b:before {
+    content: "\e649";
+}
+.wf-pid.wf-3-way-valve-a-b:after {
+    content: "\e64a";
+}
+.wf-pid.wf-3-way-valve-a-c:before {
+    content: "\e64b";
+}
+.wf-pid.wf-3-way-valve-a-c:after {
+    content: "\e64c";
+}
+.wf-pid.wf-3-way-valve-off:before {
+    content: "\e64d";
+}
+.wf-pid.wf-3-way-valve-off:after {
+    content: "\e64e";
+}
+.wf-pid.wf-courved-gas-vent:before {
+    content: "\e64f";
+}
+.wf-pid.wf-courved-gas-vent:after {
+    content: "\e650";
+}
+.wf-pid.wf-covered-gas-vent:before {
+    content: "\e651";
+}
+.wf-pid.wf-covered-gas-vent:after {
+    content: "\e652";
+}
+.wf-pid.wf-diaphragm-valve:before {
+    content: "\e653";
+}
+.wf-pid.wf-diaphragm-valve:after {
+    content: "\e654";
+}
+.wf-pid.wf-double-pipe-heat-exchanger:before {
+    content: "\e655";
+}
+.wf-pid.wf-double-pipe-heat-exchanger:after {
+    content: "\e656";
+}
+.wf-pid.wf-flexible-pipe:before {
+    content: "\e657";
+}
+.wf-pid.wf-flexible-pipe:after {
+    content: "\e658";
+}
+.wf-pid.wf-funnel:before {
+    content: "\e659";
+}
+.wf-pid.wf-funnel:after {
+    content: "\e65a";
+}
+.wf-pid.wf-furnace:before {
+    content: "\e65b";
+}
+.wf-pid.wf-furnace:after {
+    content: "\e65c";
+}
+.wf-pid.wf-half-pipe-mixing-vessel:before {
+    content: "\e65d";
+}
+.wf-pid.wf-half-pipe-mixing-vessel:after {
+    content: "\e65e";
+}
+.wf-pid.wf-heat-exchanger-4:before {
+    content: "\e65f";
+}
+.wf-pid.wf-heat-exchanger-4:after {
+    content: "\e660";
+}
+.wf-pid.wf-heat-exchanger-2:before {
+    content: "\e661";
+}
+.wf-pid.wf-heat-exchanger-2:after {
+    content: "\e662";
+}
+.wf-pid.wf-heating-circuit:before {
+    content: "\e663";
+}
+.wf-pid.wf-heating-circuit:after {
+    content: "\e664";
+}
+.wf-pid.wf-jacketed-mixing-vessel:before {
+    content: "\e665";
+}
+.wf-pid.wf-jacketed-mixing-vessel:after {
+    content: "\e666";
+}
+.wf-pid.wf-jacketed-pipe:before {
+    content: "\e667";
+}
+.wf-pid.wf-jacketed-pipe:after {
+    content: "\e668";
+}
+.wf-pid.wf-radial-fan:before {
+    content: "\e669";
+}
+.wf-pid.wf-radial-fan:after {
+    content: "\e66a";
+}
+.wf-pid.wf-shell-and-tube-heat-exchanger:before {
+    content: "\e66b";
+}
+.wf-pid.wf-shell-and-tube-heat-exchanger:after {
+    content: "\e66c";
+}
+.wf-pid.wf-spiral-heat-exchanger:before {
+    content: "\e66d";
+}
+.wf-pid.wf-spiral-heat-exchanger:after {
+    content: "\e66e";
+}
+.wf-pid.wf-steam-trap:before {
+    content: "\e66f";
+}
+.wf-pid.wf-steam-trap:after {
+    content: "\e670";
+}
+.wf-pid.wf-u-shaped-tube-heat-exchanger:before {
+    content: "\e671";
+}
+.wf-pid.wf-u-shaped-tube-heat-exchanger:after {
+    content: "\e672";
+}
+.wf-pid.wf-viewing-glass:before {
+    content: "\e673";
+}
+.wf-pid.wf-viewing-glass:after {
+    content: "\e674";
+}
+.wf-pid.wf-flap-1:after {
+    content: "\e675";
+}

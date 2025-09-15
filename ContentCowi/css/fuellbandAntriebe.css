@@ -1,0 +1,200 @@
+﻿.fuellbandAntriebeFarbeGrau {
+    background-color: #ebe9e9;
+}
+
+.fuellbandAntriebeFarbeSahne1 {
+    background-color: #ffffff;
+}
+
+.fuellbandAntriebeFarbeSahne2 {
+    background-color: #ffffaa;
+}
+
+.fuellbandAntriebeFarbeMarmelade {
+    background-color: #f49232;
+}
+
+.fuellbandAntriebeFarbeFluessigkeit {
+    background-color: #ffc0c0;
+}
+
+.fuellbandAntriebeFarbeObst {
+    background-color: #c0c0ff;
+}
+
+.fuellbandAntriebeFarbeGelly1 {
+    background-color: #99ffcc;
+}
+
+.fuellbandAntriebeFarbeGelly2 {
+    background-color: #008000;
+}
+
+
+.fuellbandAntriebeTable {
+    font-size: medium;
+    margin-bottom: 3px;
+}
+
+.fuellbandAntriebeTableUeberschrift {
+    font-size: large;
+}
+
+.fuellbandAntriebeTh {
+    width: 10%;
+    text-align: center;
+}
+
+.fuellbandAntriebeBgColorGelb {
+    background-color: antiquewhite !important;
+}
+
+.fuellbandAntriebeBgColorHellblau {
+    background-color: #bfe8fe !important;
+}
+
+.fuellbandAntriebeTd {
+    text-align: center; 
+}
+
+
+
+.fuellbandAntriebeInfoText {
+    /*margin-right: 0px;*/
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    font-weight: bold;
+    /*padding-bottom: -10px;*/
+    /*padding-top: 10px;*/
+    /*background-color:antiquewhite;*/
+}
+
+.fuellbandAntriebeBtnKopf {
+    /*background-color: yellow;*/
+    /*border: 1px solid #C6C6C6;*/
+    padding-top: 2px;
+}
+
+.fuellbandAntriebeDivFunktionsauswahlSperre {
+    /*background-color: yellow;*/
+    border: 0px solid red;
+    /*padding-top: 2px;*/
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    height: 18px;
+    /*visibility: visible;*/ /* wird bei User-Anmeldung geändert */
+}
+
+.fuellbandAntriebeTdInput {
+    padding: 2px 1px !important;
+}
+
+.fuellbandAntriebeTdAuswahlfeld {
+    padding: 2px 1px !important;
+    width: 60px;
+}
+
+.fuellbandAntriebeTdStationLed {
+    padding: 2px 1px !important;
+    margin: 0px !important;
+}
+
+.fuellbandAntriebeTdStationSvg {
+    float: left;
+}
+
+.fuellbandAntriebeServoBtnKopf {
+    width: 100px;
+}
+
+
+.fuellbandAntriebeTdStationNummer {
+    /*padding: 0px 1px !important;*/
+    float: left;
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 8px !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 50%;
+    text-align: center;
+}
+
+.fuellbandAntriebeTableBtn {
+    font-size: small;
+    padding: 0px 1px !important;
+    margin: 0px !important;
+}
+
+.fuellbandAntriebeTableDivAuswahlfeld {
+    float: left;
+}
+
+.fuellbandAntriebeTableAuswahlfeld {
+    font-size: small;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.fuellbandAntriebeTabeleBtnStation {
+    width: 40px;
+}
+
+tr.fuellbandAntriebeTableRahmenUnten > td { /* Rahmen unten*/
+    border-bottom: 1px solid black !important;
+}
+
+.fuellbandAntriebeEinzelAnsichtTextSpalte1{
+    text-align: right !important;
+    padding-right: 10px;
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1024px ) { /* Breite beträgt höchstens */
+    .fuellbandAntriebeTable {
+        font-size: x-small;
+    }
+
+    .fuellbandAntriebeTableBtn {
+        font-size: x-small;
+    }
+
+    .fuellbandAntriebeTableAuswahlfeld {
+        font-size: x-small;
+    }
+
+    .fuellbandAntriebeTableUeberschrift {
+        font-size: medium;
+    }
+
+    .fuellbandAntriebeServoBtnKopf {
+        width: 90px;
+    }
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    .fuellbandAntriebeTable {
+        font-size: xx-small;
+    }
+
+    .fuellbandAntriebeTableBtn {
+        font-size: xx-small;
+    }
+
+    .fuellbandAntriebeTableAuswahlfeld {
+        font-size: xx-small;
+    }
+
+    .fuellbandAntriebeTableUeberschrift {
+        font-size: small;
+    }
+
+    .fuellbandAntriebeServoBtnKopf {
+        width: 80px;
+    }
+}
+

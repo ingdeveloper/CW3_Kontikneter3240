@@ -1,0 +1,84 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+
+<!-- ko if: displayMode === 0-->
+<table class="table">
+    <thead>
+        <tr>
+            <!-- ko foreach: fields-->
+            <th>{{$parent.connector.translate('I4SCADA_'+$data)()}}</th>
+            <!--/ko-->
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: series-->
+        <!-- ko foreach: $data.cursors-->
+        <tr>
+            <!-- ko foreach: $parents[1].fields-->
+            <!-- ko if: $parents[2].isDynamicField($data) -->
+            <td>
+                <wf-value
+                    params="signalName:$parents[2].getDynamicFieldSignalName($data, $parents[1].name, $parent.name), isDateTime: $data === 'CursorTimestamp'">
+                </wf-value>
+            </td>
+            <!--/ko-->
+            <!-- ko if: $parents[2].isStaticField($data) -->
+            <td>{{$parents[2].getStaticFieldValue($data, $parents[1].name, $parent.name)}}</td>
+            <!--/ko-->
+            <!--/ko-->
+        </tr>
+        <!--/ko-->
+        <!--/ko-->
+    </tbody>
+</table>
+<!--/ko-->
+
+<!-- ko if: displayMode === 1-->
+<table class="table">
+    <tbody>
+        <!-- ko foreach: fields-->
+        <tr>
+            <td>{{$parent.connector.translate('I4SCADA_'+$data)()}}</td>
+            <!-- ko foreach: $parent.series-->
+            <!-- ko foreach: $data.cursors-->
+            <!-- ko if: $parents[2].isDynamicField($parents[1]) -->
+            <td>
+                <wf-value
+                    params="signalName:$parents[2].getDynamicFieldSignalName($parents[1], $parent.name , $data.name), isDateTime: $parents[1] === 'CursorTimestamp'">
+                </wf-value>
+            </td>
+            <!--/ko-->
+            <!-- ko if: $parents[2].isStaticField($parents[1]) -->
+            <td>{{$parents[2].getStaticFieldValue($parents[1], $parent.name, $data.name)}}</td>
+            <!--/ko-->
+            <!--/ko-->
+            <!--/ko-->
+        </tr>
+        <!--/ko-->
+    </tbody>
+</table>
+<!--/ko-->
+
+<!-- ko if: displayMode === 2-->
+<!-- ko foreach: series-->
+<!-- ko foreach: $data.cursors-->
+<div>
+    <!-- ko foreach: $parents[1].fields-->
+    <!-- ko if: $parents[2].isDynamicField($data) -->
+    <div>
+        <wf-value
+            params="signalName:$parents[2].getDynamicFieldSignalName($data, $parents[1].name, $parent.name), isDateTime: $data === 'CursorTimestamp'">
+        </wf-value>
+    </div>
+    <!--/ko-->
+    <!-- ko if: $parents[2].isStaticField($data) -->
+    <div>{{$parents[2].getStaticFieldValue($data, $parents[1].name, $parent.name)}}</div>
+    <!--/ko-->
+    <!--/ko-->
+</div>
+<!--/ko-->
+<!--/ko-->
+<!--/ko-->
+
+<!--/ko-->
+<!--/ko-->

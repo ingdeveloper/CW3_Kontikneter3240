@@ -1,0 +1,37 @@
+
+/*-----------------------
+    Cowi Navbar styles  
+-----------------------*/
+
+.cw-navbar-bottom {
+    position: fixed;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1050;
+    overflow-y:auto;
+    height: 60px;
+    border-radius: 0;
+    background-color: rgb(177, 179, 187);
+}
+
+.cw-navbar-bottom + .page-host {
+    margin-bottom: 0px;
+}
+  
+.cw-navbar-brand {
+    display: block;
+    width: 150px;
+    height: 16px;
+    margin-top: 10px !important;
+    padding-top: 0px;
+    /*background: transparent url('../images/Logo_WEBfactory500x80_white.png') no-repeat scroll center center;*/
+    /*background-size: 90%;*/
+    text-align:center;
+    color: white;
+    font-size: medium;
+    /*border: 1px solid red;*/
+}
+
+
+

@@ -1,0 +1,41 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div>
+    <div class="wf-logbook-panel wf-panel panel" data-bind=" style: { height: height() ? height() + 'px' : 'auto'}">
+        <ul class="wf-logbook-items list-unstyled" data-bind="foreach: logsEntries">
+            <li class="wf-logbook-item" data-bind="css: $parent.defaultItemClass + ' '+  $parent.getSaveTopicName(Topic) ">
+                <!-- ko if: Topic -->
+                <div data-bind="text: Topic" class="label label-info pull-right"></div>
+                <!-- /ko -->
+                <!-- ko if: Subject -->
+                <h4 class="wf-logbook-item-head">
+                    <span data-bind="text: Subject"></span>
+                </h4>
+                <!-- /ko -->
+
+                <div class="wf-logbook-item-text">
+                    <span class="p-r-md wf-logbook-item-user">
+                                <span class="wf wf-user"></span>
+                    <!-- ko if: Author -->
+                    <span class="" data-bind="text: Author"></span>
+                    <!-- /ko -->
+                    <!-- ko ifnot: Author -->
+                    <span class="" data-bind="text: 'anonym'"></span>
+                    <!-- /ko -->
+                    </span>
+
+
+                    <span class="p-r-md wf-logbook-item-timestamp">
+                                <span class="wf wf-clock"></span>
+                    <span data-bind="formattedDate: { value: moment(CreatedOn), format: 'DD.MM.YYYY HH:mm' }"></span>
+                    </span>
+                </div>
+
+                <div class="wf-logbook-item-text m-t-md" data-bind="text: Body"></div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<!--/ko-->
+<!--/ko-->

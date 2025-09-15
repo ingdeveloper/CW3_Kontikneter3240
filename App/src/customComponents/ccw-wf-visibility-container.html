@@ -1,0 +1,11 @@
+<!-- ko if:hasAuthorization-->
+<div class="inline">
+    <!-- ko if: anzeigen() -->
+    <div class="inline-block">
+        <!-- mit der unten stehenden Zeile wird der DOM-Inhalt in diesem Element erfasst und ausgegeben, siehe https://knockoutjs.com/documentation/component-custom-elements.html -->
+        <!-- ko template: { nodes: $componentTemplateNodes} -->
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>
+<!-- /ko -->

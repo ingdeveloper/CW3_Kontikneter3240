@@ -1,0 +1,239 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div>
+    <div class="wf-logbook-panel wf-panel panel"
+        data-bind="css: panelBarCssClass, style: { height: height() ? height() + 'px': 'auto' }">
+        <!-- ko if: headerVisibility -->
+        <div class="panel-heading" data-part="panelHeader">
+            <div class="pull-right wf-panel-toolbar">
+                <div class="">
+                    <!-- ko if: configurationButtonVisibility -->
+                    <wf-configuration params="controlType: controlType,
+                                  getConfiguration: function(){ return getConfig(); },
+                                  loadConfiguration: function(content){ loadConfig(content); },
+                                  namespace : configurationNamespace,
+                                  buttonBarCssClass: buttonBarCssClass,
+                                  buttonBarIconClass: configurationButtonIconClass,
+                                  parameters: settings.parameters"></wf-configuration>
+                    <!-- /ko-->
+
+                    <!-- ko if: settingsButtonVisibility -->
+                    <button type="button" data-bind="css: settingsButtonBarCssClass, click: showSettings"
+                        title="{{connector.translate('I4SCADA_Settings')()}}">
+                        <i class="wf wf-filter"></i>
+                        <span class="badge" data-bind="text: logsEntries().length"></span>
+                    </button>
+                    <!-- /ko -->
+
+                    <button type="button" data-bind="css: buttonBarCssClass, click: showSend"
+                        title="{{connector.translate('I4SCADA_Send')()}}">
+                        <i class="wf wf-edit-field"></i>
+                    </button>
+                </div>
+            </div>
+            <h3 class="panel-title  overflow-x-ellipsis p-r-md">
+                <span class="wf-logbook-title">{{connector.translate(titleText)()}}</span>
+            </h3>
+        </div>
+        <!-- /ko -->
+
+        <div class="relative">
+            <div class="panel-body wf-logbook-panel-body"
+                data-bind="style: { height: panelBodyHeight() ? panelBodyHeight() + 'px' : 'auto'}">
+                <ul class="wf-logbook-items list-unstyled" data-bind="foreach: logsEntries">
+                    <li class="wf-logbook-item"
+                        data-bind="css: $parent.defaultItemClass + ' '+  $parent.getCssClassForTopic(Topic) ">
+                        <!-- ko if: Topic -->
+                        <div data-bind="text: Topic" class="label label-info pull-right"></div>
+                        <!-- /ko -->
+                        <!-- ko if: Subject -->
+                        <h4 class="wf-logbook-item-head">
+                            <span data-bind="text: Subject"></span>
+                        </h4>
+                        <!-- /ko -->
+
+                        <div class="wf-logbook-item-text">
+                            <span class="p-r-md wf-logbook-item-user">
+                                <span class="wf wf-user"></span>
+                                <!-- ko if: Author -->
+                                <span class="" data-bind="text: Author"></span>
+                                <!-- /ko -->
+                                <!-- ko ifnot: Author -->
+                                <span class="" data-bind="text: 'anonym'"></span>
+                                <!-- /ko -->
+                            </span>
+
+                            <span class="p-r-md wf-logbook-item-timestamp">
+                                <span class="wf wf-clock"></span>
+                                <span
+                                    data-bind="formattedDate: { value: moment(CreatedOn), format: 'DD.MM.YYYY HH:mm' }"></span>
+                            </span>
+                        </div>
+
+                        <div class="wf-logbook-item-text m-t-md" data-bind="text: Body">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-settings-back-container-' + id() }">
+        <div class="modal fade wf-logbook-settings wf-modal" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showSettingsDialog },, attr: { id: 'modal-settings-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-top modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button style="color: rgb(85, 85, 85)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                        <div class="modal-title"><strong>{{connector.translate('I4SCADA_Settings')()}}</strong></div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Modus</label>
+                            </div>
+                        </div>
+                        <div class="row m-b-sm">
+                            <div class="col-xs-12 btn-group btn-group-justified">
+                                <div class="btn-group">
+                                    <button class="btn" type="button"
+                                        data-bind="click: function() {filtersChanged(true), getLatestLogdata(true)}, css: {'btn-primary': getLatestLogdata() === true, 'btn-default': getLatestLogdata() === false } ">
+                                        <i class="wf wf-warning-reload"></i>
+                                        {{connector.translate('I4SCADA_View_current_entries')()}}
+                                    </button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn" type="button"
+                                        data-bind="click: function() {filtersChanged(true), getLatestLogdata(false)}, css: {'btn-primary': getLatestLogdata() === false, 'btn-default': getLatestLogdata() === true} ">
+                                        <i class="wf wf-database"></i>
+                                        {{connector.translate('I4SCADA_Contributions_from_a_time_range')()}}
+                                    </button>
+                                    <!--<input type="checkbox" data-bind="checked: getLatestLogdata"/>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="m-b-sm col-sm-6  col-md-6 col-lg-6">
+                                <label>{{connector.translate('I4SCADA_Maximum_count_entries')()}}</label>
+                                <input class="form-control" type="number" data-bind="value: maxResults" min="1" />
+                            </div>
+                            <div class="col-sm-6  col-md-6 col-lg-6">
+                                <label>{{connector.translate('I4SCADA_Topic')()}}</label>
+                                <select class="form-control"
+                                    data-bind="options: topics,  optionsCaption: '*',  value: selectedTopic, event:{ change: topicsFiltersChanged}"></select>
+                            </div>
+                        </div>
+
+                        <!-- ko ifnot: getLatestLogdata() === true -->
+                        <div class="row">
+                            <div class="col-sm-6  col-md-6 col-lg-6">
+                                <label>{{connector.translate('I4SCADA_Time_range_from')()}}</label>
+                                <div class="form-group">
+                                    <div class='input-group date'
+                                        data-bind="datepicker: startDate, datepickerOptions: { locale: 'de' }">
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="wf wf-clock"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6  col-md-6 col-lg-6">
+                                <label>{{connector.translate('I4SCADA_Time_range_to')()}}</label>
+                                <div class="form-group">
+                                    <div class='input-group date'
+                                        data-bind="datepicker: endDate, datepickerOptions: { locale: 'de' }">
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="wf wf-clock"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applyFilterSettings, visible: true">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-bind="attr: { id: 'modal-form-back-container-' + id() }">
+        <div class="modal fade wf-logbook-form wf-modal" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showSendDialog }, attr: { id: 'modal-form-' + id() }" style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeSend">&times;</button>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="form-group">
+                            <label class="control-label">{{connector.translate('I4SCADA_Topic')()}}</label>
+                            <div class="flexbox">
+                                <!-- ko ifnot: isNewAdding-->
+                                <select type="text" class="form-control input-sm"
+                                    data-bind="options: topicsForNewEntry, value: entryTopic"></select>
+                                <button class="btn btn-xs btn-success m-l-sm" data-bind="click: handleAddNewTopic">
+                                    <i class="wf wf-add m-x"></i>
+                                </button>
+                                <!-- /ko -->
+                                <!-- ko if: isNewAdding-->
+                                <input type="text" class="form-control input-sm" data-bind="value: newTopicName" />
+                                <button class="btn btn-xs btn-success" data-bind="click: addNewTopic">
+                                    <i class="wf wf-check-round-o"></i>
+                                </button>
+                                <button class="btn btn-xs btn-danger" data-bind="click: breakNewTopic">
+                                    <i class="wf wf-close-round-o"></i>
+                                </button>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{connector.translate('I4SCADA_Heading')()}}</label>
+                            <input type="text" class="form-control input-sm"
+                                data-bind="value: entrySubject, attr: {placeholder: defaultEntrySubject}" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">{{connector.translate('I4SCADA_Text')()}}</label>
+                            <textarea class="form-control wf-logbook-input-message"
+                                data-bind="textInput: entryBody"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-bind="click: addLogBookEntry, enable: sendButtonEnabled">
+                            <i class="wf wf-callout"></i>
+                            {{connector.translate('I4SCADA_Send')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSend">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--/ko-->
+<!--/ko-->

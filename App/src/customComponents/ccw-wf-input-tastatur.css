@@ -1,0 +1,488 @@
+/* Input-Felder mit Zifferntastatur */
+.ccw-form-control {
+    display: inline-block;
+    width: 100%;
+    padding: 0px 0px;
+    margin: 0px;
+    color: #000;
+    background-color: white;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+}
+
+
+.ccw-wf-input-tastatur {
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
+    border: 1px solid #6b6969 !important;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    /* background-color: #dbdad7 !important; */
+}
+
+.ccw-wf-input-tastatur-display {
+    display: inline;
+    text-align: right;
+}
+
+
+.ccw-wf-input-tastatur-displayClass-xs {
+    background-color: white !important;
+}
+
+.ccw-wf-input-tastatur-displayClass-tempOK-xs {
+    background-color: #53f442 !important;
+}
+
+.ccw-wf-input-tastatur-displayClassReadOnly-xs {
+    background-color: #edecec;
+}
+
+.ccw-wf-input-tastatur-isBufferesClass-xs {
+    background-color: #5bc0de !important;
+}
+
+
+.ccw-wf-input-tastatur-disabledClass-xs {
+    background-color: #dbdad7 !important;
+    color: rgb(0, 0, 0);
+    cursor: help;
+}
+
+.ccw-wf-input-tastatur-disabledClass-xs-ohneRahmen {
+    background-color: #dbdad7 !important;
+    color: rgb(0, 0, 0);
+    cursor: help;
+    border-width: 0px !important;
+}
+
+.ccw-wf-input-tastatur-disabledClass-xs-durchsichtig {
+    background-color: #dbdad72d !important;
+    color: rgb(0, 0, 0);
+    cursor: help;
+    border-width: 0px !important;
+}
+
+.ccw-wf-input-tastatur-disabledClass-xs-transparent {
+    background-color: transparent !important;
+    color: rgb(0, 0, 0);
+    cursor: help;
+    border-width: 0px !important;
+}
+
+.ccw-wf-input-tastatur-disabledClassBlack-xs {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.ccw-wf-input-tastatur-markierungsClass-xs {
+    background-color: rgba(255, 128, 0, 0.705) !important;
+    color: rgb(49, 49, 49);
+}
+
+.ccw-wf-input-tastatur-displayClass-fullWidth {
+    width: 100%;
+}
+
+
+.ccw-wf-input-tastatur-zifferWertRahmen {
+    border: 1px solid #adadad;
+    padding: 1px;
+    margin: 1px;
+    height: auto;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: Arial;
+    background-color: transparent;
+    /*float: left;*/
+    word-wrap: break-word;
+    word-break: break-all;
+
+}
+
+.ccw-wf-input-tastatur-zifferWertRahmen2 {
+    display: block;
+    border: 1px solid #808080;
+    padding: 1px;
+    margin: 1px;
+    min-height: 29px;
+    min-width: 140px;
+    text-align: left;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: Arial;
+    background-color: #ffd800;
+    /* float: left; */
+}
+
+.ccw-wf-input-tastatur-zifferUeberschrift {
+    font-size: 18px;
+    margin-left: 5px;
+    /*float: left;*/
+}
+
+.ccw-wf-input-tastatur-zifferUeberschrift2 {
+    font-size: 18px;
+    margin-left: 5px;
+    /* float: left; */
+}
+
+.ccw-zifferIconEcke {
+    float: right;
+    cursor: pointer;
+}
+
+.ccw-zifferButton {
+    width: 70px;
+    font-size: x-large;
+    margin: 5px;
+}
+
+
+/* Keyboard */
+.ccw-zeichenButton {
+    min-width: 35px;
+    font-size: medium;
+    margin: 2px;
+}
+
+#ccw-wf-input-tastatur-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 200px;
+    background-color: black;
+    opacity: 0.35;
+    z-index: auto;
+}
+
+/* Add Animation */
+@-webkit-keyframes ccw-animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes ccw-animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blinken1 {
+    to {
+        background-color: #FFFF00;
+    }
+}
+
+@keyframes blinken1 {
+    to {
+        background-color: #FFFF00;
+    }
+}
+
+@-webkit-keyframes blinken2 {
+    to {
+        background-color: #FF8000;
+    }
+}
+
+@keyframes blinken2 {
+    to {
+        background-color: #FF8000;
+    }
+}
+
+/*Das Eingabefeld blinken lassen, wenn Eingabe geändert wurde*/
+.ccw-wf-input-tastatur_blinken1 {
+    animation: blinken1 1s steps(2, start) infinite;
+}
+
+.ccw-wf-input-tastatur_blinken2 {
+    animation: blinken2 1s steps(2, start) infinite;
+}
+
+div .zeichentd {
+    /*min-width: 35px;*/
+    font-size: xx-large;
+    text-align: center;
+    /*float: left;*/
+}
+
+.ccw-zeichenWertRahmen2 {
+    border: 1px solid #808080;
+    padding: 1px;
+    margin: 1px;
+    height: auto;
+    /*width: 140px;*/
+    text-align: center;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: Arial;
+    background-color: #ffd800;
+    float: left;
+}
+
+.ccw-wf-input-tastatur-focusClass-xs {
+    background-color: rgb(244, 248, 8) !important;
+    color: rgb(0, 0, 0);
+}
+
+.ccw-wf-input-tastatur-labelClass-xs {
+    display: inline-block !important;
+}
+
+
+
+/********************************************************************
+  Pfeil für das modale Fenster
+*********************************************************************/
+
+.ccw-wf-in-tast>.ccw-arrow,
+.ccw-wf-in-tast>.ccw-arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    /* background-color: green; */
+}
+
+.ccw-wf-in-tast>.ccw-arrow {
+    border-width: 11px;
+}
+
+.ccw-wf-in-tast>.ccw-arrow:after {
+    content: "";
+    border-width: 10px;
+}
+
+.ccw-wf-in-tast.top>.ccw-arrow {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-color: #999;
+    border-top-color: rgba(0, 0, 0, .25);
+    border-bottom-width: 0;
+}
+
+.ccw-wf-in-tast.top>.ccw-arrow:after {
+    bottom: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-color: #fff;
+    border-bottom-width: 0;
+}
+
+.ccw-wf-in-tast.right>.ccw-arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #999;
+    border-right-color: rgba(0, 0, 0, .25);
+    border-left-width: 0;
+    /* border-color: rgba(255, 217, 0, 0.336); */
+}
+
+.ccw-wf-in-tast.right>.ccw-arrow:after {
+    bottom: -10px;
+    left: 1px;
+    content: " ";
+    border-right-color: #fff;
+    border-left-width: 0;
+    /* border-color: rgba(255, 0, 0, 0.336); */
+}
+
+.ccw-wf-in-tast.bottom>.ccw-arrow {
+    top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0, 0, 0, .25);
+}
+
+.ccw-wf-in-tast.bottom>.ccw-arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-width: 0;
+    border-bottom-color: #fff;
+}
+
+.ccw-wf-in-tast.left>.ccw-arrow {
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+    border-right-width: 0;
+    border-left-color: #999;
+    border-left-color: rgba(0, 0, 0, .25);
+}
+
+.ccw-wf-in-tast.left>.ccw-arrow:after {
+    right: 1px;
+    bottom: -10px;
+    content: " ";
+    border-right-width: 0;
+    border-left-color: #fff;
+}
+
+.ccw-btn-success {
+    color: #fff;
+    background-color: #167e16;
+    border-color: #37b837;
+}
+
+.ccw-btn-success:focus,
+.ccw-btn-success.focus {
+    color: #fff;
+    background-color: #167e16;
+    border-color: #255625;
+}
+
+.ccw-btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.ccw-btn-success:active,
+.ccw-btn-success.active,
+.open>.dropdown-toggle.ccw-btn-success {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.ccw-btn-success:active:hover,
+.ccw-btn-success.active:hover,
+.open>.dropdown-toggle.ccw-btn-success:hover,
+.ccw-btn-success:active:focus,
+.ccw-btn-success.active:focus,
+.open>.dropdown-toggle.ccw-btn-success:focus,
+.ccw-btn-success:active.focus,
+.ccw-btn-success.active.focus,
+.open>.dropdown-toggle.ccw-btn-success.focus {
+    color: #fff;
+    background-color: #398439;
+    border-color: #255625;
+}
+
+.ccw-btn-success:active,
+.ccw-btn-success.active,
+.open>.dropdown-toggle.ccw-btn-success {
+    background-image: none;
+}
+
+.ccw-btn-success.disabled:hover,
+.ccw-btn-success[disabled]:hover,
+fieldset[disabled] .ccw-btn-success:hover,
+.ccw-btn-success.disabled:focus,
+.ccw-btn-success[disabled]:focus,
+fieldset[disabled] .ccw-btn-success:focus,
+.ccw-btn-success.disabled.focus,
+.ccw-btn-success[disabled].focus,
+fieldset[disabled] .ccw-btn-success.focus {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.ccw-btn-success .badge {
+    color: #5cb85c;
+    background-color: #fff;
+}
+
+
+
+.ccw-wf-input-tastatur-popover {
+    position: absolute;
+    top: 24px;
+    left: 100%;
+    display: block;
+    margin-left: -130px;
+    width: 160px;
+}
+
+.ccw-wf-input-tastatur-popover-content {
+    padding: 0px;
+    /* background-color: #FF8000; */
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    font-size: 12px;
+}
+
+.ccw-wf-input-tastatur-popover-content2 {
+    /* border: 1px solid black; */
+    border-radius: 3px;
+    padding: 1px;
+    margin: 0px;
+    background-color: #FF8000;
+}
+
+.ccw-wf-input-tastatur-isFehlerAnzahlStellenClass {
+    background-color: rgb(240, 51, 51) !important;
+    color: #ccc !important;
+}
+
+.ccw-wf-input-tastatur-ohneSignal {
+    color: #bb1bbb;
+    /* rot */
+
+    animation-name: ccw-wf-input-tastatur-flash;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /*Firefox 1+*/
+    -webkit-animation-name: ccw-wf-input-tastatur-flash;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    /*Safari 3-4*/
+    -moz-animation-name: ccw-wf-input-tastatur-flash;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+
+
+@keyframes ccw-wf-input-tastatur-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes ccw-wf-input-tastatur-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes ccw-wf-input-tastatur-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}

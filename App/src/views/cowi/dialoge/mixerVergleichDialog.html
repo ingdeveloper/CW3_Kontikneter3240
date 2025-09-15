@@ -1,0 +1,52 @@
+﻿
+<div class="modal">
+    <div class="modal-dialog modal-top modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 5px 15px;">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="false" data-bind="click: close">&times;</button>-->
+                <h4 class="modal-title">
+                    Unterschied SPS und Rezeptur:
+                    <button class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                </h4>
+            </div>
+
+            <div class="modal-body" style="overflow-y: auto; max-height:600px;">
+                
+                    <h4>Erkennung Unterschied zwischen SPS und Rezepturwerte</h4>
+                    <div style="margin-bottom: 10px;">Rezept-Nummer und -Name:<span class="mixerSeiteValueRahmenKomponentenTabelle ccw-bg-noInput" style="margin-left:10px;" data-bind="html: rezeptNr"></span><span class="mixerSeiteValueRahmenKomponentenTabelle ccw-bg-noInput" style="margin-left:10px;" data-bind="html: rezeptName"></span></div>
+                    <table class="table-bordered table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Beschreibung aus dem Rezept</th>
+                                <th>AliasName</th>
+                                <th>SPS - Wert</th>
+                                <th>Rezept - Wert</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: tabelleZeilen">
+                            <tr>
+                                <td data-bind="text: ($index()+1)"></td>
+                                <td>
+                                    <span data-bind="html: $data.beschreibung"></span>
+                                </td>
+                                <td><span data-bind="html: $data.alias"></span></td>
+                                <td><span data-bind="html: $data.valueSps"></span></td>
+                                <td><span data-bind="html: $data.valueDb"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+
+
+            </div>
+            <div class="modal-footer" style="padding: 5px 15px;">
+                <!--<wf-buffer-button class="btn-xs inline" data-bind="css: sendBtnCss" params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>-->
+
+                <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>
+

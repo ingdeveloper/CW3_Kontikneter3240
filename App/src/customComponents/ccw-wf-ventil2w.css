@@ -1,0 +1,112 @@
+.ccw-wf-ventil2w-ventilAus {
+  fill: #c0c0c0;
+  /* grau */
+}
+
+.ccw-wf-ventil2w-ventilAus2 {
+  fill: #336666;
+  /* dunkelblaugruen */
+}
+
+.ccw-wf-ventil2w-ventilEin {
+  fill: #00ff00;
+  /* gruen */
+}
+
+.ccw-wf-ventil2w-ventilHand {
+  fill: #ffff00;
+  /* gelb */
+}
+
+.ccw-wf-ventil2w-ventilStoer {
+  fill: #ff0000;
+  /* rot */
+}
+
+.ccw-wf-ventil2w-ventilStoerNeu {
+  fill: #ff0000;
+  /* rot */
+
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  /*Firefox 1+*/
+  -webkit-animation-name: flash;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  /*Safari 3-4*/
+  -moz-animation-name: flash;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-ventil2w-ohneSignal {
+  fill: #bb1bbb;
+  /* rot */
+
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  /*Firefox 1+*/
+  -webkit-animation-name: flash;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  /*Safari 3-4*/
+  -moz-animation-name: flash;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flash {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}

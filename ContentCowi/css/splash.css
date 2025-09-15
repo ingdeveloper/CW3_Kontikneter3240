@@ -1,0 +1,10 @@
+﻿/*-----------------------
+    Styles der splash  AM
+-----------------------*/
+.ccw-splash-logo {
+    background: url("../svg/splash.svg") no-repeat center center;
+    background-size: contain;
+    width: 425px;
+    height: 270px;
+    margin: 0 auto;
+}

@@ -1,0 +1,36 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-alarm-details modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button style="color: rgb(85, 85, 85)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <h3 class="modal-content-title">OEE</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h2 class="text-center">Overall equipment effectiveness</h2>
+                        <wf-arc class="inline-block" params="computedValue: oee, foregroundColor: '#FAA732', iconColor: '#FAA732', iconClass: 'wf-lg wf-arrow-down-under', innerRadius: 0.8, startAngle: 0.0, endAngle: 360 "></wf-arc>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <h3 class="text-center">Verfügbarkeit</h3>
+                        <br />
+                        <wf-arc class="inline-block" params="computedValue: availability, foregroundColor: '#0c9900', iconColor: '#0c9900', iconClass: 'wf-lg wf-arrow-up-over', width: 150, height: 150, innerRadius: 0.8, startAngle: 0.0, endAngle: 360"></wf-arc>
+                    </div>
+                    <div class="col-xs-12  col-sm-4 text-center">
+                        <h3 class="text-center">Leistung</h3>
+                        <br />
+                        <wf-arc class="inline-block" params="computedValue: performance, foregroundColor: '#0c9900', iconColor: '#0c9900', iconClass: 'wf-lg wf-arrow-up-over', width: 150, height: 150,  innerRadius: 0.8, startAngle: 0.0, endAngle: 360"></wf-arc>
+                    </div>
+                    <div class="col-xs-12  col-sm-4 text-center">
+                        <h3 class="text-center">Qualität</h3>
+                        <br />
+                        <wf-arc class="inline-block" params="computedValue: quality, foregroundColor: '#FAA732', iconColor: '#FAA732', iconClass: 'wf-lg wf-arrow-down-under', width: 150, height: 150,  innerRadius: 0.8, startAngle: 0.0, endAngle: 360"></wf-arc>
+                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

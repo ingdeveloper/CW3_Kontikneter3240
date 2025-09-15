@@ -1,0 +1,18 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="wf-indicator" data-bind="css: states.currentState, attr : {title: tooltipText}">
+    <div class="wf-indicator-background"></div>
+    <div class="stretched">
+        <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+    </div>
+    <div class="wf-indicator-icon" data-part="iconContainer">
+        <!-- ko if: iconClass -->
+        <i class="wf-icon" data-bind="css: iconClass, attr: {style: iconSizeStyle}"></i>
+        <!-- /ko -->
+    </div>
+    <span class="wf-indicator-label" data-bind="visible: label" data-part="labelContainer">
+        {{connector.translate(label)()}}
+    </span>
+</div>
+<!--/ko-->
+<!--/ko-->

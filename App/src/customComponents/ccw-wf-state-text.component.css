@@ -1,0 +1,40 @@
+.ccw-wf-state-text-bg-transparent {
+  background-color: transparent !important;
+  border-radius: 6px;
+}
+
+.ccw-wf-state-text-bg-yellow {
+  background-color: #ffff00 !important;
+  border-radius: 4px;
+}
+
+.ccw-wf-state-text-bg-lime {
+  background-color: limegreen !important;
+  border-radius: 4px;
+}
+
+.ccw-wf-state-text-bg-red {
+  background-color: red !important;
+  color: white;
+  border-radius: 4px;
+}
+
+.ccw-wf-state-text-bg-grey {
+  background-color: lightgrey !important;
+  border-radius: 4px;
+}
+
+.ccw-wf-state-text-bg-orange {
+  background-color: orange !important;
+  border-radius: 4px;
+}
+.ccw-wf-state-text-bg-blue {
+  background-color: rgb(15, 127, 233) !important;
+  border-radius: 4px;
+}
+
+.ccw-wf-state-text-bg-OhneSignal {
+  background-color: #bb1bbb !important;
+  color: white;
+  border-radius: 4px;
+}

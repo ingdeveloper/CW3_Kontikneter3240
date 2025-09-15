@@ -1,0 +1,94 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12 p-y-md">
+            <ul class="nav nav-tabs" role="tablist">
+                <!--<li role="presentation"><a href="#widgetTab" aria-controls="widgetTab" role="tab" data-toggle="tab">Widget <span class="label label-primary">wfWriteValueCombobox</span></a></li>-->
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-combobox</span></a></li>
+
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfWriteValueCombobox_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <wf-combobox params="symbolicTexts: ['Licht AUS', 'Licht AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn btn-danger'"></wf-combobox>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-combobox params=&quot;                            
+                symbolicTexts: [&#39;Licht AUS&#39;, &#39;Licht AN&#39;],                           
+                signalNames: [&#39;Setpoint 1&#39;, &#39;Setpoint 1&#39;], 
+                signalValues: [0, 1], 
+                symbolicTextNormalState: &#39;Licht schalten&#39;,
+                iconClass: [&#39;wf wf-light-bulb-o&#39;, &#39;wf wf-light-bulb&#39;], 
+                cssClass: &#39;btn btn-danger&#39;&quot;&gt;&lt;/wf-combobox&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 m-y">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-combobox class="inline-block" params="symbolicTexts: ['LICHT AUS', 'LICHT AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning'"></wf-combobox>
+                    <wf-combobox class="inline-block" params="dropdownAlignment: 'right', symbolicTexts: ['Rezept 1', 'Rezept 2', 'Rezept 3', 'Rezept 4'], symbolicTextNormalState: 'Rezeptauswahl', signalNames: ['Setpoint 3', 'Setpoint 3', 'Setpoint 3', 'Setpoint 3'], signalValues: [1, 2, 3, 4], iconClass: ['fa fa-tint', 'fa fa-coffee', 'fa fa-leaf', 'fa fa-glass'], cssClass: 'btn-lg btn-default'"></wf-combobox>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_Write_Secure")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-combobox params="writeSecure: true, symbolicTexts: ['Licht AUS', 'Licht AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning'"></wf-combobox>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

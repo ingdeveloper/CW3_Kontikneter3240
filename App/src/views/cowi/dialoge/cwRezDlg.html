@@ -1,0 +1,46 @@
+<div class="modal" data-bind="attr: { id: 'modal-dialog-container-' + id() }">
+  <!-- <div class="modal"> -->
+  <div class="modal-dialog modal-top">
+    <div
+      class="modal-content"
+      data-bind="ccwDraggable:{}, dragId: 'cwRezDlg', BGclose: true, ESCclose: true"
+    >
+      <div
+        class="modal-header"
+        id="cwRezDlg"
+        data-bind="style: { background-color: headColor()}"
+      >
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+          data-bind="click: close"
+        >
+          &times;
+        </button>
+        <h4 class="modal-title">
+          <i class="ccwIF-kochmuetze"></i>
+          <span style="filter: invert(100%)" data-bind="text: txtHead"></span>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-content-title">
+          <span data-bind="html: txtBody"></span>
+        </h3>
+        <br />
+        <div class="row">
+          <div class="col-xs-12"></div>
+        </div>
+      </div>
+      <!-- Buttons -->
+      <div class="modal-footer" data-bind="foreach: buttons">
+        <button class="btn"
+          data-bind="attr:{class: $data.btnClassName}, text: $data.text, click: $root.close.bind($root, $data.name)"
+          data-dismiss="modal"
+          aria-hidden="true"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

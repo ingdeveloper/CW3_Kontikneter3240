@@ -1,0 +1,211 @@
+﻿
+.sonderfunktionWartungColorStoerung {
+    background-color: rgb(241, 50, 50) !important;
+}
+
+.sonderfunktionWartungColorBereit {
+    background-color: #00FFFF;
+}
+
+.sonderfunktionWartungColorEin {
+    background-color: #00FF00;
+}
+.sonderfunktionWartungColorHellGruen {
+    background-color: #b8f1b8;
+    border: 1px solid #00FF00 !important;
+}
+.sonderfunktionWartungColorRun {
+    background-color: #9999FF;
+}
+
+.sonderfunktionWartungColorOhneStatus {
+    background-color: #dddbdb;
+}
+
+.sonderfunktionWartungColorWarnung {
+    background-color: #ff6a00;
+}
+
+.sonderfunktionWartungColorGelb {
+    background-color: yellow;
+}
+
+.sonderfunktionWartungColorRosa {
+    background-color: #FF9999;
+}
+
+.sonderfunktionWartungColorWeiss {
+    background-color: antiquewhite;
+}
+
+.sonderfunktionWartungBtnColorGelb {
+    background-color: yellow;
+    border: 1px solid #C6C6C6;
+}
+
+
+.sonderfunktionWartungTable {
+    font-size: small;
+}
+
+.sonderfunktionWartungAntriebeBargraphFarbeGruen {
+    background-image: linear-gradient(to bottom,#46fa5e 0,#4bfc3b 100%);
+}
+
+.sonderfunktionWartungAntriebeBargraphFarbeGelb {
+    background-image: linear-gradient(to bottom,yellow 0,#e8ea13 100%);
+}
+
+.sonderfunktionWartungAntriebeBargraphFarbeRot {
+    background-image: linear-gradient(to bottom,#f62525 0,red 100%);
+}
+
+
+
+.sonderfunktionWartungTh {
+    width: 10%;
+    text-align: center;
+}
+
+.sonderfunktionWartungTd {
+    text-align: center;
+}
+
+.sonderfunktionWartungTdZeit {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+.sonderfunktionWartungTdNiveau {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 47%;
+    float: left;
+}
+
+.sonderfunktionWartungTdIstSoll {
+    border: 1px solid #C6C6C6;
+    border-bottom: 0px;
+    text-align: center;
+    /*background-color: #dddbdb;*/
+    width: 48%;
+    float: left;
+}
+
+.sonderfunktionWartungTdIstTemperatur {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 50%;
+    float: left;
+}
+
+.sonderfunktionWartungTdSollTemperatur {
+    border: 0px solid #C6C6C6;
+    text-align: center;
+    background-color: white;
+    width: 50%;
+    float: left;
+}
+
+.sonderfunktionWartungTdSollTemperaturInput {
+    text-align: center;
+    padding: 1px;
+    margin: 1px;
+}
+
+.sonderfunktionWartungInfoLaugeNeutral {
+    text-align: center;
+    border: 1px solid #808080;
+}
+
+.sonderfunktionWartungStartBtnWidth {
+    width: 100% !important;
+}
+
+.sonderfunktionwartungcolbtn {
+    /*margin-right: 0px;*/
+    border: 1px solid red;
+}
+
+.sonderfunktionwartungInfoText {
+    /*margin-right: 0px;*/
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    font-weight: bold;
+    /*padding-bottom: -10px;*/
+    /*padding-top: 10px;*/
+    /*background-color:antiquewhite;*/
+}
+
+.sonderfunktionWartungBtnKopf {
+    /*background-color: yellow;*/
+    /*border: 1px solid #C6C6C6;*/
+    padding-top: 2px;
+}
+
+.sonderfunktionWartungDivFunktionsauswahl {
+    /*background-color: yellow;*/
+    /*border: 1px solid #C6C6C6;*/
+    /*padding-top: 2px;*/
+    position: relative;
+    margin: -12px 0px 0px 0px;
+    height: 12px;
+    /*visibility: visible;*/ /* wird bei User-Anmeldung geändert */
+}
+
+.sonderfunktionWartungAntriebeTable {
+    font-size: small;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.sonderfunktionWartungAntriebeTd {
+    text-align: left;
+	vertical-align: middle;
+	padding: 2px !important;
+}
+.wartung_spalte1{
+    width:17%;
+}
+.wartung_spalte2{
+    min-width: 30%;
+    width:30%;
+}
+.wartung_spalte3{
+    width:12%;
+}
+.wartung_spalte4{
+    width:12%;
+}
+.wartung_spalte5{
+    width:12%;
+}
+.wartung_spalte6{
+    width:10%;
+}
+.wartung_spalte7{
+    width:7%;
+}
+
+.sonderfunktionWartungAntriebeTableBtn {
+    font-size: 12px;
+    padding: 2px !important;
+    margin: 2px !important;
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1024px ) { /* Breite beträgt höchstens */
+    .sonderfunktionWartungTable {
+        font-size: smaller;
+    }
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    .sonderfunktionWartungTable {
+        font-size: x-small;
+    }
+}

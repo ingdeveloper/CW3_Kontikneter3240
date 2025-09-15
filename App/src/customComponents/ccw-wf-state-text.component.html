@@ -1,0 +1,6 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+    <span data-bind="css: changedFieldAnimationService.cssClass, attr : {title: tooltipText}, style: {width: elemWidth, textAlign: elemTextAlign}, event: {contextmenu: function(){info()}}" class="inline-block">{{connector.translate(statusText())()}}</span>
+<!--/ko-->
+<!--/ko-->
+

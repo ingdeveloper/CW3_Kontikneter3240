@@ -1,0 +1,56 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="wf-svg-path wf-enabled-container stretched" data-bind="css: {'disabled': isDisabled}, css: statusCssClass, attr: {title: tooltipText}">
+    <!-- setZIndexOnMouseOver: { zIndex: 10000 } -->
+    
+    <svg xmlns="http://www.w3.org/2000/svg" class="stretched" data-bind="attr:  {viewBox: viewBox, width:width, height:height }">
+        <!-- ko if: shouldNavigateToUrl -->
+        <a class="wf-svg-path-link" rel="noopener" data-bind="attr: {'href': navigationUrl}">
+            <path class="wf-svg-path wf-state-element" d="" data-bind="css: pathCssClass, attr: {d: pathData}, event: {mouseover: mouseover, mouseout: mouseout}" />
+        </a>
+        <!-- /ko -->
+        <!-- ko if: !shouldNavigateToUrl() -->
+        <path class="wf-state-element" d="" data-bind="css: pathCssClass, attr: {d: pathData}, event: {mouseover: mouseover, mouseout: mouseout}" />
+        <!-- /ko -->
+    </svg>
+
+    <div class="wf-path-label">
+        <div data-bind="text: labelText"></div>
+        <!-- ko if:subLabelText -->
+        <div class="wf-path-sublabel" data-bind="text: subLabelText"></div>
+        <!-- /ko -->
+    </div>
+
+    <!-- ko if:tooltipEnabled -->
+    <div class="wf-tooltip" data-bind="css: { 'block animated fadeIn': tooltipVisible() }">
+
+        <!-- ko if:tooltipTitle -->
+        <div class="wf-svg-path-tooltip-title">
+            {{connector.translate(tooltipTitle)()}}
+        </div>
+        <!-- /ko -->
+
+        <div class="wf-svg-path-content">
+            <!-- ko if:tooltipText -->
+            <div class="wf-svg-path-tooltip-text">
+                {{connector.translate(tooltipText)()}}
+            </div>
+            <!-- /ko -->
+            <!-- ko if:signalName -->
+            <div class="wf-svg-path-value-container">
+                <div class="wf-svg-path-value" data-bind="text: signalValue"></div>
+                <wf-signal-information class="wf-svg-path-value-unit" params="signalName: signalName"></wf-signal-information>
+            </div>
+            <!-- /ko -->
+        </div>
+
+    </div>
+    <!-- /ko -->
+</div>
+
+<div class="wf-svg-path-content stretched">
+    <!-- ko template: { nodes: $componentTemplateNodes} -->
+    <!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- /ko -->

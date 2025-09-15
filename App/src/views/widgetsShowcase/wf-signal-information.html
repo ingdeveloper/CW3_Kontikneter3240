@@ -1,0 +1,147 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-signal-information</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSignalInformation_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <p class="lead">
+                                Adresse Connector: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Name'"></wf-signal-information><br />
+                                Minimum: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Minimum'"></wf-signal-information><br />
+                                Maximum: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Maximum'"></wf-signal-information>
+                            </p>
+                            <!--<p class="lead">
+                                Id: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'ID'"></wf-signal-information><br/>
+                                Name: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'Name'"></wf-signal-information><br/>
+                                Active: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'Active'"></wf-signal-information><br/>
+                                Desc: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'Description'"></wf-signal-information><br/>
+                                Minimum: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'Minimum'"></wf-signal-information><br/>
+                                Maximum: <wf-signal-information class="" params="signalName: 'SQL Device::Local Second', propertyName: 'Maximum'"></wf-signal-information>
+                            </p>-->
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-signal-information params=&quot;signalName: &#39;Temperature 2&#39;, propertyName: &#39;Name&#39;&quot;&gt;&lt;/wf-signal-information&gt;
+&lt;wf-signal-information params=&quot;signalName: &#39;Temperature 2&#39;, propertyName: &#39;Minimum&#39;&quot;&gt;&lt;/wf-signal-information&gt;
+&lt;wf-signal-information params=&quot;signalName: &#39;Temperature 2&#39;, propertyName: &#39;Maximum&#39;&quot;&gt;&lt;/wf-signal-information&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel-footer">
+                    <h5 class="panel-title">{{connector.translate("I4SCADA_Characteristics")()}}</h5>
+                    <div data-bind="foreach: signalProperties">
+                        <span style="margin-bottom: 5px; display: inline-block" class="label label-black" data-bind="text: $data"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Temperature 2</h3>
+                            </div>
+                            <p class="lead margin-left">
+                                Activ: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Active'"></wf-signal-information><br />
+                                Name: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Name'"></wf-signal-information><br />
+                                Unit: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'Unit'"></wf-signal-information><br />
+                                OPCEnabled: <wf-signal-information class="" params="signalName: 'Temperature 2', propertyName: 'OPCEnabled'"></wf-signal-information>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Temperature 1</h3>
+                            </div>
+                            <p class="lead margin-left">
+                                Activ: <wf-signal-information class="" params="signalName: 'Temperature 1', propertyName: 'Active'"></wf-signal-information><br />
+                                Name: <wf-signal-information class="" params="signalName: 'Temperature 1', propertyName: 'Name'"></wf-signal-information><br />
+                                Unit: <wf-signal-information class="" params="signalName: 'Temperature 1', propertyName: 'Unit'"></wf-signal-information><br />
+                                OPCEnabled: <wf-signal-information class="" params="signalName: 'Temperature 1', propertyName: 'OPCEnabled'"></wf-signal-information>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Vibration 1</h3>
+                            </div>
+                            <p class="lead margin-left">
+                                Activ: <wf-signal-information class="" params="signalName: 'Vibration 1', propertyName: 'Active'"></wf-signal-information><br />
+                                Name: <wf-signal-information class="" params="signalName: 'Vibration 1', propertyName: 'Name'"></wf-signal-information><br />
+                                Unit: <wf-signal-information class="" params="signalName: 'Vibration 1', propertyName: 'Unit'"></wf-signal-information><br />
+                                OPCEnabled: <wf-signal-information class="" params="signalName: 'Vibration 1', propertyName: 'OPCEnabled'"></wf-signal-information>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Vibration 4</h3>
+                            </div>
+                            <p class="lead margin-left">
+                                Activ: <wf-signal-information class="" params="signalName: 'Vibration 4', propertyName: 'Active'"></wf-signal-information><br />
+                                Name: <wf-signal-information class="" params="signalName: 'Vibration 4', propertyName: 'Name'"></wf-signal-information><br />
+                                Unit: <wf-signal-information class="" params="signalName: 'Vibration 4', propertyName: 'Unit'"></wf-signal-information><br />
+                                OPCEnabled: <wf-signal-information class="" params="signalName: 'Vibration 4', propertyName: 'OPCEnabled'"></wf-signal-information>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

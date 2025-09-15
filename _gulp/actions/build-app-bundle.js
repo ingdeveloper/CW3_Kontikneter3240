@@ -1,0 +1,91 @@
+"use strict";
+var gulp = require("gulp");
+var rjs = require("gulp-requirejs-bundler");
+var glob = require("glob");
+var path = require("path");
+var uglify = require("gulp-uglify-es").default;
+// ReSharper disable InconsistentNaming
+
+var argv = require("yargs").argv;
+var paths = require("../paths").paths;
+var deployment = require("../bundles/deployment").deployment;
+
+function getBundleFileNames(bundle) {
+    var root = bundle.root;
+    var files = glob.sync(`${root}${bundle.files}`)
+        .map(file => {
+            var ext = path.extname(file);
+            if (ext.toLowerCase() === ".html")
+                ext = "";
+            return (bundle.plugin || "") + file.substring(root.length + 1, file.length - ext.length);
+        });
+
+    return files;
+}
+
+function extendConfigPaths(rjsConfig, configuration) {
+    for (var path in configuration.bundlePaths) {
+        if (configuration.bundlePaths.hasOwnProperty(path)) {
+            rjsConfig.paths[path] = configuration.bundlePaths[path];
+        }
+    }
+}
+
+function addBundles(rjsConfig, configuration) {
+    let bundleFiles = [];
+    for (let bundleName in configuration.bundleFiles) {
+        if (!configuration.bundleFiles.hasOwnProperty(bundleName))
+            continue;
+
+        for (let bundle of configuration.bundleFiles[bundleName]) {
+            let fileNames = getBundleFileNames(bundle);
+            bundleFiles = bundleFiles.concat(fileNames);
+        }
+    }
+
+    rjsConfig.include = rjsConfig.include || [];
+    rjsConfig.include = rjsConfig.include.concat(bundleFiles);
+}
+
+function buildAppBundle(configurationName) {
+    var configuration = deployment[configurationName];
+    if (!configuration.bundleEntryPoint) {
+        return null;
+    }
+
+    var config = {
+        baseUrl: paths.app.root,
+        out: `${configurationName}.js`,
+        name: configuration.bundleEntryPoint,
+        paths: {
+
+            text: "../node_modules/requirejs-text/text",
+            durandal: "../node_modules/durandal/js",
+            plugins: "../node_modules/durandal/js/plugins",
+            transitions: "../node_modules/durandal/js/transitions",
+            requireLib: "../node_modules/requirejs/require",
+            bluebird: "../node_modules/bluebird/js/browser/bluebird",
+            contextMenu: "../node_modules/jquery-contextmenu/dist/jquery.contextMenu.min",
+            uiPosition: "../node_modules/jquery-contextmenu/dist/jquery.ui.position.min",
+            src: "../App/src"
+        },
+        include: [
+            "requireLib"
+        ],
+        insertRequire: [configuration.bundleEntryPoint]
+    };
+
+    extendConfigPaths(config, configuration);
+    addBundles(config, configuration);
+
+    return rjs(config)
+        .pipe(uglify({
+            output: {
+                max_line_len: 300000
+            }
+        }))
+        .pipe(gulp.dest(paths.app.dist));
+
+}
+
+module.exports = buildAppBundle;

@@ -1,0 +1,57 @@
+<button type="button" data-bind="css: buttonCss, click: open" title="{{connector.translate('I4SCADA_Acknowledgement')()}}" class="btn btn-default">         
+    <!-- ko if: isBusy-->
+    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: isBusy-->
+    <span class="wf wf-check"></span>
+    <!-- /ko -->
+</button>
+
+
+<div data-bind="attr: { id: 'wf-alarm-ack-dialog-container-' + id() }" style="display:none">
+    <div class="modal fade wf-config-dialog wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal, draggable: isModalDialogsDraggable}, attr: { 'id': 'wf-config-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-lg modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                    <div class="modal-title">{{connector.translate('I4SCADA_Acknowledgement')()}}</div>
+                </div>
+                <div class="modal-body">
+                    <div class="form m-t-md">
+                        <div class="form-group">
+                            <select class="form-control" data-bind="options: acknowledgementActions,
+                                                        optionsText: 'symbolicTextTranslation',
+                                                        value: selectedAcknowledgementActions"></select>
+                        </div>
+
+                        <!-- ko if: selectedAcknowledgementActions() -->
+                        <!-- ko if: selectedAcknowledgementActions().action === 1-->
+                        <div class="form-group">
+                            <select class="form-control" data-bind="options: alarmGroups,
+                                                        optionsText: 'SymbolicTextTranslation',
+                                                        value: selectedAlarmGroup"></select>
+                        </div>
+                        <!--/ko-->
+                        <!--/ko-->
+                        <div class="form-group">
+                            <label>{{connector.translate('I4SCADA_Acknowledge_Comment')()}}</label>
+                            <textarea rows="3" data-bind="textInput: comment" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button class="btn btn-sm btn-warning" data-bind="click: onAcknowledge">
+                        <span class="wf wf-check"></span>
+                        {{connector.translate('I4SCADA_Acknowledge')()}}
+                    </button>
+                    <button class="btn btn-sm btn-default" data-bind="click: close">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_Close')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

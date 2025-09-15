@@ -1,0 +1,530 @@
+﻿<div class="container-fluid">
+    <div class="row ef-Rahmen4 padding-2" style="border: thin solid black; border-radius:4px; margin-bottom:4px">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+            <div class="text-center">
+                <span style="font-size: 24px" class="text-center"><strong>Kontikneter 3240</strong></span></br>
+                <span style="font-size: 20px" class="text-center">Antriebe</span>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-9 col-xs-12">
+            <div class="row" style="padding-bottom: 5px;">
+                <a href="#rezepturVMI">
+                    <div class="col-lg-1 col-md-2 col-sm-4 col-xs-3">
+                        <img src="ContentCowi/svg/rezept.svg"
+                            style="max-width:60px; max-height: 60px; width:100%; height: 100%;">
+                    </div>
+                    <!-- Rezeptnummer -->
+                    <div class="col-lg-11 col-md-10 col-sm-8 col-xs-8 padding-10">
+                        <strong>
+                            <rez-info class="ccw_context" style="padding: 0px;" params="databaseName: 'broet3240',
+                                    signalNameRezNr: 'VMI3240DB220DBD0',
+                                    signalNamePaNr: 'VMI3240DB1DBD80',
+                                    signalNameProdTyp: 'VMI3240DB4B26',
+                                    tooltipText: 'aktuelle Rezeptinformation',
+                                    werk: 2,
+                                    halle: 3,
+                                    etage: 2,
+                                    linie: 4,
+                                    maschine: 11">
+                            </rez-info>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-6 col-sm-9 col-xs-12">
+            <div>
+                <!-- ko if: vorwahlWartung().newSichtbar == true -->
+                <span class="badge badge-default" style="margin-top: 16px; width:100%; font-size:14px"
+                    data-bind="text: vorwahlWartung().newText, css: vorwahlWartung().newCss2, obj, event)}">
+                </span>
+                <!-- /ko -->
+            </div>            
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-9 col-xs-12">
+        </div>
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+            <div class="text-center" style="margin-top: 12px">
+                <button class="btn btn-success btn-sm inline" type="submit" style="vertical-align: bottom"
+                    data-bind="enable: UserLevel(), click: function (){sendWerteZurSps()}, css: sendBtnCss">
+                    Werte zur SPS</button>
+                <wf-buffer-button class="btn btn-sm inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-sm'">
+                </wf-buffer-button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="ccw-panel ccw-panel-default">
+                <div class="ccw-panel-heading">
+                    <ul class="nav ccw-nav-tabs">
+                        <li class="active">
+                            <a href="#tab1" data-toggle="tab">Dosierantriebe</a>
+                        </li>
+                        <li>
+                            <a href="#tab2" data-toggle="tab">Rührwerke</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab">Antriebe Kneter</a>
+                        </li>
+                        <li>
+                            <a href="#tab4" data-toggle="tab">Abfuhrbänder</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row ef-Rahmen4 margin-8 padding-2">
+                <div class="col-lg-9 col-md-10 col-sm-12 col-xs-12">
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane active" id="tab1">
+                            <table class="table table-condensed table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="tableBreiteSpalte2 text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="tableBreiteSpalte4 text-center antriebeBeschriftungTable tabelleAntriebeSpalteGreen padding-4">Soll Auto</th>
+                                        <th class="tableBreiteSpalte5 text-center antriebeBeschriftungTable tabelleAntriebeSpalteOrange padding-4">Soll Hand</th>
+                                        <th class="tableBreiteSpalte6 text-center antriebeBeschriftungTable padding-4">Ist</th>
+                                        <th class="tableBreiteSpalte7 text-center antriebeBeschriftungTable padding-4">Hand/Auto</th>
+                                        <th class="tableBreiteSpalte8 text-center antriebeBeschriftungTable padding-4">Ein</th>
+                                        <th class="tableBreiteSpalte9 text-center antriebeBeschriftungTable padding-4">Aus</th>
+                                        <th class="tableBreiteSpalte10 text-center antriebeBeschriftungTable ccw-bg-info padding-4">Drehzahlsteigung</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: antriebeDosieren">
+                                    <tr data-bind="css: $data.lblByteError().newcssTd">
+                                        <!-- BMK  ############################################## -->
+                                        <td>
+                                            <span data-bind="text: $data.bmk"></span>
+                                        </td>
+                                        <!-- Kommentar  ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                            <span style="width:20px; height:20px" data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                            <!-- /ko -->
+                                            <span data-bind="attr:{id: 'Dosierantrieb'+ ($index()+1)}, text: $data.kommentar + ' - '"></span>
+                                            <span data-bind = "ccwGetArtikelBezeichnungVonNummer: $data.komponente().newValue, fuell9Stellen: true"></span>
+                                        </td>
+                                        <!-- StateDisplay ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == true -->
+                                        <td colspan="2" data-bind="css: $data.lblState().newCss">
+                                            <p class="lblState">
+                                                <span data-bind="text: $data.lblState().state"></span>
+                                            </p>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- Soll ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteGreen">
+                                            <!-- ko if: $data.sichtbarSollAuto == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwertAuto.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <td class="tabelleAntriebeSpalteOrange">
+                                            <!-- ko if: $data.sichtbarSoll == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- Ist ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.sichtbarIst == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+
+                                        <!-- Btn Hand-Auto ############################################## -->
+                                        <td>
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                        </td>
+                                        <!-- Btn Ein ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                            <!-- /ko -->
+                                            <div>
+                                                <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                                <!-- /ko -->
+                                                <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                                <!-- /ko -->
+
+                                            </div>
+                                        </td>
+                                        <!-- Btn Aus ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnAus().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteLightBlue">
+                                            <!-- ko if: $data.sichtbarSteigung == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.steigung.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id='tab2'>
+                            <table class="table table-condensed table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="tableBreiteSpalte2 text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="tableBreiteSpalte4 text-center antriebeBeschriftungTable tabelleAntriebeSpalteGreen padding-4">Soll Auto</th>
+                                        <th class="tableBreiteSpalte5 text-center antriebeBeschriftungTable tabelleAntriebeSpalteOrange padding-4">Soll Hand</th>
+                                        <th class="tableBreiteSpalte6 text-center antriebeBeschriftungTable padding-4">Ist</th>
+                                        <th class="tableBreiteSpalte7 text-center antriebeBeschriftungTable padding-4">Hand/Auto</th>
+                                        <th class="tableBreiteSpalte8 text-center antriebeBeschriftungTable padding-4">Ein</th>
+                                        <th class="tableBreiteSpalte9 text-center antriebeBeschriftungTable padding-4">Aus</th>
+                                        <th class="tableBreiteSpalte10 text-center antriebeBeschriftungTable ccw-bg-info padding-4">Drehzahlsteigung</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: antriebeRuehrwerke">
+                                    <tr data-bind="css: $data.lblByteError().newcssTd">
+                                        <!-- BMK  ############################################## -->
+                                        <td>
+                                            <span class="" data-bind="text: $data.bmk"></span>
+                                        </td>
+                                        <!-- Kommentar  ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                            <span style="width:20px; height:20px" data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                            <!-- /ko -->
+                                            <span data-bind="attr:{id: 'Rührwerk'+ ($index()+1)}, text: $data.kommentar + ' - '"></span>
+                                            <span data-bind = "ccwGetArtikelBezeichnungVonNummer: $data.komponente().newValue, fuell9Stellen: true"></span>
+                                        </td>
+                                        <!-- StateDisplay ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == true -->
+                                        <td colspan="2" data-bind="css: $data.lblState().newCss">
+                                            <p class="lblState">
+                                                <span data-bind="text: $data.lblState().state"></span>
+                                            </p>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- Soll ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteGreen">
+                                            <!-- ko if: $data.sichtbarSollAuto == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwertAuto.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <td class="tabelleAntriebeSpalteOrange">
+                                            <!-- ko if: $data.sichtbarSoll == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- Ist ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.sichtbarIst == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+
+                                        <!-- Btn Hand-Auto ############################################## -->
+                                        <td>
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                        </td>
+                                        <!-- Btn Ein ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                            <!-- /ko -->
+                                            <div>
+                                                <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                                <!-- /ko -->
+                                                <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                                <!-- /ko -->
+
+                                            </div>
+                                        </td>
+                                        <!-- Btn Aus ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnAus().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteLightBlue">
+                                            <!-- ko if: $data.sichtbarSteigung == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.steigung.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id='tab3'>
+                            <table class="table table-condensed table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="tableBreiteSpalte2 text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="tableBreiteSpalte4 text-center antriebeBeschriftungTable tabelleAntriebeSpalteGreen padding-4">Soll Auto</th>
+                                        <th class="tableBreiteSpalte5 text-center antriebeBeschriftungTable tabelleAntriebeSpalteOrange padding-4">Soll Hand</th>
+                                        <th class="tableBreiteSpalte6 text-center antriebeBeschriftungTable padding-4">Ist</th>
+                                        <th class="tableBreiteSpalte7 text-center antriebeBeschriftungTable padding-4">Hand/Auto</th>
+                                        <th class="tableBreiteSpalte8 text-center antriebeBeschriftungTable padding-4">Ein</th>
+                                        <th class="tableBreiteSpalte9 text-center antriebeBeschriftungTable padding-4">Aus</th>
+                                        <th class="tableBreiteSpalte10 text-center antriebeBeschriftungTable ccw-bg-info padding-4">Drehzahlsteigung</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: antriebeKneter">
+                                    <tr data-bind="css: $data.lblByteError().newcssTd">
+                                        <!-- BMK  ############################################## -->
+                                        <td>
+                                            <span class="" data-bind="text: $data.bmk"></span>
+                                        </td>
+                                        <!-- Kommentar  ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                            <span class="" style="width:20px; height:20px"
+                                                data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                            <!-- /ko -->
+                                            <span class="" data-bind="text: $data.kommentar"></span>
+                                        </td>
+                                        <!-- StateDisplay ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == true -->
+                                        <td colspan="3" data-bind="css: $data.lblState().newCss">
+                                            <p class="lblState">
+                                                <span data-bind="text: $data.lblState().state"></span>
+                                            </p>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- Soll ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteGreen">
+                                            <!-- ko if: $data.sichtbarSollAuto == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwertAuto.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <td class="tabelleAntriebeSpalteOrange">
+                                            <!-- ko if: $data.sichtbarSoll == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- Ist ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.sichtbarIst == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+
+                                        <!-- Btn Hand-Auto ############################################## -->
+                                        <td>
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                        </td>
+                                        <!-- Btn Ein ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                            <!-- /ko -->
+                                            <div>
+                                                <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                                <!-- /ko -->
+                                                <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                                <!-- /ko -->
+
+                                            </div>
+                                        </td>
+                                        <!-- Btn Aus ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnAus().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteLightBlue">
+                                            <!-- ko if: $data.sichtbarSteigung == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.steigung.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id='tab4'>
+                            <table class="table table-condensed table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="tableBreiteSpalte2 text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="text-center antriebeBeschriftungTable padding-4"></th>
+                                        <th class="tableBreiteSpalte4 text-center antriebeBeschriftungTable tabelleAntriebeSpalteGreen padding-4">Soll Auto</th>
+                                        <th class="tableBreiteSpalte5 text-center antriebeBeschriftungTable tabelleAntriebeSpalteOrange padding-4">Soll Hand</th>
+                                        <th class="tableBreiteSpalte6 text-center antriebeBeschriftungTable padding-4">Ist</th>
+                                        <th class="tableBreiteSpalte7 text-center antriebeBeschriftungTable padding-4">Hand/Auto</th>
+                                        <th class="tableBreiteSpalte8 text-center antriebeBeschriftungTable padding-4">Ein</th>
+                                        <th class="tableBreiteSpalte9 text-center antriebeBeschriftungTable padding-4">Aus</th>
+                                        <th class="tableBreiteSpalte10 text-center antriebeBeschriftungTable ccw-bg-info padding-4">Drehzahlsteigung</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: antriebeBaender">
+                                    <tr data-bind="css: $data.lblByteError().newcssTd">
+                                        <!-- BMK  ############################################## -->
+                                        <td>
+                                            <span class="" data-bind="text: $data.bmk"></span>
+                                        </td>
+                                        <!-- Kommentar  ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                            <span class="" style="width:20px; height:20px" data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                            <!-- /ko -->
+                                            <span class="" data-bind="text: $data.kommentar"></span>
+                                        </td>
+                                        <!-- StateDisplay ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == true -->
+                                        <td colspan="2" data-bind="css: $data.lblState().newCss">
+                                            <p class="lblState">
+                                                <span data-bind="text: $data.lblState().state"></span>
+                                            </p>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- Soll ############################################## -->
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteGreen">
+                                            <!-- ko if: $data.sichtbarSollAuto == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwertAuto.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <td class="tabelleAntriebeSpalteOrange">
+                                            <!-- ko if: $data.sichtbarSoll == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- Ist ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.sichtbarIst == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+
+                                        <!-- Btn Hand-Auto ############################################## -->
+                                        <td>
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                        </td>
+                                        <!-- Btn Ein ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                            <!-- /ko -->
+                                            <div>
+                                                <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                                <!-- /ko -->
+                                                <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                                <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                    data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                                <!-- /ko -->
+
+                                            </div>
+                                        </td>
+                                        <!-- Btn Aus ############################################## -->
+                                        <td>
+                                            <!-- ko if: $data.btnAus().sichtbar == true -->
+                                            <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                                data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- ko if: $data.lblState().sichtbar == false -->
+                                        <td class="tabelleAntriebeSpalteLightBlue">
+                                            <!-- ko if: $data.sichtbarSteigung == true -->
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: $data.steigung.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !$parent.userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                            <!-- /ko -->
+                                        </td>
+                                        <!-- /ko -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" role="dialog" id="myModal" style="display: none;">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div id="lblModalHeaderBG" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <span id="iconModalHeader" class="wf wf-2x"
+                    style="float: left; margin-left:20px; margin-right:10px; vertical-align:middle"></span>
+                <h4 class="modal-title" id="lblModalHeader" style="vertical-align:middle">Meldung</h4>
+            </div>
+            <div class="modal-body">
+                <span id="lblModalBody" style="font-size:18px">Text</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="width:100px" class="btn btn-default" data-dismiss="modal"
+                    id="modal-btn-Ok">Ok</button>
+                <button type="button" style="width:100px" class="btn btn-primary" data-dismiss="modal"
+                    id="modal-btn-Abbrechen">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

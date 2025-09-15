@@ -1,0 +1,110 @@
+﻿.tableBreiteSpalte1 {
+	width: 5%;
+}
+.tableBreiteSpalte2 {
+	width: 12%;
+}
+.tableBreiteSpalte3 {
+	width: 33%;
+}
+.tableBreiteSpalte4 {
+	width: 8%;
+}
+.tableBreiteSpalte5 {
+	width: 8%;
+}
+.tableBreiteSpalte6 {
+	width: 8%;
+}
+.tableBreiteSpalte7 {
+	width: 8%;
+}
+.tableBreiteSpalte8 {
+	width: 6%;
+}
+.tableBreiteSpalte9 {
+	width: 8%;
+}
+.tableBreiteSpalte10 {
+	width: 12%;
+}
+.antriebeBeschriftungTable {
+	font-size: 10px;
+	/* background: white; */
+	text-align: center;
+	padding: 0px !important;
+}
+.progress-bar.ccw-progress-bar{
+	color: #757575;
+	height: 30px;
+}
+.ccw-progress-bar-padding{
+    text-align: left;
+	vertical-align: middle;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.ccw-progress-bar-height{
+	height: 30px !important;
+}
+.ccw-progress-bar-align-content{
+	vertical-align: -webkit-baseline-middle;
+	font-size: 16px;
+}
+.tabelleAntriebeSpalteGreen {
+	background-color: #dff0d8 !important;
+}
+.tabelleAntriebeSpalteOrange {
+	background-color: #fcf8e3 !important;
+}
+.tabelleAntriebeSpalteLightBlue {
+	background-color: #d9edf7 !important;
+}
+.antriebeBeschriftungStateBar {
+	font-size: 10px;
+	text-align: left;
+}
+
+.antriebeSeiteTd {
+	font-Size: 14px;
+	text-align: left;
+	padding: 2px !important;
+}
+
+.antriebeSeiteTd-center {
+	text-align: -webkit-center !important;
+}
+
+.buttonHandAuto{
+	width:100%;
+} 
+.lblState{
+	width:100%;
+	text-align: center;
+	font-size: 14px;
+	vertical-align: middle;
+	margin:0px;
+}  
+.buttonEinDrehrichtung{
+	width:100%;
+}
+
+.antriebeHintergrundfarbe{
+	background-color: lightgrey;
+}
+/*.antriebeInput{
+	display: inline;
+	width: 70%;
+}*/
+.input-hidden{
+	display: hidden;
+}
+.input-visible{
+	display: inline;
+}
+
+.ccw-state-bar-header{
+	padding: 0px;
+}

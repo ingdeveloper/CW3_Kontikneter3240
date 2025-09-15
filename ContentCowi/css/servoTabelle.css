@@ -1,0 +1,204 @@
+﻿.servoTabFarbeGrau {
+    background-color: #ebe9e9 !important;
+}
+
+.servoTabFarbeSahne1 {
+    background-color: #ffffff !important;
+}
+
+.servoTabFarbeSahne2 {
+    background-color: #ffffaa !important;
+}
+
+.servoTabFarbeMarmelade {
+    background-color: #f49232 !important;
+}
+
+.servoTabFarbeFluessigkeit {
+    background-color: #ffc0c0 !important;
+}
+
+.servoTabFarbeObst {
+    background-color: #c0c0ff !important;
+}
+
+.servoTabFarbeJelly1 {
+    background-color: #99ffcc !important;
+}
+
+.servoTabFarbeJelly2 {
+    background-color: #008000 !important;
+}
+
+.servoTabBgColorGelb {
+    background-color: antiquewhite !important;
+}
+
+.servoTabBgColorweiß {
+    background-color: #ffffff !important;
+}
+
+.servoTabBgColorHellblau {
+    background-color: #bfe8fe !important;
+}
+
+.servoTabBgColorGruenGelb {
+    background-color: #D4DAA1  !important;
+}
+
+.servoTabBgColorGrau {
+    background-color: #c6c6c6  !important;
+}
+
+.servoTabBgColorServoLila1 {
+    background-color: #9CB6BD  !important;
+}
+
+.servoTabBgColorServoLila2 {
+    background-color: #989BBB  !important;
+}
+
+.servoTabBgColorServoLila3 {
+    background-color: #A0E3E4  !important;
+}
+
+.servoTabBgColorServoGruenGrau1 {
+    background-color: #98ACBB  !important;
+}
+
+.servoTabBgColorServoGruenGrau2 {
+    background-color: #98BBA7  !important;
+}
+
+.servoTabBgColorServoGruenGrau3 {
+    background-color: #98BBB9  !important;
+}
+
+.servoTabBgColorServoBlau2 {
+    background-color: #BBD5DF  !important;
+}
+
+.servoTabBgColorServoBlau4 {
+    background-color: #B0D3E1  !important;
+}
+
+.servoTabBgColorServoBlau3 {
+    background-color: #C6D8DF  !important;
+}
+
+.servoTabBgColorServoBlau1 {
+    background-color: #D2DBDE  !important;
+}
+
+.servoTabBgColorServoGruenGrau4 {
+    background-color: #85CFF0  !important;
+}
+
+.servoTabBgColorServoGruenGrau5 {
+    background-color: #BDECD1  !important;
+}
+
+
+.servoTabBgColorServoGrGe4 {
+    background-color: #F7F9EE  !important;
+}
+
+.servoTabBgColorServoGrGe3 {
+    background-color: #F6F9E6  !important;
+}
+
+.servoTabBgColorServoGrGe2 {
+    background-color: #F4FADB  !important;
+}
+
+.servoTabBgColorServoGrGe1 {
+    background-color: #F3FAD2  !important;
+}
+
+
+
+.servoTabPaddingAus {
+    padding: 0px !important;
+}
+
+.servoTabBlack {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    /* text-align: center; */
+    /* background-color: blue; */
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.servoTabTdStationNummer {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+    font-size: x-small;
+}
+
+.servoDialoggro {
+    width: 700px;
+    /* font-size: xx-small !important; */
+} 
+
+
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1030px ) { /* Breite beträgt höchstens */
+    /* .servoTabTable {
+        font-size: x-small;
+    }
+
+    .servoTabTableBtn {
+        font-size: x-small;
+    }
+
+    .servoTabTableAuswahlfeld {
+        font-size: x-small;
+    }
+
+    .servoTabTableUeberschrift {
+        font-size: medium;
+    }
+
+    .servoTabServoBtnKopf {
+        width: 90px;
+    } */
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    /* .servoTabTable {
+        font-size: xx-small;
+    }
+
+    .servoTabTableBtn {
+        font-size: xx-small;
+    }
+
+    .servoTabTableAuswahlfeld {
+        font-size: xx-small;
+    }
+
+    .servoTabTableUeberschrift {
+        font-size: small;
+    }
+
+    .servoTabServoBtnKopf {
+        width: 80px;
+    } */
+}
+

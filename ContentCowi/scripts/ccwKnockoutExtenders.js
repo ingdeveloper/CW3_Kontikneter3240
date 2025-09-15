@@ -1,0 +1,284 @@
+/*###################################################################################################################
+ * ################## COWIE FUNKTIONEN ##############################################################################
+ ###################################################################################################################*/
+//import Connector = require("../services/connector"); 
+//import connector = require("./App/src/services/connector"); 
+
+// -- CCW AM Änderung am 2.02.2017
+ko.extenders.numericfactor = function (target, factor) {
+
+    var result = ko.computed(function () {
+        var current = target();
+        //var roundingMultiplier = Math.pow(10, precision);
+        var newValueAsNum = isNaN(current) || current === null || typeof (current) === "undefined" ? "NaN" : current;
+
+        if (newValueAsNum !== "NaN") {
+            var Value = newValueAsNum * factor;
+            //var roundedValue = Math.round(Value * roundingMultiplier) / roundingMultiplier;
+            return Value;
+        }
+
+        return newValueAsNum;
+    });
+
+    //return the new computed observable
+    return result;
+};
+
+//Vorkommastellen mit Nullen füllen, CCW AM Änderung am 2.02.2017
+ko.extenders.fillNull = function (target, anzahl) {
+
+    var result = ko.computed(function () {
+        var current = target();
+
+        var newValueAsStr = current === "NaN" || current === null || typeof (current) === "undefined" ? "NaN" : current;
+
+        if ((newValueAsStr !== "NaN") && (anzahl > 0)) {
+
+            newStrArr = newValueAsStr.split(","); //Beim Komma trennen, den Ganzen Nummern-Teil nehmen
+            console.info("NewStrArr2=" + newStrArr[0] + "Länge=" + newStrArr[0].length);
+            while (newStrArr[0].length < anzahl) {
+                newStrArr[0] = '0' + newStrArr[0];
+                console.info("NewStrArr[]=" + newStrArr[0]);
+            }
+            return newStrArr[0] + ',' + newStrArr[1];
+        }
+
+        return newValueAsStr;
+    });
+
+    //return the new computed observable
+    return result;
+};
+
+//CCW AM Änderung am 2.02.2017
+// self.value = self.connector.getSignal('Local Second').value.extend({ccwFormat: "0.00"});
+ko.extenders.ccwFormat = function (target, format) {
+
+    var result = ko.computed(function () {
+        var current = target();
+        var numeralFormat = format || "0.00";
+        // TODO bind to language service
+        //var language = numeral.language("de");
+
+        var newValueAsNum = isNaN(current) || current === null || typeof (current) === "undefined" ? "NaN" : parseFloat(+current);
+
+        if (newValueAsNum !== "NaN") {
+            var num = numeral(newValueAsNum).format(numeralFormat);
+            //console.info("newValueasNum=" + newValueAsNum);
+            var trennzeichen = ",";
+            var str = num.toString();
+            //console.info(str + "/" + num);
+            str = str.split(","); //Beim Punkt trennen, in ein Array transferieren 
+            var len = str.length; //Anzahl Array-Ergebisse
+            var anzahl = numeralFormat.split(".");
+            //console.info("str[0]=" + str[0] + " Trennz=" + trennzeichen);
+            while (str[0].length < anzahl[0].length) {
+                str[0] = "0" + str[0];
+                //console.info("str[]=" + str[0]);
+            }
+            if (len > 1) { //wenn Format-Ergebnis auch eine Kommastelle beinhaltet hat
+                return str[0] + trennzeichen + str[1];
+            } else {
+                return str[0];
+            }
+        }
+        return newValueAsNum;
+    });
+
+    //return the new computed observable
+    return result;
+};
+
+
+//Erstellt am 20.02.2018 amueller
+/*
+Deklaration im WF-Studio mit Byte-Array(8): "DB1.B0,8"
+self.myDateAndTime = self.connector.getSignal('TestDateAndTime').value.extend({
+    ccwFormatS7DateAndTime: "DD.MM.YYYY HH:mm:ss"
+});
+*/
+ko.extenders.ccwFormatS7DateAndTime = function (target, format) {
+    //var zeit = new Date();
+    var varLocale = 'de';
+    var varFormat = ko.unwrap(format || "DD.MM.YYYY HH:mm:ss"); //default-Format oder auch als Übergabe-Parameter 
+    moment.locale(varLocale);
+    var result = ko.computed({
+        read: function () {
+            var valArr = target(); //alles BCD-Codiert: [0]=Jahr; [1]=Monat; [2]=Tag; [3]=Stunde; [4]=Minute; [5]=Sekunde; [6]=MSC(high); [7]=MSC + WTag
+            //console.log("Read");
+            //console.log(valArr);
+            //console.log("Lesen S7 " + zeit.toLocaleString());
+
+            var laenge = (valArr !== null) ? valArr.length : 0;
+
+            var myDate = {};
+            if ((target !== undefined) && (laenge > 6) && (typeof valArr === "object")) { //Überpüfen auf Länge und Typ=Objekt
+                var jahr = parseInt(valArr[0].toString(16)) + 2000; //wandeln in HEX-String
+                var monat = parseInt(valArr[1].toString(16));
+                var tag = parseInt(valArr[2].toString(16));
+                var stunde = parseInt(valArr[3].toString(16));
+                var minute = parseInt(valArr[4].toString(16));
+                var sekunde = parseInt(valArr[5].toString(16));
+                var mSekundeH = parseInt(valArr[6].toString(16));
+                var mSekundeL = parseInt(valArr[7]) % 16; //high-Nibble 
+                var mSekunde = (mSekundeH * 10) + mSekundeL;
+                var wTag = parseInt(valArr[7]) & 0x0F; //Low-Nibble
+
+                myDate = new Date(jahr, monat - 1, tag, stunde, minute, sekunde, mSekunde);
+                //console.log("Lesen S7-2 " + zeit.toLocaleString());
+                //console.log(jahr +"/"+monat+"/"+tag+"/"+stunde+"/"+minute+"/"+sekunde+"/"+mSekunde+"/"+wTag);
+            }
+            return moment(myDate).format(varFormat);
+        },
+
+        write: function (newValue) { //Write funktioniert nicht
+            var current = target(),
+                //valueToWrite = ["24", "2", "3" ,"18" ,"17" ,"15","0","7"];//[24, 2, 3, 18, 17, 16];
+                valueToWrite = [24, 2, 3, 18, 17, 18, 0, 7]; //[24, 2, 3, 18, 17, 16];
+            //console.log("Schreiben");
+            //console.log(current);
+            var values = {};
+
+            //only write if it changed
+            if (valueToWrite !== current) {
+                //target(valueToWrite);  //valueToWrite
+                //console.log("Conn " + connector);
+                values["TestDateAndTime"] = [24, 2, 3, 18, 17, 19, 0, 7];
+                //connector.writeSignals(values);
+                //console.log("Schreiben2");
+
+            } // else {
+            //     //if the rounded value is the same, but a different value was written, force a notification for the current field
+            //     if (newValue !== current) {
+            //         target.notifySubscribers(valueToWrite);
+            //     }
+            // }
+        }
+    }); //.extend({ notify: 'always' })
+
+    //return the new computed observable
+    return result;
+};
+
+
+//Erstellt am 6.07.2018 jSiegbert
+//Update am 2.04.2019 AMueller
+/*
+Deklaration im WF-Studio mit DT-Array(8): "DB1.B0DT"    --> DT für Datentyp DateTime
+self.myDateAndTime = self.connector.getSignal('TestDateAndTime').value.extend({
+    ccwFormatS7DT: "DD.MM.YYYY HH:mm:ss"
+});
+WICHTIG: die Millisekunden müssen mit angegeben werden.
+*/
+ko.extenders.ccwFormatS7DT = function (target, format) {
+    var varLocale = 'de';
+    var varFormat = ko.unwrap(format || "DD.MM.YYYY HH:mm:ss"); //default-Format oder auch als Übergabe-Parameter 
+    moment.locale(varLocale); //Library "Moment" ist global verfügbar
+    var result = ko.computed({
+        read: function () {
+            var valArr = target(); //Softing OPC-Server wandelt direkt in einen String um: '2018-07-06-09:10:12.000'. Achtung auf das Minus vor Stunden, dass muss gelöscht werden
+            // var myDate = '2018-07-06 09:10:12.000';
+            var myDate = '2010-01-01 00:00:00.000';
+            if (!(valArr == null) || !(valArr == undefined)) {
+                var d = valArr.split('-');
+                if (d.length > 0) {
+                    myDate = d[0] + '-' + d[1] + '-' + d[2] + ' ' + d[3]; //Das letzte Minus (vor Stunden) löschen
+                }
+            }
+            return moment(myDate).format(varFormat);
+        }
+    });
+    return result;
+};
+
+//aktueller Wert ist BCD-Codiert und wird hier in Integer zurück gewandelt
+ko.extenders.isBCD = function (target, format) {
+    var result = ko.computed(function () {
+        var current = target();
+        var newValueAsStr = current === "NaN" || current === null || typeof (current) === "undefined" ? "NaN" : current;
+        if ((newValueAsStr !== "NaN")) {
+            var num = newValueAsStr.toString(16);  //wandeln zu BCD/HEX
+            return numeral(num).format(format);
+        }
+        return newValueAsStr;
+    });
+    return result;
+};
+
+//#######################################################################################################################################################
+//Char-ASCII-Array zu einem String zusammensetzen. WF-Variable im Studio muss "__alias.DB20.STRING0.50" benannt werden. Im DB20 einen String ab Byte 0 für 50 Byte Länge. 
+//es kann sein, das ein ASCII-Code über 127 als Minus-Zahl angezeigt wird. Dieses wird korrigiert (wahrscheinlich SPS abhängig)
+//CCW AM Änderung am 23.11.2020
+//Beispiel://self.variable = self.connector.getSignal('TestSTRING0').value.extend({ccwAsciiArrayToString: -1});  //ASCII-Array in ein String konvertieren ; Parameter maxLaenge: -1 bedeutet automaische Länge
+ko.extenders.ccwAsciiArrayToString = function (target, maxLaenge) {
+    var result = ko.computed(function () {
+        var current = target();
+        var newValueAsString = current === null || typeof (current) === "undefined" ? "Convert nicht möglich" : current;
+        var str = "";  //default Ausgabe mit Leerstring
+
+        //max Länge berechnen, -1 bedeutet automatische Länge
+        var len = ((maxLaenge < newValueAsString.length) && (maxLaenge > 0)) ? maxLaenge : newValueAsString.length;
+
+        //String aus den einzelnen ASCII-Zahlen zusammensetzen
+        if ((Array.isArray(newValueAsString)) && (newValueAsString[0] != 0)) {
+            str = "";
+            for (var i = 0; i < len; i++) {
+                if (newValueAsString[i] >= 0) {
+                    if (newValueAsString[i] != 0) str = str + String.fromCharCode(newValueAsString[i]);
+                } else {
+                    var newV = 256 - Math.abs(newValueAsString[i]); //Zahl ist negativ und deshalb von hinten in der ASCII-Tabelle abziehen
+                    if (newValueAsString[i] != 0) str = str + String.fromCharCode(newV);
+                }
+            }
+        }
+        return str;  //Ausgabe ist ein String
+    });
+    //return the new computed observable
+    return result;
+};
+
+//#######################################################################################################################################################
+//Byte-Array zu einem String zusammensetzen. WF-Variable im Studio muss "__alias.DB20.BYTE0.7" benannt werden. Im DB20 einen Array ab Byte 0 für 7 Byte Länge. 
+//CCW AM Änderung am 23.11.2020
+//Beispiel:
+//self.variable = self.connector.getSignal('TestBYTE0').value.extend({ccwArrayToString: -1});  //Byte-Array in ein String konvertieren ; Parameter maxLaenge: -1 bedeutet automaische Länge
+ko.extenders.ccwArrayToString = function (target, maxLaenge) {
+    var result = ko.computed(function () {
+        var current = target();
+        var newValueAsString = current === null || typeof (current) === "undefined" ? "" : current;
+        var str = "";  //default Ausgabe mit Leerstring
+
+        //max Länge berechnen, -1 bedeutet automatische Länge
+        var len = ((maxLaenge < newValueAsString.length) && (maxLaenge > 0)) ? maxLaenge : newValueAsString.length;
+
+        //String aus den einzelnen ASCII-Zahlen zusammensetzen
+        if ((Array.isArray(newValueAsString))) {
+            str = "";
+            for (var i = 0; i < len; i++) {
+                var bcd = newValueAsString[i].toString();
+                var z = ((bcd.length <= 1) && (i >= 1)) ? "0" + bcd : bcd;   //mit "0" auffüllen
+                str = str + z;
+            }
+        }
+        return str;  //Ausgabe ist ein String
+    });
+    //return the new computed observable
+    return result;
+};
+
+//###########################################################################################################################################################
+//aktueller Wert ist ASCII-Codiert und wird hier als Zeichen zurück gewandelt
+ko.extenders.isAscii = function(target) {
+    var result = ko.computed(function() {
+        var current = target();
+        var newValueAsStr = current === "NaN" || current === null || typeof(current) === "undefined" ? "NaN" : current;
+        if ((newValueAsStr !== "NaN")) {
+            var num = parseInt(newValueAsStr);  //wandeln zu BCD/HEX
+            return String.fromCharCode(num);
+
+        }
+        return newValueAsStr;
+    });
+    return result;
+};

@@ -1,0 +1,132 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header" data-bind="css: { 'modal-danger active': alarm().DateOn, 'modal-success gone': alarm().DateOff, 'modal-warning acknowledged': alarm().DateAck }, style: { color: alarm().foreground, background-color: alarm().background }">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <div class="modal-title" data-bind="text: alarm().AlarmTypeSymbolicTextTranslation, style: { color: alarm().foreground }"></div>
+                <!--AlarmTag -->
+            </div>
+            <div class="modal-body">
+                <h3 class="m-b-0">
+                    <span data-bind="text: alarm().AlarmSymbolicTextTranslation, visible: alarm().AlarmSymbolicTextTranslation"></span>
+                </h3>
+                <h5>
+                    {{connector.translate('I4SCADA_Alarm_priority')()}}:
+                    <span data-bind="text: alarm().Priority"></span>
+                </h5>
+
+                <div class="well" data-bind="text: alarm().AlarmComment, visible: alarm().AlarmComment"></div>
+
+                <div class="row">
+                    <div class="col-sm-6 timestamp-box" data-bind="visible: alarm().DateOn">
+                        <span class="label-timestamp">
+                            <i class="wf wf-megaphone"></i>
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Occurred' }"></span>
+                        </span>
+                        <span class="timestamp inline" data-bind="formattedDate: { value: alarm().DateOn, format: dateTimeFormat }"></span>
+                    </div>
+                    <div class="col-sm-6 timestamp-box" data-bind="visible: alarm().DateAck">
+                        <span class="label-timestamp">
+                            <i class="wf wf-eye"></i>
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Confirmed' }"></span>
+                        </span>
+                        <span class="timestamp inline" data-bind="formattedDate: { value: alarm().DateAck, format: dateTimeFormat }"></span>
+                    </div>
+                    <div class="col-sm-6 timestamp-box" data-bind="visible: alarm().DateOff">
+                        <span class="label-timestamp">
+                            <i class="wf wf-service"></i>
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Gone' }"></span>
+                        </span>
+                        <span class="timestamp inline" data-bind="formattedDate: { value: alarm().DateOff, format: dateTimeFormat }"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6" data-bind="visible: alarm().AlarmGroupSymbolicTextTranslation">
+                        <span class="label-title">
+                            <i class="wf wf wf-folder"></i>
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Group' }"></span>
+                        </span>
+                        <span data-bind="text: alarm().AlarmGroupSymbolicTextTranslation"></span>
+                    </div>
+
+                    <div class="col-xs-6" data-bind="visible: alarm().AlarmTypeSymbolicTextTranslation">
+                        <span class="label-title" data-bind="visible: alarm().AlarmTypeSymbolicTextTranslation">
+                            <i class="wf wf-label"></i>
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Type' }"></span>
+                        </span>
+                        <span data-bind="text: alarm().AlarmTypeSymbolicTextTranslation"></span>
+                    </div>
+                </div>
+
+                <div class="wf-callout-box wf-callout-box-info" data-bind="visible: alarm().HelpCause">
+                    <h4 class="wf-callout-box-title"><span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Reason' }"></span></h4>
+                    <p data-bind="text: alarm().HelpCause, visible: alarm().HelpCause"></p>
+                </div>
+
+                <div class="wf-callout-box wf-callout-box-warning" data-bind="visible: alarm().HelpEffect">
+                    <h4 class="wf-callout-box-title"><span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Impact' }"></span></h4>
+                    <p data-bind="text: alarm().HelpEffect, visible: alarm().HelpEffect"></p>
+                </div>
+
+                <div class="wf-callout-box wf-callout-box-success" data-bind="visible: alarm().HelpRepair">
+                    <h4 class="wf-callout-box-title"><span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Rectification' }"></span></h4>
+                    <p data-bind="text: alarm().HelpRepair, visible: alarm().HelpRepair"></p>
+                </div>
+
+                <!-- ko if: alarm().AckText || (!alarm().DateAck && onlineAlarmsMode === true) -->
+                <div class="row m-t-md">
+                    <div class="col-xs-12">
+                        <span class="label-title">
+                            <span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Acknowledge_Comment' }"></span>
+                        </span>
+                        <!-- ko if: alarm().AckText -->
+                        <div class="wf-callout-box wf-callout-box-default">
+                            <i class="wf-callout-box-icon wf-lg wf-callout text-info"></i>
+                            <h4 class="wf-callout-box-title">
+                                <span data-bind="text: alarm().AckText"></span>
+                            </h4>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko if: !alarm().DateAck && onlineAlarmsMode === true -->
+                        <input data-bind="textInput: commentAckAlarm" class="form-control" />
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <!-- /ko -->
+
+                <div class="row m-t-md">
+                    <div class="col-xs-12">
+                        <!-- ko if: alarm().AlarmLinkURL -->
+                        <a class="btn btn-primary" href="#" data-bind="attr: { href: alarm().AlarmLinkURL }, target: linkTarget" title="{{connector.translate('I4SCADA_Additional_alarm_URL')()}}">
+                            <i class="wf wf wf-link"></i>
+                            <span>{{connector.translate('I4SCADA_Alarm_URL')()}}</span>
+                        </a>
+                        <!-- /ko -->
+                        <!-- ko if: alarm().NavigationSource -->
+                        <a class="btn btn-primary" href="#" data-bind="attr: { href: alarm().NavigationSource }, target: linkTarget" title="{{connector.translate('I4SCADA_Navigation_Source')()}}">
+                            <i class="wf wf-arrow-redo"></i>
+                            <span>{{connector.translate('I4SCADA_Navigation_Source')()}}</span>
+                        </a>
+                        <!-- /ko -->
+                        <!-- ko if: alarm().NavigationTarget -->
+                        <a class="btn btn-primary" href="#" data-bind="attr: { href: alarm().NavigationTarget }, target: linkTarget" title="{{connector.translate('I4SCADA_Navigation_Target')()}}">
+                            <i class="wf wf-arrow"></i>
+                            <span>{{connector.translate('I4SCADA_Navigation_Target')()}}</span>
+                        </a>
+                        <!-- /ko -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <!-- ko if: !alarm().DateAck && onlineAlarmsMode === true -->
+                <wf-alarm-group-ack-button params="groupName: alarm().AlarmGroupSymbolicText,comment: commentAckAlarm, callback: function() { close();}"></wf-alarm-group-ack-button>
+                <div class="inline-block" data-bind="wfAckAlarmButton: {alarmId: alarmId, ackComment: commentAckAlarm}"></div>
+                <!-- /ko -->
+                <button class="btn btn-default inline-block" data-dismiss="modal" aria-hidden="true" data-bind="click: close"><span data-bind="wfSymbolicText: { symbolicText: 'I4SCADA_Close' }"></span></button>
+            </div>
+        </div>
+    </div>
+</div>

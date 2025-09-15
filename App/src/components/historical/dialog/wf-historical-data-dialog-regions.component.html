@@ -1,0 +1,171 @@
+<!-- ko if: isVisible()-->
+<button type="button" data-bind="disable: isDisabled() || isLoading(), css: css, click: onClicked"
+    title="{{connector.translate('I4SCADA_Regions_dialog')()}}">
+    <span class="wf wf-dashboard"></span>
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Regions_dialog')()}}
+    <!--/ko-->
+</button>
+<!-- /ko -->
+
+<span data-bind="attr: { id: 'modal-dialog-back-container-' + id() }">
+    <div class="modal fade wf-panel-dialog wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: dialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-lg modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: onClose">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Regions_dialog')()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-body wf-panel-settings">
+                    <div class="row">
+                        <div class="overflow-y-scroll">
+                            <div class="col-md-5">
+                                <h4>{{connector.translate('I4SCADA_Regions')()}}</h4>
+                                <div class="wf-historical-regions-wrapper">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px">{{connector.translate('I4SCADA_Color')()}}</th>
+                                                <th>{{connector.translate('I4SCADA_Name')()}}</th>
+                                                <th>{{connector.translate('I4SCADA_Axis')()}}</th>
+                                                <th style="width: 34px">
+                                                    <button type="button" class="btn btn-success btn-xs"
+                                                            title="{{connector.translate('I4SCADA_Add')()}}" data-bind="click: onAdd">
+                                                        <span class="wf wf-add"></span>
+                                                    </button>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- ko foreach: items-->
+                                            <tr class="clickable"
+                                                data-bind="click: $parent.onSelected, css:{'selected': $data === $parent.item() }">
+                                                <td>
+                                                    <span
+                                                        style="display: inline-block; height: 21px; width: 21px; border-radius: 50%;"
+                                                        data-bind="style:{backgroundColor:color}"></span>
+                                                </td>
+                                                <td>{{name}}</td>
+                                                <td>{{axis}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-xs btn-danger"
+                                                        data-bind="click: $parent.onDelete"
+                                                        title="{{ $parent.connector.translate('I4SCADA_Delete')()}}">
+                                                        <span class="wf wf-bin"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <!--/ko-->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-md-7">
+                                <h4>{{connector.translate('I4SCADA_Regions_configuration')()}}</h4>
+                                <!-- ko if: item -->
+                                <!-- ko with: item -->   
+                                <div class="form">
+                                    <wf-historical-data-input
+                                        params="value: name, type: 'text', symbolicText: 'I4SCADA_Name'">
+                                    </wf-historical-data-input>
+
+                                    <div class="form-group">
+                                        <label for="axis">{{$parent.connector.translate('I4SCADA_Axis')()}}</label>
+                                        <div class="relative">
+                                            <select class="form-control" id="axis" data-bind="options: $parent.axes,
+                                            optionsText: 'name',
+                                            optionsValue:'name',
+                                            value: axis">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="start">{{$parent.connector.translate('I4SCADA_Start')()}}</label>
+                                        <div class="form-group row">
+                                            <div class="col-xs-4">
+                                                <select class="form-control" data-bind="value: startType">
+                                                    <option value="0">{{$parent.connector.translate('I4SCADA_Value')()}}
+                                                    </option>
+                                                    <option value="1">
+                                                        {{$parent.connector.translate('I4SCADA_Signal')()}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <!--ko if: startType()=='0'-->
+                                                <div class="relative">
+                                                    <input type="text" class="form-control" id="start"
+                                                        data-bind="value:start">
+                                                </div>
+                                                <!--/ko-->
+                                                <!--ko if: startType()=='1'-->
+                                                <wf-historical-data-signal-selector params="value:start">
+                                                </wf-historical-data-signal-selector>
+                                                <!--/ko-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="end">{{$parent.connector.translate('I4SCADA_End')()}}</label>
+                                        <div class="form-group row">
+                                            <div class="col-xs-4">
+                                                <select class="form-control" data-bind="value: endType">
+                                                    <option value="0">{{$parent.connector.translate('I4SCADA_Value')()}}
+                                                    </option>
+                                                    <option value="1">
+                                                        {{$parent.connector.translate('I4SCADA_Signal')()}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <!--ko if: endType()=='0'-->
+                                                <div class="relative">
+                                                    <input type="text" class="form-control" id="end"
+                                                        data-bind="value:end">
+                                                </div>
+                                                <!--/ko-->
+                                                <!--ko if: endType()=='1'-->
+                                                <wf-historical-data-signal-selector params="value:end">
+                                                </wf-historical-data-signal-selector>
+                                                <!--/ko-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <wf-historical-data-color-picker
+                                        params="color: color, symbolicText: 'I4SCADA_Color'">
+                                    </wf-historical-data-color-picker>
+
+                                </div>                     
+                                <!--/ko-->
+                                <!--/ko-->
+                                <!-- ko ifnot: item -->
+                                <div class="wf-historical-dialog-no-content-box"></div>
+                                <!--/ko-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-primary" data-bind="click: onDialog, disable: errors().length">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: onClose">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>

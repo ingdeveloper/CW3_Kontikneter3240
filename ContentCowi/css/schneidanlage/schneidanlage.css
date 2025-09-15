@@ -1,0 +1,256 @@
+.sa-Rahmen1 {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.sa-Rahmen2 {
+    border: 2px #a0a0a0 solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.sa-Rahmen10 {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    border: 0px solid #A9A9A9;
+}
+
+.sa-Rahmen10:hover {
+    cursor: pointer;
+    border: 3px solid #A9A9A9;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+}
+
+.sa-statusBox {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sa-AnzRef {
+    width: 50px;
+    vertical-align: middle;
+    padding: 0px 12px 0px 12px;
+    border: 2px #a0a0a0 solid;
+    border-radius: 50px;
+}
+
+.sa-td-text {
+    width: 70%;
+    text-align: left;
+    padding-left: 4px !important;
+}
+
+.sa-td-text-werte {
+    font-size: 14px;
+}
+
+.sa-td-text-werte-dialog {
+    font-size: 14px;
+}
+
+.sa-td-text-istwert {
+    background-color: #eaeaea !important;
+}
+
+.sa-td-istwert {
+    background-color: #eaeaea !important;
+}
+
+.sa-td-wert {
+    background-color: #eaeaea !important;
+    width: 30%;
+    text-align: right;
+    padding-right: 4px !important;
+}
+
+.sa-td-status {
+    width: 30%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sa-titelleiste {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#f9a938, #ffff00) !important;
+}
+
+.sa-ref-nOk {
+    color: #ffffff !important;
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.sa-ref-Ok {
+    color: #000000 !important;
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sa-fStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sa-fStatus-frosten {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sa-fStatus-lagern {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.sa-fStatus-reinigen {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.sa-vStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sa-vStatus-frosten {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.sa-vStatus-abtauen {
+    background: linear-gradient(#ffd9c0, #ffd900) !important;
+}
+
+.sa-status-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sa-status-ein {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sa-statusBelegung-frei {
+    background: linear-gradient(#a0a0a0, #707070) !important;
+}
+
+.sa-statusBelegung-belegt {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sa-status-wartung {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.sa-text-60deg {
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+.sa-schrittNr {
+    padding: 0px 1px !important;
+    border: 2px solid #c6c6c6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 15px !important;
+    margin-right: auto !important;
+    float: left;
+    width: 24px;
+    text-align: center;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.sa-sollzeit {
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.sa-istzeit {
+    padding-right: 4px !important;
+    background-color: #eaeaea !important;
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.sa-btn-frosten {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0px !important;
+}
+
+.sa-buttonWartung {
+    background: linear-gradient(#902090, #700070) !important;
+    color: #ffffff !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.sa-buttonWartung:hover {
+    opacity: 1 !important;
+}
+
+.sa-buttonWartung:active {
+    background: linear-gradient(#700070, #500050) !important;
+}
+
+.sa-buttonWartungAktiv {
+    background: linear-gradient(#efefc0, #efef00) !important;
+    color: #000000 !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.sa-buttonWartungAktiv:hover {
+    opacity: 1 !important;
+}
+
+.sa-buttonWartungAktiv:active {
+    background: linear-gradient(#ffff00, #c0c000) !important;
+}
+
+.sa-belegBox {
+    border: 1px solid #404040;
+    border-radius: 50px;
+}
+
+.sa-buttonSchoko {
+    background: linear-gradient(#c09050, #906020) !important;
+    color: #ffffff !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.sa-buttonSchoko:hover {
+    opacity: 1 !important;
+}
+
+.sa-buttonSchoko:active {
+    background: linear-gradient(#906020, #603000) !important;
+}

@@ -1,0 +1,15 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+    <!-- ko if: isVisible()-->
+    <div class="wf-signal-information-popover flexbox flexbox-v-center relative">
+        <div class="wf-signal-information-popover-icon m-r-sm" data-bind="css: iconClass, visible: iconClass"></div>
+        <div>
+            <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+        </div>
+        <div class="wf-signal-information-popover-label"> {{ connector.translate(label)()}} </div>
+        <wf-popover class="stretched clickable" params="viewName:'signal-information', viewModel: {popoverContent: popoverContent}, headerCssClass: headerCssClass, title:title, container: 'body',
+                contentCssClass: '', visibilitySignalName: settings.visibilitySignalName, visibilitySignalValue: settings.visibilitySignalValue, visibilityOperator: settings.visibilityOperator,
+                enableSignalName: settings.enableSignalName, enableSignalValue: settings.enableSignalValue, enableOperator: settings.enableOperator, position:position">
+        </wf-popover>
+    </div>
+    <!--/ko-->
+<!--/ko-->

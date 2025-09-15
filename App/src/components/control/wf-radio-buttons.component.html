@@ -1,0 +1,27 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<!-- ko foreach: options-->
+<!-- ko if: $parent.showInline -->
+<label class="radio-inline" data-bind="css: {'disabled': $parent.isDisabled}">
+    <input type="radio" data-bind="disable: $parent.isDisabled, attr : { 'name' : $parent.groupName}, value: $data.signalValue, checked: $parent.checkedValue" />
+    <span data-bind="text: $data.text, css:  $parent.isBuffered() && $parent.checkedValue() === $data.signalValue ? $parent.isBufferedClass: $data.textClass"></span>
+</label>
+<!-- /ko -->
+<!-- ko ifnot: $parent.showInline -->
+<div class="radio" data-bind="css: {'disabled': $parent.isDisabled}">
+    <label data-bind="css: {'disabled': $parent.isDisabled}">
+        <input type="radio" data-bind="disable: $parent.isDisabled, attr : { 'name' : $parent.groupName}, value: $data.signalValue, checked: $parent.checkedValue" />
+        <span data-bind="text: $data.text, css:  $parent.isBuffered() && $parent.checkedValue() === $data.signalValue ? $parent.isBufferedClass: $data.textClass"></span>
+    </label>
+</div>
+<!-- /ko -->
+<!-- /ko -->
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                                   signalNames: [signalName],
+                                   signalValues: writeSecureValues,
+                                   cancelCalback: function() { setCurrentSignalValue(); },
+                                   draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->

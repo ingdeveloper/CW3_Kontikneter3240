@@ -1,0 +1,10 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if:hasAuthorization -->
+<div class="stretched" data-bind="css: {'wf-enabled-container': !isDisabled(),'wf-disabled-container': isDisabled()}">
+    <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->
+    <!-- ko if: isDisabled() -->
+    <div class="wf-overlay stretched" data-bind="style: {backgroundColor: disableOverlayColor}" style="z-index: 100"></div>
+    <!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- /ko -->

@@ -1,0 +1,103 @@
+.sf-statusBelegung-frei {
+    background: linear-gradient(#a0a0a0, #404040) !important;
+}
+
+.sf-statusBelegung-belegt {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sf-statusBelegung-links {
+    background: linear-gradient(#ffffd0, #ffff00) !important;
+}
+
+.sf-statusBelegung-rechts {
+    background: linear-gradient(#30a0ff, #0070ff) !important;
+}
+
+.sf-statusBelegung-Res1 {
+    background: linear-gradient(#30b030, #008000) !important;
+}
+
+.sf-statusBelegung-Res2 {
+    background: linear-gradient(#c09050, #906020) !important;
+}
+
+.sf-statusBelegung-Eisbrecher {
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.sf-statusBelegung-2Wahl {
+    background: linear-gradient(#ffc0ff, #ff00ff) !important;
+}
+
+.sf-feldStyle {
+    border: 2px solid #404040;
+    border-radius: 50px;
+    position: absolute;
+    width: 40px;
+    height: 12px;
+}
+
+.sf-feld01 {
+    left: 0px;
+}
+
+.sf-feld02 {
+    left: 40px;
+}
+
+.sf-feld03 {
+    left: 80px;
+}
+
+.sf-feld04 {
+    left: 120px;
+}
+
+.sf-feld05 {
+    left: 160px;
+}
+
+.sf-feld06 {
+    left: 200px;
+}
+
+.sf-feld07 {
+    left: 240px;
+}
+
+.sf-feld08 {
+    left: 280px;
+}
+
+.sf-feld09 {
+    left: 320px;
+}
+
+.sf-feld10 {
+    left: 360px;
+}
+
+.sf-feld11 {
+    left: 400px;
+}
+
+.sf-feld12 {
+    left: 440px;
+}
+
+.sf-feld13 {
+    left: 480px;
+}
+
+.sf-feld14 {
+    left: 520px;
+}
+
+.sf-feld15 {
+    left: 560px;
+}
+
+.sf-feld16 {
+    left: 600px;
+}

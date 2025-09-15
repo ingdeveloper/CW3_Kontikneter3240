@@ -1,0 +1,78 @@
+
+.ccw-bar-component {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.ccw-bar {
+    position: relative;
+    display: inline-block !important;
+    border: 1px solid black;
+    border-radius: 4px 4px;
+    background: lightgray;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 0 4px #888;
+}
+
+.ccw-bar-rect {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    border: 0px solid black;
+    border-radius: 4px 4px;
+    background: lime;
+    width: 100%;
+    text-align: center;
+    color: black;
+    /* text-shadow: 1px 1px 0 black; */
+    /* box-shadow: 4px 0 8px #888; */
+}
+
+.ccw-barlabel {
+    position: absolute;
+    border-top: 2px solid black;
+    background: #888;
+    bottom: 0;
+    width: 100%;
+    text-shadow: 1px 1px 0px black;
+    color: white;
+}
+
+.ccw-bar-max {
+    /* display: initial; */
+    position: absolute;
+    /* margin-top: 1px; */
+    /* margin-bottom: auto; */
+    margin-left: 3px;
+    top: 3px;
+}
+.ccw-bar-null {
+    display: block;
+    position: absolute;
+    margin-left: 0px;
+    /* margin-bottom: 20px; */
+    /* margin-top: auto; */
+    width: 100%;
+}
+
+.ccw-bar-null .ccw-bar-nulllinie{
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-image: linear-gradient(to right, #9a9d9e 50%, transparent 50%);
+    background-position: 0 50%;
+    background-repeat: repeat-x;
+    background-size: 1em 2px;
+    min-height: 3px;
+}
+
+.ccw-bar-min {
+    display: initial;
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+}
+

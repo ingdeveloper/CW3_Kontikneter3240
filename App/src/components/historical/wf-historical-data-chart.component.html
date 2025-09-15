@@ -1,0 +1,85 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+
+<div class="wf-historical-data-chart">
+    <div class="wf-chart wf-panel panel" data-bind="css: panelBarCssClass">
+        <!-- ko if: panelVisibility -->
+        <div class="panel-heading" style="height: 41px;">
+            <!-- ko if: configurationButtonPosition === 'TopRight'-->
+            <div class="pull-right wf-panel-toolbar">
+                <wf-historical-data-toolbox class="inline-block"
+                    params="groupName: groupName, controlName: controlName, buttons: dataToolboxButtons, showLabels: dataToolboxShowLabels, css: buttonBarCssClass">
+                </wf-historical-data-toolbox>
+                <div class="inline-block m-x-sm"></div>
+                <wf-historical-data-dialog-toolbox class="inline-block"
+                    params="groupName: groupName, controlName: controlName, buttons: dialogToolboxButtons, showLabels: dialogToolboxShowLabels, css: buttonBarCssClass">
+                </wf-historical-data-dialog-toolbox>
+            </div>
+            <!-- /ko-->
+            <h3 class="panel-title overflow-x-ellipsis p-r-md">
+                <span>{{connector.translate(title)()}}</span>
+                <!--ko if:showDateTimeTooltip-->
+                <i class="wf wf-info wf-1x"
+                    data-bind="tooltip: { title: moment(startTooltip()).format(dateTimeTooltipFormat) + ' - '+ moment(endTooltip()).format(dateTimeTooltipFormat) , container: 'body'}"></i>
+                <!-- /ko -->
+                <!--ko ifnot:showDateTimeTooltip-->
+                <span class="badge label-default">
+                    <span data-bind="formattedDate: { value: startTooltip, format: dateTimeTooltipFormat }"></span>
+                    -
+                    <span data-bind="formattedDate: { value: endTooltip, format: dateTimeTooltipFormat }"></span>
+                </span>
+                <!-- /ko -->
+            </h3>
+        </div>
+        <!--/ko-->
+        <div class="panel-body p-b-0">
+            <div class="relative">
+                <div data-bind="attr: { id: 'wf-historical-data-chart-' + id()}, style:{ height:height }"></div>
+                <!-- ko if: isLoading() || chartLoading() -->
+                <div class="stretched" style="background-color: white">
+                    <div class="spinner" style="top: calc(50% - 2.5em);">{{connector.translate('I4SCADA_Loading...')()}}
+                    </div>
+                </div>
+                <!--/ko-->
+
+                <!-- ko if: !hasData() || !hasTags()-->
+                <div class="stretched" style="background-color: white"></div>
+                <!--/ko-->
+
+                <!-- ko ifnot: hasData() || isLoading() || chartLoading()-->
+                <div class="alert alert-info animated fadeIn text-center m-a-md absolute"
+                    style="display: none; left: 0; top: 0; width: calc(100% - 30px);" data-bind="visible: true">
+                    <i class="wf wf-alert-o"></i>
+                    {{ connector.translate('I4SCADA_No_data_available') }}
+                </div>
+                <!--/ko-->
+                <!-- ko ifnot: hasTags() || isLoading() || chartLoading() -->
+                <div class="alert alert-info animated fadeIn text-center m-a-md absolute"
+                    style="display: none; left: 0; top: 0; width: calc(100% - 30px);" data-bind="visible: true">
+                    <i class="wf wf-alert-o"></i>
+                    {{ connector.translate('I4SCADA_No_log_tags_selected')() }}
+                </div>
+                <!--/ko-->
+
+            </div>
+        </div>
+
+        <!-- ko if: configurationButtonPosition === 'BottomRight'-->
+        <!-- ko if: panelVisibility -->
+        <div class="panel-footer" style="height: 41px;">
+            <div class="pull-right wf-panel-toolbar">
+                <wf-historical-data-toolbox class="inline-block"
+                    params="groupName: groupName, controlName: controlName, buttons: dataToolboxButtons, showLabels: dataToolboxShowLabels">
+                </wf-historical-data-toolbox>
+                <div class="inline-block m-x-sm"></div>
+                <wf-historical-data-dialog-toolbox class="inline-block"
+                    params="groupName: groupName, controlName: controlName, buttons: dialogToolboxButtons, showLabels: dialogToolboxShowLabels">
+                </wf-historical-data-dialog-toolbox>
+            </div>
+        </div>
+        <!-- /ko-->
+        <!-- /ko-->
+    </div>
+</div>
+<!-- /ko-->
+<!-- /ko-->

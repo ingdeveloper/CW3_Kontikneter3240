@@ -1,0 +1,405 @@
+﻿<div class="modal">
+    <div class="modal-dialog modal-top modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-bind="css: waaageCSS">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">
+                            <span class="wf-lg wf-service">
+                                <span data-bind="text: 'Parameter:&nbsp;' + waaageNr + '&nbsp;-&nbsp;' + komponente">
+                                </span>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"
+                            data-bind="click: close">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="ccw-panel ccw-panel-default">
+                    <div class="ccw-panel-heading">
+                        <ul class="nav ccw-nav-tabs">
+                            <li>
+                                <a id="speicher_1" href="#speicher1" data-toggle="tab">Komponente 1</a>
+                            </li>
+                            <li>
+                                <a id="speicher_2" href="#speicher2" data-toggle="tab">Komponente 2</a>
+                            </li>
+                            <li>
+                                <a id="speicher_3" href="#speicher3" data-toggle="tab">Komponente 3</a>
+                            </li>
+                            <li>
+                                <a id="speicher_4" href="#speicher4" data-toggle="tab">Komponente 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane active" id="speicher1">
+                            <table class="table table-striped table-condensed table-hover"
+                                style="margin-left:auto;margin-right:auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80%; font-size: 10px">
+                                            <span>Beschreibung</span>
+                                        </th>
+                                        <th style="width:20%; font-size: 10px">
+                                            <span>Sollwert</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Fördermenge PC-Wert</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_1, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximale Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_2, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_3, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>minimaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_4, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Verstärkung P</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_5, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Nachstellzeit T<sub>N</sub></strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_6, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Stellgrößeneinfluß</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal1_7, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="speicher2">
+                            <table class="table table-striped table-condensed table-hover"
+                                style="margin-left:auto;margin-right:auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80%; font-size: 10px">
+                                            <span>Beschreibung</span>
+                                        </th>
+                                        <th style="width:20%; font-size: 10px">
+                                            <span>Sollwert</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Fördermenge PC-Wert</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_1, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximale Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_2, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_3, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>minimaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_4, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Verstärkung P</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_5, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Nachstellzeit T<sub>N</sub></strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_6, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Stellgrößeneinfluß</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal2_7, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="speicher3">
+                            <table class="table table-striped table-condensed table-hover"
+                                style="margin-left:auto;margin-right:auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80%; font-size: 10px">
+                                            <span>Beschreibung</span>
+                                        </th>
+                                        <th style="width:20%; font-size: 10px">
+                                            <span>Sollwert</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Fördermenge PC-Wert</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_1, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximale Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_2, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_3, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>minimaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_4, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Verstärkung P</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_5, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Nachstellzeit T<sub>N</sub></strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_6, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Stellgrößeneinfluß</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal3_7, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="speicher4">
+                            <table class="table table-striped table-condensed table-hover"
+                                style="margin-left:auto;margin-right:auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80%; font-size: 10px">
+                                            <span>Beschreibung</span>
+                                        </th>
+                                        <th style="width:20%; font-size: 10px">
+                                            <span>Sollwert</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Fördermenge PC-Wert</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_1, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximale Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_2, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>maximaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_3, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>minimaler Grenzwert für max. Fördermenge</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_4, staticUnitText: 'kg/h', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Verstärkung P</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_5, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Nachstellzeit T<sub>N</sub></strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_6, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            <strong>Stellgrößeneinfluß</strong>
+                                        </td>
+                                        <td>
+                                            <ccw-wf-input-tastatur-2
+                                                params="signalName: signal4_7, staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()">
+                                            </ccw-wf-input-tastatur-2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <wf-buffer-button class="inline" data-bind="css: sendBtnCss"
+                    params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'">
+                </wf-buffer-button>
+                <wf-buffer-button class="inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+                </wf-buffer-button>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <header>
+        <h1 class="page-header">WEBfactory HTML/JS Tutorial - Laden von historischen Daten (LogTags)</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 class="page-header">Change Signalname and Logtag</h4>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default" data-bind="click: function() { changeSignal('MachineOP','LogTagMachOP'); }">MachineOP / LogTagMachOP</button>
+                <button class="btn btn-sm btn-default" data-bind="click: function() { changeSignal('Temperature 1','LogTagTemp1_10sec'); }">Temperature 1 / LogTagTemp1_10sec</button>
+                <button class="btn btn-sm btn-default" data-bind="click: function() { changeSignal('Temperature 1','LogTagTemp1_10sec'); }">Temperature 1 / LogTagTemp1_10sec</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 class="page-header">Settings</h4>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <h5>Signal name 1 / LogTag name 1</h5>
+            <span class="label label-info" data-bind="text: signalName1() + ' / ' + logTagName1()"></span>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <h5>Signal name 2 / LogTag name 2</h5>
+            <span class="label label-info" data-bind="text: signalName2() + ' / ' + logTagName2()"></span>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <h5>Startdate:</h5>
+            <div class="label label-info" data-bind="text: startDate"></div>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <h5>Enddate:</h5>
+            <div class="label label-info" data-bind="text: endDate"></div>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <h5>Max. number of values:</h5>
+            <div class="label label-info" data-bind="text: maxResults"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+
+            <h2 class="page-header">
+                <span class="label label-success">STEP 1</span>
+                Signal definition for
+                <span data-bind="text: signalName1"></span> and
+                <span data-bind="text: signalName2"></span>
+            </h2>
+            <pre data-bind="text: ko.toJSON(signalDefinitions(), null, 2)"></pre>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <h2 class="page-header">
+                <span class="label label-success">STEP 2</span>
+                Get the ID of the LogTag
+            </h2>
+            <h4>logTag 1</h4>
+            <pre data-bind="text: ko.toJSON(logTag1(), null, 2)"></pre>
+            <h4>logTag 2</h4>
+            <pre data-bind="text: ko.toJSON(logTag2(), null, 2)"></pre>
+            <h4>logIds</h4>
+            <pre data-bind="text: ko.toJSON(logIds(), null, 2)"></pre>
+
+            <h2 class="page-header">
+                <span class="label label-success">STEP 3</span>
+                Get LogTag values
+            </h2>
+
+            <h4>logValues</h4>
+            <pre data-bind="text: ko.toJSON(logValues(), null, 2)"></pre>
+        </div>
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <span class="label label-success">STEP 4</span>
+                Formating log data in required format
+            </h2>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <h4>values 1</h4>
+            <pre data-bind="text: ko.toJSON(values1(), null, 2)"></pre>
+
+            <h4>timeStamps 1</h4>
+            <pre data-bind="text: ko.toJSON(timeStamps1(), null, 2)"></pre>
+        </div>
+        <div class="col-xs-12 col-sm-1" style="height: 200px;">
+            <i class="wf-3x wf-lg wf-converge text-success" style="position: absolute; bottom: 0; left: 50%; margin-left: -21px;"></i>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h4>valuesArray 1</h4>
+            <pre data-bind="text: ko.toJSON(valuesArray1(), null, 2)"></pre>
+        </div>
+        <div class="col-xs-12"></div>
+        <div class="col-xs-12 col-sm-4">
+            <h4>values 2</h4>
+            <pre data-bind="text: ko.toJSON(values2(), null, 2)"></pre>
+
+            <h4>timeStamps 2</h4>
+            <pre data-bind="text: ko.toJSON(timeStamps2(), null, 2)"></pre>
+        </div>
+        <div class="col-xs-12 col-sm-1" style="height: 200px;">
+            <i class="wf-3x wf-lg wf-converge text-success" style="position: absolute; bottom: 0; left: 50%; margin-left: -21px;"></i>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h4>valuesArray 2</h4>
+            <pre data-bind="text: ko.toJSON(valuesArray2(), null, 2)"></pre>
+        </div>
+    </div>
+</div>

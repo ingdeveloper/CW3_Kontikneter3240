@@ -1,0 +1,14 @@
+<!-- ko if: isVisible()-->
+<button type="button" data-bind="disable: isDisabled() || isLoading() || isDownloading(), css: css, click: onClicked"
+    title="{{connector.translate('I4SCADA_Export')()}}">
+    <!-- ko if: isDownloading-->
+    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: isDownloading-->
+    <span class="wf wf-download"></span>
+    <!-- /ko -->
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Export')()}}
+    <!--/ko-->
+</button>
+<!-- /ko -->

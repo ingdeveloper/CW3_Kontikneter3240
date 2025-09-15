@@ -1,0 +1,29 @@
+﻿<div class="temp-popover-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <wf-bargraph class="relative block m-b" params="signalName: signalNameBarGraph1, titleText: 'IST [°C]', minRange: 10, maxRange: 40, cssClass: 'progress-bar-danger', progressBarSize: 'progress-sm'"></wf-bargraph>
+            <wf-bargraph class="relative block m-b" params="signalName: signalNameBarGraph2, titleText: 'SOLL [°C]', minRange: 10, maxRange: 40, cssClass: 'progress-bar-danger', progressBarSize: 'progress-sm', showTickLabels: true"></wf-bargraph>
+        </div>
+        <div class="col-xs-12">
+            <wf-switch params="signalName: 'OperationMode3', 
+                          onValue: 1, 
+                          offValue: 0,
+                          onLabelText: 'Automatik',
+                          offLabelText: 'Manuell',
+                          onIconClass: 'wf wf-temperature',
+                          offIconClass: 'wf wf-hand',
+                          activeCssClass: 'btn-danger'">
+            </wf-switch>
+        </div>
+
+        <div class="col-xs-12">
+            <wf-slider class="block m-x m-t-lg m-b-md" params="signalName: signalNameBarGraph2, showTickLabels: true, cssClass: 'slider-danger fadeIn animated ', minRange: 10, maxRange: 40, majorTicks: 7, visibilitySignalName: 'OperationMode3', visibilitySignalValue: 0">
+                <label class="block text-center">
+                    <i class="wf wf-temperature"></i>
+                    Wunschtemperatur [°C]
+                </label>
+            </wf-slider>
+            <!-- <wf-input params="signalName: signalNameBarGraph2, iconClass: 'wf wf-thermometer'"></wf-input> -->
+        </div>
+    </div>
+</div>

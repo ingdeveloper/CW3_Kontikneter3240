@@ -1,0 +1,76 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+
+<!-- ko if: displayMode === 0-->
+<table class="table">
+    <thead>
+        <tr>
+            <!-- ko foreach: fields-->
+            <th>{{$parent.connector.translate('I4SCADA_'+$data)()}}</th>
+            <!--/ko-->
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: series-->
+        <tr>
+            <!-- ko foreach: $parent.fields-->
+            <!-- ko if: $parents[1].isDynamicField($data) -->
+            <td>
+                <wf-value
+                    params="signalName:$parents[1].getDynamicFieldSignalName($data, $parent), isDateTime: $data === 'LastTimestamp'">
+                </wf-value>
+            </td>
+            <!--/ko-->
+            <!-- ko if: $parents[1].isStaticField($data) -->
+            <td>{{$parents[1].getStaticFieldValue($data, $parent.name)}}</td>
+            <!--/ko-->
+            <!--/ko-->
+        </tr>
+        <!--/ko-->
+    </tbody>
+</table>
+<!--/ko-->
+<!-- ko if: displayMode === 1-->
+<table class="table">
+    <tbody>
+        <!-- ko foreach: fields-->
+        <tr>
+            <td>{{$parent.connector.translate('I4SCADA_'+$data)()}}</td>
+            <!-- ko foreach: $parent.series-->
+            <!-- ko if: $parents[1].isDynamicField($parent) -->
+            <td>
+                <wf-value
+                    params="signalName:$parents[1].getDynamicFieldSignalName($parent, $data), isDateTime: $parent === 'LastTimestamp'">
+                </wf-value>
+            </td>
+            <!--/ko-->
+            <!-- ko if: $parents[1].isStaticField($parent) -->
+            <td>{{$parents[1].getStaticFieldValue($parent, name)}}</td>
+            <!--/ko-->
+            <!--/ko-->
+        </tr>
+        <!--/ko-->
+    </tbody>
+</table>
+<!--/ko-->
+<!-- ko if: displayMode === 2-->
+<!-- ko foreach: series-->
+<div>
+    <!-- ko foreach: $parent.fields-->
+    <!-- ko if: $parents[1].isDynamicField($data) -->
+    <div>
+        <wf-value
+            params="signalName:$parents[1].getDynamicFieldSignalName($data, $parent), isDateTime: $data === 'LastTimestamp'">
+        </wf-value>
+    </div>
+    <!--/ko-->
+    <!-- ko if: $parents[1].isStaticField($data) -->
+    <div>{{$parents[1].getStaticFieldValue($data, $parent.name)}}</div>
+    <!--/ko-->
+    <!--/ko-->
+</div>
+<!--/ko-->
+<!--/ko-->
+
+<!--/ko-->
+<!--/ko-->

@@ -1,0 +1,41 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content"
+            data-bind="ccwDraggable:{}, dragId: 'cwRezDlgPersonal', BGclose: false, ESCclose: false">
+            <div class="modal-header" id="cwRezDlgPersonal" style="background-color: DodgerBlue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    <i class="wf wf-users" style="font-size: 30px"></i>
+                    <span>&nbsp;Reinigungspersonal</span>
+                </h4>
+            </div>
+            <br>
+            <form id="form" autocomplete="off">
+                <fieldset>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <span>Bitte tragen Sie die Anzahl des eingesetzten Personals</span>
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;Anzahl</span>
+                                    <input id="personal4711" class="form-control" data-bind="value: reinigpersonal"
+                                        type="text" pattern="^(0,([2-9])|1-9?,\d|[1-9]|1\d|20|[1-9]\d?,\d)$"
+                                        placeholder="z.B. 1,5"
+                                        title="Personaleingabe ist in einem Bereich von 0,2 bis 20,9 möglich" required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                </fieldset>
+                <div class="modal-footer">
+                    <!-- <button class="btn btn-default" type="submit"
+                        data-bind="event: {mouseover: checkZone}">Übernehmen</button> -->
+                    <button class="btn btn-default" type="submit">Übernehmen</button>
+                    <button class="btn btn-default" type="button" data-dismiss="modal"
+                        data-bind="click: close">Abbrechen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

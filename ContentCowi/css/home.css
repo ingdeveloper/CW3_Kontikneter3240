@@ -1,0 +1,110 @@
+﻿/*-----------------------
+    Styles der home.html  
+-----------------------*/
+
+div.home_logo_rahmen {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border: 0px #000000 solid;
+    
+    
+}
+#home_logo {
+    border: 0px #000000 solid;
+    padding: 0px 0px 0px 0px;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height:auto;
+}
+
+#text_beschreibung {
+    background-color: transparent;
+    background-image: none;
+    border: 0px #000000 solid;
+    padding: 0;
+    margin: 0;
+    margin-top: 100px;
+    text-align: left;
+    font-size: 38px;
+    
+    
+    
+}
+#text_wf2010 {
+    background-color: transparent;
+    background-image: none;
+    border: 0px #000000 solid;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 28px;
+    padding-top: 10px;
+}
+
+#textProzessVisu {
+    background-color: transparent;
+    text-align: center;
+    font-size: 48px;
+    color: dimgray;
+    text-shadow: 1px 1px 1px #989191;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    #text_beschreibung {
+        text-align: center;
+        font-size: xx-large;
+        padding-top: 30px;
+    }
+
+    #text_wf2010 {
+        text-align: center;
+        font-size: large;
+    }
+
+    #textProzessVisu {
+        font-size: xx-large;
+    }
+}
+
+
+/* TESTEN */
+
+#container1{
+    width:400px;
+    height:200px;
+}
+#rightcontainer1{
+    width:300px;
+    height:200px;
+    background:gray;
+    color:#fff;
+    margin-left:110px;
+    padding:10px;
+}
+#leftmenu1{
+    color:#fff;
+    background-color:green;
+    width:100px;
+    height:200px;
+    position:fixed;
+    left:0;
+    padding:10px;
+}
+
+
+.drag1{
+  width:40px;
+  height:20px;
+  background-color:blue;
+  z-index:100000;
+  margin-top:10px;
+}

@@ -1,0 +1,50 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content"
+            data-bind="ccwDraggable:{}, dragId: 'bdeDlg-18b5f48a-ce23-4313-a165-2221340e7e78', BGclose: false, ESCclose: true">
+            <div class="modal-header" id="bdeDlg-18b5f48a-ce23-4313-a165-2221340e7e78"
+                style="background-color: dodgerblue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    <i class="wf-lg wf-article" style="font-size: 30px"></i>
+                    <span data-bind="html: title"></span>
+                </h4>
+            </div>
+            <br>
+            <form data-bind="submit: accept" autocomplete="off">
+                <fieldset>
+                    <div class="modal-body">
+
+                        <div class="list-group">
+                            <label for="list-select">Grund:</label>
+                            <input list="list-select" id="input-select" data-bind="event: {input: checkInputs}"
+                                title="Grund (Pflichtfeld)" class="form-control" data-bind="enable: !busy()">
+                            <datalist id="list-select" data-bind="foreach: liste">
+                                <!-- <select id="list-select" title="Grund (Pflichtfeld)" class="form-control" data-bind="foreach: liste"> -->
+                                <option data-bind="value: $data, text: $data"></option>
+                                <!-- </select> -->
+                            </datalist>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment">Kommentar:</label>
+                            <textarea class="form-control" rows="2" title="Zusatzkommentar eingeben (optional)"
+                                id="comment" draggable="false" data-bind="value: plusComment"></textarea>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <div class="modal-footer">
+                    <div class="rezspinner" data-bind="css: { active: busy }" style="color:tomato;font-size:1.2em;">
+                        <i class="fa fa-spinner"></i>
+                    </div>
+                    <button class="btn btn-default" type="submit"
+                        data-bind="enable: !busy(), event: {focus: checkInputs}">Senden</button>
+                    <button class="btn btn-default" data-dismiss="modal"
+                        data-bind="click: close, enable: !busy()">Abbrechen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-buffer-button</span></a></li>
+
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfBufferButton_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-md-2 margin-bottom">
+                            <wf-input params="signalName: 'Setpoint 1', writeToBuffer: true"></wf-input>
+                            <wf-buffer-button params="buttonText: 'Buffer ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                        </div>
+                        <div class="col-xs-12 col-md-10">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-buffer-button params=&quot;buttonText: &#39;Buffer&#39;, iconClass: &#39;wf wf-check&#39;, cssClass: &#39;btn-success &#39;&quot;&gt;&lt;/wf-button></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5>content</h5>
+                            <pre class="prettyprint">
+&lt;wf-buffer-button params="&quot;&gt;
+   [...]
+&lt;/wf-buffer-button&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-buffer-button class="btn-inline" params="buttonText: 'Clear Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_Write_Secure")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-buffer-button params="buttonText: 'Buffer ', iconClass: 'wf wf-check', cssClass: 'btn-success', writeSecure: true"></wf-buffer-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

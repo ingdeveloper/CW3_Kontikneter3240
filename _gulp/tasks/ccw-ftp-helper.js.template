@@ -1,0 +1,40 @@
+// Quelle - https://thomaskekeisen.de/de/blog/ftp-upload-gulp/
+'use strict';
+
+var gutil = require('gulp-util');
+var FtpDeploy = require('./ccw-ftp-deploy');
+var ftpDeploy = null;
+var ftpHelper = {
+    plugins: null,
+
+    setup: function() {
+        ftpDeploy = new FtpDeploy();
+
+        var errorCallback = function(data) {
+            gutil.log('> ' + gutil.colors.red(data.err));
+        };
+        var updateCallback = function(data) {
+            gutil.log('> ' + gutil.colors.green(((data.transferredFileCount * 100) / data.totalFilesCount).toFixed(2) + '%'), data.filename);
+        };
+        ftpDeploy.on('uploading', updateCallback);
+        ftpDeploy.on('uploaded', updateCallback);
+        ftpDeploy.on('upload-error', errorCallback);
+        return ftpDeploy;
+    },
+
+    upload: function(config, done) {
+        try {
+            ftpDeploy.deploy(config, function(err) {
+                if (err) {
+                    gutil.log(err);
+                }
+                done();
+            });
+        } catch (ex) {
+            gutil.log(ex);
+            done();
+        }
+    }
+};
+
+module.exports = ftpHelper;

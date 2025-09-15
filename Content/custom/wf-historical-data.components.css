@@ -1,0 +1,61 @@
+.wf-historical-signal-selector .wf-signal-item .wf-icon-action,
+.wf-historical-log-selector .wf-signal-item .wf-icon-action {
+    margin-left: auto;
+}
+
+.wf-historical-signal-selector .wf-signal-list,
+.wf-historical-log-selector .wf-signal-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 0px;
+}
+
+.wf-historical-signal-selector-input-group .input-group-btn .btn,
+.wf-historical-log-selector-input-group .input-group-btn .btn {
+    height: 34px;
+}
+
+.wf-historical-log-selector .wf-logtag-item {
+    display: flex;
+    align-items: center;
+}
+
+.wf-historical-series-wrapper,
+.wf-historical-regions-wrapper,
+.wf-historical-axes-wrapper {
+    overflow: auto;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.wf-historical-horizontal-line .colorpicker-component .input-group-addon,
+.wf-historical-cursors .colorpicker-component .input-group-addon {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.wf-historical-horizontal-line .btn-danger,
+.wf-historical-cursors .btn-danger {
+    margin-top: 4px;
+}
+
+table.wf-historical-cursors>thead>tr>th:last-child,
+table.wf-historical-horizontal-line>thead>tr>th:last-child {
+    width: 40px;
+}
+
+.wf-historical-series-wrapper .selected td,
+.wf-historical-regions-wrapper .selected td,
+.wf-historical-axes-wrapper .selected td {
+    background-color: rgb(66, 139, 202, 0.2);
+}
+
+/* Thanks to simon :) */
+.wf-historical-dialog-no-content-box {
+    height: 370px;
+    background-color: #f7f7f7;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1) inset;
+}

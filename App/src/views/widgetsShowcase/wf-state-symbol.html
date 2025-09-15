@@ -1,0 +1,171 @@
+﻿<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <!--<li role="presentation"><a href="#widgetTab" aria-controls="widgetTab" role="tab" data-toggle="tab">Widget <span class="label label-primary">wfStateCssClass</span></a></li>-->
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-state-symbol</span>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <!--<div role="tabpanel" class="tab-pane" id="widgetTab">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfStateCssClass_Widget_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="wf-3x" data-bind="wfStateCssClass: { cssClassNormalState: 'wf wf-light-bulb-o', 
+                                  states:[{cssClassName:'wf wf-light-bulb-o', conditionRule:'%SQL Device::Local Second% &lt; 30'},{cssClassName:'wf wf-light-bulb red', conditionRule:'%SQL Device::Local Second% &gt; 30'}] }"></div>
+                        </div>
+
+                        <div class="col-sm-11">
+                            <div>
+                                <pre class="prettyprint">
+&lt;span class=&quot;wf-3x&quot; 
+      data-bind=&quot;wfStateCssClass: { cssClassNormalState: &#39;wf wf-light-bulb-o&#39;, 
+                                    states:[
+                                       {conditionRule:&#39;%Setpoint 1% == 0&#39;, cssClassName:&#39;wf wf-light-bulb-o&#39;},
+                                       {conditionRule:&#39;%Setpoint 1% == 1&#39;, cssClassName:&#39;wf wf-light-bulb red&#39;}
+                                    ]}&quot;&gt;
+&lt;/span&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfStateCssClass_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-sm-1">
+                            <wf-state-symbol class="wf-3x" params="projectAuthorization: 'Administration', securityDenyAccessBehavior: 'disable', cssClassNormalState: 'wf wf-light-bulb-o', 
+                                    states:[
+                                       {conditionRule:'%Setpoint 1% == 0', cssClassName:'wf wf-light-bulb-o'},
+                                       {conditionRule:'%Setpoint 1% contains 1', cssClassName:'wf wf-light-bulb red'}
+                                    ]">
+                            </wf-state-symbol>
+                        </div>
+
+                        <div class="col-sm-11">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-state-symbol class=&quot;wf-3x&quot; params=&quot;cssClassNormalState: &#39;wf wf-light-bulb-o&#39;, 
+                                    states:[
+                                       {conditionRule:&#39;%Setpoint 1% == 0&#39;, cssClassName:&#39;wf wf-light-bulb-o&#39;},
+                                       {conditionRule:&#39;%Setpoint 1% contains 1&#39;, cssClassName:&#39;wf wf-light-bulb red&#39;}
+                                    ]&quot;&gt;
+&lt;/wf-state-symbol&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr data-bind="css: {'wf-deprecated': $data.deprecated}">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+
+                        <pre class="prettyprint">
+&lt;wf-state-symbol&#160;&gt;
+    [...]
+&lt;/wf-state-symbol&gt; </pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12" style="margin-bottom: 120px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-state-symbol class="wf-3x inline-block" params="objectID: 'Setpoint ', cssClassNormalState: 'wf wf-alarm', states:[{cssClassName:'wf wf-light-bulb-o', conditionRule:'%Setpoint 1% == 1'},
+                    {conditionRule:'%Setpoint 1% == 1', cssClassName:'wf wf-light-bulb-eco'}, {conditionRule:'%[OID]1% ==3', cssClassName:'wf wf-light-bulb-symbol'},{conditionRule:'%[OID]1% ==4', cssClassName:'wf wf-link'},{conditionRule:'%[OID]1% ==5', cssClassName:'wf wf-lock'},{conditionRule:'%[OID]1% ==6', cssClassName:'wf wf-login'},{conditionRule:'%[OID]1% ==7', cssClassName:'wf wf-logout'},{conditionRule:'%[OID]1% ==8', cssClassName:'wf wf-mail'},{conditionRule:'%[OID]1% ==9', cssClassName:'wf wf-marker'},{conditionRule:'%[OID]1% ==10', cssClassName:'wf wf-message'},{conditionRule:'%[OID]1% ==12', cssClassName:'wf wf-meter'},{conditionRule:'%[OID]1% ==13', cssClassName:'wf wf-meter-gauge'}]"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o', stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-upload', stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-download'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-arrow wf-o text-danger', stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-arrow  wf-w text-success'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-3x inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o', stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb'"></wf-state-symbol>
+                </div>
+            </div>
+            <!--<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">12 States</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="wf-3x inline-block" data-bind="wfStateCssClass:{ 
+                        cssClassNormalState:'wf wf-shower-rain',
+                        stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o',
+                        stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb',
+                        stateSignalName3: 'Setpoint 1', maskSignal3: 2, cssClassState3: 'wf wf-add',
+                        stateSignalName4: 'Setpoint 1', maskSignal4: 3, cssClassState4: 'wf wf-minimize',
+                        stateSignalName5: 'Setpoint 1', maskSignal5: 4, cssClassState5: 'wf wf-add-round-o',
+                        stateSignalName6: 'Setpoint 1', maskSignal6: 5, cssClassState6: 'wf wf-advanced-filter',
+                        stateSignalName7: 'Setpoint 1', maskSignal7: 6, cssClassState7: 'wf wf-alarm',
+                        stateSignalName8: 'Setpoint 1', maskSignal8: 7, cssClassState8: 'wf wf-pump-symbol',
+                        stateSignalName9: 'Setpoint 1', maskSignal9: 8, cssClassState9: 'wf wf-alarm-reload',
+                        stateSignalName10: 'Setpoint 1', maskSignal10: 9, cssClassState10:  'wf wf-alert',
+                        stateSignalName11: 'Setpoint 1', maskSignal11: 10, cssClassState11: 'wf wf-alert-o',
+                        stateSignalName12: 'Setpoint 1', maskSignal12: 11, cssClassState12: 'wf wf-analysis',
+                        stateSignalName13: 'Setpoint 1', maskSignal13: 12, cssClassState13: 'wf wf-archive',
+                        stateSignalName14: 'Setpoint 1', maskSignal14: 13, cssClassState14: 'wf wf-arrow',
+                        stateSignalName15: 'Setpoint 1', maskSignal15: 14, cssClassState15: 'wf wf-arrow-metro',
+                        stateSignalName16: 'Setpoint 1', maskSignal16: 15, cssClassState16: 'wf wf-arrow-redo' }"></div>
+
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>

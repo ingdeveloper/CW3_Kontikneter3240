@@ -1,0 +1,159 @@
+﻿/*-----------------------
+    Widgets and Components Reference Styles  
+-----------------------*/
+
+
+/*-----------------------
+    Font Icons overview
+-----------------------*/
+
+.wf-icons-list .wf-icon-item {
+    min-height: 100px;
+    background-color: #F9F9F9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    float: left;
+    line-height: 1.4;
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+    position: relative;
+    margin: 5px;
+    display: block;
+    width: 100%;
+}
+
+.wf-icons-list .wf-icon-css-class {
+    background-color: #aaa;
+    display: block;
+    text-align: center;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin-top: 10px;
+}
+
+.wf-icon-index {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    min-width: 20px;
+    color: #555;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn-inline {
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+}
+
+.wf-icon-item i {
+    color: #555;
+}
+
+
+/* Widgets reference */
+
+.wf-widget-categories-list {
+    margin: 0 0 30px 0;
+    box-shadow: none;
+}
+
+.wf-widget-category.wf-hexagon,
+.wf-widget-category.wf-hexagon.active {
+    width: 84px;
+    height: 84px;
+    background-size: contain;
+    margin: 10px auto;
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.wf-widget-category-title {
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.wf-widget-category-icon {
+    display: block;
+    font-size: 32px;
+    line-height: 84px;
+    opacity: 1;
+    text-align: center;
+}
+
+.wf-widget-list {
+    box-shadow: none;
+    min-width: 200px;
+}
+
+.wf-widget-list .wf-widget-list-item {
+    padding: 5px 10px;
+    border-radius: 0;
+}
+
+.wf-widget-list .wf-widget-list-item.active {
+    background: #e92931;
+    text-shadow: 0 -1px 0 #A92520;
+    border-color: #e92931;
+}
+
+/* .wf-widget-list .wf-widget-list-item:focus,
+.wf-widget-list .wf-widget-list-item:hover {} */
+
+pre.prettyprint {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+.wf-deprecated {
+    color: red;
+}
+
+.wf-deprecated td:first-child:before {
+    content: "\e607";
+    position: inline-block;
+    margin-right: 5px;
+    font-family: 'WFIconFont';
+}
+
+/* Example for custom slider handle */
+
+.wf-slider-fan .slider-handle.custom:before {
+    font-family: "WFIconFont";
+    font-size: 24px;
+    content: "\e660";
+    text-align: center;
+    width: 100%;
+    display: block;
+    height: 20px;
+    color: #337ab7;
+}
+
+
+/* Examples for wf-switch-gear */
+
+.wf-switch-gear-test {
+    width: 144px;
+    height: 216px;
+    padding-right: 72px;
+    margin: 15px;
+    /* display: inline-block; */
+    flex: none;
+    border: 1px solid #ccc;
+}
+.wf-switch-gear-test svg{
+width: 70px;
+height: 214px;
+}
+
+.wf-switch-gear-test-title {
+    width: 144px;
+    word-wrap: break-word;
+    hyphens: none;
+    font-size: 9px;
+    line-height: 10px;
+    margin: 15px;
+    margin-top: 5px;
+}

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+<title>Brötchen 3240</title>
+    <meta name="description" content="Brötchen 3240"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-landscape.png" media="(orientation:landscape)"/>
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-portrait.png" media="(orientation:portrait)"/>
+    <link rel="apple-touch-icon" href="Content/images/icon.png"/>
+
+   <link rel="shortcut icon" type="image/x-icon" href="contentcowi/images/ccw-favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="contentcowi/images/ccw-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="contentcowi/images/ccw-favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="contentcowi/images/ccw-favicon-16x16.png">
+
+    <meta name="apple-mobile-web-app-title" content="Brötchen 3240 - {{appVersion}}">
+
+    <link rel="stylesheet" type="text/css" href="Content/styles.bundle.css?v={{appVersion}}"/>
+    <link rel="stylesheet" type="text/css" href="Content/custom/custom.bundle.css?v={{appVersion}}"/>
+	<link rel="stylesheet" type="text/css" href="ContentDemos/demos.bundle.css?v={{appVersion}}"/>
+	<link rel="stylesheet" type="text/css" href="contentcowi/css/cowi.bundle.css?v={{appVersion}}"/>
+
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+
+    
+
+
+</head>
+<body>
+    <script type="text/javascript">
+        window.buildDate="{{buildDate}}";
+    </script>
+
+    <div id="applicationHost">
+        {% autoescape false %}{{ splashContents }}{% endautoescape %}
+    </div>
+
+    <script type="text/javascript" src="Scripts/vendor1.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript" src="Scripts/vendor2.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript" src="Scripts/vendor3.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript" src="Scripts/core.bundle.js?v={{appVersion}}"></script>
+	<script type="text/javascript" src="ContentCowi/scripts/cowi.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript">
+        wf.utilities.initializeConstants({
+            version:"{{appVersion}}",
+            // remoteIISServerUrl: window.document.location.hostname
+            remoteIISServerUrl: 'wf-broet3240'
+        }); 
+    </script>
+
+    {% if isDebug %}
+    <script type="text/javascript" src="Scripts/require.bundle.js" data-main="App/src/main-app"></script>
+    {% else %}
+    <script type="text/javascript" src="App/dist/{{configurationName}}.js"></script>
+    {% endif %}
+
+</body>
+</html>

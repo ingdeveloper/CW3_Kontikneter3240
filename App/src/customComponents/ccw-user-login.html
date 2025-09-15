@@ -1,0 +1,21 @@
+<div style="display: inline-block;">
+    <div data-bind="afterRender: afterRender">
+        <!-- ko if: userLogged() -->
+        <div class="inline-block">
+            <button class="btn btn-info btn-xs wf wf-logout" type="button" title="Benutzer abmelden" data-bind="html: ' '+userNname(),event: { click: function(){ LogOut(); }}, style: {height: height, width: width, fontSize: fontSize1}"></button>
+            <!-- <i class="wf wf-clock-o" style="margin-left: 10px;"></i> -->
+            <div style="margin-top: -5px; text-align: right;">
+                <div style="display: inline-block; margin: 0px 5px 0px 2px; padding: 0px 5px; border: 1px grey solid; border-radius: 3px; vertical-align: text-top; background-color: lime;" data-bind="style: {fontSize: fontSize2}, html: countdown_ccwuserlogin">00:00</div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: userLogged() -->
+        <div class="inline-block">
+            <button class="btn btn-default btn-xs btn-block wf wf-login" type="submit" data-bind="click: function (){openDialogLogInOut()}, enable: userFreigabe, style: {height: height, width: width, fontSize: fontSize1}">
+                C&W Login
+            </button>
+        </div>
+        <!-- /ko -->
+    </div>
+
+</div>

@@ -1,0 +1,397 @@
+
+/*------------------------------------*/
+/* Additional background-color styles */
+/*------------------------------------*/
+
+.bg-normal {
+    background-color: #eee;
+}
+
+.bg-changed {
+    /*background-color: #d9edf7;*/
+}
+.btn .bg-changed {
+background-color: transparent;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+/*------------------------------*/
+/* Basic layout elements styles */
+/*------------------------------*/
+
+h1,
+h2,
+h3 {
+    color: #555;
+}
+
+h2 {
+    color: #111;
+}
+
+    h2.subheader {
+        color: #555;
+    }
+
+h3 {
+    color: #555;
+}
+
+
+#footer a {
+    color: #ccc;
+}
+
+
+#footer {
+    background-color: #282828;
+}
+
+.version-label {
+    color: #aaa;
+}
+
+
+
+/*--------------------------------*/
+/* Modal dialog header background */
+/*--------------------------------*/
+
+.badge-danger {
+    background: #990100;
+    color: #ffffff;
+}
+
+.badge-warning {
+    background: #E08F00;
+    color: #000000;
+}
+
+.badge-success {
+    background: #0c9900;
+    color: #ffffff;
+}
+
+.badge-primary {
+    background: #337ab7;
+    color: #ffffff;
+}
+
+.badge-info {
+    background: #337ab7;
+    color: #000000;
+}
+
+/*--------------------------------------------------------------
+    Marker Elements Colors
+--------------------------------------------------------------*/
+
+.marker-primary,
+.marker-blue {
+    background: rgba(51, 122, 183, .9);
+    color: #ffffff;
+}
+
+.marker-danger,
+.marker-red {
+    background: rgba(218, 26, 26, .9);
+    color: #ffffff;
+}
+
+.marker-success,
+.marker-green {
+    background: rgba(12, 153, 0, .9);
+    color: #ffffff;
+}
+
+
+.marker-warning,
+.marker-orange {
+    background: rgba(224, 143, 0, .9);
+    color: #ffffff;
+}
+
+.marker-info,
+.marker-lightblue {
+    background: rgba(91, 192, 222, .9);
+    color: #000000;
+}
+
+/*--------------------------------*/
+/* Modal dialog header background */
+/*--------------------------------*/
+
+.modal-dialog .modal-danger {
+    background: #990100;
+    color: #ffffff;
+}
+
+.modal-dialog .modal-warning {
+    background: #E08F00;
+    color: #ffffff;
+}
+
+.modal-dialog .modal-success {
+    background: #0c9900;
+    color: #ffffff;
+}
+
+.modal-dialog .modal-primary {
+    background: rgb(51, 122, 183);
+    color: #ffffff;
+}
+
+
+.modal-header-danger {
+    background: #990100;
+    color: #ffffff;
+}
+
+.modal-header-default {
+    background-color: #fff;
+    color: #333;
+}
+
+.modal-header-success {
+    background: #0c9900;
+    color: #ffffff;
+}
+
+.modal-header-primary {
+    background: #337ab7;
+    color: #ffffff;
+}
+
+.modal-header-info {
+    background: #5bc0de;
+    color: #ffffff;
+}
+
+.modal-header-warning {
+    background: #E08F00;
+    color: #ffffff;
+}
+
+.modal-header-variant-dark {
+    background: #636363;
+    color: #ffffff;
+}
+/*--------------------------------*/
+/* Popover header background */
+/*--------------------------------*/
+
+.popover-variant-dark.popover-title {
+    background: #636363;
+    color: #ffffff;
+}
+
+.popover-primary.popover-title  {
+    background: #337ab7;
+    color: #ffffff;
+}
+
+.popover-info.popover-title  {
+    background: #5bc0de;
+    color: #ffffff;
+}
+
+.popover-danger.popover-title {
+    background: #990100;
+    color: #ffffff;
+}
+
+.popover-warning.popover-title {
+    background: #E08F00;
+    color: #ffffff;
+}
+
+.popover-success.popover-title {
+    background: #0c9900;
+    color: #ffffff;
+}
+
+
+.popover .popover-variant-dark .close,
+.popover .popover-success .close,
+.popover .popover-warning .close,
+.popover .popover-danger .close,
+.popover .popover-primary .close,
+.popover .popover-info .close {
+    color: #ffffff;
+    opacity: 0.75;
+}
+
+
+/* Button arrow element */
+
+.btn-variant-dark .wf-btn-arrow:after {
+        border-top-color: #444444;
+    }
+
+.btn-default .wf-btn-arrow:after {
+        border-top-color: #e1e1e1;
+    }
+
+.btn-primary .wf-btn-arrow:after {
+        border-top-color: #275b89;
+    }
+
+.btn-info .wf-btn-arrow:after {
+        border-top-color: #28a4c9;
+    }
+
+.btn-success .wf-btn-arrow:after {
+        border-top-color: #419641;
+    }
+
+.btn-warning .wf-btn-arrow:after {
+        border-top-color: #eb9316;
+    }
+
+.btn-danger .wf-btn-arrow:after {
+        border-top-color: #c2302c;
+    }
+
+.btn-link .wf-btn-arrow:after {
+        border-top-color: #777777;
+    }
+
+
+/* Marker animations */
+
+.pulse-primary,
+.pulse-blue {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: 2px solid #1160b8;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #1160b8;
+}
+
+.pulse-success,
+.pulse-green {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: 2px solid #468847;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #0c9900;
+}
+
+.pulse-danger,
+.pulse-red {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: 2px solid #990100;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #a80000;
+}
+
+.pulse-warning,
+.pulse-orange {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: 2px solid #ed9c28;
+    border-radius: 50px;
+}
+
+.pulse-info,
+.pulse-lightblue {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #337f95;
+}
+
+
+/* Toasts messages overwrites */
+.toast-info {
+    background-color: #333;
+}
+
+

@@ -1,0 +1,260 @@
+
+.ccw-wf-weiche1-hover:hover {
+	cursor: help;
+	border: 2px solid rgb(155, 152, 152);
+	display: block;
+}
+
+.ccw-wf-weiche1-dialog1Blockout {
+	z-index:10011;
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:rgba(0, 0, 0, 0.2)
+}
+
+.ccw-wf-weiche1-head-dialog1 {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.ccw-wf-weiche1-head-dialog2 {
+  color: #fff;
+  background-color: #33b77a;
+}
+
+.ccw-wf-weiche1-textSollwert {
+	padding-right: 10px !important;
+	font-size: 12px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-weiche1-dialogSollwertFeld {
+	width: 50px !important;
+	height: 22px !important;
+	font-size: 14px !important;
+	color: #000000;
+}
+
+.ccw-wf-weiche1-dialogSollwertFeldDisabled {
+	width: 50px !important;
+	height: 22px !important;
+	font-size: 14px !important;
+	color: #a0a0a0;
+}
+
+.ccw-wf-weiche1-dialogIstwertFeld {
+	font-size: 14px !important;
+}
+
+.ccw-wf-weiche1-dialogButtonHandAuto {
+	width: 80px;
+	height: 40px;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-weiche1-dialogButtonEinAus {
+	min-width: 80px;
+	height: 40px;
+	font-size: 14px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-weiche1-dialogButtonJa {
+	width: 80px;
+	height: 40px;
+	float: left !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-weiche1-dialogButtonNein {
+	width: 80px;
+	height: 40px;
+	float: right !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-weiche1-statusPump {
+	position:absolute;
+	width:40px;
+	height:40px;
+}
+
+.ccw-wf-weiche1-td {
+	padding: 1px !important;
+}
+
+.ccw-wf-weiche1-antriebAus {
+	fill: #dbd8d8 !important;	/* grau */
+}
+
+.ccw-wf-weiche1-antriebEin {
+  fill: #00ff00;  /* gruen */
+}
+
+.ccw-wf-weiche1-antriebHand {
+  fill: #ffff00;  /* gelb */
+}
+
+.ccw-wf-weiche1-antriebHandEin {
+  fill: #0000ff;  /* blau */
+}
+
+.ccw-wf-weiche1-antriebStoer {
+  fill: #ff0000 !important;  /* rot */
+}
+
+.ccw-wf-weiche1-antriebHochlauf {
+  fill: #00ff00;  /* gruen */
+	
+	animation-name: ccw-wf-weiche1-flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: ccw-wf-weiche1-flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: ccw-wf-weiche1-flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-weiche1-lauf {
+  fill: #0000ff;  /* blau */
+	
+	animation-name: ccw-wf-weiche1-flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: ccw-wf-weiche1-flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: ccw-wf-weiche1-flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-weiche1-antriebStoerNeu {
+  fill: #ff0000 !important;  /* rot */
+	
+	animation-name: ccw-wf-weiche1-flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: ccw-wf-weiche1-flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: ccw-wf-weiche1-flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-weiche1-handAni {
+  visibility: visible;
+	
+	animation-name: ccw-wf-weiche1-flashHand;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: ccw-wf-weiche1-flashHand;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: ccw-wf-weiche1-flashHand;
+	-moz-animation-duration: 1.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-weiche1-ohneSignal {
+    fill: #bb1bbb !important;
+    /* rot */
+
+    animation-name: ccw-wf-weiche1-flash;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /*Firefox 1+*/
+    -webkit-animation-name: ccw-wf-weiche1-flash;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    /*Safari 3-4*/
+    -moz-animation-name: ccw-wf-weiche1-flash;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+
+@keyframes ccw-wf-weiche1-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes ccw-wf-weiche1-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes ccw-wf-weiche1-flash {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes ccw-wf-weiche1-flashHand {  
+	0% { opacity: 1.0; }
+	25% { opacity: 0.5; }
+  50% { opacity: 0.0; }
+	75% { opacity: 0.5; }
+	100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes ccw-wf-weiche1-flashHand {  
+	0% { opacity: 1.0; }
+	25% { opacity: 0.5; }
+  50% { opacity: 0.0; }
+	75% { opacity: 0.5; }
+	100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes ccw-wf-weiche1-flashHand {  
+	0% { opacity: 1.0; }
+	25% { opacity: 0.5; }
+  50% { opacity: 0.0; }
+	75% { opacity: 0.5; }
+	100% { opacity: 1.0; }
+}

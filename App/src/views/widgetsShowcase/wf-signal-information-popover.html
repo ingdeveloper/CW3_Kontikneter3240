@@ -1,0 +1,113 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-signal-information-popover</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSignalInformationPopover_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-sm-4">
+
+                            <div class="m-x">
+                                <wf-signal-information-popover class="inline-block font-weight-bold" params="signalName: 'Level 1',
+                                                               iconClass: 'wf wf-info wf-2x',
+                                                               label: 'Signal Level 1',
+                                                               popoverTitle: 'Signal Level 1',
+                                                               properties: [{ name: 'AliasName', label: 'Signal'},
+                                                                            {name: 'Minimum', label: 'Minimum'},
+                                                                            {name: 'Maximum', label: 'Maximum'},
+                                                                            {name: 'CurrentValue', label: 'Value'}]">     
+                                </wf-signal-information-popover>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-signal-information-popover params=&quot;signalName: &#39;Level 1&#39;, 
+        iconClass:  &#39;wf-2x wf-lg wf-sine-wave&#39;,
+        label: &#39;Signal Level 1&#39;, 
+        popoverTitle: &#39;Signal Level 1&#39;, 
+        properties: [
+            { name: &#39;AliasName&#39;, label: &#39;AliasName&#39; },
+            { name: &#39;Minimum&#39;, label: &#39;Minimum&#39; },
+            { name: &#39;Maximum&#39;, label: &#39;Maximum&#39; },
+            { name: 'CurrentValue', label: 'CurrentValue' },
+        ]&quot;&gt;
+&lt;/wf-signal-information&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <h5 class="panel-title">{{connector.translate("I4SCADA_Characteristics")()}}</h5>
+                    <div data-bind="foreach: signalProperties">
+                        <span style="margin-bottom: 5px; display: inline-block" class="label label-black" data-bind="text: $data"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body text-center">
+                    
+                        <wf-signal-information-popover class="inline-block" params="signalName: 'Temperature 1', 
+                                                       label: 'Popover top position', position:'top',
+                                                       iconClass: 'hidden',
+                        properties: [
+                         { name: 'Name', label: 'Connector Name' },
+                         { name: 'CurrentValue', label: 'Value'},
+                         { name: 'Unit', label: 'Unit'}] ">
+                            <div class="marker marker-danger m-r-md">                                
+                                <div class="pulse pulse-danger"></div>
+                                <div class="touchpoint"></div>
+                                <i class="marker-icon" data-bind="css: 'wf wf-callout'"></i>
+                            </div>
+                        </wf-signal-information-popover>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

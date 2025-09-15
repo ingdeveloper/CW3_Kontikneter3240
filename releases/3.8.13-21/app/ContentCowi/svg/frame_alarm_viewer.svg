@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="20" viewBox="0 0 152.30906 55.533989" id="svg2">
+  <g id="layer1">
+    <path xlink:href="#rect4140" style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.71200001;stroke-miterlimit:4;stroke-dasharray:none" id="path4152" d="M.057.357C3.77 18.637 11.24 55.222 11.24 55.222l128.46-.045L151.864.535.057.357z"/>
+    <path style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.71200001;stroke-miterlimit:4;stroke-dasharray:none" d="M.058.357l151.807.178L139.7 55.178l-128.46.045S3.773 18.635.06.357z" id="rect4140"/>
+  </g>
+    <text x="70" y="20" text-anchor="middle" fill="black" font-size="24px">Alarm Liste</text>
+</svg>

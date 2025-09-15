@@ -1,0 +1,40 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h4 class="page-header ccw-page-header">
+            <span>Not-Aus Kontikneter 3240</span>
+        </h4>
+    </div>
+    <div class=row>
+        <div class="col-md-2 col-md-offset-9">
+            <table>
+                <tbody>
+                    <tr class="ccw-pilz-border">
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX30', maskSignal1: 0, operator1: '!=', tooltipText: '0 Fault'"></wf-state-indicator>
+                        </td>
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX31', maskSignal1: 0, operator1: '!=', tooltipText: '1 Fault'"></wf-state-indicator>
+                        </td>
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX32', maskSignal1: 0, operator1: '!=', tooltipText: 'Fault'"></wf-state-indicator>
+                        </td>
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX33', maskSignal1: 0, operator1: '!=', tooltipText: 'Diag'"></wf-state-indicator>
+                        </td>
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX34', maskSignal1: 0, operator1: '!=', tooltipText: 'Run'"></wf-state-indicator>
+                        </td>
+                        <td>
+                            <wf-state-indicator class="ccw-wf-indicator" params="stateSignalName1: 'VMI3240DB230DBX35', maskSignal1: 0, operator1: '!=', tooltipText: 'Profibus'"></wf-state-indicator>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+        <div class="col-md-12">
+            <wf-alarm-viewer params="height:450, titleText:'Alarme von Not-Aus', alarmType: 'NotAus', tableView: true, alarmStatusFilter: 'Active', columns: ['StatusText', 'Active', 'Group', 'Type', 'Text']"></wf-alarm-viewer>
+        </div>
+    </div>
+</div>

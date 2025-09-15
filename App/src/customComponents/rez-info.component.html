@@ -1,0 +1,40 @@
+<section class="clRezeptDlg">
+    <span data-bind="attr : {title: tooltipText}, css: cssClass">
+        <table class="tabRezAktuell">
+            <tbody>
+                <tr>
+                    <!-- ko if: signalNameRezNr -->
+                    <td>
+                        <span data-bind="text: signalRezNrValue"></span>
+                    </td>
+                    <td><span>:&emsp;</span></td>
+                    <td>
+                        <span data-bind="text: signalRezNameValue"></span>
+                    </td>
+                    <td><span>&emsp;</span></td>
+                    <!-- /ko -->
+
+                    <!-- ko if: signalNamePaNr -->
+                    <td><span>Auftrag</span></td>
+                    <td><span>:&emsp;</span></td>
+                    <td><span data-bind="text: signalPaNrValue"></span></td>
+                    <!-- /ko -->
+                </tr>
+
+                <!-- ko if: signalNameProdTyp -->
+                <tr>
+                    <td>
+                        <span>Produktion</span>
+                    </td>
+                    <td><span>:&emsp;</span></td>
+                    <td>
+                        <span class="pastatus info" data-typ="ProdTyp"
+                            data-bind="attr: { id: uid }, text: signalProdTypValue"></span>
+                        <span class="pastatus text"></span>
+                    </td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </span>
+</section>

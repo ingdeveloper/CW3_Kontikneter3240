@@ -1,0 +1,186 @@
+<div class="wf-signal-logtag-browser col-sm-12">
+
+    <div class="row p-t m-b bg-light b-b">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label>{{connector.translate('I4SCADA_Signal_Name')()}}</label>
+                <div class="relative">
+                    <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+                    <input type="text" class="form-control"  data-bind="textInput:pattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}"  />
+                    <!-- ko if: isLoading -->
+                    <div class="wf-loader wf-loader-input active" data-bind="css: { active: isLoading }"></div>
+                    <!-- /ko-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-b ">
+        <div class="col-md-6 m-b">
+
+            <!-- ko ifnot: signals().length -->
+            <div class="alert alert-info text-center animated fadeIn">
+                <i class="wf wf-info"></i> {{ connector.translate('I4SCADA_No_data_available')() }}
+            </div>
+            <!--/ko-->
+
+            <!-- ko if: signals().length -->
+            <label>{{connector.translate('I4SCADA_Signals')()}}</label>
+            <span class="label label-default" data-bind="text: signals().length"></span>
+            <!-- ko if: hasMoreSignals -->
+            <div class="label label-info">
+                    <i class="wf wf-info"></i>
+                    {{ connector.translate('I4SCADA_Has_more')() }}
+                </div>
+            <!--/ko-->
+
+            <ul class="list-group list-group-hover wf-signal-list">
+                <!-- ko foreach:signals -->
+                <li class="list-group-item wf-signal-item clickable" data-bind="click:$parent.onSignalClicked, css:{active: $parent.selectedSignal()?$parent.selectedSignal().AliasName === AliasName:false, hidden: !Logs.length  }">
+                    <span class="badge" data-bind="tooltip: { title: $parent.connector.translate('I4SCADA_Count_LogTags')(), container: 'body'}, css: {'badge-primary': Logs.length}">
+                        {{Logs.length}}
+                        <!-- ko if: Logs.length -->
+                        <i class="wf wf-tree-structure_1 wf-signal-item-icon m-l-sm"></i>
+                        <!--/ko-->
+                    </span>
+
+                    <div class="wf-signal-group-label">
+                        <i class="wf wf-parent-unit m-r-sm"></i>
+                        {{Group.Name}}
+                    </div>
+
+                    <label>
+                        {{ $data[$parent.signalText]}}
+                    </label>
+
+                    <!--ko if:Description -->
+                    <div class="wf-signal-description-label">
+                        {{Description}}
+                    </div>
+                    <!--/ko-->
+                </li>
+                <!--/ko-->
+            </ul>
+            <!--/ko-->
+        </div>
+        <div class="col-md-6">
+            <label>{{connector.translate('LogTags')()}}</label>
+            <ul class="list-group list-group-hover wf-logtag-list">
+                <!-- ko foreach:logs -->
+                <li class="list-group-item wf-logtag-item clickable" data-bind="click:$parent.onLogClicked, css: {'active': selected }">
+                    <i class="wf wf-database-1 m-r-sm"></i>
+                    <div>{{item.LogTag}}</div>
+                    <i class="wf wf-add-round-o wf-icon-action" data-bind="css: {'active wf-check-round-o': selected }"></i>
+                </li>
+                <!--/ko-->
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            <!-- ko ifnot: hasItems -->
+            <div class="alert alert-info text-center animated fadeIn">
+                <i class="wf wf-alert-o"></i> {{ connector.translate('I4SCADA_No_log_tags_selected')() }}
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+<!-- ko if: hasItems -->
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-condensed table-striped m-b-0 b-t">
+            <thead>
+                <tr>
+                    <th class="p-l-md">
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_Signal')()}}:</label>
+                    </th>
+                    <th>
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_LogTag')()}}:</label>
+                    </th>
+                    <!-- ko if: showColor -->
+                    <th style="width: 140px;">
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_Color')()}}:</label>
+                    </th>
+                    <!-- /ko -->
+                    <!-- ko if: showAxis -->
+                    <th style="width: 75px;">
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_Y_Axis')()}}:</label>
+                    </th>
+                    <!-- /ko -->
+                    <!-- ko if: showType -->
+                    <th>
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_Type')()}}:</label>
+                    </th>
+                    <!-- /ko -->
+                    <!-- ko if: showIsAlphanumeric -->
+                    <th>
+                        <label data-bind="css: labelCssClass">{{$parent.connector.translate('I4SCADA_Alphanumeric')()}}:</label>
+                    </th>
+                    <!-- /ko -->
+                    <th style="width: 75px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: settings.items -->
+                <tr>
+                    <td class="p-l-md">
+                        {{signalName}}
+                    </td>
+                    <td>
+                        {{logTagName}}
+                    </td>
+                    <!-- ko if: $parent.showColor -->
+                    <td>
+                        <div class="input-group colorpicker-component" data-bind="colorpicker: {selectedColor: color}">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-addon">
+                                <i></i>
+                            </span>
+                        </div>
+                    </td>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.showAxis -->
+                    <td>
+                        <select data-bind="selectpicker: {
+                                                        options: $parent.availableAxis,
+                                                        selectedOptions: axis }"></select>
+                    </td>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.showType -->
+                    <td>
+                        <div data-bind="css: $parent.columnCssClass">
+                            <select data-bind="selectpicker: {
+                                                                    options: $parent.availableTypes,
+                                                                    selectedOptions: type }"></select>
+                        </div>
+                    </td>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.showIsStaticColumn -->
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-bind="checked: isStatic">{{$parent.connector.translate('I4SCADA_is_Static')()}}</label>
+                        </div>
+                    </td>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.showIsAlphanumeric -->
+                    <td>
+                        <div class="checkbox m-y-0">
+                            <label>
+                                <input type="checkbox" data-bind="checked: isAlphanumeric">{{$parent.connector.translate('I4SCADA_Alphanumeric')()}}</label>
+                        </div>
+                    </td>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.isMultipleMode -->
+                    <td>
+                        <button class="btn btn-danger pull-right" data-bind="click: $parent.removeItem">
+                            <i class="wf wf-close-round"></i>
+                        </button>
+                    </td>
+                    <!-- /ko -->
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /ko -->

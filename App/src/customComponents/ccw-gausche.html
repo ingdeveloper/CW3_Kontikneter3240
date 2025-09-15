@@ -1,0 +1,14 @@
+<!-- ko if:hasAuthorization-->
+<div class="inline">
+    <div class="inline-block"
+        data-bind="css: 'displayClass1', attr : {title: tooltipText}, style: {fontSize: fontSize, height: hoehe , width: breite}">
+        <div data-bind="style:{height: hoehe , width: breite}">
+            <div style="vertical-align: bottom;" data-bind="foreach: anzahlPunkte">
+                <div class="ccw-gausche-anz text-bottom bottom" style="margin-bottom: 0; padding:0;"
+                    data-bind="visible: $data.btn().sichtbar, style:{height: $parent.hoeheRect , backgroundColor: $data.btn().newCss, bottom: $data.y}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

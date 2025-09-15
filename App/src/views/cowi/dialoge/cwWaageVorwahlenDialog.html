@@ -1,0 +1,62 @@
+﻿<div class="modal" style="z-index:-1">
+    <div class="modal-dialog modal-top modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">
+                            <span>Vorwahlen</span>
+                            <span data-bind="text: aktuelleWaageVorwahlen().artikelText"></span>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false" data-bind="click: close">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width:80%; padding:0px; font-size:10px">
+                                    <span>Beschreibung</span>
+                                </th>
+                                <th class="text-center" style="width:20%; padding:0px; font-size:10px">
+                                    <span>Vorwahl</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left">
+                                    Vorteigfüllleitung
+                                </td>
+                                <td>
+                                    <button class="btn btn-xs ccw-button-Vorwahl" data-bind="click: function(){dialogStartStopToggle('JA','NEIN','Vorwahl EIN/AUS?',aktuelleWaageVorwahlen().btnFuellFreigabe.signalName(),true)}, text: aktuelleWaageVorwahlen().txtBtnMolchFreigabe, css: aktuelleWaageVorwahlen().cssBtnFuellFreigabe, enable: userFreigabe()">Vorwahl EIN/AUS</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">
+                                    Molchen Vorteigfüllleitung starten
+                                </td>
+                                <td>
+                                    <button class="btn btn-xs ccw-button-Vorwahl" data-bind="click: function(){dialogStartStopToggle('JA','NEIN','Vorwahl EIN/AUS?','VMI3240DB25DBX16',true)}, text: aktuelleWaageVorwahlen().txtBtnMolchFreigabe, css: aktuelleWaageVorwahlen().cssBtnMolchFreigabe, enable: userFreigabe()">Vorwahl EIN/AUS</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <!-- <button class="btn btn-success btn-md inline" type="submit" data-bind="enable: userFreigabe(), click: function (){sendWerteZurSps()}, css: sendBtnCss">Werte
+                        zur SPS</button>
+                    <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-md'"></wf-buffer-button> -->
+                    <button class="btn btn-md btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="text: 'Schließen', click: close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

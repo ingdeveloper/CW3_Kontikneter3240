@@ -1,0 +1,490 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: hasAuthorization-->
+<div>
+
+    <style type="text/css" data-bind="text: yAxisStyles"></style>
+
+    <div class="wf-chart wf-panel panel" data-bind="css: panelBarCssClass, attr: { 'id': 'wf-chart-' + id() }">
+        <!-- ko if: headerVisibility -->
+        <div class="panel-heading">
+            <div class="pull-right wf-panel-toolbar">
+
+                <!-- Button zum Zurueck-Zoomen -->
+                <button type="button" style="padding: 1px 4px !important;"
+                    data-bind="css: btnZoomZurueckBackgColor, click: zoomZurueck, enable: btnZoomZurueckEnable"
+                    title="Zoom zurück">
+                    <span class="wf wf-traceability-1 wf-2x"></span>
+                    <!-- ko if: zoomZurueckArrayLen() > 0 -->
+                    <span class="badge" style="background-color: lemonchiffon; color: mediumblue;"
+                        data-bind="text: zoomZurueckArrayLen"></span>
+                    <!-- /ko -->
+                </button>
+
+                <!-- Umschalten Statistik-Panel -->
+                <button type="button" data-bind="css: btnStatisticCss, click: setStatisticsVisibility"
+                    title="Statistik ein/ausblenden">
+                    <span class="wf wf-details"></span>
+                </button>
+
+
+                <!-- Subchart Anzeigen -->
+                <!-- <button type="button" data-bind="css: buttonBarCssClass, click: showSubChart"
+                    title="Subchart">
+                    <span class="wf-lg wf-database"></span>
+                </button> -->
+
+                <!-- ko if: exportButtonVisibility() && hasExportAuthorization() -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: handleExport"
+                    title="{{connector.translate('I4SCADA_Export')()}}">
+                    <span class="wf wf-download"></span>
+                </button>
+                <!-- /ko -->
+                <!-- ko if: showHistoryManage-->
+                <div class="btn-group">
+                    <button type="button" data-bind="css: buttonBarCssClass, click: moveTimeRangeBack"
+                        title="{{connector.translate('I4SCADA_Next_Timespan')()}}">
+                        <i class="wf wf-chevron-left"></i>
+                    </button>
+                    <button type="button" data-bind="css: buttonBarCssClass, click: moveTimeRangeVorward"
+                        title="{{connector.translate('I4SCADA_Next_Timespan')()}}">
+                        <i class="wf wf-chevron-right"></i>
+                    </button>
+                </div>
+                <!-- /ko-->
+                <!-- ko if: isChartZoomed -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: resetChartZoom"
+                    title="{{connector.translate('I4SCADA_Reset_Zoom')()}}">
+                    <i class="wf wf-traceability-1"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko if: autoUpdate -->
+                <button type="button"
+                    data-bind="css: buttonBarCssClass, click: toggleIsAutoUpdating, attr : { title: isAutoUpdating() ? connector.translate('I4SCADA_Cyclic_Update')() : connector.translate('I4SCADA_Pause')() } ">
+                    <i class="wf"
+                        data-bind="css: {'wf-play-round':isAutoUpdating, 'wf-pause-round':!isAutoUpdating()}"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko ifnot: autoUpdate -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: triggerRefreshChartData"
+                    title="{{connector.translate('I4SCADA_Refresh')()}}">
+                    <i class="wf wf-arrow-refresh-right"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko if: configurationButtonVisibility() && hasConfigurationAuthorization() -->
+                <!-- <wf-configuration params="controlType: controlType,
+                                  getConfiguration: function(){ return getConfig(); },
+                                  loadConfiguration: function(content){ loadConfig(content); },
+                                  namespace : configurationNamespace,
+                                  buttonBarCssClass: buttonBarCssClass,
+                                  buttonBarIconClass: configurationButtonIconClass,
+                                  isModalDialogsDraggable: isModalDialogsDraggable,
+                                  showOnlyOwnConfigurations: showOnlyOwnConfigurations,
+                                  parameters: settings.parameters"></wf-configuration> -->
+                <!-- /ko-->
+                <!--ko ifnot: connector.disableSignalBrowser-->
+                <!-- ko if: signalsButtonVisibility() && hasSignalSelectionAuthorization() -->
+                <button type="button"
+                    data-bind="css: buttonBarCssClass, click: showSignalsSettings, disable: isSignalLoading"
+                    title="{{connector.translate('I4SCADA_Log_Tag_Settings')()}}">
+                    <!-- ko if: isSignalLoading-->
+                    <div class="spinner m-a-0" style="width:30px;height:20px;"></div>
+                    <!-- /ko -->
+                    <!-- ko ifnot: isSignalLoading-->
+                    <span class="wf wf-sine-wave"></span>
+                    <!-- /ko -->
+                </button>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: settingsButtonVisibility -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: showSettings"
+                    title="{{connector.translate('I4SCADA_Settings')()}}">
+                    <span class="wf wf-clock"></span>
+                </button>
+                <!-- /ko -->
+
+
+            </div>
+
+
+            <!-- ko if: isLoading -->
+            <div class="pull-right spinner" style="width: 20px; height: 20px; margin-right: 20px; margin-top: 0px;">
+                {{connector.translate('I4SCADA_Loading...')()}}</div>
+            <!-- /ko -->
+            <!-- ko ifnot: isLoading -->
+            <div class="pull-right wf wf-ok wf-2x"
+                style="width: 20px; height: 20px; margin-right: 20px; margin-top: 0px; color: green;"></div>
+            <!-- /ko -->
+
+            <div style="position: relative;" class="inline-block">
+                <h3 class="panel-title overflow-x-ellipsis p-r-md">
+                    <span>{{connector.translate(title())()}}</span>
+                    <!--ko if:showDateTimeTooltip-->
+                    <i class="wf wf-info wf-1x"
+                        data-bind="tooltip: { title: moment(firstDisplayedDate()).format(dateTimeTooltipFormat) + ' - '+ moment(lastDisplayedDate()).format(dateTimeTooltipFormat) , container: 'body'}"></i>
+                    <!-- /ko -->
+                    <!--ko ifnot:showDateTimeTooltip-->
+                    <span class="badge label-default">
+                        <span
+                            data-bind="formattedDate: { value: firstDisplayedDate, format: dateTimeTooltipFormat }"></span>
+                        -
+                        <span
+                            data-bind="formattedDate: { value: lastDisplayedDate, format: dateTimeTooltipFormat }"></span>
+                    </span>
+                    <!-- /ko -->
+
+                    <div data-bind="click: showVersionen, attr:{id:versionenChartId()}" data-toggle="popover" data-title="Versionsbeschreibung" data-html="true" data-trigger="focus" data-container="body" data-placement="auto right" 
+                         data-content="<b>V0.3.6 (21-03-24):</b> Hide-Label durchgestrichen; Hide-Kurve bei Play-Modus fortlaufend sichtbar  <br> <b>V0.3.5 (20-07-01):</b> Hide-Parameter in der Initialisierung <br> <b>V0.3.4 (20-01-17):</b> Webservice mit MIN-MAX-AVERAGE" style="position: absolute; top: -9px; left: -10px; font-size: 8px; cursor: help;">
+                        <span ><i class="fa fa-copyright"></i></sup><span>CCW V0.3.6</span>
+                    </div>
+                    
+
+                </h3>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: hasData -->
+
+        <!-- ko ifnot: isLoading -->
+        <!-- ko if: lines().length === 0 -->
+        <div class="alert alert-info text-center animated fadeIn m-a-md">
+            <i class="wf wf-alert-o"></i>
+            {{ connector.translate('I4SCADA_No_log_tags_selected')() }}
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: lines().length > 0 -->
+        <div class="alert alert-info animated fadeIn text-center m-a-md">
+            {{ connector.translate('I4SCADA_No_data_available') }}
+        </div>
+        <!-- /ko -->
+        <!-- /ko -->
+        <!-- /ko -->
+
+        <!-- ko if: hasData -->
+        <div class="panel-body p-b-0" style="padding: 5px 1px 1px 1px;"
+            data-bind="event: { mousedown: function(data, event){onMouseDownEventFromDiv(data, event)},mouseup: function(data, event){onMouseUpEventFromDiv(data, event)},mousemove: function(data, event){onMouseMoveEventFromDiv(data, event)} }">
+            <!-- ko if: overlayDivShow -->
+            <!-- Der graue Schatten bei ziehen der Maus auf dem Chart wird dargestellt -->
+            <div style="position: absolute; background-color: rgba(209, 204, 204, 0.486);"
+                data-bind="style:{top:overlayDivTop,left:overlayDivLeft,height:overlayDivHeight,width:overlayDivWidth}">
+            </div>
+            <!-- /ko -->
+            <div class="wf-chart-wrapper" style="margin-bottom: 0px;" data-bind="c3chart: c3Chart,
+                        line: {
+                            connectNull: true
+                        },
+                        size: sizeConfig(),
+                        padding: chartPadding(),
+                        axis: axisConfig(),
+                        timeAxisFormat: timeAxisFormat,
+                        toolipDateFormat: timeAxisFormat,
+                        subchart: subChartConfig(),
+                        legend: legendConfig(),
+                        point: pointsConfig(),
+                        transition: {
+                            duration: transitionDuration()
+                        },
+                        bar: {
+                            width: {
+                                ratio: 0.2
+                            }
+                        },
+                        grid: gridConfig(),
+                        tooltip: tooltip(),
+                        zoom: zoomConfig(),
+                        onrendered: function () { 
+                            onRendered();
+
+                            $('.c3-event-rects').on('contextmenu', function(e){
+                            console.log('Conetxtmenu.');
+                            e.stopImmediatePropagation();
+                            e.stopPropagation();
+                            e.preventDefault();
+
+                            onMouseRightClick(e);
+
+                            });
+                        },
+                        onmouseover: function (e) { onMouseOverEvent(e) },
+                        css: chartId
+                        ">
+            </div>
+
+
+            <!-- ko if: statisticsVisibility() -->
+            <div class="row m-t-md b-t">
+                <div class="table-responsive">
+                    <table class="table table-condensed table-hover table-striped m-b-0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <div class="nowrap">
+                                        <span class="label label-warning m-r-sm hidden-xs">
+                                            <i class="wf wf-min"></i>
+                                        </span>
+                                        {{connector.translate('I4SCADA_Minimum')()}}
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="nowrap">
+                                        <span class="label label-danger m-r-sm hidden-xs width">
+                                            <i class="wf wf-max"></i>
+                                        </span>
+                                        {{connector.translate('I4SCADA_Maximum')()}}
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="nowrap">
+                                        <span class="label label-info m-r-sm hidden-xs">
+                                            <i class="wf wf-average"></i>
+                                        </span>
+                                        {{connector.translate('I4SCADA_Average')()}}
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="nowrap">
+                                        <span class="label label-success m-r-sm hidden-xs">
+                                            <i class="wf wf-analysis"></i>
+                                        </span>
+                                        {{connector.translate('I4SCADA_Last_Value')()}}
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody data-bind="foreach: lines">
+                            <tr>
+                                <td class="p-l-sm">
+                                    <div class="pull-left m-a-sm p-a-xs"
+                                        data-bind="style: {'background-color' : color}"> </div>
+                                    <div class="inline-block m-l-sm m-r">
+                                        <span class="font-weight-bold nowrap" data-bind="text: legendText"></span>
+                                        <br />
+                                        <span class="text-muted nowrap" data-bind="text: signalName"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <i class="wf wf-sine-wave text-muted hidden-xs"></i>
+                                        <span class="font-weight-bold" data-bind="numeraltext: minimum()"></span>
+                                        <span data-bind="text: unit()"></span>
+                                    </div>
+                                    <i class="wf wf-clock text-muted hidden-xs"></i>
+                                    <span data-bind="formattedDate: { value: minimumTimestamp() }"></span>
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <i class="wf wf-sine-wave text-muted hidden-xs"></i>
+                                        <span class="font-weight-bold" data-bind="numeraltext:  maximum()"></span>
+                                        <span data-bind="text: unit()"></span>
+                                    </div>
+                                    <i class="wf wf-clock text-muted hidden-xs"></i>
+                                    <span data-bind="formattedDate: { value: maximumTimestamp() }"></span>
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <i class="wf wf-sine-wave text-muted hidden-xs"></i>
+                                        <span class="font-weight-bold" data-bind="numeraltext: average()"></span>
+                                        <span data-bind="text: unit()"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="">
+                                        <i class="wf wf-sine-wave text-muted hidden-xs"></i>
+                                        <span class="font-weight-bold" data-bind="numeraltext: lastValue()"></span>
+                                        <span data-bind="text: unit()"></span>
+                                    </div>
+                                    <i class="wf wf-clock text-muted hidden-xs"></i>
+                                    <span data-bind="formattedDate: { value: lastValueTimestamp() }"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: footerVisibility -->
+        <div class="panel-footer text-right"></div>
+        <!-- /ko -->
+    </div>
+
+    <!-- Dialog zur Auswahl der Zeit ------------------------------------------------------------------------------------------------------>
+    <div data-bind="attr: { id: 'modal-settings-back-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showDialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-settings-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                        <div class="modal-title">
+                            <strong>{{connector.translate('I4SCADA_Settings')()}}</strong>
+                        </div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row m-b">
+                            <div class="col-xs-12">
+                                <wf-time-range class="block" params="hideTimeRangeSelector: isRealTimeUpdating, 
+                                           startDateInput: startDateInput, 
+                                           endDateInput: endDateInput, 
+                                           timeRangeDateInput: timeRangeDateInput,
+                                           selectedRangeInput: selectedRangeInput,
+                                           startOffset: startOffset,
+                                           startOffsetIntervall: startOffsetIntervall,
+                                           endOffset: endOffset,
+                                           endOffsetIntervall: endOffsetIntervall"></wf-time-range>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row m-y b-t p-y">
+                            <div class="col-xs-12">
+                                <label>{{connector.translate('I4SCADA_Maximum_number_of_records')()}}</label>
+                                <input class="form-control" type="number" data-bind="value: maxResultsInput"
+                                    max="500000" /> -->
+                                
+                                <!-- <span class="text-info block m-y">
+                                    <i class="wf wf-alert-o"></i> -->
+                                    <!--<span>More data for selected period is available</span>-->
+                                    <!-- <span>{{connector.translate('I4SCADA_More_data_for_selected_period_is_available')()}}</span>
+                                </span> -->
+                                
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="row b-t p-y">
+                            <div class="col-xs-12">
+                                <label>{{connector.translate('I4SCADA_X_Axis_Lable')()}}</label>
+                                <input class="form-control" type="text" data-bind="value: x1AxisLabelInput" />
+                            </div>
+                        </div>
+                        <div class="row m-y b-t p-t-md">
+                            <div class="col-xs-12">
+                                <label>{{connector.translate('I4SCADA_Y_Axes_Configuration')()}}</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Y1_Axis_Lable')()}}</label>
+                                    <input class="form-control" type="text" data-bind="value: y1AxisLabelInput" />
+                                </div>
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Minimum')()}}</label>
+                                    <input class="form-control" type="text"
+                                        data-bind="value: y1AxisMinValueInput, enable: !y1AxisMinIsSignalDependentInput()" />
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-bind="checked: y1AxisMinIsSignalDependentInput">
+                                            {{connector.translate('I4SCADA_Minimum_Signal')()}}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Maximum')()}}</label>
+                                    <input class="form-control" type="text"
+                                        data-bind="value: y1AxisMaxValueInput, enable: !y1AxisMaxIsSignalDependentInput()" />
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-bind="checked: y1AxisMaxIsSignalDependentInput">
+                                            {{connector.translate('I4SCADA_Maximum_Signal')()}}
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Y2_Axis_Lable')()}}</label>
+                                    <input class="form-control" type="text" data-bind="value: y2AxisLabelInput" />
+                                </div>
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Minimum')()}}</label>
+                                    <input class="form-control" type="text"
+                                        data-bind="value: y2AxisMinValueInput, enable: !y2AxisMinIsSignalDependentInput()" />
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-bind="checked: y2AxisMinIsSignalDependentInput">
+                                            {{connector.translate('I4SCADA_Minimum_Signal')()}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{connector.translate('I4SCADA_Maximum')()}}</label>
+                                    <input class="form-control" type="text"
+                                        data-bind="value: y2AxisMaxValueInput, enable: !y2AxisMaxIsSignalDependentInput()" />
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-bind="checked: y2AxisMaxIsSignalDependentInput">
+                                            {{connector.translate('I4SCADA_Maximum_Signal')()}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applyFilterSettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-signal-settings-back-container-' + id() }">
+        <div class="modal fade wf-panel-signal-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+            data-bind="modalDialog: {show: showSignalsDialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-signal-settings-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-lg modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true" data-bind="click: closeSignalSettings">&times;</button>
+                        <div class="modal-title">
+                            <strong>{{connector.translate('I4SCADA_Settings')()}}</strong>
+                        </div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings row p-y-0">
+                        <wf-log-browser class="block" params="items: selectedLines, 
+                                                showColor: true, 
+                                                showAxis: true, 
+                                                showType: true, 
+                                                showIsStaticColumn: showIsStaticColumn,
+                                                beginLoadSignalsFunc : function(){ isSignalLoading(true); },
+                                                endLoadSignalsFunc : function(){ isSignalLoading(false); },
+                                                signalText: signalFilterText,
+                                                signalCount: maxSignalCount()" />
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applySignalsSettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSignalSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--/ko-->
+<!--/ko-->

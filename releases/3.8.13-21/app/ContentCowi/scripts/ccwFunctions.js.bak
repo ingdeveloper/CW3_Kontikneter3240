@@ -1,0 +1,24 @@
+var ccwFuelleLeerzeichen = function (anzahl) {
+    var str = ""
+};
+
+var ccwIntToBcd = function (value) {
+    var str = value.toString();
+    var mul = str.length;  //Zeichenlänge
+    var val = 0;
+    for (var index = 0; index < str.length; index++) {
+        var element = str[index];
+        var zahl = parseInt(element);
+        mul = mul - 1;  // alle 4 Bits den Multiplikator verringern
+        val = val + (zahl * Math.pow(2, (mul * 4)));   // zahl * 2^x  -> alle 4 Bits ein neuer Wert
+    }
+    return val;
+}
+
+var ccwIntToAscii = function (value) {
+    var str = value.toString();
+    var erg = str.charCodeAt(0);
+    if (erg == NaN) erg = 0;
+    return erg;
+}
+

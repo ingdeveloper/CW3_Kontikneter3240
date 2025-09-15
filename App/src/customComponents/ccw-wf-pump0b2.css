@@ -1,0 +1,342 @@
+.ccw-wf-pump0b2-dialog1Blockout {
+	z-index: 10011;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2)
+}
+
+.ccw-wf-pump0b2-head-dialog1 {
+	color: #fff;
+	background-color: #337ab7;
+}
+
+.ccw-wf-pump0b2-head-dialog2 {
+	color: #fff;
+	background-color: #33b77a;
+}
+
+.ccw-wf-pump0b2-textSollwert {
+	padding-right: 10px !important;
+	font-size: 12px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-pump0b2-dialogSollwertFeld {
+	width: 50px !important;
+	height: 22px !important;
+	font-size: 14px !important;
+	color: #000000;
+}
+
+.ccw-wf-pump0b2-dialogSollwertFeldDisabled {
+	width: 50px !important;
+	height: 22px !important;
+	font-size: 14px !important;
+	color: #a0a0a0;
+}
+
+.ccw-wf-pump0b2-dialogIstwertFeld {
+	font-size: 14px !important;
+}
+
+.ccw-wf-pump0b2-dialogButtonAuto {
+	width: 80px;
+	height: 40px;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-pump0b2-dialogButtonEinAus {
+	width: 40px;
+	height: 40px;
+	font-size: 14px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-pump0b2-dialogButtonJa {
+	width: 80px;
+	height: 40px;
+	float: left !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-pump0b2-dialogButtonNein {
+	width: 80px;
+	height: 40px;
+	float: right !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.ccw-wf-pump0b2-statusPump {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+}
+
+.ccw-wf-pump0b2-td {
+	padding: 8px !important;
+}
+
+.ccw-wf-pump0b2-antriebAus {
+	fill: #c0c0c0;
+	/* grau */
+}
+
+.ccw-wf-pump0b2-antriebAutoAus {
+	fill: #c0c0c0;
+	/* grau */
+}
+
+.ccw-wf-pump0b2-antriebEin {
+	fill: #00ff00;
+	/* gruen */
+}
+
+.ccw-wf-pump0b2-antriebAutoEin {
+	fill: #00ff00;
+	/* gruen */
+}
+
+.ccw-wf-pump0b2-antriebHand {
+	fill: #ffff00;
+	/* gelb */
+}
+
+.ccw-wf-pump0b2-antriebHandAus {
+	fill: #ffff00;
+	/* gelb */
+}
+
+.ccw-wf-pump0b2-antriebHandEin {
+	fill: #0000ff;
+	/* blau */
+}
+
+.ccw-wf-pump0b2-antriebStoer {
+	fill: #ff0000;
+	/* rot */
+}
+
+.ccw-wf-pump0b2-antriebHochlauf {
+	fill: #00ff00;
+	/* gruen */
+
+	animation-name: flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-pump0b2-antriebHochlaufHand {
+	fill: #0000ff;
+	/* blau */
+
+	animation-name: flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-pump0b2-antriebStoerNeu {
+	fill: #ff0000;
+	/* rot */
+
+	animation-name: flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-pump0b2-handAni {
+	visibility: visible;
+
+	animation-name: flashHand;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flashHand;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flashHand;
+	-moz-animation-duration: 1.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-wf-pump0b2-ohneSignal {
+	fill: #bb1bbb;
+	/* rot */
+
+	animation-name: flash;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+	0% {
+		opacity: 1.0;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flash {
+	0% {
+		opacity: 1.0;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flash {
+	0% {
+		opacity: 1.0;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}
+
+@keyframes flashHand {
+	0% {
+		opacity: 1.0;
+	}
+
+	25% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	75% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flashHand {
+	0% {
+		opacity: 1.0;
+	}
+
+	25% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	75% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flashHand {
+	0% {
+		opacity: 1.0;
+	}
+
+	25% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 0.0;
+	}
+
+	75% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1.0;
+	}
+}

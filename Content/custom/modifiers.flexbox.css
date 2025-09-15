@@ -1,0 +1,130 @@
+/*---------------------------------------------
+  Flexbox positioning modifiers 
+  Basics in usage of CSS flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+---------------------------------------------*/
+
+.flexbox {
+    display: flex !important;
+}
+
+.flexbox-row {
+    flex-direction: row;
+}
+
+.flexbox-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flexbox-column {
+    flex-direction: column;
+}
+
+.flexbox-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flexbox-row-reverse {
+    -ms-flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+/* Flexbox Wrapping */
+
+.flexbox-wrap {
+    flex-wrap: wrap;
+}
+.flexbox-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.flexbox-no-wrap {
+    flex-wrap: nowrap;
+}
+
+/* Flexbox horizontal positioning */
+
+.flexbox-h-start,
+.flexbox-x-start {
+    justify-content: flex-start;
+}
+.flexbox-h-end,
+.flexbox-x-end {
+    justify-content: flex-end;
+}
+.flexbox-h-center,
+.flexbox-x-center {
+    justify-content: center;
+}
+.flexbox-h-justified,
+.flexbox-x-justified {
+    justify-content: space-between;
+}
+
+/* Flexbox vertical positioning */
+
+.flexbox-v-start,
+.flexbox-y-start {
+    align-items: flex-start;
+}
+.flexbox-v-end,
+.flexbox-y-end {
+    align-items: flex-end;
+}
+.flexbox-v-center,
+.flexbox-y-center {
+    align-items: center;
+}
+.flexbox-v-stretched
+.flexbox-y-stretched {
+    align-items: stretch;
+}
+
+/* Flexbox item shrink */
+.flex-no-shrink {
+    flex-shrink: 0;
+}
+.flexbox-shrink-0 {
+    flex-shrink: 0;
+}
+.flexbox-shrink-1 {
+    flex-shrink: 1;
+}
+.flexbox-shrink-2 {
+    flex-shrink: 2;
+}
+.flexbox-shrink-3 {
+    flex-shrink: 3;
+}
+.flexbox-shrink-4 {
+    flex-shrink: 4;
+}
+
+/* Flexbox item grow */
+.flex-no-grow {
+    flex-grow: 0;
+}
+.flexbox-grow-0 {
+    flex-grow: 0;
+}
+.flexbox-grow-1 {
+    flex-grow: 1;
+}
+.flexbox-grow-2 {
+    flex-grow: 2;
+}
+.flexbox-grow-3 {
+    flex-grow: 3;
+}
+.flexbox-grow-4 {
+    flex-grow: 4;
+}
+
+/* Advanced flexbox modifiers */
+/* Lets the item size be dependent to its width and height but also to stretch it over available space in its parent container */
+.flex-auto {
+    flex: 1 1 auto; 
+}
+
+.flexbox-pull-right{
+    margin-left: auto;
+} 

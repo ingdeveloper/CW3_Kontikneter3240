@@ -1,0 +1,1705 @@
+.ef-Rahmen1 {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    /* padding: 1px 1px 1px 1px; */
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.ef-Rahmen2 {
+    border: 2px #a0a0a0 solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.ef-Rahmen3 {
+    border: 1px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.ef-Rahmen4 {
+    border: 1px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    /* padding: 1px 1px 1px 1px; */
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.ef-Rahmen5 {
+    border: 1px #ffffff solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.ef-Rahmen6 {
+    border: 1px #808080 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.ef-RahmenTransparent {
+    border: 2px transparent solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+}
+
+.ef-Rahmen10 {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    border: 0px solid #A9A9A9;
+}
+
+.ef-Rahmen10:hover {
+    cursor: pointer;
+    border: 3px solid #A9A9A9;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+}
+
+.ef-shadowBox1 {
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.ef-linkBox1 {
+    margin: 10px auto;
+    width: 200px;
+}
+
+.ef-linkBox1:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+}
+
+.ef-titleBar-radius-1 {
+    -moz-border-radius: 1px 1px 0 0;
+    -webkit-border-radius: 1px 1px 0 0;
+    border-radius: 1px 1px 0 0;
+}
+
+.ef-titleBar-radius-4 {
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.ef-titleBar-radius-5 {
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.ef-titleBar-rd-sm {
+    font-size: 14px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.ef-titleBar-gn-sm {
+    font-size: 14px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.ef-titleBar-bl-sm {
+    font-size: 14px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.ef-titleBar-dbl-sm {
+    font-size: 14px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.ef-titleBar-or-sm {
+    font-size: 14px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.ef-titleBar-tr-sm {
+    font-size: 14px;
+    background-color: transparent;
+    color: #000000;
+}
+
+.ef-titleBar-br-sm {
+    font-size: 14px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.ef-titleBar-rd-md {
+    font-size: 16px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.ef-titleBar-gn-md {
+    font-size: 16px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.ef-titleBar-bl-md {
+    font-size: 16px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.ef-titleBar-dbl-md {
+    font-size: 16px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.ef-titleBar-or-md {
+    font-size: 16px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.ef-titleBar-tr-md {
+    font-size: 16px;
+    background-color: transparent;
+    color: #000000;
+}
+
+.ef-titleBar-br-md {
+    font-size: 16px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.ef-titleBar-rd-lg {
+    font-size: 20px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.ef-titleBar-gn-lg {
+    font-size: 20px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.ef-titleBar-bl-lg {
+    font-size: 20px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.ef-titleBar-dbl-lg {
+    font-size: 20px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.ef-titleBar-or-lg {
+    font-size: 20px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.ef-titleBar-tr-lg {
+    font-size: 20px;
+    background-color: transparent;
+    color: #000000;
+}
+
+.ef-modalTitleBar-gn-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.ef-modalTitleBar-bl-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.ef-modalTitleBar-dbl-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.ef-modalTitleBar-or-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.ef-modalTitleBar-br-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.ef-valueBar-auto-ws-1 {
+    margin: auto;
+    max-width: 95%;
+    height: 22px;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.ef-valueBar-auto-gr-1 {
+    margin: auto;
+    max-width: 95%;
+    height: 22px;
+    font-size: 12px;
+    background-color: #eaeaea;
+}
+
+.ef-valueBar-auto-ws-2 {
+    margin: auto;
+    max-width: 95%;
+    height: 24px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+.ef-valueBar-auto-gr-2 {
+    margin: auto;
+    max-width: 95%;
+    height: 24px;
+    font-size: 14px;
+    background-color: #eaeaea;
+}
+
+.ef-valueBar-auto-ws-3 {
+    margin: auto;
+    max-width: 95%;
+    height: 26px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.ef-valueBar-auto-gr-3 {
+    margin: auto;
+    max-width: 95%;
+    height: 26px;
+    font-size: 16px;
+    background-color: #eaeaea;
+}
+
+.ef-statusBox {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ef-statusBox1 {
+    padding: 0px;
+    width: 100%;
+    height: 19px;
+    text-align: center;
+}
+
+.ef-statusBoxFrost1 {
+    margin: 6px auto;
+    padding-top: 2px;
+    max-width: 95%;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ef-AnzRef {
+    margin-top: 1px;
+    border: 1px #a0a0a0 solid;
+    border-radius: 50px;
+}
+
+.ef-td-text {
+    width: 70%;
+    text-align: left;
+    padding-left: 4px !important;
+}
+
+.ef-td-text-werte {
+    font-size: 14px;
+}
+
+.ef-td-text-werte-sm {
+    font-size: 14px;
+}
+
+.ef-td-text-werte-dialog {
+    font-size: 14px;
+}
+
+.ef-td-text-istwert {
+    background-color: #eaeaea !important;
+}
+
+.ef-td-istwert {
+    background-color: #eaeaea !important;
+}
+
+.ef-td-wert {
+    background-color: #eaeaea !important;
+    width: 30%;
+    text-align: right;
+    padding-right: 4px !important;
+}
+
+.ef-td-status {
+    width: 30%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ef-titelleiste {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#00c0ff, #d9edf7) !important;
+}
+
+.ef-th-xs {
+    padding: 2px !important;
+    font-size: 10px !important;
+}
+
+.ef-bg-default {
+    background-color: #c0c0c0 !important;
+}
+
+.ef-bg-danger {
+    background-color: #f2dede !important;
+}
+
+.ef-bg-warning {
+    background-color: #fcf8e3 !important;
+}
+
+.ef-bg-success {
+    background-color: #dff0d8 !important;
+}
+
+.ef-bg-info {
+    background-color: #d9edf7 !important;
+}
+
+.ef-bg-primary {
+    background-color: #337ab7 !important;
+}
+
+.ef-bg-primary2 {
+    color: #fff;
+    background: linear-gradient(#337ab7, #63aae7) !important;
+}
+
+.ef-ref-nOk {
+    color: #ffffff !important;
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.ef-ref-Ok {
+    color: #000000 !important;
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-fStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.ef-fStatus-frosten {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-fStatus-lagern {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.ef-fStatus-reinigen {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.ef-fStatus-lueften {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.ef-vStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.ef-vStatus-stoer {
+    color: #ffffff !important;
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.ef-vStatus-frosten {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-vStatus-lagern {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.ef-vStatus-abtauen {
+    background: linear-gradient(#ffd9c0, #ffd900) !important;
+}
+
+.ef-status-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.ef-status-ein {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-statusBelegung-frei {
+    background: linear-gradient(#a0a0a0, #707070) !important;
+}
+
+.ef-statusBelegung-belegt {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-status-wartung {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.ef-gesperrt {
+    color: #ffffff !important;
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.ef-freigabe {
+    color: #000000 !important;
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.ef-text-60deg {
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+.ef-schrittNr {
+    padding: 0px 1px !important;
+    border: 2px solid #c6c6c6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 15px !important;
+    margin-right: auto !important;
+    float: left;
+    width: 24px;
+    text-align: center;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.ef-sollzeit {
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.ef-istzeit {
+    padding-right: 4px !important;
+    background-color: #eaeaea !important;
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.ef-btn-antr-hand {
+    padding: 0px;
+    width: 100%;
+    /* height: 19px; */
+}
+
+.ef-btn-antr-ein {
+    padding: 0px;
+    width: 100%;
+    /* height: 19px; */
+}
+
+.ef-btn-antr-einR {
+    padding: 0px;
+    width: 96%;
+    /* height: 19px; */
+}
+
+.ef-btn-antr-einL {
+    padding: 0px;
+    width: 96%;
+    /* height: 19px; */
+}
+
+.ef-btn-antr-aus {
+    padding: 0px;
+    width: 100%;
+    /* height: 19px; */
+}
+
+.ef-btn-ein-aus {
+    padding: 0px;
+    width: 100%;
+    /* height: 19px; */
+}
+
+.ef-btn-ein-sm {
+    padding: 0px;
+    width: 46%;
+    /* height: 19px; */
+    font-size: 12px !important;
+}
+
+.ef-btn-aus-sm {
+    padding: 0px;
+    width: 46%;
+    /* height: 19px; */
+    font-size: 12px !important;
+}
+
+.ef-btn-vorwahl1 {
+    margin: 2px 2px 6px 2px;
+    padding: 0px;
+    width: 100%;
+    height: 25px;
+}
+
+.ccw-button-Vorwahl {
+    width: 100%;
+}
+
+.ccw-state-text-indicate-yellow {
+    border-radius: 4px;
+    border: thin solid darkgrey;
+    box-shadow: 1px 0 2px #222;
+	width: 100%;
+	padding: 2px;
+	text-align: center;
+    font-size: 14px;
+	/* font-weight: bold; */
+    color:  rgb(0, 0, 0);
+    background-color:  rgb(251, 255, 0);
+}
+
+.ccw-state-text-indicate {
+    border-radius: 4px;
+    border: thin solid darkgrey;
+    box-shadow: 1px 0 2px #222;
+	width: 100%;
+	padding: 2px;
+	text-align: center;
+	font-size: 12px;
+    /* font-weight: bold; */
+    color:  rgb(77, 77, 77);
+    background-color:  rgb(0, 255, 0);
+}
+
+.ccw-state-text-default {
+    border-radius: 4px;
+    border: thin solid darkgrey;
+    box-shadow: 1px 0 2px #222;
+	width: 100%;
+	padding: 2px;
+	text-align: center;
+    font-size: 12px;
+	/* font-weight: bold; */
+    color:  rgb(0, 0, 0);
+    background-color:  rgb(220, 220, 220);
+}
+.ccw-state-text-indicate-error {
+    border-radius: 4px;
+    border: thin solid darkgrey;
+    box-shadow: 1px 0 2px #222;
+	width: 100%;
+	padding: 2px;
+	text-align: center;
+    font-size: 12px;
+	/* font-weight: bold; */
+    color:  white;
+    background-color:  rgb(255, 0, 0);
+}
+
+.ef-btn-vorwahl2 {
+    margin: 2px 2px 6px 2px;
+    padding: 0px;
+    width: 42%;
+    height: 25px;
+}
+
+.ef-btn-vorwahl3 {
+    margin: 2px 2px 6px 2px;
+    padding: 0px;
+    width: 50%;
+    height: 25px;
+}
+
+.ef-btn-frosten {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0px !important;
+}
+
+.ef-buttonWartung {
+    background: linear-gradient(#902090, #700070) !important;
+    color: #ffffff !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.ef-buttonWartung:hover {
+    opacity: 1 !important;
+}
+
+.ef-buttonWartung:active {
+    background: linear-gradient(#700070, #500050) !important;
+}
+
+.ef-buttonWartungAktiv {
+    background: linear-gradient(#efefc0, #efef00) !important;
+    color: #000000 !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.ef-buttonWartungAktiv:hover {
+    opacity: 1 !important;
+}
+
+.ef-buttonWartungAktiv:active {
+    background: linear-gradient(#ffff00, #c0c000) !important;
+}
+
+.ef-belegBox {
+    border: 1px solid #404040;
+    border-radius: 50px;
+}
+
+.ef-buttonSchoko {
+    background: linear-gradient(#c09050, #906020) !important;
+    color: #ffffff !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.ef-buttonSchoko:hover {
+    opacity: 1 !important;
+}
+
+.ef-buttonSchoko:active {
+    background: linear-gradient(#906020, #603000) !important;
+}
+
+.ef-infoEtage {
+    position: absolute;
+    left: 300px;
+    width: 100px;
+    height: 16px;
+    background-color: #ffffff;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+    top: 39px;
+}
+
+.ef-infoEtageGesamt {
+    top: 386px;
+}
+.ef-istZeitEtage1 {
+    position: absolute;
+    top: 349px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage2 {
+    position: absolute;
+    top: 329px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage3 {
+    position: absolute;
+    top: 309px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage4 {
+    position: absolute;
+    top: 289px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage5 {
+    position: absolute;
+    top: 269px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage6 {
+    position: absolute;
+    top: 249px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage7 {
+    position: absolute;
+    top: 229px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage8 {
+    position: absolute;
+    top: 209px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage9 {
+    position: absolute;
+    top: 189px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage10 {
+    position: absolute;
+    top: 169px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage11 {
+    position: absolute;
+    top: 149px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage12 {
+    position: absolute;
+    top: 129px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtage13 {
+    position: absolute;
+    top: 109px;
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitAuslauf {
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitSammelbandOben {
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitSammelbandUnten {
+    width: 42px;
+    height: 16px;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ef-istZeitEtageBelegungA {
+    position: absolute;
+    top: 50px;
+    width: 40px;
+    height: 15px;
+    text-align: center !important;
+    padding: 0px 2px 0px 2px;
+    font-size: 9px;
+    font-weight: bold;
+    z-index: 1000;
+}
+.ef-turm1 {
+    position: absolute;
+    left: 790px;
+    top: 90px;
+    width:145px;
+    height:390px
+}
+.ef-turm2 {
+    position: absolute;
+    left: 621px;
+    top: 90px;
+    width:145px;
+    height:390px
+}
+.ef-turm3 {
+    position: absolute;
+    left: 452px;
+    top: 90px;
+    width:145px;
+    height:390px
+}
+.ef-btnIstZeitStyle {
+    position: absolute;
+    width: 45px;
+    height: 32px;
+    text-align: center !important;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 1000;  
+}
+.ef-istZeitTurm1Belegung {
+    left: 110px;
+    top: 443px;
+} 
+/* 15px */
+.ef-istZeitTurm2Belegung {
+    left: 110px;
+    top: 399px;
+}
+/* 14px */
+.ef-istZeitTurm3Belegung {
+    left: 110px;
+    top: 356px;
+}
+/* 15px */
+.ef-istZeitTurm4Belegung {
+    left: 110px;
+    top: 312px;
+}
+/* 14px */
+.ef-istZeitTurm5Belegung {
+    left: 110px;
+    top: 268px;
+}
+/* 15px */
+.ef-istZeitTurm6Belegung {
+    left: 110px;
+    top: 225px;
+}
+/* 14px */
+.ef-istZeitTurm7Belegung {
+    left: 110px;
+    top: 181px;
+}
+/* 15px */
+.ef-istZeitTurm8Belegung {
+    left: 110px;
+    top: 137px;
+}
+/* 14px */
+.ef-istZeitTurm9Belegung {
+    left: 110px;
+    top: 94px;
+}
+
+.ef-istZeitTurm10Belegung {
+    left: 100px;
+    top: 38px;
+}
+.ef-istZeitTurm11Belegung {
+    left: 15px;
+    top: 38px;
+}
+.ef-istZeitTurm12Belegung {
+    left: 5px;
+    top: 94px;
+} 
+/* 15px */
+.ef-istZeitTurm13Belegung {
+    left: 5px;
+    top: 137px;
+}
+/* 14px */
+.ef-istZeitTurm14Belegung {
+    left: 5px;
+    top: 181px;
+}
+/* 15px */
+.ef-istZeitTurm15Belegung {
+    left: 5px;
+    top: 225px;
+}
+/* 14px */
+.ef-istZeitTurm16Belegung {
+    left: 5px;
+    top: 268px;
+}
+/* 15px */
+.ef-istZeitTurm17Belegung {
+    left: 5px;
+    top: 312px;
+}
+/* 14px */
+.ef-istZeitTurm18Belegung {
+    left: 5px;
+    top: 352px;
+}
+/* 15px */
+.ef-istZeitTurm19Belegung {
+    left: 5px;
+    top: 399px;
+}
+/* 14px */
+.ef-istZeitTurm20Belegung {
+    left: 5px;
+    top: 443px;
+}
+
+.ef-istZeitReihe1 {
+    left: 675px;
+}
+
+.ef-istZeitReihe2 {
+    left: 630px;
+}
+
+.ef-istZeitReihe3 {
+    left: 585px;
+}
+
+.ef-istZeitReihe4 {
+    left: 540px;
+}
+
+.ef-istZeitReihe5 {
+    left: 377px;
+}
+
+.ef-istZeitReihe6 {
+    left: 332px;
+}
+
+.ef-istZeitReihe7 {
+    left: 287px;
+}
+
+.ef-istZeitReihe8 {
+    left: 242px;
+}
+
+.ef-istZeitReihe9 {
+    left: 197px;
+}
+
+
+.ef-artikelFarbe0 {
+    background-color: #d0d0d0;
+}
+
+.ef-artikelFarbe1 {
+    background-color: #ffff80;
+}
+
+.ef-artikelFarbe2 {
+    background-color: #a0a0ff;
+}
+
+.ef-artikelFarbe3 {
+    background-color: #00ffff;
+}
+
+.ef-artikelFarbe4 {
+    background-color: #ff9933;
+}
+
+.ef-artikelNrAufzug {
+    position: absolute;
+    width: 40px;
+    height: 17px;
+    /* background-color: #eaeaea; */
+    padding: 0px 2px 0px 2px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.ef-artikelNrEinlaufaufzug {
+    left: 0px;
+    top: 78px;
+}
+
+.ef-artikelNrAuslaufaufzug {
+    left: 0px;
+    top: 72px;
+}
+
+.ef-artikelNrSammelbandOben {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.ef-artikelNrSammelbandUnten {
+    position: absolute;
+    left: 30px;
+    top: 90px;
+}
+
+.ef-istPosAufzug_Einlauf {
+    position: absolute;
+    left: 757px;
+    top: 15px;
+    width: 56px;
+    height: 16px;
+    background-color: #eaeaea;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+}
+
+.ef-istPosAufzug_Auslauf {
+    position: absolute;
+    left: 86px;
+    top: 15px;
+    width: 56px;
+    height: 16px;
+    background-color: #eaeaea;
+    padding: 0px 2px 0px 2px;
+    font-size: 10px;
+}
+
+.ef-motorEinlaufbandUnten {
+    position: absolute;
+    left: 15px;
+    top: 162px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorEinlaufbandOben {
+    position: absolute;
+    left: 15px;
+    top: 116px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorAuslaufband {
+    position: absolute;
+    left: 40px;
+    top: 315px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorEinlaufAufzug {
+    position: absolute;
+    left: 25px;
+    top: 90px;
+    width: 40px;
+    height: 40px;
+}
+
+.ef-motorAuslaufAufzug {
+    position: absolute;
+    left: 25px;
+    top: 90px;
+    width: 40px;
+    height: 40px;
+}
+
+.ef-motorBandEinlaufAufzug {
+    position: absolute;
+    left: 11px;
+    top: 62px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorBandEinlaufAufzugVerschub {
+    position: absolute;
+    left: 55px;
+    top: 72px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorBandAuslaufAufzugVerschub {
+    position: absolute;
+    left: 55px;
+    top: 68px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorBandAuslaufAufzug {
+    position: absolute;
+    left: 6px;
+    top: 57px;
+    width: 26px;
+    height: 26px;
+}
+
+.ef-motorEtage {
+    position: absolute;
+    left: 80px;
+    top: 53px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.ef-LS_Anfang {
+    position: absolute;
+    left: 635px;
+    top: 46px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_fastVoll {
+    position: absolute;
+    left: 143px;
+    top: 44px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_Ende {
+    position: absolute;
+    left: 75px;
+    top: 46px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_EinlaufAufzugEnde {
+    position: absolute;
+    left: 0px;
+    top: 53px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_EinlaufAufzugAnfang {
+    position: absolute;
+    left: 75px;
+    top: 53px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_AuslaufAufzugEnde {
+    position: absolute;
+    left: 0px;
+    top: 47px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-LS_AuslaufAufzugAnfang {
+    position: absolute;
+    left: 70px;
+    top: 47px;
+    width: 14px;
+    height: 14px;
+    z-index: 1000;
+}
+
+.ef-artikelInfoleiste {
+    position: absolute;
+    left: 100px;
+    top: 450px;
+    width: 100%;
+    height: 36px;
+}
+
+.ef-artikelInfo {
+    position: absolute;
+    top: 6px;
+    width: 180px;
+    height: 24px;
+    padding: 0px 4px 0px 4px;
+    font-size: 16px;
+}
+
+.ef-artikelInfo1 {
+    left: 90px;
+}
+
+.ef-artikelInfo2 {
+    left: 290px;
+}
+
+.ef-artikelInfo3 {
+    left: 490px;
+}
+
+.ef-artikelInfo4 {
+    left: 690px;
+}
+
+#layerEinlaufAufzug {
+    position: absolute;
+    left: 739px;
+    top: 261px;
+}
+
+#layerAuslaufAufzug {
+    position: absolute;
+    left: 73px;
+    top: 267px;
+}
+
+#svgFroster {
+    position: absolute;
+    left: 40px;
+    top: 0px;
+}
+
+#einlagern {
+    position: absolute;
+    left: 850px;
+    top: 40px;
+    z-index:999;
+}
+
+#auslagern {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+}
+
+#svgAuslaufAufzugHG {
+    position: absolute;
+    left: 65px;
+    top: 15px;
+}
+
+#svgEinlaufBaender {
+    position: absolute;
+    left: 836px;
+    top: 152px;
+}
+
+#svgAuslaufAufzug {
+    position: absolute;
+    left: 73px;
+    top: 267px;
+}
+
+#svgAuslaufAufzugVG {
+    position: absolute;
+    left: 65px;
+    top: 15px;
+}
+
+#svgAuslaufAufzugKlappe_zu {
+    visibility: visible;
+    position: absolute;
+    left: 0px;
+    top: -7px;
+}
+
+#svgAuslaufAufzugKlappe_auf {
+    visibility: hidden;
+    position: absolute;
+    left: -16px;
+    top: -3px;
+}
+
+#svgEtage1 {
+    position: absolute;
+    left: 85px;
+    top: 300px;
+}
+
+#svgEtage2 {
+    position: absolute;
+    left: 85px;
+    top: 280px;
+}
+
+#svgEtage3 {
+    position: absolute;
+    left: 85px;
+    top: 260px;
+}
+
+#svgEtage4 {
+    position: absolute;
+    left: 85px;
+    top: 240px;
+}
+
+#svgEtage5 {
+    position: absolute;
+    left: 85px;
+    top: 220px;
+}
+
+#svgEtage6 {
+    position: absolute;
+    left: 85px;
+    top: 200px;
+}
+
+#svgEtage7 {
+    position: absolute;
+    left: 85px;
+    top: 180px;
+}
+
+#svgEtage8 {
+    position: absolute;
+    left: 85px;
+    top: 160px;
+}
+
+#svgEtage9 {
+    position: absolute;
+    left: 85px;
+    top: 140px;
+}
+
+#svgEtage10 {
+    position: absolute;
+    left: 85px;
+    top: 120px;
+}
+
+#svgEtage11 {
+    position: absolute;
+    left: 85px;
+    top: 100px;
+}
+
+#svgEtage12 {
+    position: absolute;
+    left: 85px;
+    top: 80px;
+
+}
+
+#svgEtage13 {
+    position: absolute;
+    left: 85px;
+    top: 60px;
+
+}
+
+#svgEinlaufAufzugHG {
+    position: absolute;
+    left: 736px;
+    top: 15px;
+}
+
+#svgEinlaufAufzug {
+    position: absolute;
+    left: 739px;
+    top: 261px;
+}
+
+#svgEinlaufAufzugVG {
+    position: absolute;
+    left: 736px;
+    top: 15px;
+}
+
+.btnPadding{
+    padding: 0px 2px 0px 2px !important;
+}
+.ccw-bg-success{
+    background-color: #0fda0f !important;
+}
+.ccw-bg-danger {
+    background-color: #e01c15 !important;
+}
+.ccw-bg-warning {
+    background-color: #fcf8e3 !important;
+}
+.ccw-bg-info {
+    background-color: #d9edf7 !important;
+}
+.ccw-bg-transparent{
+    background-color: transparent !important;
+}
+.border-box{
+    border: thin solid black;
+}
+.ef-sprungInfo {
+    margin: 8px;
+    padding: 4px 4px 0px 4px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.ef-matrixEinlauf {
+    position: absolute;
+    left: 970px;
+    top: 31px;
+    font-size: 10px;
+}
+
+.ef-matrixAuslauf {
+    position: absolute;
+    left: 0px;
+    top: 31px;
+    font-size: 10px;
+}
+
+.ef-trMatrix {
+    padding: 0px !important;
+    font-size: 6px;
+}
+
+.ef-thMatrix {
+    padding: 0px !important;
+}
+
+.ef-thMatrixEtage {
+    padding: 0px !important;
+    vertical-align: middle !important;
+}
+
+.ef-thMatrixEtageText {
+    margin: -10px;
+}
+
+.ef-tdMatrix {
+    padding: 2px !important;
+    background-color: white;
+}
+
+.ef-tdMatrixNr {
+    padding: 0px !important;
+    font-size: 10px;
+    font-weight: bold;
+    vertical-align: middle !important;
+}
+
+.ef-btnMatrix {
+    margin: 2px 0px 2px 0px;
+    padding: 0px;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.ef-btn-sprungEinlauf {
+    position: absolute;
+    left: 850px;
+    top: 22px;
+    width: 132px;
+    height: 22px;
+    padding: 2px;
+    font-size: 10px;
+}
+
+.ef-btn-sprungAuslauf {
+    width: 100%;
+    height: 22px;
+    padding: 2px;
+    font-size: 10px;
+}
+.ef-infoAnzahl {
+    position: absolute;
+    left: 386px;
+    top: 370px;
+    width: 100px;
+    height: 22px;
+    padding: 0px 2px 0px 2px;
+    background: linear-gradient(#c0ffc0, #00ff00);
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.ef-motorAuslaufband {
+    position: absolute;
+    left: 386px;
+    top: 70px;   
+}
+
+.ef-etageBand {
+    background-color: rgb(241, 241, 241);
+    border: thin solid black;
+    border-radius: 12px;
+    height: 28px;  
+}
+.ef-istZeitEtageBand {
+    width: 60px;
+    height: 20px;
+    padding: 0px 2px 0px 2px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+}
+.border-default{
+    border: 1px solid #ffffff;
+}
+.border-markiert{
+    border: 1px solid magenta;
+}
+.ef-ccw-badge-etage{
+    position: absolute;
+    top: 60px;
+    padding: 1px 4px!important;
+    font-size: 6px;
+    z-index: 1000;
+}
+.ef-ccw-badge-band{
+    text-align: right;
+    vertical-align: bottom;
+    margin-bottom: -7px;
+    margin-right:-15px;
+    padding: 2px 5px!important;
+    font-size: 6px;
+    z-index: 1000;
+}
+.ef-text-markierung {
+    color: magenta;
+}
+.ef-text-default {
+    color: darkgray;
+}
+.ef-badgeReihe1Belegung {
+    left: 620px;
+}
+.ef-badgeReihe2Belegung {
+    left: 575px;
+}
+.ef-badgeReihe3Belegung {
+    left: 530px;
+}
+.ef-badgeReihe4Belegung {
+    left: 485px;
+}
+.ef-badgeReihe5Belegung {
+    left: 440px;
+}
+.ef-badgeReihe6Belegung {
+    left: 280px;
+}
+.ef-badgeReihe7Belegung {
+    left: 235px;
+}
+.ef-badgeReihe8Belegung {
+    left: 190px;
+}
+.ef-badgeReihe9Belegung {
+    left: 145px;
+}
+.verteilerBlock {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-radius: 4px;
+    border: thin solid black;
+    background-color: darkgray;
+}
+
+.verteiler {
+    /* border-radius: 4px; */
+    border: thin solid black;
+    background-color: lightgray;
+}
+#aero {
+    offset-path: path('m 823.658,118.15187 v 361.74307 c -0.40808,23.14347 91.59007,23.14347 91.46309,0 V 118.15187 c -0.1362,-29.40075 -91.87117,-30.206998 -91.46309,0 z');
+    offset-rotate: 0deg;
+    animation: acht 40s;
+}
+@keyframes acht {
+    0% { offset-distance: 0;}
+    100% { offset-distance: 100%;}
+}

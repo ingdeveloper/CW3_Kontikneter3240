@@ -1,0 +1,220 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 hidden-xs">
+            <table class="table table-bordered table-condensed table-hover table-striped table-responsive">
+                <caption><h2><strong>Dosierantriebe</strong></h2></caption>
+                <thead style="background-color: antriebeHintergrundfarbe">
+                    <tr>
+                        <th class="beschriftungTable tableBreiteSpalte1">Nr</th>
+                        <th class="beschriftungTable tableBreiteSpalte2">BMK</th>
+                        <th class="beschriftungTable tableBreiteSpalte3">Kommentar</th>
+                        <th class="beschriftungTable tableBreiteSpalte4">Soll</th>
+                        <th class="beschriftungTable tableBreiteSpalte5">Ist</th>
+                        <th class="beschriftungTable tableBreiteSpalte6">Hand-Auto</th>
+                        <th class="beschriftungTable tableBreiteSpalte7">Ein</th>
+                        <th class="beschriftungTable tableBreiteSpalte8">Aus</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: dosierAntriebe">
+                    <tr >
+                        <!-- Nummer ############################################## -->
+                        <td class="mixerSeiteTdStationsNummerBreite text center">
+                            <span data-bind="text: ($index()+1)"></span>
+                        </td>
+                        <!-- BMK  ############################################## -->
+                        <td class="antriebBeschriftung">
+                             <span data-bind="text: $data.bmk"></span>
+                        </td>
+                        <!-- Kommentar  ############################################## -->
+                        <td class="antriebBeschriftung">
+                            <span data-bind="text: $data.kommentar"></span>
+                        </td>
+                        <!-- Soll ############################################## -->
+                        <td class="antriebBeschriftung">
+                            <ccw-wf-input-tastatur params="signalName: $data.sollwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: !$parent.userFreigabe()"></ccw-wf-input-tastatur>
+                        </td>
+                        <!-- Ist ############################################## -->
+                        <td class="antriebBeschriftung">
+                            <ccw-wf-input-tastatur params="signalName: $data.istwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: true"></ccw-wf-input-tastatur>
+                        </td>
+                        <!-- Btn Hand-Auto Ein Aus ############################################## -->
+                        <td class="antriebBeschriftung">
+                            <button class="btn btn-default btn-xs buttonHandAuto" type="submit" data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueHand($data.btnHandAuto().signalNameHand, $data.btnHandAuto().signalNameStoer1, $data.btnHandAuto().signalNameStoer2, obj, event)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text"></button>
+                        </td>
+                        <td class="antriebBeschriftung">
+                            <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnEin().freigabe, click: function (obj, event){$parent.setBtnValueEin($data.btnEin().signalNameHand, $data.btnEin().signalNameEinR, $data.btnEin().signalNameEinL, obj, event)}, visible: $data.btnEin().sichtbar, css: $data.btnEin().newCss">Ein</button>
+                        </td>
+                        <td class="antriebBeschriftung">
+                            <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueAus($data.btnAus().signalNameHand, $data.btnAus().signalNameEinR, $data.btnAus().signalNameEinL, obj, event)}, visible: $data.btnAus().sichtbar">Aus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 hidden-xs">
+                <table class="table table-bordered table-condensed table-hover table-striped table-responsive">
+                    <caption><h2><strong>Rührwerke</strong></h2></caption>
+                    <thead style="background-color: antriebeHintergrundfarbe">
+                        <tr>
+                            <th class="beschriftungTable tableBreiteSpalte1">Nr</th>
+                            <th class="beschriftungTable tableBreiteSpalte2">BMK</th>
+                            <th class="beschriftungTable tableBreiteSpalte3">Kommentar</th>
+                            <th class="beschriftungTable tableBreiteSpalte4">Soll</th>
+                            <th class="beschriftungTable tableBreiteSpalte5">Ist</th>
+                            <th class="beschriftungTable tableBreiteSpalte6">Hand-Auto</th>
+                            <th class="beschriftungTable tableBreiteSpalte7">Ein</th>
+                            <th class="beschriftungTable tableBreiteSpalte8">Aus</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: ruehrAntriebe">
+                        <tr >
+                            <!-- Nummer ############################################## -->
+                            <td class="mixerSeiteTdStationsNummerBreite text center">
+                                <span data-bind="text: ($index()+1)"></span>
+                            </td>
+                            <!-- BMK  ############################################## -->
+                            <td class="mixerSeiteTdInput text-center">
+                                 <span data-bind="text: $data.bmk"></span>
+                            </td>
+                            <!-- Kommentar  ############################################## -->
+                            <td class="mixerSeiteTdInput">
+                                <span data-bind="text: $data.kommentar"></span>
+                            </td>
+                            <!-- Soll ############################################## -->
+                            <td class="mixerSeiteTdInput text-center">
+                                <ccw-wf-input-tastatur params="signalName: $data.sollwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: !$parent.userFreigabe()"></ccw-wf-input-tastatur>
+                            </td>
+                            <!-- Ist ############################################## -->
+                            <td class="mixerSeiteTdInput text-center">
+                                <ccw-wf-input-tastatur params="signalName: $data.istwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: true"></ccw-wf-input-tastatur>
+                            </td>
+                            <!-- Btn Hand-Auto Ein Aus ############################################## -->
+                            <td class="mixerSeiteTdInput text-center">
+                                <button class="btn btn-default btn-xs buttonHandAuto" type="submit" data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueHand($data.btnHandAuto().signalNameHand, $data.btnHandAuto().signalNameStoer1, $data.btnHandAuto().signalNameStoer2, obj, event)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text"></button>
+                            </td>
+                            <td class="mixerSeiteTdInput text-center">
+                                <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnEin().freigabe, click: function (obj, event){$parent.setBtnValueEin($data.btnEin().signalNameHand, $data.btnEin().signalNameEinR, $data.btnEin().signalNameEinL, obj, event)}, visible: $data.btnEin().sichtbar, css: $data.btnEin().newCss">Ein</button>
+                            </td>
+                            <td class="mixerSeiteTdInput text-center">
+                                <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueAus($data.btnAus().signalNameHand, $data.btnAus().signalNameEinR, $data.btnAus().signalNameEinL, obj, event)}, visible: $data.btnAus().sichtbar">Aus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 hidden-xs">
+            <table class="table table-condensed table-hover table-striped table-responsive">
+                <caption><h2><strong>Antriebe Schnecken, Vorkneter und Kneter</strong></h2></caption>
+                <thead style="background-color: antriebeHintergrundfarbe">
+                        <tr>
+                            <th class="beschriftungTable tableBreiteSpalte1">Nr</th>
+                            <th class="beschriftungTable tableBreiteSpalte2">BMK</th>
+                            <th class="beschriftungTable tableBreiteSpalte3">Kommentar</th>
+                            <th class="beschriftungTable tableBreiteSpalte4">Soll</th>
+                            <th class="beschriftungTable tableBreiteSpalte5">Ist</th>
+                            <th class="beschriftungTable tableBreiteSpalte6">Hand-Auto</th>
+                            <th class="beschriftungTable tableBreiteSpalte7">Ein</th>
+                            <th class="beschriftungTable tableBreiteSpalte8">Aus</th>
+                        </tr>
+                </thead>
+                <tbody data-bind="foreach: kneterAntriebe">
+                        <tr >
+                                <!-- Nummer ############################################## -->
+                                <td class="mixerSeiteTdStationsNummerBreite">
+                                    <div class="mixerSeiteTdStationNummer ccw-bg-noInput" data-bind="css: { ccw-bg-lime: ($parent.aktuellerProgrammschritt() == ($index()+1)) }">
+                                        <span data-bind="text: ($index()+1)"></span>
+                                    </div>
+                                </td>
+                                <!-- BMK  ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                     <span data-bind="text: $data.bmk"></span>
+                                </td>
+                                <!-- Kommentar  ############################################## -->
+                                <td style="width:200px" class="mixerSeiteTdInput">
+                                    <span data-bind="text: $data.kommentar"></span>
+                                </td>
+                                <!-- Soll ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <ccw-wf-input-tastatur params="signalName: $data.sollwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: !$parent.userFreigabe()"></ccw-wf-input-tastatur>
+                                </td>
+                                <!-- Ist ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <ccw-wf-input-tastatur params="signalName: $data.istwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: true"></ccw-wf-input-tastatur>
+                                </td>
+                                <!-- Btn Hand-Auto Ein Aus ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonHandAuto" type="submit" data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueHand($data.btnHandAuto().signalName, obj, event)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text"></button>
+                                </td>
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnEin().freigabe, click: function (obj, event){$parent.setBtnValueEin($data.btnEin().signalName, obj, event)}, visible: $data.btnEin().sichtbar, css: $data.btnEin().newCss">Ein</button>
+                                </td>
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueAus($data.btnAus().signalName, obj, event)}, visible: $data.btnAus().sichtbar">Aus</button>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 hidden-xs">
+            <table class="table table-bordered table-condensed table-hover table-striped table-responsive">
+                <caption><h2><strong>Abfuhrbänder</strong></h2></caption>
+                <thead style="background-color: antriebeHintergrundfarbe">
+                            <tr>
+                                <th class="beschriftungTable tableBreiteSpalte1">Nr</th>
+                                <th class="beschriftungTable tableBreiteSpalte2">BMK</th>
+                                <th class="beschriftungTable tableBreiteSpalte3">Kommentar</th>
+                                <th class="beschriftungTable tableBreiteSpalte4">Soll</th>
+                                <th class="beschriftungTable tableBreiteSpalte5">Ist</th>
+                                <th class="beschriftungTable tableBreiteSpalte6">Hand-Auto</th>
+                                <th class="beschriftungTable tableBreiteSpalte7">Ein</th>
+                                <th class="beschriftungTable tableBreiteSpalte8">Aus</th>
+                            </tr>
+                </thead>
+                <tbody data-bind="foreach: baenderAntriebe">
+                        <tr >
+                                <!-- Nummer ############################################## -->
+                                <td class="mixerSeiteTdStationsNummerBreite">
+                                    <div class="mixerSeiteTdStationNummer ccw-bg-noInput" data-bind="css: { ccw-bg-lime: ($parent.aktuellerProgrammschritt() == ($index()+1)) }">
+                                        <span data-bind="text: ($index()+1)"></span>
+                                    </div>
+                                </td>
+                                <!-- BMK  ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                     <span data-bind="text: $data.bmk"></span>
+                                </td>
+                                <!-- Kommentar  ############################################## -->
+                                <td style="width:200px" class="mixerSeiteTdInput">
+                                    <span data-bind="text: $data.kommentar"></span>
+                                </td>
+                                <!-- Soll ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <ccw-wf-input-tastatur params="signalName: $data.sollwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: !$parent.userFreigabe()"></ccw-wf-input-tastatur>
+                                </td>
+                                <!-- Ist ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <ccw-wf-input-tastatur params="signalName: $data.istwert.signalName(),staticUnitText: $data.einheit, unitLabel: true, format: $data.format, writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs', disableInputFeld: true"></ccw-wf-input-tastatur>
+                                </td>
+                                <!-- Btn Hand-Auto Ein Aus ############################################## -->
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonHandAuto" type="submit" data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueHand($data.btnHandAuto().signalName, obj, event)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text"></button>
+                                </td>
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnEin().freigabe, click: function (obj, event){$parent.setBtnValueEin($data.btnEin().signalName, obj, event)}, visible: $data.btnEin().sichtbar, css: $data.btnEin().newCss">Ein</button>
+                                </td>
+                                <td class="mixerSeiteTdInput text-center">
+                                    <button class="btn btn-default btn-xs buttonEinAus" type="submit" data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueAus($data.btnAus().signalName, obj, event)}, visible: $data.btnAus().sichtbar">Aus</button>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-6 hidden-xs">
+            <button class="btn btn-success btn-xs inline" type="submit" data-bind="enable: userFreigabe(), click: function (){sendWerteZurSps()}, css: sendBtnCss">Werte zur SPS</button>
+            <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-xs'"></wf-buffer-button>
+        </div>
+    </div>
+</div>

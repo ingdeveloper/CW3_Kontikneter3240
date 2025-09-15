@@ -1,0 +1,57 @@
+<div data-bind="attr:{'data-toggle':'tooltip', 'title' : tooltipText}">
+
+    <svg style="position:absolute;" oncontextmenu="return false" data-bind="style: { width: width + 'px', height: height + 'px', '-webkit-transform': vDirection(), '-o-transform': vDirection(), '-ms-transform': vDirection(), '-moz-transform': vDirection() }, event: {contextmenu: function(){shapeInfo()}}">
+        <!-- ko if: shape == 'circle' -->
+        <circle data-bind="css: vStyle().css, attr: {cx:cx, cy:cy, r:r, stroke:strokeColor, strokeWidth:strokeWidth}" />
+        <text x="50%" y="50%" text-anchor="middle" stroke="#000" stroke-width="1px" dy=".3em" data-bind="text: text"></text>
+        <!-- /ko -->
+
+        <!-- ko if: shape == 'rect' -->
+        <rect data-bind="css: vStyle().css, attr: {width:width, height:height, stroke:strokeColor, strokeWidth:strokeWidth}" />
+        <text x="50%" y="50%" text-anchor="middle" stroke="#000" stroke-width="1px" dy=".3em" data-bind="text: text"></text>
+        <!-- /ko -->
+
+        <!-- ko if: shape == 'rect2' -->
+        <rect data-bind="css: vStyle().css, attr: {width:width, height:height, stroke:strokeColor, strokeWidth:strokeWidth}" />
+        <text x="50%" y="50%" text-anchor="middle" stroke="#000" stroke-width="1px" dy=".3em" data-bind="text: text"></text>
+        <line x1="0" y1="0" x2="10" y2="10"  data-bind="attr: {x2:width, y2:height, stroke:strokeColor, strokeWidth:strokeWidth}"/>
+        <!-- /ko -->
+
+        <!-- ko if: shape == 'schranke1' -->
+        <!-- Lichtschranke: Kreis mit Linie und Strich nach unten -->
+        <svg style="position:absolute;" viewBox="0 0 10.633983 15.560146" data-bind="attr: {width:width, height:height}">
+            <g transform="translate(-3.5654464,-2.7202097)">
+                <circle data-bind="css: vStyle().css" style="opacity:0.99599998;fill-opacity:1;stroke:#999999;stroke-width:0.42862499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" cx="8.8824377" cy="8.0372009" r="5.1026788" />
+                <path style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 8.8824377,13.083183 c 0,0 0,5.197173 0,5.197173" />
+                <path style="fill:none;fill-rule:evenodd;stroke:#999999;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 4.4412173,7.9427077 c 0,0 8.8824407,0 8.8824407,0" />
+            </g>
+        </svg>
+        <!-- /ko -->
+
+
+        <!-- ko if: shape == 'schranke2' -->
+        <!-- Lichtschranke: 2 x Balken, dazwischen eine orange Linie -->
+        <svg style="position:absolute;" viewBox="0 0 10.139749 6.3449297" data-bind="attr: {width:width, height:height}">
+            <g transform="translate(-2.3065603,-3.5728281)">
+                <rect data-bind="css: vStyle().css" style="opacity:0.99599998;fill-opacity:1;stroke:#808000;stroke-width:0.3311981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" id="rect815" width="1.8710536" height="6.0137315" x="2.4721594" y="3.7384272" />
+                <rect data-bind="css: vStyle().css" y="3.7384272" x="10.409657" height="6.0137315" width="1.8710536" id="rect819" style="opacity:0.99599998;fill-opacity:1;stroke:#808000;stroke-width:0.3311981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+                <path style="fill:none;fill-rule:evenodd;stroke:#ff7f2a;stroke-width:1.0671066;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.10671066, 0.10671066;stroke-dashoffset:0;stroke-opacity:1" d="m 4.5101733,6.7172566 c 0,0 5.7462947,0 5.7462947,0" id="path821" inkscape:connector-curvature="0" inkscape:path-effect="#path-effect823" inkscape:original-d="M 4.5101733,6.7172566 H 10.256468" />
+            </g>
+        </svg>
+        <!-- /ko -->
+
+        <!-- ko if: shape == 'licht1' -->
+        <rect data-bind="attr: {width:wLicht1, height:hLicht1, stroke:strokeColor, strokeWidth:strokeWidth, fill: '#D8D8D8'}" />
+        <circle data-bind="css: vStyle().css, attr: {cx:cxLicht1, cy:cyLicht1, r:rLicht1, stroke:strokeColor, strokeWidth:strokeWidth}" />
+        <!-- /ko -->
+
+        <!-- ko if: shape == 'licht2' -->
+        <rect data-bind="attr: {width:wLicht2, height:hLicht2, stroke:strokeColor, strokeWidth:strokeWidth, fill: '#D8D8D8'}" />
+        <rect data-bind="css: vStyle().css, attr: {width:w1Licht2, height:h1Licht2, x:t1Licht2, y: l1Licht2, rx: r1Licht2, ry: r1Licht2, stroke:strokeColor, strokeWidth:strokeWidth, fill: '#D8D8D8'}" />
+        <!-- /ko -->
+
+    </svg>
+
+
+
+</div>

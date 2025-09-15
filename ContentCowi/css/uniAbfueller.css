@@ -1,0 +1,455 @@
+﻿
+.uniAbfuellerSeiteTable {
+    /* font-size: x-small; */
+    font-size: small;
+    /*margin-bottom: 3px;*/
+    /* line-height: 18px; */
+    margin-top: 5px;
+
+}
+
+.uniAbfuellerSeiteTableUeberschrift {
+    font-size: large;
+}
+
+.uniAbfuellerSeiteTdInput {
+    padding: 1px 1px !important;
+    width: 50px;
+}
+
+.uniAbfuellerSeiteTdStationsNummerBreite {
+    padding: 1px 1px !important;
+    width: 20px;
+}
+
+.uniAbfuellerSeiteTdStationNummer {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+    font-size: x-small;
+}
+
+.uniAbfuellerBtnLink {
+    border: 1px solid rgb(43, 6, 248) !important;
+    border-radius: 4px;
+}
+
+.UniAbfuellerDialoggro {
+    /* font-size:   x-small  !important; */
+    width: 900px;
+}
+
+.uniAbfuellerSeiteTdBtnFeld {
+    padding: 1px 0px !important;
+    width: 20px;
+}
+
+.uniAbfuellerSeite-SpalteButton {
+    padding: 1px 1px !important;
+}
+
+.uniAbfuellerSeiteTableBtn {
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin: 0px auto !important;
+    padding: 0px 0px !important;
+}
+
+span.css-vertical-text {
+    color: #333;
+    /*border: 1px solid red;*/
+    /*writing-mode:  vertical-rl;*/
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px; 
+    font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+    font-size: x-small;
+    font-weight: normal;
+    /*text-shadow: 0px 0px 1px #333;*/
+    /*background-color: aquamarine;*/
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+th.uniAbfuellerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+td.uniAbfuellerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+tr.uniAbfuellerSeiteTableRahmenUnten > td { /* Rahmen unten*/
+    border-bottom: 1px solid black !important;
+}
+
+.uniAbfuellerSeiteEinzelAnsichtTextSpalte1 {
+    text-align: right !important;
+    padding-right: 10px;
+}
+
+.uniAbfuellerSeiteDivRezeptur {
+    /*background-color: rgba(127, 255, 212, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin-left: 15px;
+}
+
+.uniAbfuellerSeiteDivuniAbfueller {
+    /*background-color: rgba(255, 106, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: antiquewhite;
+}
+
+.uniAbfuellerSeiteDivRezeptnummer {
+    /*background-color: rgba(182, 255, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin-right: 15px;
+}
+
+div.uniAbfuellerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+.uniAbfuellerSeiteBeschrVorValue {
+    text-align: left;
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+}
+
+.uniAbfuellerSeiteValueRahmenFloatLeft {
+    border: 1px solid #C6C6C6;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteFiexedTop {
+    background-color: antiquewhite;
+    padding: 0.25em 0;
+    text-align: center;
+    position: -webkit-sticky; /* Fest an der Kante beim scrollen anheften */
+    position: sticky;
+    top: 1px;
+    z-index: 99;
+}
+#header_fixed.sticky
+{
+    position: fixed;
+    background-color: antiquewhite;
+    height: 50px;
+    z-index: 99;
+    /* Element wird aus Textfluss genommen, also mit diesen Werten arbeiten */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    
+}
+
+.uniAbfuellerSeiteBtn {
+    padding: 2px 0px !important;
+    float: left;
+}
+
+.uniAbfuellerSeiteProduktionsNummer {
+    width: 50%;
+      
+}
+.uniAbfuellerSeiteZeitscheibeTabelleKopfHoehe1{
+    height: 30px !important;
+}
+.uniAbfuellerSeiteZeitscheibeTabelleKopfHoehe2{
+    height: 45px;
+}
+
+.uniAbfuellerSeiteValueRahmenKomponentenTabelle, .uniAbfuellerSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    text-align: center;
+    /*width: 100%;*/
+    /*float: left;*/
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+.uniAbfuellerSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #e2dada;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: #ebe8e4;*/
+    color: #C6C6C6;
+}
+
+.uniAbfuellerSeiteKomponentenTabelleTextMinHeight {
+    height: 16px;
+}
+
+.uniAbfuellerSeiteKomponentenSollIstBreite {
+    width: 60px !important;
+}
+
+.borderOff {
+    border: 0px !important;
+}
+
+.uniAbfuellerSeiteValueRahmenGruenFloatLeft {
+    border: 1px solid #23D403;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 1px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteValueRahmenGrauFloatLeft {
+    border: 1px solid #C6C6C6;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteValueRahmenRotFloatLeft {
+    border: 1px solid #FC0404;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteButton {
+    /* font-size: xx-large; */
+    width: 100% !important;
+    font-size: 10px;
+    margin: 2px;
+    padding: 2px 0px 0px 2px ;
+    /* line-height: 13px; */
+    margin-top: 0px;
+}
+
+
+.uniAbfFarbe1 {
+    background-color: #D4F1EE !important;
+}
+
+.uniAbfFarbe2 {
+    background-color: #E9D9F1 !important;
+}
+
+.uniAbfFarbe3 {
+    background-color: #F1F0D9 !important;
+}
+
+.uniAbfFarbe4 {
+    background-color: #D3FADD !important;
+}
+
+.uniAbfFarbe5 {
+    background-color: #D5E7E8 !important;
+}
+
+
+
+/* .uniAbfuellerSeiteValueRahmenRotFloatLeft1 {
+    border: 1px solid #FC0404;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    /* margin: 1px 2px;
+    padding: 0px 2px;
+} */ 
+
+.uniAbfuellerSeiteValueRahmenBlauFloatLeft {
+    border: 1px solid rgb(4, 29, 252);
+    border-radius: 8px;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteValueRahmenSchwarzFloatLeft {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /* width: 100%; */
+    /* height: 100%; */
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.uniAbfuellerRahmen {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    /* border-top: 1px solid #b2b2b2 !important; */
+    border-radius: 1px;
+    text-align: center;
+    /*background-color: white;*/
+    /* width: 100%; */
+    /* height: 100%; */
+    /* float: left; */
+    /* margin: 0px 2px; */
+    /* padding: 0px 2px; */
+}
+
+.waschRahmenSchwarz {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    width: 1000px;
+    height: 320px;
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+
+.uniAbfuellerSeiteValueRahmenGelbFloatLeft {
+    border: 1px solid #FCF104;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+.uniAbfuellerSeiteValueRahmenSchwarzFloatLeft1 {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    float: left;
+    /* margin: 1px 2px; */
+    padding: 0px 2px;
+}
+
+.uniAbfuellerSeiteRahmen100Proz{
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.uniAbfuellerSeiteRahmen110Proz{
+    width: 110%;
+    box-sizing: border-box;
+    float: left;
+}
+.uniAbfuellerSeiteRahmen33Proz{
+    width: 33%;
+    box-sizing: border-box;
+    float: left;
+}
+.uniAbfuellerSeiteRahmen20Proz{
+    width: 20%;
+    box-sizing: border-box;
+    float: left;
+}
+
+
+.selFuehlerInhaltXL option{
+    font-size: 20px !important;
+}
+
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1030px) { /* 767Breite beträgt höchstens */
+    .uniAbfuellerSeiteDivRezeptur {
+        margin-right: 15px;
+    }
+
+    .uniAbfuellerSeiteDivuniAbfueller {
+        margin: 0px 15px;
+    }
+
+    .uniAbfuellerSeiteDivRezeptnummer {
+        margin-left: 15px;
+    }
+
+    .uniAbfuellerSeiteTable {
+        /* font-size: xx-large; */
+        font-size: x-small;
+        /*margin-bottom: 3px;*/
+        /* line-height: 13px; */
+        margin-top: 5px;
+    }
+ 
+    .uniAbfuellerSeiteButton {
+        /* font-size: xx-large; */
+        font-size: xx-small;
+        margin-bottom: 0px;
+        padding: 1px;
+        /* line-height: 13px; */
+        margin-top: 0px;
+    }
+    .uniAbfuellerSeiteNavButton {
+        /* font-size: xx-large; */
+        font-size: x-small;
+        margin-bottom: 3px;
+        /* line-height: 13px; */
+        margin-top: 0px;
+    }
+    
+    .UniAbfuellerDialoggro {
+        width: 600px;
+        /* font-size: xx-small !important; */
+    } 
+
+}
+

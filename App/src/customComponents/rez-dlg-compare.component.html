@@ -1,0 +1,116 @@
+<!--
+// **************************************************************
+// * View für das modale Fenster Dlg.Rez.Vergleichen            *
+// **************************************************************
+ -->
+<section class="clRezeptDlg">
+    <div class="panel panel-info">
+
+        <!-- Rezeptliste -->
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <img src="Content/images/SAP-Logo-227x128.png" alt="SAP-Logo"
+                    data-bind="visible: lobsterServiceEnabled">
+                <h4 class="panel-title">
+                    <a>
+                        <span class="badge swinginfo" title="Anzahl verfügbaren Rezepte"
+                            data-bind="css: { changed: rezRows().length !== 0 }, text: rezRows().length"></span>
+                        <i class="wf wf-article"></i>&emsp;Rezeptliste
+                        <span class="label label-default" title="aktuell gewähltes Rezept"
+                            data-bind="text: rezInfo"></span>
+                    </a>
+                    <div class="rezspinner"
+                        data-bind="css: { error: rezListStateConnect().timeout, active: !rezListStateConnect().timeout && rezListStateConnect().busy }, attr: { title: rezListStateConnect().text }">
+                        <i class="fa fa-spinner"></i>
+                    </div>
+                </h4>
+            </div>
+            <div>
+                <div class="panel-body" style="padding:0px">
+                    <div style="overflow:auto !important; height: 11em;">
+                        <table data-bind="attr: { id: 'rezList_' + uid() }"
+                            class="table table-bordered table-hover table-rezept">
+                            <thead data-bind="template: { name: 'rezHeadTemplate_' + uid(), foreach: rezHead }"></thead>
+                            <tbody
+                                data-bind="attr: { id: idRezTable }, template: { name: 'rezZeileTempl_' + uid(), foreach: rezRows }">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td class="col-sm-4 col-lg-3" style="padding-left: 0px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Filter</span>
+                                    <input class="form-control" data-bind="attr: { id: idRezFltr }" type="text"
+                                        placeholder="z.B. 300850.. Erdbeer..">
+                                    <span class="input-group-btn">
+                                        <button class="btn addon" type="button" title="Filter löschen"
+                                            data-bind="event: { click: function(){ $('#rezFilter').val('').keyup(); }}">&times;</button>
+                                    </span>
+                                </div>
+                            </td>
+                            <td style="float: right;">
+
+                                <button type="button" class="btn btn-default" title="erweiterte Ansicht"
+                                    data-bind="click: columnHideShow('rezList')">
+                                    <i class="fa fa-info" style="color:dodgerblue;"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-default" title="reload"
+                                    data-bind="click:updateRez">
+                                    <i class="fa fa-refresh" style="color:dodgerblue;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="float: right;">
+                            <button type="button" class="btn btn-default" title="Vergleichen"
+                                data-bind="style:{ color:compareStatus().color }, html:compareStatus().text, click:cmpBtn">
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Head-Template Rezeptliste -->
+        <script type="text/html" data-bind="attr: { id: 'rezHeadTemplate_' + uid() }">
+        <tr data-bind="with: cells">
+            <th data-bind="text: $parent.cells[0]"></th>
+            <th data-bind="text: $parent.cells[1]"></th>
+            <th data-bind="text: $parent.cells[2]"></th>
+            <th data-bind="text: $parent.cells[3]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[4]" class="toggleDisplay" style="display: none"></th>
+        </tr>
+    </script>
+        <!-- Zeilen/Zellen-Template Rezeptliste -->
+        <script type="text/html" data-bind="attr: { id: 'rezZeileTempl_' + uid() }">
+    <tr data-bind="with: cells, attr:{id: (cells[0] + '_' + cells[1])}, event: { click:function(){ $parent.rezSelect((cells[0] + '_' + cells[1]))} }">
+        <td data-bind="text: $parent.cells[0]"></td>
+        <td data-bind="text: $parent.cells[1]"></td>
+        <td data-bind="text: $parent.cells[2]"></td>
+        <td data-bind="text: $parent.cells[3]" class="toggleDisplay" style="display: none"></td>
+        <td data-bind="text: $parent.cells[4]" class="toggleDisplay" style="display: none"></td>
+    </tr>
+    </script>
+        <div class="clCssloadWrapper" data-bind="visible: isLoading()">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+</section>

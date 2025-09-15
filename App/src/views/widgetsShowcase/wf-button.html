@@ -1,0 +1,163 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-button</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfWriteValueButton_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Write Value: 1', cssClass: 'btn-primary'"></wf-button>
+                        </div>
+                        <div class="col-xs-12 col-md-10">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-button params=&quot;signalName: &#39;Setpoint 1&#39;, writeValue: 1, buttonText: &#39;Write Value: 1&#39;, cssClass: &#39;btn-primary&#39;&quot;&gt;&lt;/wf-button></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <pre class="prettyprint">
+&lt;wf-button params="&quot;&gt;
+   [...]
+&lt;/wf-button&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 0, cssClass: 'btn btn-primary', iconClass: 'fa fa-chevron-up'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Runter', cssClass: 'btn btn-info', iconClass: 'fa fa-chevron-down'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: 1, buttonText: 'Reinigung', cssClass: 'btn btn-success', iconClass: 'wf wf-flask'"></wf-button>
+                    <br />
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', writeValue: 1, buttonText: 'Pumpe AN', cssClass: 'btn-lg btn-warning', iconClass: 'wf wf-fan-symbol'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', writeValue: 0, buttonText: 'Motor AUS', cssClass: 'btn-lg btn-danger', iconClass: 'wf wf-motor-electric'"></wf-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_TipMode")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 1, writeUpValue: 0, isTipModeEnabled: true, writeUpDelay: 2000, buttonText: 'Licht schalten', cssClass: 'btn btn-primary', iconClass: 'fa fa-hand-up'"></wf-button>
+                    <br/>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: 1, writeUpValue: 0, isTipModeEnabled: true, writeUpDelay: 500, buttonText: 'Brenner schalten', cssClass: 'btn-lg btn-warning', iconClass: 'fa fa-fire'"></wf-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_Increment")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', incrementMode: true, writeValue: 0.5, cssClass: 'btn-sm btn-primary', iconClass: 'fa fa-plus'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', incrementMode: true, writeValue: -0.5, cssClass: 'btn-sm btn-danger', iconClass: 'fa fa-minus' "></wf-button>
+                    <br />
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', incrementMode: true, writeValue: 1, cssClass: 'btn-lg btn-default', iconClass: 'fa fa-plus'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', incrementMode: true, writeValue: -1, cssClass: 'btn-lg btn-default', iconClass: 'fa fa-minus'"></wf-button>
+                    <br />
+                    <strong class="block">ResetOnOverflow (Signal: Setpoint 3)</strong>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', incrementMode: true, writeValue: 3, resetOnOverflow: true, minValue:-1, maxValue:30, cssClass: 'btn-sm btn-default', iconClass: 'fa fa-plus'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', incrementMode: true, writeValue: -5, resetOnOverflow: true, minValue:-22, maxValue:0, cssClass: 'btn-sm btn-default', iconClass: 'fa fa-minus'"></wf-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Size")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Large - btn-lg', cssClass: 'btn-lg btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 2', writeValue: 1, buttonText: 'Default - btn-md', cssClass: 'btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 3', writeValue: 1, buttonText: 'Small - btn-sm', cssClass: 'btn-sm btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Extra small - btn-xs', cssClass: 'btn-xs btn-block btn-default'"></wf-button>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_Write_Secure")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Write Value: 1', cssClass: 'btn-primary', writeSecure: true"></wf-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

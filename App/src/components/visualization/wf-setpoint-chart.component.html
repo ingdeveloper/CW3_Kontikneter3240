@@ -1,0 +1,39 @@
+<!-- ko if: typeof($$SCOPE$$) !== "undefined" && $$SCOPE$$ === "I4SCADA" -->
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div data-bind="c3chart: c3Chart, 
+    size: {
+        height: height
+    },
+    padding: {
+        left: 35,
+        top: 0,
+        right: 0,
+        bottom: 0
+    },
+    grid: {
+        x: {
+            show: true
+        },
+        y: {
+            show: true
+        }
+    },
+    legend: {
+        show: false
+    },transition:{
+        duration: 0
+    },  tooltip: {
+        format: {
+            title: (value) => {
+                return showAxesTextInTooltip ? value + ' ' + xAxesName() : value;
+           },
+            value: (value) => {
+                return showAxesTextInTooltip ? value + ' ' + yAxesName() : value;
+            },
+
+        }
+    }"></div>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->

@@ -1,0 +1,24 @@
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-6" for="color">{{$parent.connector.translate(symbolicText)()}}</label>
+
+        <!--ko if: nullable -->
+        <p class="col-xs-6 font-weight-bold">{{$parent.connector.translate('I4SCADA_Set_Null')()}} <input type="checkbox" data-bind="checked: isNull" /></p>
+        <!-- /ko -->
+    </div>
+    <!--ko ifnot: isNull()-->
+    <div class="row">
+        <div class="relative col-xs-12">
+            <div class="input-group colorpicker-component"
+                 data-bind="colorpicker: {selectedColor: color, colorConvert:1}, validationElement: color">
+                <input type="text" class="form-control" id="color" />
+                <span class="input-group-addon">
+                    <i></i>
+                </span>
+            </div>
+            <!-- ko template: {name: 'validationErrorTemplate', data: {field: color}} -->
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- /ko -->
+</div>

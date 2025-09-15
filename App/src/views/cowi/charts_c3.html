@@ -1,0 +1,52 @@
+﻿<div class="container-fluid">
+    <h1>Charts C3 per ASP-Anfrage</h1>
+    <div>
+        <button data-bind="click: function(){getASP()}">Get ASP Seite</button>
+    </div>
+    <div data-bind="html: asp1a"></div>
+    <div>
+        <!-- <div data-bind="c3chart: {
+                     'x': 'x',
+                    'columns': myArrAnzeige(),
+                      'type': 'line',
+                       'colors': { 'Sollwertkurve': '#ff0000' },
+                        'axes':{ 'Sollwertkurve': 'y' }
+                     },
+                    size: {
+                        height: 300,
+                        width: 400
+                    },
+                    padding: {
+                        top: 20,
+                        right: 10,
+                        bottom: 10
+                    },
+                    axis: {
+                        x: {
+                            label: 'Außentemperatur [°C]'
+                        },
+                        y: {
+                            label: 'Vorlauftemperatur [°C]'
+                        }
+                    },
+                    grid: {
+                        x: {
+                            show: true
+                        },
+                        y: {
+                            show: true
+                        }
+                    }"></div> -->
+    </div>
+    <div>
+        <div id="chart"></div>
+    </div>
+<hr>
+    <div>
+        <button data-bind="click: function(){getChart()}">Get Chart</button>
+        <span data-bind="text: meldung"></span>
+    </div>
+    <div data-bind="html: ergChart"></div>
+<!-- <iframe src="ContentCowi/asp/getChart.asp?dbName=Fuell3020&alias=Local Minute&anzahl=1000&start=2018-06.18 07:00:00&ende=2018-06.19 08:00:00'"></iframe> -->
+
+</div>

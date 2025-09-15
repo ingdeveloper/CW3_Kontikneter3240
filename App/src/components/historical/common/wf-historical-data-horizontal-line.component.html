@@ -1,0 +1,66 @@
+<table class="table table-striped wf-historical-horizontal-line">
+    <thead>
+        <tr>
+            <th>{{connector.translate('I4SCADA_Name')()}}</th>
+            <th>{{connector.translate('I4SCADA_Type')()}}</th>
+            <th>{{connector.translate('I4SCADA_Value')()}}</th>
+            <th>{{connector.translate('I4SCADA_Offset')()}}</th>
+            <th>{{connector.translate('I4SCADA_Color')()}}</th>
+            <th>
+                <button type="button" class="btn btn-success btn-xs" title="{{connector.translate('I4SCADA_Add')()}}" data-bind="click: onAdd">
+                    <span class="wf wf-add"></span>
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: horizontalLines-->
+        <tr>
+            <td>
+                <div class="relative">
+                    <input type="text" class="form-control input-sm" id="name" data-bind="textInput: name" />
+                </div>
+            </td>
+            <td>
+                <div class="relative">
+                    <select class="form-control input-sm"
+                            data-bind=" options: $parent.types, value: type, optionsText: 'name', optionsValue: 'id'"></select>
+                </div>
+            </td>
+            <td>
+                <!-- ko if: type() === 2-->
+                <div class="relative">
+                    <input type="text" class="form-control input-sm" id="value" data-bind="value: value" />
+                    <!-- ko template: {name: 'validationErrorTemplate', data: {field: value}} -->
+                    <!-- /ko -->
+                </div>
+                <!-- /ko-->
+            </td>
+            <td>
+                <div class="relative">
+                    <input type="text" class="form-control input-sm" id="offset" data-bind="value: offset" />
+                </div>
+            </td>
+            <td>
+                <div class="relative">
+                    <div class="input-group colorpicker-component"
+                         data-bind="colorpicker: {selectedColor: color, colorConvert:1}, validationElement: color">
+                        <input type="text" class="form-control input-sm" id="color" />
+                        <span class="input-group-addon">
+                            <i></i>
+                        </span>
+                        <!-- ko template: {name: 'validationErrorTemplate', data: {field: color}} -->
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-xs btn-danger" data-bind="click: $parent.onDelete"
+                        title="{{ $parent.connector.translate('I4SCADA_Delete')()}}">
+                    <span class="wf wf-bin"></span>
+                </button>
+            </td>
+        </tr>
+        <!-- /ko-->
+    </tbody>
+</table>

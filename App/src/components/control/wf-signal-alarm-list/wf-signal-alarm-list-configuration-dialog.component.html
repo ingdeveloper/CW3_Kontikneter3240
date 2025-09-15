@@ -1,0 +1,64 @@
+<button type="button" data-bind="css: buttonBarCssClass, click: onOpen" title="{{connector.translate('I4SCADA_Settings')()}}">
+    <span class="wf wf-table"></span>
+</button>
+
+<span data-bind="attr: { id: 'modal-dialog-back-container-' + id() }">
+    <div class="modal fade wf-panel-dialog wf-signal-alarm-list-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: dialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-lg modal-top">
+            <div class="modal-content">      
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: onClose">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Settings')()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-body wf-panel-settings">
+                    <div class="row b-b">
+                        <div class="col-md-12 m-b-md">
+                            <div class="form-group">
+                                <label>{{connector.translate('I4SCADA_Maximum_signal_page_count')()}}</label>
+                                <input class="form-control" type="number" min="1" max="2147483647" data-bind="value: maxSignalCount, valueUpdate: 'afterkeydown', event:{ change: filtersChanged}" />
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="row  b-b">
+                        <div class="col-md-12 m-y-md">
+                            <label>{{connector.translate('I4SCADA_Column_view')()}}</label>
+                            <div class="form-group">
+                                <!-- ko foreach: defaultColumnNames-->
+                                <div class="checkbox">
+                                    <label><input type="checkbox" data-bind="click: $parent.onChecked, checked: checked">{{$parent.connector.translate($parent.getColumnName(name))}}</label>
+                                  </div>
+                                  <!--/ko-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 m-y-md">
+                            <label>{{connector.translate('I4SCADA_Order_of_columns')()}}</label>
+                            <ul class="list-group drag-list" data-bind="foreach: columnsOrder">
+                                <li draggable="true" class="list-group-item" data-bind="event: { dragstart: $parent.dragstart, dragenter: $parent.dragenter, dragend: $parent.dragend, dragover: $parent.dragover, drop: $parent.drop}"><i class="fa fa-bars"></i> {{$parent.connector.translate($parent.getColumnName($data))}}</li>
+                            </ul>
+                        </div>        
+                    </div>     
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <button class="btn btn-success" data-bind="click: onDialog">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: onClose">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+

@@ -1,0 +1,46 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content"
+            data-bind="ccwDraggable:{}, dragId: 'titleBarDialogcwLogInOut', BGclose: true, ESCclose: true">
+            <div id="titleBarDialogcwLogInOut" class="modal-header" style="background-color: DodgerBlue">
+                <button type="button" class="close" style="margin:4px" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">
+                    <i class="wf wf-close-round-o"></i>
+                </button>
+                <h4 class="modal-title">
+                    <i class="wf wf-users" style="font-size: 30px"></i>
+                    <span>&nbsp;Benutzer Login</span>
+                </h4>
+            </div>
+            <br>
+            <form id="form" autocomplete="off">
+                <fieldset>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;Username</span>
+                                    <input id="loginoutname" class="form-control" data-bind="value: user" type="text" title="Benutzername" required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;Password&nbsp;</span>
+                                    <input id="loginoutpw" class="form-control" data-bind="value: pass" type="password"
+                                        pattern="\w.{1,20}" title="Passwort" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="submit">Login</button>
+                    <button class="btn btn-default" data-dismiss="modal" data-bind="click: close">Abbrechen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

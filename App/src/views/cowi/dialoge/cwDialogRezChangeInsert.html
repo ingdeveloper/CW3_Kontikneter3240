@@ -1,0 +1,33 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span data-bind="text: title"></span>
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="list-group">
+                    <label for="list-select">Grund:</label>
+                    <input list="list-select" id="input-select" data-bind="value: grund" title="Grund (Pflichtfeld)" class="form-control" >
+                    <datalist id="list-select" data-bind="foreach: auswahlliste">
+                        <!-- <select id="list-select" title="Grund (Pflichtfeld)" class="form-control" data-bind="foreach: liste"> -->
+                            <option data-bind="value: $data, text: $data"></option>
+                        <!-- </select> -->
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Kommentar:</label>
+                    <textarea class="form-control" rows="2" title="Zusatzkommentar eingeben (optional)" id="comment" draggable="false" data-bind="value: kommentar, attr:{placeholder:kommentarInit}"></textarea>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="submit" data-bind="enable: true, event: {focus: checkInputs}">Senden</button>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

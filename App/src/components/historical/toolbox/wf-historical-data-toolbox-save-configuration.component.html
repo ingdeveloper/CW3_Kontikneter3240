@@ -1,0 +1,90 @@
+<!-- ko if: isVisible()-->
+<button type="button" data-bind="disable: isDisabled() || isLoading(), css: css, click: showSettings"
+    title="{{connector.translate('I4SCADA_save_configuration')()}}">
+    <span class="wf wf-save"></span>
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_save_configuration')()}}
+    <!--/ko-->
+</button>
+
+<span data-bind="attr: { id: 'modal-settings-back-container-' + id() }">
+    <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: dialogSettings, draggable: true} , attr: { id: 'modal-settings-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-lg modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_save_configuration')()}}</strong>
+                    </div>
+                </div>
+
+                <div class="modal-body wf-panel-settings">
+                    <div class="row m-b">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>{{ connector.translate('I4SCADA_Name')()}}</label>
+                                <input data-bind="textInput:newName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" data-bind="click: onSettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+
+<span data-bind="attr: { id: 'wf-config-error-dialog-back-container-' + id() }">
+    <div class="modal fade wf-panel-warning wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: error, draggable: isModalDialogsDraggable}, attr: { 'id': 'wf-config-error-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-warning">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: closeError">&times;</button>
+                    <div class="modal-title">
+                        {{connector.translate('I4SCADA_Warning')()}}
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="wf-callout-box wf-callout-box-warning">
+                        <h4 class="wf-callout-box-title">
+                            {{errorText}}
+                        </h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-warning" data-bind="click: onError">
+                            <i class="wf wf-check-round"></i>
+                            {{connector.translate('I4SCADA_Yes')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeError">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_No')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+
+
+<!-- /ko -->

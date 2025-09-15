@@ -1,0 +1,74 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content" data-bind="ccwDraggable:{}, dragId: 'cwRezDlgSave', BGclose: true, ESCclose: true">
+            <div class="modal-header" id="cwRezDlgSave" style="background-color: DodgerBlue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    <i class="ccwIF-kochmuetze" style="font-size: 30px"></i>
+                    <span>&nbsp;Rezept speichern?</span>
+                </h4>
+            </div>
+            <form data-bind="submit: save" autocomplete="on">
+                <fieldset>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-11">&nbsp;</div>
+                            <div class="col-xs-1">
+                                <span class="badge" title="Anzahl Namensvorschläge"
+                                    data-bind="visible: autocompleteItems().length != 0, text: autocompleteItems().length"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="input-group" title="Rezeptnummer">
+                                    <span class="input-group-addon" style="font-family: monospace;">Nr.&nbsp;</span>
+                                    <input id="inNum" class="form-control" data-bind="value: rezNr"
+                                        placeholder="123456789" type="text" pattern="\d[0-9]{1,9}" required>
+                                </div>
+                                <!-- <div class="input-group" title="Rezeptnummer">
+                                    <span class="input-group-addon" style="font-family: monospace;">Nr.&nbsp;</span>
+                                    <input id="inNum" class="form-control" data-bind="value: rezNr" type="text"
+                                        pattern="\d{,9}" placeholder="123456789"
+                                        title="Rezeptnummer 8-9 Stellen Dezimal. Rezeptnummer 0 ist nicht zulässig"
+                                        required>
+                                </div> -->
+                            </div>
+                            <div class="col-xs-8" style="padding-left: 0%;">
+                                <div class="input-group" title="Rezeptname">
+                                    <span class="input-group-addon" style="font-family: monospace;">Name</span>
+                                    <input id="inName" class="form-control" list="names" data-bind="value: rezName"
+                                        type="text" pattern="\w.{3,40}" placeholder="Rezeptname"
+                                        title="Rezeptname 3-40 Stellen alphanummerisch" required>
+                                    <datalist id="names"
+                                        data-bind="template: { name: 'namenTplListe', foreach: autocompleteItems }"></datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row" data-bind="visible: versionierung">
+                            <div class="col-xs-4">
+                                <div class="input-group" title="Rezeptversion">
+                                    <span class="input-group-addon" style="font-family: monospace;">Ver.</span>
+                                    <input id="inVer" class="form-control" data-bind="value: rezVer" type="text"
+                                        pattern="\d{1,2}" placeholder="0" title="Versionsnummer 1-2 Stellen Dezimal"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="modal-footer">
+                    <!-- data-bind="click: save" -->
+                    <button class="btn btn-default" id="saveForm" type="submit" aria-hidden="true" data-dismiss="modal"
+                        data-bind="css: btnSaveState()['class'], text: btnSaveState()['text'], attr: { title: btnSaveState()['title'] }">Speichern</button>
+                    <button class="btn btn-default" data-dismiss="modal" data-bind="click: close">Abbrechen</button>
+                </div>
+            </form>
+            <!-- Template Namenliste -->
+            <script type="text/html" id="namenTplListe">
+                <option data-bind="value: $data"></option>
+            </script>
+        </div>
+    </div>
+</div>

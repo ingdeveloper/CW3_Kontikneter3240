@@ -1,0 +1,62 @@
+<div style="display:none">
+    <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal}" style="display: none;">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: close">&times;</button>
+                    <div data-bind="visible: actionType() === 'edit'" class="modal-title">{{connector.translate('I4SCADA_UM_Edit')()}}</div>
+                    <div data-bind="visible: actionType() === 'add'" class="modal-title">{{connector.translate('I4SCADA_UM_Add')()}}</div>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="name">{{connector.translate('I4SCADA_UM_Name')()}}</label>
+                        <span data-bind="visible: accessGroupObs.Name.isFieldEmpty()" class="error-message  form-control-validation pull-right">
+                            <i class="wf wf-question-mark-round form-control-validation-indicator animated fadeIn" title="{{connector.translate('I4SCADA_UM_FieldIsRequired')()}}"></i>
+                        </span>
+
+                        <input data-bind="value: accessGroupObs.Name, valueUpdate: 'afterkeydown', css: {'red-border': accessGroupObs.Name.isFieldEmpty()}" type="text" maxlength="32" class="form-control"
+                               id="name" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="descr">{{connector.translate('I4SCADA_UM_Description')()}}</label>
+                        <input data-bind="value: accessGroupObs.Description, valueUpdate: 'afterkeydown'" type="text" maxlength="128"
+                            class="form-control" id="descr" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label>{{connector.translate('I4SCADA_UM_Begin')()}}</label>
+                        <div class='input-group date' data-bind="datepicker: accessGroupObs.TimeOn, datepickerOptions: datePickerOpt">
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>{{connector.translate('I4SCADA_UM_End')()}}</label>
+                        <div class='input-group date' data-bind="datepicker: accessGroupObs.TimeOff, datepickerOptions: datePickerOpt">
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <wf-um-check-box-group params="textLabel: accessRightsLoc, itemsList: accessAuthorization"></wf-um-check-box-group>
+                </div>
+
+                <div class="modal-footer">
+                    <button data-bind="enable: !accessGroupObs.Name.isFieldEmpty(), click: onSaveClick" class="btn btn-sm btn-primary">
+                        <i class="wf wf-check"></i>
+                        {{connector.translate('I4SCADA_UM_Save')()}}
+                    </button>
+                    <button data-bind="click: close" class="btn btn-sm btn-default">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_UM_Cancel')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

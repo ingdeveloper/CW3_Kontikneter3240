@@ -1,0 +1,23 @@
+<!-- ko if: isVisible()-->
+<button type="button"
+    data-bind="disable: isDisabled() || isLoading(), css: css, click: onToggleTimeSeriesMode, attr : { title: timeSeriesMode() ? connector.translate('I4SCADA_Pause')() : connector.translate('I4SCADA_Cyclic_Update')() } ">
+    <i class="wf" data-bind="css: {'wf-play-round':!timeSeriesMode(), 'wf-pause-round':timeSeriesMode()}"></i>
+    <!-- ko if: showLabel-->
+    {{ timeSeriesMode() ? connector.translate('I4SCADA_Pause')() : connector.translate('I4SCADA_Cyclic_Update')()}}
+    <!--/ko-->
+</button>
+<!-- ko ifnot: timeSeriesMode -->
+<button type="button" class="btn btn-default relative" data-bind="disable: isDisabled() || isLoading(), css: css, click: onRefreshData"
+    title="{{connector.translate('I4SCADA_Refresh')()}}">
+    <!-- ko if: isLoading-->
+    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: isLoading-->
+    <i class="wf wf-arrow-refresh-right"></i>
+    <!-- /ko -->
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Refresh')()}}
+    <!--/ko-->
+</button>
+<!-- /ko-->
+<!-- /ko -->

@@ -1,0 +1,65 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="flexbox">
+
+    {{#if receipeButtonVisibility}}
+    {{#if hasAuthorizationSelection}}
+    <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+    <select class="form-control flex-auto" data-bind="selectpicker: {
+                options: $parent.recipesItems,
+                optionsTitle: $data,
+                size: 20,
+                selectedOptions: $parent.selectedId,
+                liveSearch: true},
+                optionsText:'Name',
+                optionsValue:'ID'"></select>
+    <!--/ko-->
+    {{/if}}
+    {{/if}}
+    {{#if saveButtonVisibility}}
+    {{#if hasAuthorizationSave}}
+    <button type="button" class="m-l-md btn btn-default" data-bind="disable: isDisabledSave, click: onSetRcipeAsync, disable: isLoading() || !selectedId()" title="{{connector.translate('I4SCADA_Save_recipe')}}">
+        <!-- ko if: isLoading-->
+        <div class="spinner m-a-0" style="width:14px;height:14px;"></div>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading-->
+        <i class="wf wf-save"></i>
+        <!-- /ko -->
+    </button>
+    {{/if}}
+    {{/if}}
+    {{#if writeButtonVisibility}}
+    {{#if hasAuthorizationWrite}}
+    <button type="button" class="m-l-md btn btn-default" data-bind="disable: isDisabledWrite, click: onWriterRcipeAsync, disable: isLoading() || !selectedId()" title="{{connector.translate('I4SCADA_Write_recipe')}}">
+        <!-- ko if: isLoading-->
+        <div class="spinner m-a-0" style="width:14px;height:14px;"></div>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading-->
+        <i class="wf wf-hand-o"></i>
+        <!-- /ko -->
+    </button>
+    {{/if}}
+    {{/if}}
+
+    {{#if refreshButtonVisibility}}
+    <button type="button" class="m-l-md btn btn-default" data-bind="click: onRefreshAsync, disable: isLoading" title="{{connector.translate('I4SCADA_Refresh')}}">
+        <!-- ko if: isLoading-->
+        <div class="spinner m-a-0" style="width:14px;height:14px;"></div>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading-->
+        <i class="wf wf-arrow-refresh-right"></i>
+        <!-- /ko -->
+    </button>
+    {{/if}}
+
+    <!-- ko if: writeSecure -->
+    <wf-write-secure-signal params="show: showWriteSecure,
+        signalNames: signalNames,
+        signalValues: writeSecureValues,
+        draggable: isModalDialogsDraggable,
+        successCalback: onWritesuccessCalback"></wf-write-secure-signal>
+    <!-- /ko -->
+
+</div>
+<!--/ko-->
+<!--/ko-->

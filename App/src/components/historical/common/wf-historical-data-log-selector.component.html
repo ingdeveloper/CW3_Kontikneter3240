@@ -1,0 +1,139 @@
+<div class="input-group wf-historical-signal-selector-input-group">
+    <input data-bind="value: value" type="text" class="form-control" disabled
+        placeholder="{{connector.translate('I4SCADA_Select_log')()}}">
+    <div class="input-group-btn">
+        <button class="btn btn-default" type="button" data-bind="click:onClicked"
+            title="{{connector.translate('I4SCADA_Select_log')()}}"><i class="wf wf-sine-wave"></i></button>
+    </div>
+</div>
+
+
+<span data-bind="attr: { id: 'modal-dialog-back-container-' + id() }">
+    <div class="wf-historical-log-selector modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1"
+        role="dialog"
+        data-bind="modalDialog: {show: dialog, draggable: isModalDialogsDraggable}, attr: { id: 'modal-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-lg modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        data-bind="click: onClose">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Select_log')()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-body wf-panel-settings p-y-0">
+                    <div class="row bg-light m-b-md b-b p-t p-b-md">
+                        <div class="col-xs-12 m-b">
+                            <label>{{connector.translate('I4SCADA_Group')()}}</label>
+                            <div class="flexbox">
+                                <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+                                <select class="form-control flex-auto" data-bind="selectpicker: {
+                                            options: $parent.groupItems,
+                                            optionsTitle: $data,
+                                            size: 20,
+                                            selectedOptions: $parent.selectedGroupId,
+                                            liveSearch: true},
+                                            optionsText:'Name',
+                                            optionsValue:'ID'"></select>
+                                <!--/ko-->
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <label>{{connector.translate('I4SCADA_Signal_Name')()}}</label>
+                            <div class="flexbox">
+                                <div class="relative flex-auto">
+                                    <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+
+                                    <input type="text" class="form-control"
+                                        data-bind="textInput:pattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}" />
+                                    <!-- ko if: isLoading-->
+                                    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+                                    <!-- /ko-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 m-b">
+
+                            <!-- ko ifnot: signalItems().length-->
+                            <div class="alert alert-info text-center animated fadeIn">
+                                <i class="wf wf-info"></i> {{ connector.translate('I4SCADA_No_data_available')() }}
+                            </div>
+                            <!--/ko-->
+
+                            <!-- ko if: signalItems().length -->
+                            <label>{{connector.translate('I4SCADA_Signals')()}}</label>
+                            <span class="label label-default" data-bind="text: signalItems().length"></span>
+                            <!-- ko if: hasMoreSignals -->
+                            <div class="label label-info">
+                                <i class="wf wf-info"></i>
+                                {{ connector.translate('I4SCADA_Has_more')() }}
+                            </div>
+                            <!--/ko-->
+
+                            <ul class="list-group list-group-hover wf-signal-list b-a m-b">
+                                <!-- ko foreach: signalDefinitions-->
+                                <li class="list-group-item wf-signal-item clickable"
+                                    data-bind="click:$parent.onSelectSignal, css:{active: $parent.selectedSignalDefinition()?$parent.selectedSignalDefinition().ID === ID:false }">
+                                    <span class="badge"
+                                        data-bind="tooltip: { title: $parent.connector.translate('I4SCADA_Count_LogTags')(), container: 'body'}, css: {'badge-primary': Logs.length}">
+                                        {{Logs.length}}
+                                        <i class="wf wf-tree-structure_1 wf-signal-item-icon m-l-sm"></i>
+                                    </span>
+
+                                    <div class="wf-signal-group-label">
+                                        <i class="wf wf-parent-unit m-r-sm"></i>
+                                        {{Group.Name}}
+                                    </div>
+
+                                    <label>
+                                        {{AliasName}}
+                                    </label>
+
+                                    <!--ko if: Name-->
+                                    <div class="wf-signal-name-label">
+                                        {{Name}}
+                                    </div>
+                                    <!--/ko-->
+
+                                    <!--ko if: Description-->
+                                    <div class="wf-signal-description-label">
+                                        {{Description}}
+                                    </div>
+                                    <!--/ko-->
+                                </li>
+
+                                <!--/ko-->
+                            </ul>
+                            <!--/ko-->
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>{{connector.translate('LogTags')()}}</label>
+                            <ul class="list-group list-group-hover wf-logtag-list">
+                                <!-- ko foreach: logs-->
+                                <li class="list-group-item wf-logtag-item clickable" data-bind="click: $parent.onSelect">
+                                    <i class="wf wf-database-1 m-r-sm"></i>
+                                    <div>{{LogTag}}</div>
+                                </li>
+                                <!--/ko-->
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-bind="click: onClose">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_Close')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>

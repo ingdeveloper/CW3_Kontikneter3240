@@ -1,0 +1,115 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-secured-container</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSecuredContainer_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+
+                            <wf-secured-container params="projectAuthorization: ''">
+                                <i class="wf wf-user-authorization fa-2x"></i>
+                                SHOWN FOR ALL USERS
+                            </wf-secured-container>
+
+                            <wf-secured-container params="projectAuthorization: 'Administration', securityDenyAccessBehavior: 'disable'">
+                                <div class="alert alert-success">
+                                    <i class="wf-lg wf-users fa-2x"></i>
+                                    SHOWN ONLY FOR ADMINISTRATION USERS
+                                </div>
+                            </wf-secured-container>
+
+                            <wf-secured-container params="projectAuthorizations: ['Administration','Gast'], projectAuthorizationIndex: 1, securityDenyAccessBehavior: 'disable'">
+                                <div class="alert alert-warning">
+                                    <i class="wf-lg wf-users fa-2x"></i>
+                                    SHOWN ONLY FOR Guest USERS
+                                </div>
+                            </wf-secured-container>
+
+                            <wf-secured-container params="projectAuthorizations: ['Administration','Gast'], projectAuthorizationIndex: 0">
+                                <div class="alert alert-info">
+                                    <i class="wf-lg wf-users fa-2x"></i>
+                                    SHOWN ONLY FOR ADMINISTRATION USERS
+                                </div>
+                            </wf-secured-container>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-secured-container params=&quot;projectAuthorization: &#39;Administration&#39;&quot;&gt;
+    &lt;div class=&quot;alert alert-success&quot;&gt;
+        &lt;i class=&quot;wf-lg wf-users fa-2x&quot;&gt;&lt;/i&gt;
+        SHOWN ONLY FOR ADMINISTRATION USERS
+    &lt;/div&gt;
+&lt;/wf-secured-container&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+
+                        <pre class="prettyprint">
+&lt;wf-secured-container&#160;params=&quot;&quot;&gt;
+    [...]
+&lt;/wf-secured-container&gt; </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-arc</span></a></li>
+
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfValueArc_Component_Header")()}}</h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <wf-arc params="signalName: 'Local Second'"></wf-arc>
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+                            <div>
+                                <pre class="prettyprint">&lt;wf-arc params="signalName: 'Local Second'"&gt;&lt;/wf-arc&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td>
+                                <!-- ko if: defaultValue.indexOf('#') !== -1 -->
+                                <span class="wf-1x inline-block round" style="transform: translateY(3px)" data-bind="style: {'background-color': defaultValue} "></span>
+                                <!-- /ko -->
+                                <span data-bind="text: defaultValue"></span>
+                            </td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+
+
+                        <div class="col-lg-6 col-sm-12">
+
+                            <pre class="prettyprint">
+&lt;wf-arc params=&quot;&quot;&gt;
+   [...]
+&lt;/wf-arc&gt;</pre>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-arc class="inline-block" params="signalName: 'Local Minute', startAngle: 0.0, endAngle: 360, maxRange: 60, width: 180, height: 150, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#005FCC', iconClass: 'wf wf-drop wf-2x'"></wf-arc>
+                    <wf-arc class="inline-block" params="signalName: 'Local Second', startAngle: -180.0, endAngle: 90, maxRange: 90, width: 180, height: 150, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#EB9316', iconClass: 'wf wf-flash wf-2x', showTickLabels: true, majorTicks: 9"></wf-arc>
+                    <wf-arc class="inline-block" params="signalName: 'Local Second', startAngle: 0.0, endAngle: 360, maxRange: 100, width: 180, height: 150, innerRadius: 0.001, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#4DA64D', showTickLabels: true, iconColor: '#222222', majorTicks: 25"></wf-arc>
+                    <wf-arc class="inline-block" params=" signalName 'Local Second' , minRangeSignalName:'Setpoint 1', maxRangeSignalName:'Setpoint 2', showTickLabels:true, width 180, height 150, showTickLabels true, iconClass '' "></wf-arc>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

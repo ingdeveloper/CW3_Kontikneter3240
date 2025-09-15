@@ -1,0 +1,356 @@
+<section class="clRezeptDlg">
+    <!-- aktuelle Daten -->
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <img src="Content/images/SAP-Logo-227x128.png" alt="SAP-Logo" data-bind="visible: lobsterServiceEnabled">
+            <div class="row" style="margin:0px">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-bind="attr: { href: '#collapseInfo_' + uid() }" class="collapsed">
+                        <i class="wf wf-file-o"></i>&emsp;aktuelle Daten
+                    </a>
+                </h4>
+                <div class="col-xs-10">
+                    <div class="rezstatus info">
+                        <!-- ko if: rezNr() != null -->
+                        <span title="SPS-Status: aktuelle Rezeptnummer - Beschreibung">
+                            <span>Rezept: </span>
+                            <span data-bind="text: rezNr"></span>
+                            <!-- <span> - </span>
+                            <span data-bind="text: rezName"></span> -->
+                            <span>;</span>
+                            <span>&emsp;</span>
+                        </span>
+                        <!-- /ko -->
+                        <!-- ko if: paNr() != null -->
+                        <span title="SPS-Status: aktuelle PA-Nummer/Status/Typ">
+                            <span>Auftrag: </span>
+                            <span data-bind="text: paNr"></span>
+                            <span>;</span>
+                            <span>&emsp;</span>
+                        </span>
+                        <!-- /ko -->
+                        <!-- ko if: paTyp() != null -->
+                        <span title="Produktionstyp">
+                            <span>Produktion: </span>
+                            <span class="pastatus info" data-typ="ProdTyp" data-bind="text: paTyp"></span>
+                            <span class="pastatus text"></span>
+                        </span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <!-- ko if: adminIsLogged() -->
+                    <div class="input-group">
+                        <span class="input-group-addon" data-bind="title: adminName()"><i class="wf wf-user"></i></span>
+                        <label class="form-control" data-bind="attr:{id:idCountdown}">00:00</label>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default wf wf-logout" type="button" title="Benutzer abmelden"
+                                data-bind="event: { click: function(){ adminIsLogged(false); }}">
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+        <div data-bind="attr: { id: 'collapseInfo_' + uid() }" class="panel-collapse collapse">
+            <div class="panel-body">
+                <blockquote style="padding: 0%; margin: 0%">
+                    <small>
+                        <span>Anlagenkennung: </span>
+                        <span>Werk</span>
+                        <span data-bind="text: werk || '0' ? werk : 'n/a'"></span>
+                        <span>, Halle</span>
+                        <span data-bind="text: halle || '0' ? halle : 'n/a'"></span>
+                        <span>, Etage</span>
+                        <span data-bind="text: etage || '0' ? etage : 'n/a'"></span>
+                        <span>, Linie</span>
+                        <span data-bind="text: linie || '0' ? linie : 'n/a'"></span>
+                        <span>, Maschine</span>
+                        <span data-bind="text: maschine || '0' ? maschine : 'n/a'"></span>
+                        <span>, Abteilung</span>
+                        <span data-bind="text: abteiNr || '0' ? abteiNr : 'n/a'"></span>
+                        <span>, Anlage</span>
+                        <span data-bind="text: anlage() || '0' ? anlage : 'n/a'"></span>
+                        <span>, Zähler</span>
+                        <span data-bind="text: zaehler() || '0' ? zaehler : 'n/a'"></span>
+                        <span>, Kennung</span>
+                        <span>"</span><span data-bind="text: kennung"></span><span>"</span>
+                        <span>, Version</span>
+                        <span data-bind="text: kompVersion"></span>
+                    </small>
+                </blockquote>
+            </div>
+            <div class="panel-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="float: right;">
+                            <button title="Logbook" class="btn btn-default"
+                                data-bind="event: {click: function(data, event) { btnShowLogs(event)}}">
+                                <i class="wf wf-book-opened-o" style="color:dodgerblue;"></i>
+                            </button>
+                            <button title="Setup" class="btn btn-default"
+                                data-bind="event: {click: function(data, event) { btnShowSetup(event)}}">
+                                <i class="wf wf-cog-o" style="color:dodgerblue;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- PA - Aufträge -->
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-bind="attr: { href: '#' + idCollapsePaList() }" class="collapsed">
+                    <span class="badge swinginfo" title="Anzahl PA-Aufträge"
+                        data-bind="css: { changed: paRows().length !== 0 }, text: paRows().length"></span>
+                    <!-- <i class="wf wf-catalog-o"></i>&emsp;PA-Aufträge -->
+                    <i class="wf wf-tree-structure_2"></i>&emsp;PA-Aufträge
+                    <span class="label label-default" title="aktuell gewählter PA-Auftrag"
+                        data-bind="text: selectedPaData.PaNr() ? selectedPaData.PaNr() + ' - ' + selectedPaData.RezNr() + ' ' + (selectedPaData.Name()||'') : ''"></span>
+                </a>
+                <div class="rezspinner"
+                    data-bind="css: { error: paListStateConnect().timeout, active: !paListStateConnect().timeout && paListStateConnect().busy }, attr: { title: paListStateConnect().text }">
+                    <i class="fa fa-spinner"></i>
+                </div>
+            </h4>
+        </div>
+        <div data-bind="attr: { id: idCollapsePaList }" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:0px">
+                <div style="overflow:auto !important; height: 11em;">
+                    <table data-bind="attr: { id: 'paList_' + uid() }"
+                        class="table table-bordered table-hover table-rezept">
+                        <thead data-bind="template: { name: 'headTemplate_' + uid(), foreach: paHead }"></thead>
+                        <tbody
+                            data-bind="attr: { id: idPaTable }, template: { name: 'zeileTemplate_' + uid(), foreach: paRows }">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td class="col-sm-4 col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="wf wf-filter-o"></i> </span>
+                                <input class="form-control" data-bind="attr: { id: idPaFltr }" type="text"
+                                    placeholder="z.B. 4168..">
+                                <span class="input-group-btn">
+                                    <button class="btn addon" type="button" title="Filter löschen"
+                                        data-bind="event: { click: function(){ $('#' + idPaFltr()).val('').keyup(); }}">&times;</button>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown" style="display: inline-block;">
+                                <button class="btn btn-default dropdown-toggle" type="button"
+                                    data-bind="attr:{id:'dropdownPaFilter_' + uid()}" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="true" style="color:dodgerblue;"
+                                    title="Filter Produktionstyp">
+                                    <i class="fa fa-filter"></i> Prod-Typ
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu"
+                                    data-bind="attr: { 'aria-labelledby': 'dropdownPaFilter_' + uid() }"
+                                    style="width:max-content;">
+                                    <form style="margin: 10px;">
+                                        <input type="radio" name="produktion" value="" title="Alle" checked
+                                            data-bind="attr:{id:'pTypAlle_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label data-bind="attr:{for:'pTypAlle_' + uid()}"> Alle</label><br>
+                                        <input type="radio" name="produktion" value="PV" title="Produktion Vorprodukt"
+                                            data-bind="attr:{id:'pTypPV_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypPV" data-bind="attr:{for:'pTypPV_' + uid()}">[PV] -
+                                            Produktion Vorprodukt</label><br>
+                                        <input type="radio" name="produktion" value="PB" title="Produktion Basisartikel"
+                                            data-bind="attr:{id:'pTypPB_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypPB" data-bind="attr:{for:'pTypPB_' + uid()}">[PB] -
+                                            Produktion Basisartikel</label><br>
+                                        <input type="radio" name="produktion" value="PF"
+                                            title="Produktion Fertigartikel"
+                                            data-bind="attr:{id:'pTypPF_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypPF" data-bind="attr:{for:'pTypPF_' + uid()}">[PF] -
+                                            Produktion Fertigartikel</label><br>
+                                        <input type="radio" name="produktion" value="PU" title="Nachpackaufträge"
+                                            data-bind="attr:{id:'pTypPU_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypPU" data-bind="attr:{for:'pTypPU_' + uid()}">[PU] -
+                                            Nachpackaufträge</label><br>
+                                        <input type="radio" name="produktion" value="PL" title="Produktion Linie"
+                                            data-bind="attr:{id:'pTypPL_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypPL" data-bind="attr:{for:'pTypPL_' + uid()}">[PL] -
+                                            Produktion Linie</label><br>
+                                        <input type="radio" name="produktion" value="RR" title="Reinigungsauftrag"
+                                            data-bind="attr:{id:'pTypRR_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypRR" data-bind="attr:{for:'pTypRR_' + uid()}">[RR] -
+                                            Reinigungsauftrag</label><br>
+                                        <input type="radio" name="produktion" value="DU" title="Dummyauftrag"
+                                            data-bind="attr:{id:'pTypDU_' + uid()}, event: {click: function(data, event) { selectedFltrPa(event.target) }}">
+                                        <label class="paTypDU" data-bind="attr:{for:'pTypDU_' + uid()}">[DU] -
+                                            Dummyauftrag</label><br>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="float: right;">
+                            <button type="button" class="btn btn-default" title="erweiterte Ansicht"
+                                data-bind="click: columnHideShow('paList_' + uid())">
+                                <i class="fa fa-info" style="color:dodgerblue;"></i>
+                            </button>
+                            <button type="button" class="btn btn-default" title="reload" data-bind="click:makePaList">
+                                <i class="fa fa-refresh" style="color:dodgerblue;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Head-Template PA-Liste -->
+    <script type="text/html" data-bind="attr:{id:'headTemplate_' + uid() }">
+        <tr data-bind="with: cells">
+            <th data-bind="text: $parent.cells[0]" title="Auftrags-Status"></th>
+            <th data-bind="text: $parent.cells[1]" title="Produktions-AuftragsNr."></th>
+            <th data-bind="text: $parent.cells[2]" title="Artikelnummer des Produktions-Auftrages"></th>
+            <th data-bind="text: $parent.cells[3]" title="Typ des Auftrages"></th>
+            <th data-bind="text: $parent.cells[4]" title="OPUS interne PA-Nummer"></th>
+            <th data-bind="text: $parent.cells[5]" title="Netznummer, wenn der Produktionsauftrag Teil eines Produktions-Netztes ist"></th>
+            <th data-bind="text: $parent.cells[6]" title="geplannter Produktions-Start"></th>
+            <th data-bind="text: $parent.cells[7]" title="geplannter Produktions-Ende"></th>
+            <th data-bind="text: $parent.cells[8]" title="Sollmenge des Produktionsauftrages"></th>
+            <th data-bind="text: $parent.cells[9]" title="Alternative des Artikels" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[10]" title="Variante des Artikels" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[11]" title="Sollmenge des Produktionsauftrages" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[12]" title="Sollmenge des Produktionsauftrages" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[13]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[14]" title="Erstelldatum des Produktionsauftrages" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[15]" title="Änderungsdatum des Produktionsauftrages" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[16]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[17]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[18]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[19]" title="Zählungen Einheiten eines Verkaufs-Artikel (z.B. 2 Zählungen/Schlauchbeutel ergeben einen Verpackungskarton)" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[20]" title="Anlagennummer, der die PA-Nummer zugeordnet ist" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[21]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[22]" title="Die Aktivitätsnummer dient ausschließlich der Vollständigkeit für OPUS" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[23]" title="Die Rückgabenummer dient ausschließlich der Vollständigkeit für OPUS" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[24]" class="toggleDisplay" style="display: none"></th>
+            <th data-bind="text: $parent.cells[25]" title="Fertigungseinheit" class="toggleDisplay" style="display: none"></th>
+        </tr>
+    </script>
+    <!-- Zeilen/Zellen-Template  PA-Liste -->
+    <script type="text/html" data-bind="attr: { id: 'zeileTemplate_' + uid() }">
+        <tr data-bind="with: cells, attr: { id: cells[1] + '_' + $parent.uid() }, event: { click: function(data, event) { $parent.paSelect(cells[1], cells[2]); } }">
+                <td data-bind="text: $parent.cells[0]" data-typ="PaStatus"></td>
+                <td data-bind="text: $parent.cells[1]"></td>
+                <td data-bind="text: $parent.cells[2]"></td>
+                <td data-bind="text: $parent.cells[3]" data-typ="ProdTyp"></td>
+                <td data-bind="text: $parent.cells[4]"></td>
+                <td data-bind="text: $parent.cells[5]"></td>
+                <td data-bind="text: $parent.cells[6]"></td>
+                <td data-bind="text: $parent.cells[7]"></td>
+                <td data-bind="text: $parent.cells[8]"></td>
+                <td data-bind="text: $parent.cells[9]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[10]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[11]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[12]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[13]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[14]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[15]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[16]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[17]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[18]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[19]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[20]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[21]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[22]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[23]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[24]" class="toggleDisplay" style="display: none"></td>
+                <td data-bind="text: $parent.cells[25]" class="toggleDisplay" style="display: none"></td>
+        </tr>
+    </script>
+
+    <div class="panel-footer">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <div data-toggle="collapse" style="white-space: nowrap; cursor: pointer;">
+                        <span class="wfDbState" data-bind="css:{active: dbState()}"
+                            title="Verbindungsstatus WF-Datenbank"></span>
+                    </div>
+                </td>
+                <td>
+                    <span class="wfDb2State" data-bind="css:{active: db2State()}"
+                        title="Verbindungsstatus DB2-Datenbank"></span>
+                </td>
+                <td>
+                    <div class="header-row">
+                        <button class="tooltip-toggle wfWsState" aria-label="More info"
+                            title="WebService-Verbindungsstatus. Clicken zum Anzeigen der Verbindungsstatus"
+                            data-bind="css:{active: commonWsUISatate().state}, attr: { aria-describedby: 'tooltip-wfWsState_' + uid(), popovertarget: 'tooltip-wfWsState_' + uid() }"></button>
+                        </button>
+                        <div data-bind="attr: { id: 'tooltip-wfWsState_' + uid() }" role="tooltip" popover>
+                            <div role="none">
+                                <p class="popover-title">
+                                    WS-Verbindungsstatus
+                                </p>
+                                <br>
+                                <span class="wfWsState"
+                                    style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                    data-bind="css:{active: ws1StateUI().state}, attr:{title: ws1StateUI().version}, html: ws1StateUI().version"
+                                    title="Verbindungsstatus WebService '..wcfSiem//WcfPlcRezept.svc'">
+                                    Verbindungsstatus: ..wcfSiem//WcfPlcRezept.svc</span>
+                                <hr>
+                                <span class="wfWsState"
+                                    style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                    data-bind="css:{active: ws2StateUI().state}, attr:{title: ws2StateUI().version}, html: ws2StateUI().version"
+                                    title="Verbindungsstatus WebService '..WcfRezept//WsRezept.svc'">Verbindungsstatus:
+                                    ..WcfRezept//WsRezept.svc</span>
+                                <hr>
+                                <span class="wfWsState"
+                                    style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                    data-bind="css:{active: ws3StateUI().state}, attr:{title: ws3StateUI().version}, html: ws3StateUI().version"
+                                    title="Verbindungsstatus WebService '..WsCwSAP//CwSAPService.svc'">Verbindungsstatus
+                                    WebService '..WsCwSAP//CwSAPService.svc'</span>
+                                <hr>
+                                <span class="wfWsState"
+                                    style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                    data-bind="css:{active: ws4StateUI().state}, attr:{title: ws4StateUI().version}, html: ws4StateUI().version"
+                                    title="Verbindungsstatus WebService '..WsCcwBde//CcwBdeService.svc'">Verbindungsstatus
+                                    WebService '..WsCcwBde//CcwBdeService.svc'</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="wfUserState" data-bind="css:{active:userState()}, attr:{title:userInfo}"></span>
+                </td>
+
+                <td style="float: right;">
+
+                    <button type="button" style="color: tomato;" class="btn btn-default" title="PA Stoppen"
+                        data-bind="enable: btnStopTitle() === 'PA Stoppen', attr: {title: btnStopTitle}, click: stopPa">
+                        <i class="fa fa-stop" style="margin-right: 0.5em; font-size: larger;"></i>PA- Stopp
+                    </button>
+                    <button type="button" style="color:dodgerblue;" class="btn btn-default"
+                        data-bind="enable: btnStartTitle() === 'Starten', attr: {title: btnStartTitle}, click: btnSendRecipe">
+                        <i class="fa fa-play" style="margin-right: 0.5em; font-size: larger;"></i>
+
+                        PA Starten
+
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+    <div class="clCssloadWrapper" data-bind="visible: isLoading()">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+</section>

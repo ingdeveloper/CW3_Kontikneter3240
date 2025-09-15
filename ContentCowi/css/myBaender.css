@@ -1,0 +1,141 @@
+﻿.tableBreiteSpalte2 {
+	width: 10%;
+	min-width: 140px;
+	max-width: 160px;
+}
+.tableBreiteSpalte3 {
+	/* width: 20%; */
+}
+.tableBreiteSpalte4 {
+	width: 12%;
+	min-width: 54px;
+	max-width: 120px;
+}
+.tableBreiteSpalte5 {
+	width: 12%;
+	min-width: 54px;
+	max-width: 120px;
+}
+.tableBreiteSpalte6 {
+	width: 16%;
+	min-width: 66px;
+	max-width: 140px;
+}
+.tableBreiteSpalte7 {
+	width: 12%;
+	min-width: 44px;
+	max-width: 80px;
+}
+.tableBreiteSpalte8 {
+	width: 10%;
+	min-width: 33px;
+	max-width: 60px;
+}
+.antriebeBeschriftungTable {
+	font-size: 10px;
+	background: white;
+	text-align: left;
+	padding: 2px !important;
+}
+.antriebeBeschriftungStateBar {
+	font-size: 10px;
+	text-align: left;
+}
+.kommentarFett{
+	font-weight:bold;
+
+}
+.highlightRow{
+	background-color: rgb(221, 221, 221) !important;
+}
+.antriebeSeiteTd {
+	font-Size: 14px;
+	text-align: left;
+	vertical-align: middle;
+	padding: 2px !important;
+}
+.progress-bar.ccw-progress-bar{
+	color: #757575;
+	height: 30px;
+}
+.progress-bar.ccw-progress-bar-vertikal{
+	color: #757575;
+	width: 30px;
+	background-image: none;
+
+}
+.ccw-progress-bar-padding{
+    text-align: left;
+	vertical-align: middle;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.ccw-progress-bar-height{
+	height: 30px !important;
+}
+.ccw-progress-bar-align-content{
+	vertical-align: -webkit-baseline-middle;
+	font-size: 16px;
+}
+.tabelleAntriebeSpalteGreen {
+	background-color: #dff0d8 !important;
+}
+.antriebeSeiteTd-center {
+	text-align: -webkit-center !important;
+}
+.tabelleAntriebeSpalteOrange {
+	background-color: #fcf8e3 !important;
+}
+.tabelleAntriebeSpalteLightBlue {
+	background-color: #d9edf7 !important;
+}
+.antriebeBeschriftungStateBar {
+	font-size: 10px;
+	text-align: left;
+}
+.buttonHandAuto{
+	width:100%;
+} 
+.lblState{
+	width:100%;
+	text-align: center;
+	font-size: 14px;
+	vertical-align: middle;
+	margin:0px;
+}  
+.ccw-button-Vorwahl{
+	width:100%;
+}
+
+.buttonEinDrehrichtung{
+	width:100%;
+}
+
+.antriebeHintergrundfarbe{
+	background-color: lightgrey;
+}
+/*.antriebeInput{
+	display: inline;
+	width: 70%;
+}*/
+.input-hidden{
+	display: hidden;
+}
+.input-visible{
+	display: inline;
+}
+
+.ccw-state-bar-header{
+	padding: 0px;
+}
+
+.ccw-red{
+	background-color: red;
+	color: black;
+}
+.ccw-green{
+	background-color: lime;
+	color: black;
+}

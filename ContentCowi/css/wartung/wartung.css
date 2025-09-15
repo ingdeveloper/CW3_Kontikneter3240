@@ -1,0 +1,248 @@
+.wartung-Titelleiste {
+    background: linear-gradient(#00c0ff, #d9edf7) !important;
+}
+
+.wartung-ColorStoerung {
+    background-color: rgb(241, 50, 50) !important;
+}
+
+.wartung-ColorBereit {
+    background-color: #00FFFF;
+}
+
+.wartung-ColorEin {
+    background-color: #00FF00;
+}
+
+.wartung-ColorHellGruen {
+    background-color: #b8f1b8;
+    border: 1px solid #00FF00 !important;
+}
+
+.wartung-ColorRun {
+    background-color: #9999FF;
+}
+
+.wartung-ColorOhneStatus {
+    background-color: #dddbdb;
+}
+
+.wartung-ColorWarnung {
+    background-color: #ff6a00;
+}
+
+.wartung-ColorGelb {
+    background-color: yellow;
+}
+
+.wartung-ColorRosa {
+    background-color: #FF9999;
+}
+
+.wartung-ColorWeiss {
+    background-color: antiquewhite;
+}
+
+.wartung-ColorSchwarz {
+    background-color: black;
+}
+
+.wartung-BtnColorGelb {
+    background-color: yellow;
+    border: 1px solid #C6C6C6;
+}
+
+.wartung-Table {
+    font-size: small;
+}
+
+.wartung-AntriebeBargraphFarbeGruen {
+    background-image: linear-gradient(to bottom,#00d103 0,#00d103 100%);
+}
+
+.wartung-AntriebeBargraphFarbeGelb {
+    background-image: linear-gradient(to bottom,rgb(255, 196, 0) 0,rgb(255, 196, 0) 0 100%);
+}
+
+.wartung-AntriebeBargraphFarbeRot {
+    background-image: linear-gradient(to bottom,#f62525 0,red 100%);
+}
+
+.wartung-Th {
+    width: 10%;
+    text-align: center;
+}
+
+.wartung-Td {
+    text-align: center;
+}
+
+.wartung-TdZeit {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+.wartung-TdNiveau {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 47%;
+    float: left;
+}
+
+.wartung-TdIstSoll {
+    border: 1px solid #C6C6C6;
+    border-bottom: 0px;
+    text-align: center;
+    /*background-color: #dddbdb;*/
+    width: 48%;
+    float: left;
+}
+
+.wartung-TdIstTemperatur {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 50%;
+    float: left;
+}
+
+.wartung-TdSollTemperatur {
+    border: 0px solid #C6C6C6;
+    text-align: center;
+    background-color: white;
+    width: 50%;
+    float: left;
+}
+
+.wartung-TdSollTemperaturInput {
+    text-align: center;
+    padding: 1px;
+    margin: 1px;
+}
+
+.wartung-InfoLaugeNeutral {
+    text-align: center;
+    border: 1px solid #808080;
+}
+
+.wartung-StartBtnWidth {
+    width: 100% !important;
+}
+
+.wartung-colbtn {
+    /*margin-right: 0px;*/
+    border: 1px solid red;
+}
+
+.wartung-InfoText {
+    /*margin-right: 0px;*/
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    font-weight: bold;
+    /*padding-bottom: -10px;*/
+    /*padding-top: 10px;*/
+    /*background-color:antiquewhite;*/
+}
+
+.wartung-BtnKopf {
+    /*background-color: yellow;*/
+    /*border: 1px solid #C6C6C6;*/
+    padding-top: 2px;
+}
+
+.wartung-DivFunktionsauswahl {
+    /*background-color: yellow;*/
+    /*border: 1px solid #C6C6C6;*/
+    /*padding-top: 2px;*/
+    position: relative;
+    margin: -12px 0px 0px 0px;
+    height: 12px;
+    /*visibility: visible;*/ /* wird bei User-Anmeldung geändert */
+}
+
+.wartung-AntriebeTable {
+    font-size: small;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.wartung-AntriebeTd {
+    text-align: left;
+	vertical-align: middle !important;
+	padding: 2px !important;
+}
+
+.wartung_spalte1{
+    width:15%;
+}
+
+.wartung_spalte2{
+    min-width: 28%;
+    width:28%;
+}
+
+.wartung_spalte3{
+    width:10%;
+}
+
+.wartung_spalte4{
+    width:10%;
+}
+
+.wartung_spalte5{
+    width:10%;
+}
+
+.wartung_spalte6{
+    width:10%;
+}
+
+.wartung_spalte7{
+    width:5%;
+}
+
+.wartung_spalte8{
+    width:12%;
+}
+
+.wartung-AntriebeBeschriftungTable {
+	font-size: 10px;
+	background: white;
+	text-align: left;
+	padding: 2px !important;
+}
+
+.wartung-AntriebeTableBtn {
+    font-size: 12px;
+    padding: 2px !important;
+    margin: 2px !important;
+}
+
+.progress.progress-ccw-small {
+    margin-bottom: 2px !important;
+    margin-top: 2px;
+    height: 20px;
+    border-radius: 2px;
+    max-width: 160px;
+    
+}
+
+.progress-bar.ccw-progress-bar{
+    color: #757575;
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1024px ) { /* Breite beträgt höchstens */
+    .wartung-Table {
+        font-size: smaller;
+    }
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 768px ) { /* Breite beträgt höchstens */
+    .wartung-Table {
+        font-size: x-small;
+    }
+}

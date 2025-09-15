@@ -1,0 +1,23 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">
+            {{connector.translate("I4SCADA_TutorialOnlineValues")()}}
+        </h1>
+    </header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="alert alert-success">
+                Current value of the signal
+                <strong>"Setpoint 1"</strong>:
+                <h1 data-bind="text: onlineValue"></h1>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <button class="btn btn-default" type="button" data-bind="click: writeSignalValueON">Write value "1" in Setpoint 1</button>
+            <button class="btn btn-danger" type="button" data-bind="click: writeSignalValueOFF">Write value "0" in Setpoint 1</button>
+        </div>
+    </div>
+</div>

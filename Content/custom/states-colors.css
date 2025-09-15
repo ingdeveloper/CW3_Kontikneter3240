@@ -1,0 +1,956 @@
+
+
+/*--------------------------------------------------*/
+/* Status colors definitions for symbols and icons  */
+/*--------------------------------------------------*/
+
+.blue:before {
+    color: blue !important;
+}
+
+.blue:after {
+    color: #000000 !important;
+}
+
+.brown:before {
+    color: brown !important;
+}
+
+.brown:after {
+    color: #eeeeee !important;
+}
+
+.green:before {
+    color: green !important;
+}
+
+.green:after {
+    color: #eeeeee !important;
+}
+
+.orange:before {
+    color: orange !important;
+}
+
+.orange:after {
+    color: #000000 !important;
+}
+
+.red:before {
+    color: red !important;
+}
+
+.red:after {
+    color: #eeeeee !important;
+}
+
+.yellow:before {
+    color: yellow !important;
+}
+
+.yellow:after {
+    color: #000000 !important;
+}
+
+.normal:before {
+    color: #eeeeee !important;
+}
+
+.normal:after {
+    color: #555555 !important;
+}
+
+.warning,
+.warning:before {
+    color: #e08f00 !important;
+}
+
+    .warning:after {
+        color: #222222 !important;
+    }
+
+.error,
+.error:before {
+    color: #da1a1a !important;
+}
+
+    .error:after {
+        color: #eeeeee !important;
+    }
+
+.critical,
+.critical:before {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    color: #da1a1a !important;
+}
+
+    .critical:after {
+        color: #eeeeee !important;
+    }
+
+.running,
+.running:before {
+    color: #5ed300 !important;
+}
+
+    .running:after {
+        color: #000000 !important;
+    }
+
+.running-foreground:after {
+    color: #5ed300 !important;
+}
+
+.maintenance,
+.hand,
+.maintenance:before,
+.hand:before {
+    color: #1160b8 !important;
+}
+
+    .maintenance:after,
+    .hand:after {
+        color: #cfcfcf !important;
+    }
+
+/*----------------------------------*/
+/* SVG elements status colors       */
+/*----------------------------------*/
+.critical.wf-svg-path,
+.error.wf-svg-path,
+.red.wf-svg-path,
+.brown.wf-svg-path{
+ color: #ffffff!important;
+}
+
+.critical .wf-svg-path {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    fill: #da1a1a !important;
+}
+
+.error .wf-svg-path {
+    fill: #da1a1a !important;
+}
+
+.warning .wf-svg-path {
+    fill: #e08f00 !important;
+}
+
+.running .wf-svg-path {
+    fill: #5ed300 !important;
+}
+
+.maintenance .wf-svg-path,
+.hand .wf-svg-path {
+    fill: #1160b8 !important;
+}
+
+.green .wf-svg-path {
+    fill: #5ed300;
+}
+
+.red .wf-svg-path {
+    fill: #da1a1a;
+}
+
+.blue .wf-svg-path {
+    fill: #1160b8;
+}
+
+.orange .wf-svg-path {
+    fill: #e08f00;
+}
+
+.brown .wf-svg-path {
+    fill: #b5651d;
+}
+
+.yellow .wf-svg-path {
+    fill: #edd200;
+}
+
+
+/*---------------------------*/
+/* Line status colors       */
+/*---------------------------*/
+
+.critical .wf-svg-line {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    stroke: #da1a1a !important;
+}
+
+.error .wf-svg-line {
+    stroke: #da1a1a !important;
+}
+
+.warning .wf-svg-line {
+    stroke: #e08f00 !important;
+}
+
+.running .wf-svg-line {
+    stroke: #5ed300 !important;
+}
+
+.maintenance .wf-svg-line,
+.hand .wf-svg-line {
+    stroke: #1160b8 !important;
+}
+
+.green .wf-svg-line {
+    stroke: #5ed300 !important;
+}
+
+.red .wf-svg-line {
+    stroke: #da1a1a !important;
+}
+
+.blue .wf-svg-line {
+    stroke: #1160b8 !important;
+}
+
+.orange .wf-svg-line {
+    stroke: #e08f00 !important;
+}
+
+.brown .wf-svg-line {
+    stroke: #b5651d !important;
+}
+
+.yellow .wf-svg-line {
+    stroke: #edd200 !important;
+}
+
+
+/*---------------------------*/
+/* Shape status colors       */
+/*---------------------------*/
+
+.wf-shape .critical {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    background-color: #da1a1a !important;
+}
+
+.wf-shape .error {
+    background-color: #da1a1a !important;
+}
+
+.wf-shape .warning {
+    background-color: #e08f00 !important;
+}
+
+.wf-shape .running {
+    background-color: #5ed300 !important;
+}
+
+.wf-shape .maintenance,
+.wf-shape .hand {
+    background-color: #1160b8 !important;
+}
+
+.wf-shape .red {
+    background-color: #da1a1a !important; 
+}
+.wf-shape .green {
+    background-color: #5ed300 !important; 
+}
+.wf-shape .blue {
+    background-color: #1160b8 !important; 
+}
+.wf-shape .orange {
+    background-color: #e08f00 !important; 
+}
+.wf-shape .brown {
+    background-color: #b5651d !important; 
+}
+.wf-shape .yellow {
+    background-color: #edd200 !important; 
+}
+.wf-shape .normal {
+    background-color: #eeeeee !important; 
+}
+
+.wf-shape.wf-triangle .critical {
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    -webkit-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    background: linear-gradient(to right bottom, #da1a1a 50%, transparent 50%) !important;
+}
+
+.wf-shape.wf-triangle .error,
+.wf-shape.wf-triangle .red {
+  background: linear-gradient(to right bottom, #da1a1a 50%, transparent 50%) !important; }
+
+.wf-shape.wf-triangle .warning,
+.wf-shape.wf-triangle .orange {
+  background: linear-gradient(to right bottom, #e08f00 50%, transparent 50%) !important; }
+
+.wf-shape.wf-triangle .running,
+.wf-shape.wf-triangle .green {
+  background: linear-gradient(to right bottom, #5ed300 50%, transparent 50%) !important; }
+
+.wf-shape.wf-triangle .maintenance,
+.wf-shape.wf-triangle .hand,
+.wf-shape.wf-triangle .blue {
+  background: linear-gradient(to right bottom, #1160b8 50%, transparent 50%) !important; }
+
+.wf-shape.wf-triangle .brown {
+  background: linear-gradient(to right bottom, #b5651d 50%, transparent 50%) !important; }
+
+.wf-shape.wf-triangle .yellow {
+  background: linear-gradient(to right bottom, #edd200 50%, transparent 50%) !important; }
+
+
+
+/* ---------------------------*/
+/* Generall color definitions */
+/* ---------------------------*/
+
+.green {
+    color: #5ed300 !important;
+}
+
+.red {
+    color: #da1a1a !important;
+}
+
+.blue {
+    color: #1160b8 !important;
+}
+
+.orange {
+    color: #e08f00 !important;
+}
+
+.brown {
+    color: #b5651d !important;
+}
+
+
+.yellow {
+    color: #edd200 !important;
+}
+
+/*----------------------------------*/
+/* Sensor elements status colors       */
+/*----------------------------------*/
+
+/* Sensor label states and colors*/
+
+
+.normal .wf-sensor-label,
+.normal + .wf-sensor-value,
+.wf-sensor-normal .wf-sensor-label,
+.wf-sensor-normal + .wf-sensor-value  {
+    background-color: #eeeeee;
+    color: #555555;
+}
+
+
+.error .wf-sensor-label,
+.error + .wf-sensor-value,
+.wf-sensor-error .wf-sensor-label,
+.wf-sensor-error + .wf-sensor-value,
+.danger .wf-sensor-label,
+.danger + .wf-sensor-value,
+.wf-sensor-danger .wf-sensor-label,
+.wf-sensor-danger + .wf-sensor-value,
+.critical .wf-sensor-label,
+.critical + .wf-sensor-value,
+.wf-sensor-critical .wf-sensor-label,
+.wf-sensor-critical + .wf-sensor-value,
+.red .wf-sensor-label,
+.red + .wf-sensor-value  {
+    background-color: #da1a1a;
+    color: #fff;
+}
+
+
+.critical .wf-sensor-label,
+.critical + .wf-sensor-value,
+.wf-sensor-critical .wf-sensor-label,
+.wf-sensor-critical + .wf-sensor-value  {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+}
+
+.warning .wf-sensor-label,
+.warning + .wf-sensor-value,
+.wf-sensor-warning .wf-sensor-label,
+.wf-sensor-warning + .wf-sensor-value,
+.orange .wf-sensor-label,
+.orange + .wf-sensor-value {
+    background-color: #e08f00;
+    color: #222222;
+    fill: #e08f00 !important;
+}
+
+.running .wf-sensor-label,
+.running + .wf-sensor-value,
+.wf-sensor-running .wf-sensor-label,
+.wf-sensor-running + .wf-sensor-value,
+.ok .wf-sensor-label,
+.ok + .wf-sensor-value,
+.wf-sensor-ok .wf-sensor-label,
+.wf-sensor-ok + .wf-sensor-value,
+.green .wf-sensor-label,
+.green + .wf-sensor-value
+ {
+    background-color: #5ed300;
+    color: #000000;
+}
+
+.maintenance .wf-sensor-label,
+.maintenance + .wf-sensor-value,
+.wf-sensor-maintenance .wf-sensor-label,
+.wf-sensor-maintenance + .wf-sensor-value,
+.hand .wf-sensor-label,
+.hand + .wf-sensor-value,
+.wf-sensor-hand .wf-sensor-label,
+.wf-sensor-hand + .wf-sensor-value,
+.blue .wf-sensor-label,
+.blue + .wf-sensor-value {
+    background-color: #1160b8;
+    color: #fff;
+}
+
+.brown .wf-sensor-label,
+.brown + .wf-sensor-value
+ {
+    background-color: #b5651d;
+    color: #fff;
+}
+
+
+.yellow .wf-sensor-label,
+.yellow + .wf-sensor-value
+ {
+    background-color: #edd200;
+    color: #000000;
+}
+
+.wf-sensor-pin {
+    background: transparent!important;
+}
+
+
+/*--------------------------------------
+    Watchdog widget
+---------------------------------------*/
+
+.wf-watchdog-online {
+    color: #5ed300;
+}
+
+.wf-watchdog-offline {
+    color: #da1a1a;
+}
+
+
+
+/*----------------------------------*/
+/* SVG graphics status colors       */
+/*----------------------------------*/
+
+.critical .wf-state-element {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    fill: #da1a1a;
+}
+
+.error .wf-state-element {
+    fill: #da1a1a !important;
+}
+
+.warning .wf-state-element {
+    fill: #e08f00 !important;
+}
+
+.running .wf-state-element {
+    fill: #5ed300 !important;
+}
+
+.maintenance .wf-state-element,
+.hand .wf-state-element {
+    fill: #1160b8 !important;
+}
+
+.green .wf-state-element {
+    fill: #5ed300 !important;
+}
+
+.red .wf-state-element {
+    fill: #da1a1a !important;
+}
+
+.blue .wf-state-element {
+    fill: #1160b8 !important;
+}
+
+.orange .wf-state-element {
+    fill: #e08f00 !important;
+}
+
+.brown .wf-state-element {
+    fill: #b5651d !important;
+}
+
+.yellow .wf-state-element {
+    fill: #edd200 !important;
+}
+
+
+/* State Layer status colors       */
+/*----------------------------------*/
+
+.wf-state-layer > .wf-state-container.critical {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    background-color: #da1a1a !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.error {
+    background-color: #da1a1a !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.warning {
+    background-color: #e08f00 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.running {
+    background-color: #5ed300 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.maintenance,
+.wf-state-layer > .wf-state-container.hand {
+    background-color: #1160b8 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.green {
+    background-color: #5ed300 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.red {
+    background-color: #da1a1a !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.blue {
+    background-color: #1160b8 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.orange {
+    background-color: #e08f00 !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.brown {
+    background-color: #b5651d !important;
+    color: #ffffff !important;
+}
+
+.wf-state-layer > .wf-state-container.yellow {
+    background-color: #edd200 !important;
+    color: #000 !important;
+}
+
+/*----------------------------------*/
+/* Progress state status colors       */
+/*----------------------------------*/
+
+.critical.wf-progress-state {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    background-color: #da1a1a !important;
+}
+
+.error.wf-progress-state {
+    background-color: #da1a1a !important;
+}
+
+.warning.wf-progress-state {
+    background-color: #e08f00 !important;
+}
+
+.running.wf-progress-state {
+    background-color: #5ed300 !important;
+}
+
+.maintenance.wf-progress-state,
+.hand.wf-progress-state {
+    background-color: #1160b8 !important;
+}
+
+.green.wf-progress-state {
+    background-color: #5ed300 !important;
+}
+
+.red.wf-progress-state {
+    background-color: #da1a1a !important;
+}
+
+.blue.wf-progress-state {
+    background-color: #1160b8 !important;
+}
+
+.orange.wf-progress-state {
+    background-color: #e08f00 !important;
+}
+
+.brown.wf-progress-state {
+    background-color: #b5651d !important;
+}
+
+.yellow.wf-progress-state {
+    background-color: #edd200 !important;
+}
+
+
+/*----------------------------------*/
+/* Value display status colors       */
+/*----------------------------------*/
+
+.critical.wf-output-box {
+    -webkit-animation: flash 1s infinite;
+    -moz-animation: flash 1s infinite;
+    -o-animation: flash 1s infinite;
+    animation: flash 1s infinite;
+    background-color: #da1a1a !important;
+    color: #fff !important;
+}
+
+.error.wf-output-box {
+    background-color: #da1a1a !important;
+    color: #fff !important;
+}
+
+.warning.wf-output-box {
+    background-color: #e08f00 !important;
+    color: #fff !important;
+}
+
+.running.wf-output-box {
+    background-color: #5ed300 !important;
+    color: #fff !important;
+}
+
+.maintenance.wf-output-box,
+.hand.wf-output-box {
+    background-color: #1160b8 !important;
+    color: #fff !important;
+}
+
+.green.wf-output-box {
+    background-color: #5ed300 !important;
+    color: #fff !important;
+}
+
+.red.wf-output-box {
+    background-color: #da1a1a !important;
+    color: #fff !important;
+}
+
+.blue.wf-output-box {
+    background-color: #1160b8 !important;
+    color: #fff !important;
+}
+
+.orange.wf-output-box {
+    background-color: #e08f00 !important;
+    color: #fff !important;
+}
+
+.brown.wf-output-box {
+    background-color: #b5651d !important;
+    color: #fff !important;
+}
+
+.yellow.wf-output-box {
+    background-color: #edd200 !important;
+    color: #000 !important;
+}
+
+
+
+
+/*--------------------------------------------------*/
+/* Status colors definitions for wf-switch-gear     */
+/*--------------------------------------------------*/
+/* .wf-switch-transformer .error .wf-switch-transformer-base
+.wf-switch-transformer .error .wf-switch-transformer-switch-closed,
+.wf-switch-transformer .error .wf-switch-transformer-switch-opened */
+.wf-switch-transformer .error *,
+.wf-switch-transformer .red * {
+    stroke: #da1a1a !important;
+}
+.wf-switch-transformer .error .wf-switch-transformer-box,
+.wf-switch-transformer .red .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .critical * {
+    stroke: #da1a1a !important;
+}
+.wf-switch-transformer .critical .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .warning *,
+.wf-switch-transformer .orange * {
+    stroke: #e08f00 !important;
+}
+.wf-switch-transformer .warning .wf-switch-transformer-box,
+.wf-switch-transformer .orange .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .running *,
+.wf-switch-transformer .green * {
+    stroke: #5ed300 !important;
+}
+.wf-switch-transformer .running .wf-switch-transformer-box,
+.wf-switch-transformer .green .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .hand *,
+.wf-switch-transformer .blue * {
+    stroke: #1160b8 !important;
+}
+.wf-switch-transformer .hand .wf-switch-transformer-box,
+.wf-switch-transformer .blue .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .maintenance * {
+    stroke: #1160b8 !important;
+}
+.wf-switch-transformer .maintenance .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .yellow * {
+    stroke: #edd200 !important;
+}
+.wf-switch-transformer .yellow .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .yellow * {
+    stroke: #edd200 !important;
+}
+.wf-switch-transformer .yellow .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+.wf-switch-transformer .brown * {
+    stroke: #b5651d !important;
+}
+.wf-switch-transformer .brown .wf-switch-transformer-box {
+    fill: #ffffff !important;
+}
+
+
+
+/*--------------------------------------------------*/
+/* Status colors definitions for wf-switch-gear     */
+/*--------------------------------------------------*/
+.wf-switch-symbol .error *,
+.wf-switch-gear .error * {
+    stroke: #da1a1a !important;
+}
+
+.wf-switch-symbol .error .wf-switch-symbol-box,
+.wf-switch-symbol .error .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .error .wf-fuse,
+.wf-switch-gear .error .wf-switch-gear-box,
+.wf-switch-gear .error .wf-switch-gear-box-fuse,
+.wf-switch-gear .error .wf-fuse {
+    fill: #ffffff !important;
+}
+
+
+.wf-switch-gear .critical *,
+.wf-switch-symbol .critical *
+{ 
+    stroke: #da1a1a!important;
+}
+
+
+.wf-switch-symbol .critical .wf-switch-symbol-box,
+.wf-switch-symbol .critical .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .critical .wf-fuse,
+.wf-switch-gear .critical .wf-switch-gear-box,
+.wf-switch-gear .critical .wf-switch-gear-box-fuse,
+.wf-switch-gear .critical .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .warning *,
+.wf-switch-gear .warning * {
+    stroke: #e08f00 !important;
+}
+
+.wf-switch-symbol .warning .wf-switch-symbol-box,
+.wf-switch-symbol .warning .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .warning .wf-fuse,
+.wf-switch-gear .warning .wf-switch-gear-box,
+.wf-switch-gear .warning .wf-switch-gear-box-fuse,
+.wf-switch-gear .warning .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .running *,
+.wf-switch-gear .running * {
+    stroke: #5ed300 !important;
+}
+
+.wf-switch-symbol .running .wf-switch-symbol-box,
+.wf-switch-symbol .running .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .running .wf-fuse,
+.wf-switch-gear .running .wf-switch-gear-box,
+.wf-switch-gear .running .wf-switch-gear-box-fuse,
+.wf-switch-gear .running .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .hand *,
+.wf-switch-gear .hand * {
+    stroke: #1160b8 !important;
+}
+
+.wf-switch-symbol .hand .wf-switch-symbol-box,
+.wf-switch-symbol .hand .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .hand .wf-fuse,
+.wf-switch-gear .hand .wf-switch-gear-box,
+.wf-switch-gear .hand .wf-switch-gear-box-fuse,
+.wf-switch-gear .hand .wf-fuse {
+    fill: #ffffff !important;
+}
+
+
+.wf-switch-gear .maintenance *,
+.wf-switch-symbol .maintenance * {
+    stroke: #1160b8 !important;
+}
+
+.wf-switch-symbol .maintenance .wf-switch-symbol-box,
+.wf-switch-symbol .maintenance .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .maintenance .wf-fuse,
+.wf-switch-gear .maintenance .wf-switch-gear-box,
+.wf-switch-gear .maintenance .wf-switch-gear-box-fuse,
+.wf-switch-gear .maintenance .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-gear .red *,
+.wf-switch-symbol .red * {
+    stroke: #da1a1a !important;
+}
+
+.wf-switch-symbol .red .wf-switch-symbol-box,
+.wf-switch-symbol .red .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .red .wf-fuse,
+.wf-switch-gear .red .wf-switch-gear-box,
+.wf-switch-gear .red .wf-switch-gear-box-fuse,
+.wf-switch-gear .red .wf-fuse {
+    fill: #ffffff !important;
+}
+
+
+.wf-switch-symbol .green *,
+.wf-switch-gear .green * {
+    stroke: #5ed300 !important;
+}
+
+
+.wf-switch-symbol .green .wf-switch-symbol-box,
+.wf-switch-symbol .green .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .green .wf-fuse,
+.wf-switch-gear .green .wf-switch-gear-box,
+.wf-switch-gear .green .wf-switch-gear-box-fuse,
+.wf-switch-gear .green .wf-fuse {
+    fill: #ffffff;
+}
+
+.wf-switch-symbol .blue *,
+.wf-switch-gear .blue * {
+    stroke: #1160b8 !important;
+}
+
+.wf-switch-symbol .blue .wf-switch-symbol-box,
+.wf-switch-symbol .blue .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .blue .wf-fuse,
+.wf-switch-gear .blue .wf-switch-gear-box,
+.wf-switch-gear .blue .wf-switch-gear-box-fuse,
+.wf-switch-gear .blue .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .orange *,
+.wf-switch-gear .orange * {
+    stroke: #e08f00 !important;
+}
+
+.wf-switch-symbol .orange .wf-switch-symbol-box,
+.wf-switch-symbol .orange .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .orange .wf-fuse,
+.wf-switch-gear .orange .wf-switch-gear-box,
+.wf-switch-gear .orange .wf-switch-gear-box-fuse,
+.wf-switch-gear .orange .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .yellow *,
+.wf-switch-gear .yellow * {
+    stroke: #edd200 !important;
+}
+
+.wf-switch-symbol .yellow .wf-switch-symbol-box,
+.wf-switch-symbol .yellow .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .yellow .wf-fuse,
+.wf-switch-gear .yellow .wf-switch-gear-box,
+.wf-switch-gear .yellow .wf-switch-gear-box-fuse,
+.wf-switch-gear .yellow .wf-fuse {
+    fill: #ffffff !important;
+}
+
+.wf-switch-symbol .brown *,
+.wf-switch-gear .brown * {
+    stroke: #b5651d !important;
+}
+
+.wf-switch-symbol .brow .wf-switch-symbol-box,
+.wf-switch-symbol .brow .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .brow .wf-fuse,
+.wf-switch-gear .brow .wf-switch-gear-box,
+.wf-switch-gear .brow .wf-switch-gear-box-fuse,
+.wf-switch-gear .brow .wf-fuse {
+    fill: #ffffff !important;
+}

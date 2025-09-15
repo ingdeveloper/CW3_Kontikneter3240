@@ -1,0 +1,90 @@
+﻿<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12 m-b-md">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-switch-gear</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSwitchGear_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-lg-2 col-sm-3">
+                            <wf-switch-gear class="relative wf-8x block" params="switchType: 'switch-gear-box switch-gear-breaker', 
+                                            cssClassNormalState: 'red in closed', 
+                                            states:[{conditionRule:'%Setpoint 1% == 1', cssClassName:'blue out opened'}, 
+                                                    {conditionRule:'%Setpoint 1% >= 2', cssClassName:'critical in closed'}]">
+                            </wf-switch-gear>
+                        </div>
+                        <div class="col-lg-10 col-sm-9">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-switch-gear class=&quot;relative wf-8x block&quot; 
+                params=&quot;switchType: 'switch-gear-base switch-gear-box switch-gear-breaker', 
+                cssClassNormalState: 'red in closed', 
+                states:[{conditionRule:'%Setpoint 1% == 1', cssClassName:'blue out opened'}, 
+                        {conditionRule:'%Setpoint 1% >= 2', cssClassName:'critical in closed'}]&quot;&gt;
+&lt;/wf-switch-gear&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr data-bind="css: {'wf-deprecated': $data.deprecated}">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="html: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="html: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12" style="margin-top: 30px; margin-bottom: 120px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="flexbox flexbox-wrap flex-no-shrink flex-no-grow" data-bind="foreach: switchExamples">
+                        <wf-switch-gear class="relative block wf-10x m-b-lg" params="lineThickness: 1.5, switchType : $data.switchType , cssClassNormalState: 'green opened out fuse-intact', states:[{conditionRule:'%Setpoint 1% == 1', cssClassName:$data.state1}, {conditionRule:'%Setpoint 1% == 2', cssClassName: $data.state2}]"></wf-switch-gear>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

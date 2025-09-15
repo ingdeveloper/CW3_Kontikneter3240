@@ -1,0 +1,116 @@
+﻿/* CSS für Seite Übersicht */
+.uebersichtCol {
+    border: 3px #cec9c9 solid;
+    margin: 0px 0px 20px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+    /*background-color: rgb(255, 216, 0);*/
+    height: auto;
+    width: auto;
+    -webkit-box-shadow: 10px 10px 30px 0px rgba(94,87,94,1);
+    -moz-box-shadow: 10px 10px 30px 0px rgba(94,87,94,1);
+    box-shadow: 10px 10px 30px 0px rgba(94,87,94,1);
+}
+
+.uebersichtNoRand {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.uebersichtColHeader {
+    background-color: #cec9c9;
+    /*border: 3px #cec9c9 solid;*/
+    background-image: linear-gradient(#D8D8D8, #D8D8D8);
+    font-size:large;
+}
+
+.uebersichtInhalt {
+    background-color: antiquewhite;
+    height: 124px;
+    border: 1px #a4a1a1 solid;
+    margin: 5px 2px 10px 2px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(94,87,94,0.75);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(94,87,94,0.75);
+    box-shadow: 4px 4px 4px 0px rgba(94,87,94,0.75);
+}
+    /* letztes Feld -> Abstand nach unten verkleinern */
+    .uebersichtInhalt:last-child {
+        margin: 5px 0px 5px 0px;
+    }
+
+.uebersichtButtonWeg {
+    margin-top: 3px;
+    /*width: 71px;*/
+    margin-left: 1px;
+    margin-right: 1px;
+    /*border: 1px solid red;*/
+    padding: 0px;
+}
+
+.uebersichtStatusSymbol1 {
+    margin-left: 15px;
+    margin-top: 2px;
+    width: 10px;
+    height: 10px;
+    /*background-color: #ff0000;*/
+    /*float: left;*/
+    cursor: help;
+}
+
+.uebersichtStatusSymbol2 {
+    /*position: absolute;*/
+    margin-left: 40px;
+    margin-top: 2px;
+    width: 10px;
+    height: 10px;
+    /*background-color: #ff6a00;*/
+    cursor: help;
+}
+
+.uebersichtKreisFarbe {
+    background-color: grey;
+    border: 1px solid black;
+}
+
+.uebersichtText1 {
+    margin: 3px 1px 2px 1px;
+    background-color: #fbe8cf;
+    border: 1px solid #D8D8D8;
+}
+
+.uebersichtText2 {
+    margin: 2px 1px 2px 1px;
+    background-color: #fbe8cf;
+    border: 1px solid #D8D8D8;
+}
+
+
+
+.uebersicht_boxWeg {
+    margin: 6px 1px 0px 1px;
+    /*border: 1px solid rgb(255, 216, 0);*/
+    cursor: pointer;
+    padding: 0px;
+    background-color: #fbe8cf;
+    border: 1px solid #D8D8D8;
+}
+
+.uebersicht_boxWeg:hover {
+        -webkit-box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1023px ) { /* Breite beträgt höchstens */
+    .uebersichtCol {
+        font-size: smaller;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .uebersichtInhalt {
+        height: 90px;
+    }
+}

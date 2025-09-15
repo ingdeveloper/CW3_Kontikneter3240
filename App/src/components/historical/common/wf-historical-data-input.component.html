@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="value">{{$parent.connector.translate(symbolicText)()}}</label>
+
+    <div class="relative">
+        <!--ko if: nullable-->
+        <div class="input-group">
+            <input type={{type}} class="form-control" id="value" data-bind="value: value, disable: disable" />
+            <span class="input-group-btn">
+                <button style="height: 34px;" class="btn btn-default" data-bind="click: onReset" title="{{$parent.connector.translate('I4SCADA_Reset')()}}"><i
+                        class="wf wf-arrow-undo"></i></button>
+            </span>
+        </div>
+        <!-- /ko -->
+        <!--ko ifnot: nullable-->
+        <input type={{type}} class="form-control" id="value" data-bind="value: value, disable: disable" />
+        <!-- /ko -->
+    </div>

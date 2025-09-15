@@ -1,0 +1,21 @@
+﻿import ComponentRegistry = require("./componentRegistry");
+
+class CustomComponentRegistry {
+    public static register() {
+        // Add here custom component registrations following the pattern:
+        // return new ComponentRegistry("src/customComponents")
+        //              .mapComponent("componentName")
+
+        return new ComponentRegistry("src/customComponents")
+            .mapComponent("custom-value")
+            .mapComponent("custom-value-component", "custom-value.component")
+            .mapComponent("wf-demo-bhkw")
+            .mapComponent("wf-demo-hvac")
+            .mapComponent("wf-demo-building")
+            .mapComponent("wf-demo-production-unit")
+            .mapComponent("wf-demo-production-unit-1")
+            .mapComponent("wf-demo-production-unit-2");
+    }
+}
+
+export = CustomComponentRegistry;

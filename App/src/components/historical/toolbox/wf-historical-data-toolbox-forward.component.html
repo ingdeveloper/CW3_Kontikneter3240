@@ -1,0 +1,9 @@
+<!-- ko if: isVisible()-->
+<button type="button" data-bind="disable: isDisabled() || isLoading(), css: css, click: onClicked"
+    title="{{connector.translate('I4SCADA_Forward')()}}">
+    <i class="wf wf-chevron-right"></i>
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Forward')()}}
+    <!--/ko-->
+</button>
+<!-- /ko -->

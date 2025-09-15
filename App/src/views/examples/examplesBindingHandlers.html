@@ -1,0 +1,464 @@
+﻿<div class="container-fluid">
+    <header>
+        <h1 class="page-header">i4SCADA App - Knockout JS Bindinghandlers</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>D3.js Axis</h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="wf-axis" data-bind="d3axis: {orientation: 'bottom', ticksCount: 5, minValue: 0, maxValue: 100, height: 50, revertAxis: false}"></div>
+
+        </div>
+        <div class="col-sm-8"> 
+            <pre class="prettyprint">&lt;div data-bind="d3axis:{orientation: 'bottom', ticksCount: 5, minValue: 0, maxValue: 100, height: 50, revertAxis: false}"&gt;&lt;/div&gt;</pre>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Bootstrap Popover</h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="btn btn-variant-dark" data-bind="bsPopover: { template: 'popover-template' , 
+                                options: { title: 'Popover Title', placement: 'right', width: '200px', headerCssClass: 'popover-danger', 
+                                contentCssClass: 'content-class' }, data: { popoverParameter: 123 }}">
+                Popover Binding handler
+            </div>
+            <script id="popover-template" type="text/html">
+                    <strong>Popover content</strong>
+                    <p>
+                        "popoverParameter": <strong data-bind="text: popoverParameter"></strong>
+                    </p>
+            </script>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint" style="max-height: 280px;">
+&lt;div class=&quot;btn btn-variant-dark&quot; data-bind=&quot;bsPopover: { template: 'popover-template' , 
+                    options: { title: 'Popover Title', placement: 'right', headerCssClass: 'popover-danger', contentCssClass: 'content-class', width: '200px'  }, 
+                    data: { popoverParameter: 123 }}&quot;&gt;
+Popover Binding handler
+&lt;/div&gt;
+&lt;script id=&quot;popover-template&quot; type=&quot;text/html&quot;&gt;
+        &lt;strong&gt;Popover content&lt;/strong&gt;
+        &lt;p&gt;&quot;popoverParameter&quot;: &lt;strong data-bind=&quot;text: popoverParameter&quot;&gt;&lt;/strong&gt; &lt;/p&gt;
+&lt;/script&gt;</pre>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Contrast color</h3>
+        </div>
+        <div class="col-sm-4">
+            <div style="background-color: #000000" data-bind="setContrastColor: {}">
+                <span>Text with contrast color</span>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint" style="max-height: 280px;">
+&lt;div style=&quot;background-color: #000000&quot; data-bind=&quot;setContrastColor: {}&quot;&gt;
+    &lt;span&gt;Text with contrast color&lt;/span&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Bootstrap Tooltip</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <i class="wf-2x wf-lg text-info wf-message" data-bind="tooltip: { title: 'Bootstrap Tooltip Title', placement: 'right' }"></i>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;i class=&quot;wf-2x wf-lg text-info wf-message&quot; data-bind=&quot;tooltip: { title: 'Bootstrap Tooltip Title', placement: 'right' }&quot;&gt;&lt;/i&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Bootstrap Colorpicker</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <div class="input-group colorpicker-component" data-bind="colorpicker:{}">
+                <input type="text" class="form-control" />
+                <span class="input-group-addon">
+                    <i></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;div class=&quot;input-group colorpicker-component&quot; data-bind=&quot;colorpicker:{}&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; /&gt;
+    &lt;span class=&quot;input-group-addon&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Date Formating</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <p>
+                <span data-bind="formattedDate: { value: '2015-09-24T23:12:21.196Z', format: 'DD.MM.YYYY HH:mm' }"></span>
+                <i class="wf wf-info" data-bind="tooltip: { title: '2015-09-24T23:12:21.196Z formatiert > DD.MM.YYYY HH:mm', placement: 'right' }"></i>
+            </p>
+            <p>
+                <span data-bind="formattedDate: { value: '2015-09-24T23:12:21.196Z', format: 'LLLL', locale: 'en' }"></span>
+                <i class="wf wf-info" data-bind="tooltip: { title: '2015-09-24T23:12:21.196Z formatiert > LLLL (locale: en)', placement: 'right' }"></i>
+            </p>
+            <br />
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;p&gt;
+    &lt;span data-bind=&quot;formattedDate: { value: '2015-09-24T23:12:21.196Z', format: 'DD.MM.YYYY HH:mm' }&quot;&gt;&lt;/span&gt;
+    &lt;i class=&quot;wf wf-info&quot; data-bind=&quot;tooltip: { title: '2015-09-24T23:12:21.196Z formatiert &gt; DD.MM.YYYY HH:mm', placement: 'right' }&quot;&gt;&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;span data-bind=&quot;formattedDate: { value: '2015-09-24T23:12:21.196Z', format: 'LLLL', locale: 'en' }&quot;&gt;&lt;/span&gt;
+    &lt;i class=&quot;wf wf-info&quot; data-bind=&quot;tooltip: { title: '2015-09-24T23:12:21.196Z formatiert &gt; LLLL (locale: en)', placement: 'right' }&quot;&gt;&lt;/i&gt;
+&lt;/p&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Toggle Class</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <button class="btn btn-default" data-bind="toggleClass: 'btn-danger'">Toggle Class</button>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;button class=&quot;btn btn-default&quot; data-bind=&quot;toggleClass: 'btn-danger'&quot;&gt;Toggle Class&lt;/button&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Formating numerical values</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h3>12345678.987 | Format: "0,0.0000" | Language: "en"</h3>
+            <input class="form-control" type="text" data-bind="numeralvalue: 12345678.987, format: '0,0.0000', language: 'en'" disabled="disabled"
+            />
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;h3&gt;12345678.987 | Format: &quot;0,0.0000&quot; | Language: &quot;en&quot;&lt;/h3&gt;
+&lt;input class=&quot;form-control&quot; type=&quot;text&quot; data-bind=&quot;numeralvalue: 12345678.987, format: '0,0.0000', language: 'en'&quot; /&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>Formating numerical strings</h3>
+        </div>
+        <div class="col-sm-4">
+            <br />
+            <h3>12345678.987 | Format: "0,0.0000" | Language: "de"</h3>
+            <strong data-bind="numeraltext: 12345678.987, format: '0,0.0000', language: 'de'"></strong>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;h3&gt;12345678.987 | Format: &quot;0,0.0000&quot; | Language: &quot;de&quot;&lt;/h3&gt;
+&lt;strong data-bind=&quot;numeraltext: 12345678.987, format: '0,0.0000', language: 'de'&quot;&gt;&lt;/strong&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row m-x">
+        <div class="col-xs-12 m-b">
+            <h3>Drag with resize behavior</h3>
+        </div>
+        <div class="col-sm-4">
+            <div data-bind="draggable: {isResizable: true, showCssBox: true}" style="height: 135px; box-shadow: 5px 5px 10px #535353;">
+                <div style="background: #535353; color: white; padding: 5px;">Header</div>
+                <div class="flexbox flexbox-v-center flexbox-h-center">
+                    <label>Drag and resize me</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;div data-bind=&quot;draggable: {isResizable: true, showCssBox: true}&quot; style=&quot;height: 135px; box-shadow: 5px 5px 10px #535353;&quot;&gt;
+    &lt;div style=&quot;background: #535353; color: white; padding: 5px;&quot;&gt;Header&lt;/div&gt;
+        &lt;div class=&quot;flexbox flexbox-v-center flexbox-h-center&quot;&gt;
+        &lt;label&gt;Drag and resize me&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row m-x">
+        <div class="col-xs-12 m-b">
+            <h3>Resize behavior</h3>
+        </div>
+        <div class="col-sm-4 m-t-md">
+            <div data-bind="resizable: {createDefaultHandle: true}" style="height: 135px; box-shadow: 5px 5px 10px #535353;">
+                <div style="background: #535353; color: white; padding: 5px;">Header</div>
+                <div class="flexbox flexbox-v-center flexbox-h-center">
+                    <label>Resize me</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;div data-bind=&quot;resizable: {createDefaultHandle: true}&quot; style=&quot;height: 135px; box-shadow: 5px 5px 10px #535353;&quot;&gt;
+    &lt;div style=&quot;background: #535353; color: white; padding: 5px;&quot;&gt;Header&lt;/div&gt;
+        &lt;div class=&quot;flexbox flexbox-v-center flexbox-h-center&quot;&gt;
+        &lt;label&gt;Resize me&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row m-x">
+        <div class="col-xs-12 m-b">
+            <h3>Open window in fullscreen mode</h3>
+        </div>
+        <div class="col-sm-4 m-t-md">
+            <i class="wf-lg wf-3x wf-full-screen" data-bind="toggleFullScreen: { }"></i>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;i class=&quot;wf-lg wf-3x wf-full-screen&quot; data-bind=&quot;toggleFullScreen: { }&quot;&gt;&lt;/i&gt;</pre>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <div class="row m-x">
+        <div class="col-xs-12 m-b">
+            <h3>Zoom</h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="b-a">
+                <div data-bind="esmartzoom: {panControlBar: true }" style="height: 590px; width: 1000px;">
+                    <img src="ContentDemos/images/presentation/demo_hvac_html_1.png" width="1000" height="590" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="animated">
+                <pre class="prettyprint">
+&lt;div data-bind=&quot;esmartzoom: {panControlBar: true }&quot; style=&quot;height: 590px; width: 1000px;&quot;&gt;
+    &lt;img src=&quot;ContentDemos/images/presentation/demo_hvac_html_1.png&quot; width=&quot;1000&quot; height=&quot;590&quot; /&gt;
+&lt;/div&gt;</pre>
+
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>SVG Arc Shape</h3>
+        </div>
+        <div class="col-sm-4">
+            <div data-bind="svgArc: {startAngle: 0, endAngle: 135, strokeWidth: 2}"></div>
+        </div>
+        <div class="col-sm-8"> 
+            <pre class="prettyprint">&lt;div data-bind="svgArc: {startAngle: 0, endAngle: 135, strokeWidth: 2}"&gt;&lt;/div&gt;</pre>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12 m-b">
+            <h3>SVG Arc Scale</h3>
+        </div>
+        <div class="col-sm-4">
+            <div data-bind="svgArcScale: {size: 200, startAngle: 0, endAngle: 180, ticksLenght: 20, labelsOffset: 20, scaleStart: 0, ticksNumber: 10, scaleIncrement: 10, linesVisible: true, labelsVisible:false}"></div>
+        </div>
+        <div class="col-sm-8">
+            <pre class="prettyprint">&lt;div data-bind="svgArcScale: {size: 200, startAngle: 0, endAngle: 180, ticksLenght: 20, labelsOffset: 20, scaleStart: 0, ticksNumber: 10, scaleIncrement: 10, linesVisible: true, labelsVisible:true}"&gt;&lt;/div&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row m-y-lg">
+            <div class="col-xs-12 m-b">
+                <h3>C3.js Chart</h3>
+            </div>
+            <div class="col-sm-4">          
+                <div data-bind="c3chart: {
+                        'x': 'x', 
+                        'columns': [
+                        [
+                            'x',
+                            '-30',
+                            '-25',
+                            '-20',
+                            '-15',
+                            '-10',
+                            '-5',
+                            '0',
+                            '5',
+                            '10',
+                            '15',
+                            '20',
+                            '25',
+                            '30'                 
+                        ],
+                        [
+                            'Sollwertkurve',
+                            50,
+                            45,
+                            40,
+                            35,
+                            30,
+                            25,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20
+                        ]
+                        ],
+                        'type': 'line',
+                        'colors': {
+                            'Sollwertkurve': '#ff0000'
+                        },
+                        'axes': {
+                        'Sollwertkurve': 'y'
+                        }
+                    },
+                    size: {       
+                        height: 300,
+                        width: 400
+                    },
+                    padding: {
+                        top: 20,
+                        right: 10,
+                        bottom: 10                  
+                    },
+                    axis: {
+                        x: {
+                            label: 'Außentemperatur [°C]'
+                        },
+                        y: {
+                            label: 'Vorlauftemperatur [°C]'
+                        }
+                    },
+                    grid: {
+                        x: {
+                            show: true
+                        },
+                        y: {
+                            show: true
+                        }
+                    }"></div>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8"> 
+                <pre class="prettyprint" style="max-height: 280px;" >&lt;div data-bind=&quot;c3chart: {
+                        &apos;x&apos;: &apos;x&apos;, 
+                        &apos;columns&apos;: [
+                        [
+                            &apos;x&apos;,
+                            &apos;-30&apos;,
+                            &apos;-25&apos;,
+                            &apos;-20&apos;,
+                            &apos;-15&apos;,
+                            &apos;-10&apos;,
+                            &apos;-5&apos;,
+                            &apos;0&apos;,
+                            &apos;5&apos;,
+                            &apos;10&apos;,
+                            &apos;15&apos;,
+                            &apos;20&apos;,
+                            &apos;25&apos;,
+                            &apos;30&apos;                 
+                        ],
+                        [
+                            &apos;Sollwertkurve&apos;,
+                            50,
+                            45,
+                            40,
+                            35,
+                            30,
+                            25,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20,
+                            20
+                        ]
+                        ],
+                        &apos;type&apos;: &apos;line&apos;,
+                        &apos;colors&apos;: {
+                            &apos;Sollwertkurve&apos;: &apos;#ff0000&apos;
+                        },
+                        &apos;axes&apos;: {
+                        &apos;Sollwertkurve&apos;: &apos;y&apos;
+                        }
+                    },
+                    size: {       
+                        height: 300,
+                        width: 400
+                    },
+                    padding: {
+                        top: 20,
+                        right: 10,
+                        bottom: 10                  
+                    },
+                    axis: {
+                        x: {
+                            label: &apos;Au&szlig;entemperatur [&deg;C]&apos;
+                        },
+                        y: {
+                            label: &apos;Vorlauftemperatur [&deg;C]&apos;
+                        }
+                    },
+                    grid: {
+                        x: {
+                            show: true
+                        },
+                        y: {
+                            show: true
+                        }
+                    }&quot;&gt;&lt;/div&gt;</pre>
+            </div>
+        </div>
+
+
+</div>

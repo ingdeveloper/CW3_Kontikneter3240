@@ -1,0 +1,320 @@
+﻿<div class="modal">
+    <div class="modal-dialog modal-top modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-bind="css: cssWaage">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">
+                            <span><strong>Brauchwasserkühlung Waage 3</strong><span data-bind="text: ' - ' + name" ></span></span>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false" data-bind="click: close">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped table-condensed table-hover">
+                            <caption>
+                                <h4>Regler Wassertemperatur</h4>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th style="width: 70%; font-size: 10px">
+                                        <span>Beschreibung</span>
+                                    </th>
+                                    <th style=" width: 15%; font-size: 10px">
+                                        <span>Soll</span>
+                                    </th>
+                                    <th style=" width: 15%; font-size: 10px">
+                                        <span>Ist</span>
+                                    </th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">
+                                        Temperatur Brauchwasser
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB220REAL486', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL40', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>  
+                                <tr>
+                                <td class="text-left">
+                                        Vorlauftemperatur PWT
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL48', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>                                                                
+                                <tr>
+                                    <td class="text-left">
+                                        Proportionalwert Wasserkühlung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL72', staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Integrationszeit Wasserkühlung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL76', staticUnitText: 'Min', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Oberer Grenzwert Stellgröße für Regler Wassertemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL80', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Unterer Grenzwert Stellgröße für Regler Wassertemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL84', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Stellgröße für Regler Wassertemperatur
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL88', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Regler Wassertemperatur</td>
+                                    <td><button class="btn btn-xs ccw-button-Vorwahl wf-lg wf-play-round-o" data-bind="css: reglerWasserEinAus().newCss1">&nbsp;Ein</button></td>
+                                    <td><button class="btn btn-xs ccw-button-Vorwahl wf-lg wf-stop-round-o" data-bind="css: reglerWasserEinAus().newCss2">&nbsp;Aus</button></td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+
+                    </div>
+                    <div class="col-md-4">
+                        <ccwViewBox data-bind="ccwViewBox: {}, width: 160, maxScale: 1.3, DOMVerz: 500">
+                            <ccwViewBoxContent>
+                                <div>
+                                    <!-- SVG laden -->
+                                    <div id="containerSole1" style="position: absolute; top: 60px; left: 65px;"></div>
+                                    <!-- Temperatur Rücklauf Brauchwasser -->
+                                    <wf-sensor style="position:absolute; left:195px; top:256px" params="  cssClassNormalState: '', tooltipText: 'Temperatur Rücklauf Brauchwasser', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB23REAL40', staticUnitText: '°C', valueLabelPosition: 'bottom' "></wf-sensor>
+                                    <!-- Temperatur Vorlauf Brauchwasser -->
+                                    <wf-sensor style="position:absolute; left:65px; top:256px" params="  cssClassNormalState: '', tooltipText: 'Temperatur Vorlauf Brauchwasser', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB23REAL44', staticUnitText: '°C', valueLabelPosition: 'bottom' "></wf-sensor>
+                                    <!-- Temperatur Vorlauf Sole-->
+                                    <wf-sensor style="position:absolute; left:90px; top:196px" params="  cssClassNormalState: 'blue', tooltipText: 'Temperatur Vorlauf Solekreislauf', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB23REAL48', staticUnitText: '°C', valueLabelPosition: 'left' "></wf-sensor>
+                                    <!-- Temperatur Rücklauf Sole-->
+                                    <wf-sensor style="position:absolute; left:166px; top:196px" params="  cssClassNormalState: 'blue', tooltipText: 'Temperatur Rücklauf Solekreislauf', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB23REAL36', staticUnitText: '°C', valueLabelPosition: 'top' "></wf-sensor>
+                                    <!-- Stellgröße Kühlventil-->
+                                    <wf-sensor style="position:absolute; left:62px; top:114px" params="  cssClassNormalState: '', tooltipText: 'Stellgröße Kühlventil', pointerLength: '15', pointerRotation: '270', sensorText: 'M', format: '0,0.0', signalName: 'VMI3240DB23REAL68', staticUnitText: '%', valueLabelPosition: 'left' "></wf-sensor>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 155px; left: 91px; width:24px; height:24px">
+                                        <ccw-wf-pump0 params="nameAntrieb:'Umwälzpumpe Solekühlung Primärkreislauf', bmk:'=01+H01-118QA8', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB23B32', steuerAktiv: true, 
+                                                                            dialogAktiv: false"></ccw-wf-pump0>
+                                    </div>
+                                    <ccw-wf-ventil3ml style="position: absolute; top: 115px; left: 91px; width:24px; height:24px"
+                                        params="signalVentil: 'VMI3240DB23B32', signalIstwert:'VMI3240DB23REAL68', bmk: '20Y4', nameVentil: 'Stellventil Solekühlung', infoAktiv: true, dialogAktiv: false, farbStatusHand: false, freigabeBedienung: false"></ccw-wf-ventil3ml>
+                                </div>
+                            </ccwViewBoxContent>
+                        </ccwViewBox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped table-condensed table-hover">
+                            <caption>
+                                <h4>Vorlaufregler Soletemperatur</h4>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th  style="font-size: 10px">
+                                        <span>Beschreibung</span>
+                                    </th>
+                                    <th style="width: 15%; font-size: 10px">
+                                        <span>Soll</span>
+                                    </th>
+                                    <th style="width: 15%; font-size: 10px">
+                                        <span>Ist</span>
+                                    </th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">
+                                        Sollwert von Regler Wassertemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL88', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Proportionalwert Vorlaufregelung Wasserkühlung
+                                    </td>
+                                    <td >
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL52', staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Integrationszeit Vorlaufregelung Wasserkühlung
+                                    </td>
+                                    <td >
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL56', staticUnitText: 'Min', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Oberer Grenzwert Stellgröße für Vorlaufregelung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL60', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Unterer Grenzwert Stellgröße für Vorlaufregelung
+                                    </td>
+                                    <td >
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL64', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Stellgröße Regler Vorlaufregelung
+                                    </td>
+                                    <td></td>
+                                    <td >
+                                        <ccw-wf-input-tastatur-2 params="signalName: 'VMI3240DB23REAL68', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-condensed table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <!-- <th class="tableBreiteSpalte1 antriebeBeschriftungTable">Nr</th> -->
+                                    <th class="tableBreiteSpalte2 antriebeBeschriftungTable">BMK</th>
+                                    <th class="tableBreiteSpalte3 antriebeBeschriftungTable">Kommentar</th>
+                                    <th class="tableBreiteSpalte4 antriebeBeschriftungTable">Soll</th>
+                                    <th class="tableBreiteSpalte5 antriebeBeschriftungTable">Ist</th>
+                                    <th class="tableBreiteSpalte6 antriebeBeschriftungTable">Hand/Auto</th>
+                                    <th class="tableBreiteSpalte7 antriebeBeschriftungTable">Ein</th>
+                                    <th class="tableBreiteSpalte8 antriebeBeschriftungTable">Aus</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: antriebePumpe">
+                                <tr data-bind="css: $data.lblByteError().newcssTd">
+                                    <!-- BMK  ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <span class="" data-bind="text: $data.bmk"></span>
+                                    </td>
+                                    <!-- Kommentar  ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                        <span class="" style="width:20px; height:20px" data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                        <!-- /ko -->
+                                        <span class="" data-bind="text: $data.kommentar"></span>
+                                    </td>
+                                    <!-- StateDisplay ############################################## -->
+                                    <!-- ko if: $data.lblState().sichtbar == true -->
+                                    <td colspan="2" data-bind="css: $data.lblState().newCss">
+                                        <p class="lblState">
+                                            <span data-bind="text: $data.lblState().state"></span>
+                                        </p>
+                                    </td>
+                                    <!-- /ko -->
+                                    <!-- Soll ############################################## -->
+                                    <!-- ko if: $data.lblState().sichtbar == false -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.sichtbarSoll == true -->
+                                        <ccw-wf-input-tastatur-2 params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: $data.freigabe"></ccw-wf-input-tastatur-2>
+                                        <!-- /ko -->
+                                    </td>
+                                    <!-- Ist ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.sichtbarIst == true -->
+                                        <ccw-wf-input-tastatur-2 params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true"></ccw-wf-input-tastatur-2>
+                                        <!-- /ko -->
+                                    </td>
+                                    <!-- /ko -->
+
+                                    <!-- Btn Hand-Auto ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                    </td>
+                                    <!-- Btn Ein ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                        <!-- /ko -->
+                                        <div>
+                                            <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                            <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                            <!-- /ko -->
+                                            <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                            <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                            <!-- /ko -->
+
+                                        </div>
+                                    </td>
+                                    <!-- Btn Aus ############################################## -->
+                                    <td class="tableBreiteSpalte8 antriebeSeiteTd">
+                                        <!-- ko if: $data.btnAus().sichtbar == true -->
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                        <!-- /ko -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success inline" type="submit" 
+                     data-bind="enable: UserLevel(), click: function (){sendWerteZurSps()}, css: sendBtnCss">
+                    Werte zur SPS</button>
+                <wf-buffer-button class="btn inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+                </wf-buffer-button>                  
+                <!-- <wf-buffer-button class="inline" data-bind="css: sendBtnCss" params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                <wf-buffer-button class="inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button> -->
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

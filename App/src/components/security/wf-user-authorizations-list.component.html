@@ -1,0 +1,23 @@
+<div data-bind="if: hasAuthorization">
+    <div class="wf-user-athorizations-list">
+        <!-- ko if: showProjectAuthorizations -->
+        <!--<h4>ProjectAuthorizations</h4>-->
+        <ul data-bind="foreach: currentUserProjectAuthorizations, css: listClass">
+            <li data-bind="css: $parent.listItemClass">
+                <span class="wf-user-authorization" data-bind="text: $data.Name"></span>
+                <span class="wf-user-authorization-description" data-bind="text: $data.Description"></span>
+            </li>
+        </ul>
+
+        <!-- /ko-->
+        <!-- ko if: showSystemAuthorizations -->
+        <!--<h4>SystemAuthorizations</h4>-->
+        <ul data-bind="foreach: currentUserSystemAuthorizations, css: listClass">
+            <li data-bind="css: $parent.listItemClass">
+                <span class="wf-user-authorization" data-bind="text: $data.Name"></span>
+                <span class="wf-user-authorization-description" data-bind="text: $data.Description"></span>
+            </li>
+        </ul>
+        <!-- /ko-->
+    </div>
+</div>

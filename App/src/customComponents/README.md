@@ -1,0 +1,1 @@
+Add here custom component HTML and view models (following the same conventions as the items in the components folder)

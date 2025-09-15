@@ -1,0 +1,648 @@
+/*--------------------------------------------------------------------------------------------------
+ *  WEBfactory Electric Symbols - Icon Font Version 2.1.0 by WEBfactory GmbH - http://webfactory-world.de
+ *  Copyright  WEBfactory GmbH - http://webfactory-world.de
+ *--------------------------------------------------------------------------------------------------*/
+
+
+@font-face {
+    font-family: 'WFElectricSymbolsFont';
+    src: url('fonts/WFElectricSymbolsFont.eot?-sxnvxu');
+    src: url('fonts/WFElectricSymbolsFont.eot?#iefix-sxnvxu') format('embedded-opentype'), url('fonts/WFElectricSymbolsFont.ttf?-sxnvxu') format('truetype'), url('fonts/WFElectricSymbolsFont.woff?-sxnvxu') format('woff'), url('fonts/WFElectricSymbolsFont.svg?-sxnvxu#WFElectricSymbolsFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.wf-electric {
+    font-family: 'WFElectricSymbolsFont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    position: relative;
+}
+
+    .wf-electric:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .wf-electric:before {
+        color: lightgrey;
+        z-index: -1;
+    }
+
+.wf-antenna:before {
+    content: "\e600";
+}
+
+.wf-antenna:after {
+    content: "\e601";
+}
+
+.wf-battery:after {
+    content: "\e602";
+}
+
+.wf-capacitor:after {
+    content: "\e603";
+}
+
+.wf-chassis-ground:after {
+    content: "\e604";
+}
+
+.wf-circuit-braker:before {
+    content: "\e605";
+}
+
+.wf-circuit-braker:after {
+    content: "\e606";
+}
+
+.wf-coaxial-cable:before {
+    content: "\e607";
+}
+
+.wf-coaxial-cable:after {
+    content: "\e608";
+}
+
+.wf-connector:after {
+    content: "\e609";
+}
+
+.wf-fuse:before {
+    content: "\e60a";
+}
+
+.wf-fuse:after {
+    content: "\e60b";
+}
+
+.wf-generator:before {
+    content: "\e60c";
+}
+
+.wf-generator:after {
+    content: "\e60d";
+}
+
+.wf-electric.wf-light-bulb:before {
+    content: "\e60e";
+}
+
+.wf-electric.wf-light-bulb:after {
+    content: "\e60f";
+}
+
+.wf-motor1:before {
+    content: "\e610";
+}
+
+.wf-motor1:after {
+    content: "\e611";
+}
+
+.wf-electric.wf-motor:before {
+    content: "\e612";
+}
+
+.wf-electric.wf-motor:after {
+    content: "\e613";
+}
+
+.wf-transformer-2-coil:before {
+    content: "\e614";
+}
+
+.wf-transformer-2-coil:after {
+    content: "\e615";
+}
+
+.wf-transformer-3-coil:before {
+    content: "\e616";
+}
+
+.wf-transformer-3-coil:after {
+    content: "\e617";
+}
+
+.wf-battery:before {
+    content: "\e618";
+}
+
+.wf-capacitor:before {
+    content: "\e619";
+}
+
+.wf-chassis-ground:before {
+    content: "\e61a";
+}
+
+.wf-connector:before {
+    content: "\e61b";
+}
+
+.wf-coupling-closed:before {
+    content: "\e61c";
+}
+
+.wf-coupling-closed:after {
+    content: "\e61d";
+}
+
+.wf-coupling-open:before {
+    content: "\e61e";
+}
+
+.wf-coupling-open:after {
+    content: "\e61f";
+}
+
+.wf-energy-meter-border:before {
+    content: "\e620";
+}
+
+.wf-energy-meter-border:after {
+    content: "\e621";
+}
+
+.wf-energy-meter:before {
+    content: "\e622";
+}
+
+.wf-energy-meter:after {
+    content: "\e623";
+}
+
+.wf-grounding-switch-border-closed:before {
+    content: "\e624";
+}
+
+.wf-grounding-switch-border-closed:after {
+    content: "\e625";
+}
+
+.wf-grounding-switch-border-open:before {
+    content: "\e626";
+}
+
+.wf-grounding-switch-border-open:after {
+    content: "\e627";
+}
+
+.wf-grounding-switch-closed:before {
+    content: "\e628";
+}
+
+.wf-grounding-switch-closed:after {
+    content: "\e629";
+}
+
+.wf-grounding-switch-open:before {
+    content: "\e62a";
+}
+
+.wf-grounding-switch-open:after {
+    content: "\e62b";
+}
+
+.wf-input-closed:before {
+    content: "\e62c";
+}
+
+.wf-input-closed:after {
+    content: "\e62d";
+}
+
+.wf-input-open:before {
+    content: "\e62e";
+}
+
+.wf-input-open:after {
+    content: "\e62f";
+}
+
+.wf-load-breakswitch-border-closed:before {
+    content: "\e630";
+}
+
+.wf-load-breakswitch-border-closed:after {
+    content: "\e631";
+}
+
+.wf-load-breakswitch-border-open:before {
+    content: "\e632";
+}
+
+.wf-load-breakswitch-border-open:after {
+    content: "\e633";
+}
+
+.wf-load-breakswitch-closed:before {
+    content: "\e634";
+}
+
+.wf-load-breakswitch-closed:after {
+    content: "\e635";
+}
+
+.wf-load-breakswitch-open:before {
+    content: "\e636";
+}
+
+.wf-load-breakswitch-open:after {
+    content: "\e637";
+}
+
+.wf-module-part:before {
+    content: "\e638";
+}
+
+.wf-module-part:after {
+    content: "\e639";
+}
+
+.wf-module1:before {
+    content: "\e63a";
+}
+
+.wf-module1:after {
+    content: "\e63b";
+}
+
+.wf-module2:before {
+    content: "\e63c";
+}
+
+.wf-module2:after {
+    content: "\e63d";
+}
+
+.wf-module:before {
+    content: "\e63e";
+}
+
+.wf-module:after {
+    content: "\e63f";
+}
+
+.wf-powerswitch-border-closed:before {
+    content: "\e640";
+}
+
+.wf-powerswitch-border-closed:after {
+    content: "\e641";
+}
+
+.wf-powerswitch-border-open:before {
+    content: "\e642";
+}
+
+.wf-powerswitch-border-open:after {
+    content: "\e643";
+}
+
+.wf-powerswitch-closed:before {
+    content: "\e644";
+}
+
+.wf-powerswitch-closed:after {
+    content: "\e645";
+}
+
+.wf-powerswitch-open:before {
+    content: "\e646";
+}
+
+.wf-powerswitch-open:after {
+    content: "\e647";
+}
+
+.wf-switch-border-closed:before {
+    content: "\e648";
+}
+
+.wf-switch-border-closed:after {
+    content: "\e649";
+}
+
+.wf-switch-border-open:before {
+    content: "\e64a";
+}
+
+.wf-switch-border-open:after {
+    content: "\e64b";
+}
+
+.wf-switch-closed:before {
+    content: "\e64c";
+}
+
+.wf-switch-closed:after {
+    content: "\e64d";
+}
+
+.wf-switch-open:before {
+    content: "\e64e";
+}
+
+.wf-switch-open:after {
+    content: "\e64f";
+}
+
+.wf-transformer-border:before {
+    content: "\e650";
+}
+
+.wf-transformer-border:after {
+    content: "\e651";
+}
+
+.wf-transformer-powerswitch-border-closed:before {
+    content: "\e652";
+}
+
+.wf-transformer-powerswitch-border-closed:after {
+    content: "\e653";
+}
+
+.wf-transformer-powerswitch-closed:before {
+    content: "\e654";
+}
+
+.wf-transformer-powerswitch-closed:after {
+    content: "\e655";
+}
+
+.wf-transformer-powerswitch-open:before {
+    content: "\e656";
+}
+
+.wf-transformer-powerswitch-open:after {
+    content: "\e657";
+}
+
+.wf-transformer:before {
+    content: "\e658";
+}
+
+.wf-transformer:after {
+    content: "\e659";
+}
+
+.wf-transformer-powerswitch-border-open:before {
+    content: "\e65a";
+}
+
+.wf-transformer-powerswitch-border-open:after {
+    content: "\e65b";
+}
+
+.wf-useswitch-border-closed:before {
+    content: "\e65c";
+}
+
+.wf-useswitch-border-closed:after {
+    content: "\e65d";
+}
+
+.wf-useswitch-border-open:before {
+    content: "\e65e";
+}
+
+.wf-useswitch-border-open:after {
+    content: "\e65f";
+}
+
+.wf-useswitch-closed:before {
+    content: "\e660";
+}
+
+.wf-useswitch-closed:after {
+    content: "\e661";
+}
+
+.wf-useswitch-open:before {
+    content: "\e662";
+}
+
+.wf-useswitch-open:after {
+    content: "\e663";
+}
+
+.wf-amp-meter:before {
+    content: "\e664";
+}
+
+.wf-amp-meter:after {
+    content: "\e665";
+}
+
+.wf-duplex-outlet:before {
+    content: "\e666";
+}
+
+.wf-duplex-outlet:after {
+    content: "\e667";
+}
+
+.wf-loud-speaker:before {
+    content: "\e668";
+}
+
+.wf-loud-speaker:after {
+    content: "\e669";
+}
+
+.wf-potentiometer-1:before {
+    content: "\e66a";
+}
+
+.wf-potentiometer-1:after {
+    content: "\e66b";
+}
+
+.wf-potentiometer-2:before {
+    content: "\e66c";
+}
+
+.wf-potentiometer-2:after {
+    content: "\e66d";
+}
+
+.wf-range-outlet:before {
+    content: "\e66e";
+}
+
+.wf-range-outlet:after {
+    content: "\e66f";
+}
+
+.wf-relay-opened:before {
+    content: "\e670";
+}
+
+.wf-relay-opened:after {
+    content: "\e671";
+}
+
+.wf-relay-closed:before {
+    content: "\e672";
+}
+
+.wf-relay-closed:after {
+    content: "\e673";
+}
+
+.wf-shielded-wire:before {
+    content: "\e674";
+}
+
+.wf-shielded-wire:after {
+    content: "\e675";
+}
+
+.wf-tie-point:before {
+    content: "\e676";
+}
+
+.wf-tie-point:after {
+    content: "\e677";
+}
+
+.wf-volt-meter:before {
+    content: "\e678";
+}
+
+.wf-volt-meter:after {
+    content: "\e679";
+}
+
+.wf-watt-meter:before {
+    content: "\e67a";
+}
+
+.wf-watt-meter:after {
+    content: "\e67b";
+}
+
+.wf-bridge-rectifier:before {
+    content: "\e67c";
+}
+
+.wf-bridge-rectifier:after {
+    content: "\e67d";
+}
+
+.wf-electro-mechanical-drive-1:before {
+    content: "\e67e";
+}
+
+.wf-electro-mechanical-drive-1:after {
+    content: "\e67f";
+}
+
+.wf-electro-mechanical-drive-2:before {
+    content: "\e680";
+}
+
+.wf-electro-mechanical-drive-2:after {
+    content: "\e681";
+}
+
+.wf-generator-motor:before {
+    content: "\e682";
+}
+
+.wf-generator-motor:after {
+    content: "\e683";
+}
+
+.wf-inverter:before {
+    content: "\e684";
+}
+
+.wf-inverter:after {
+    content: "\e685";
+}
+
+.wf-linear-motor:before {
+    content: "\e686";
+}
+
+.wf-linear-motor:after {
+    content: "\e687";
+}
+
+.wf-overvoltage-conductor:before {
+    content: "\e688";
+}
+
+.wf-overvoltage-conductor:after {
+    content: "\e689";
+}
+
+.wf-primary-cell-acumulator:before {
+    content: "\e68a";
+}
+
+.wf-primary-cell-acumulator:after {
+    content: "\e68b";
+}
+
+.wf-push-contact-manual:before {
+    content: "\e68c";
+}
+
+.wf-push-contact-manual:after {
+    content: "\e68d";
+}
+
+.wf-rectifier-1:before {
+    content: "\e68e";
+}
+
+.wf-rectifier-1:after {
+    content: "\e68f";
+}
+
+.wf-rectifier-2:before {
+    content: "\e690";
+}
+
+.wf-rectifier-2:after {
+    content: "\e691";
+}
+
+.wf-stepper-motor:before {
+    content: "\e692";
+}
+
+.wf-stepper-motor:after {
+    content: "\e693";
+}
+
+.wf-residual-current-circuit-braker-4-contacts:before {
+    content: "\e694";
+}
+
+.wf-residual-current-circuit-braker-4-contacts:after {
+    content: "\e695";
+}
+
+.wf-throttle:before {
+    content: "\e696";
+}
+
+.wf-throttle:after {
+    content: "\e697";
+}

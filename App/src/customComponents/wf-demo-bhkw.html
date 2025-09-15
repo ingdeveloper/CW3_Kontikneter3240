@@ -1,0 +1,464 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <h1 class="page-header">
+                <span class="pull-right hidden-sm hidden-xs">
+                    <span class="btn-group btn-group-sm">
+                        <button class="btn btn-default" type="button" data-bind="click: function(){ switchView(false); }, css: {'btn-danger': !flowView()}">
+                            <i class="wf wf wf-heating-motor"></i>
+                            Prozessansicht
+                        </button>
+
+                        <button class="btn btn-default" type="button" data-bind="click: function(){ switchView(true); }, css: {'btn-success': flowView}">
+                            <i class="wf wf-tree-structure-2"></i>
+                            Energieflussansicht
+                        </button>
+                    </span>
+
+                    <!-- ko ifnot: flowView -->
+                    <!-- ko ifnot: editMode-->
+                    <button class="btn btn-sm btn-info" type="button" data-bind="click: function(){ switchMode(true); }">
+                        <i class="wf wf-eye"></i>
+                        Edit Mode
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko if: editMode-->
+                    <button class="btn btn-sm  btn-info" type="button" data-bind="click: function(){ switchMode(false); }">
+                        <i class="wf wf-move-tile-1"></i>
+                        View Mode
+                    </button>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </span>
+
+                BHKW -
+                <span data-bind="visible: flowView()">Energieflussansicht</span>
+                <span data-bind="visible: !flowView()">Prozessansicht</span>
+            </h1>
+
+        </div>
+    </div>
+    <!-- ko if: flowView() -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wf-content-block wf-meter-block row">
+                <div class="col-sm-3 text-center">
+                    <i class="wf-bhkw-icon wf-lg wf-gas wf-4x"></i>
+                </div>
+                <div class="col-sm-9">
+                    <h4 class="wf-title">Hauptgaszähler</h4>
+                    <wf-value-display params="signalName: 'Servo 2', unitLabel: true"></wf-value-display>
+                </div>
+            </div>
+            <div class="row">
+                <div class="wf-lines-t col-xs-6 col-xs-push-3 ">
+                    <div class="wf-arrow-small wf-arrow-1"></div>
+                    <div class="wf-arrow-small wf-arrow-2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="wf-content-block wf-meter-block row">
+                        <div class="col-sm-3  text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-gas wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4 class="wf-title">Gaszähler 1</h4>
+                            <wf-value-display params="signalName: 'Servo 1', unitLabel: true"></wf-value-display>
+                        </div>
+                    </div>
+                    <div class="wf-line">
+                        <div class="wf-arrow-small"></div>
+                    </div>
+
+                    <div class="wf-bhkw-block">
+
+                        <div class="col-sm-3 text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-heating-motor wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9 hidden-xs">
+                            <h4>
+                                Blockheizkraftwerk
+                                <br /> 2G Agenitor 408
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="wf-content-block wf-meter-block row">
+                        <div class="col-sm-3 text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-gas wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4 class="wf-title">Gaszähler 2</h4>
+                            <wf-value-display params="signalName: 'Servo 1', unitLabel: true"></wf-value-display>
+                        </div>
+                    </div>
+                    <div class="wf-line">
+                        <div class="wf-arrow-small"></div>
+                    </div>
+
+                    <div class="wf-bhkw-block">
+
+                        <div class="col-sm-3 text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-heating-motor wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9 hidden-xs">
+                            <h4>
+                                Blockheizkraftwerk
+                                <br /> 2G Avus 500 Plus
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="wf-lines-t col-xs-4 col-xs-push-1">
+                    <div class="wf-arrow-small wf-arrow-1"></div>
+                    <div class="wf-arrow-small wf-arrow-2"></div>
+                </div>
+                <div class="wf-lines-t col-xs-4 col-xs-push-3">
+                    <div class="wf-arrow-small wf-arrow-1"></div>
+                    <div class="wf-arrow-small wf-arrow-2"></div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="wf-content-block">
+                        <h4 class="wf-title text-center">Wärmemenge 1</h4>
+                        <wf-gauge-1 class="wf-gauge-widget" params="
+                                        width: 140,
+                                        height: 140,
+                                        innerRadius: 0.7,
+                                        maxRange: 600,
+                                        highRangeStart: 420,
+                                        highRangeEnd: 600,
+                                        signalName: 'Temperature 1',
+                                        iconClass: 'wf-lg wf-heat wf-2x',
+                                        backgroundFillColor: '#0c9900',
+                                        highRangeFillColor: '#f0ad4e',
+                                        iconColor: '#da1a1a',
+                                        iconBackgroundColor: '#f1f1f1',
+                                        lowRangeFillColor: 'transparent'">
+                        </wf-gauge-1>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="wf-content-block">
+                        <h4 class="wf-title text-center">Strom 1</h4>
+                        <wf-gauge-1 class="wf-gauge-widget" params="
+                                        width: 140,
+                                        height: 140,
+                                        innerRadius: 0.7,
+                                        maxRange: 550,
+                                        highRangeStart: 440,
+                                        highRangeEnd: 550,
+                                        signalName: 'Vibration 1',
+                                        iconClass: 'wf-lg wf-power wf-2x',
+                                        backgroundFillColor: '#0c9900',
+                                        highRangeFillColor: '#f0ad4e',
+                                        iconColor: '#edd200',
+                                        iconBackgroundColor: '#f1f1f1',
+                                        lowRangeFillColor: 'transparent'">
+                        </wf-gauge-1>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="wf-content-block">
+                        <h4 class="wf-title text-center">Wärmemenge 2</h4>
+                        <wf-gauge-1 class="wf-gauge-widget" params="
+                                        width: 140,
+                                        height: 140,
+                                        innerRadius: 0.7,
+                                        maxRange: 400,
+                                        highRangeStart: 320,
+                                        highRangeEnd: 400,
+                                        signalName: 'Temperature 2',
+                                        iconClass: 'wf-lg wf-heat wf-2x',
+                                        backgroundFillColor: '#0c9900',
+                                        highRangeFillColor: '#f0ad4e',
+                                        iconColor: '#da1a1a',
+                                        iconBackgroundColor: '#f1f1f1',
+                                        lowRangeFillColor: 'transparent'">
+                        </wf-gauge-1>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="wf-content-block">
+                        <h4 class="wf-title text-center">
+                            Strom 2
+                        </h4>
+                        <wf-gauge-1 class="wf-gauge-widget" params="
+                                        width: 140,
+                                        height: 140,
+                                        innerRadius: 0.7,
+                                        maxRange: 360,
+                                        highRangeStart: 324,
+                                        highRangeEnd: 360,
+                                        signalName: 'Sensor 1',
+                                        iconClass: 'wf-lg wf-power wf-2x',
+                                        backgroundFillColor: '#0c9900',
+                                        highRangeFillColor: '#f0ad4e',
+                                        iconColor: '#edd200',
+                                        iconBackgroundColor: '#f1f1f1',
+                                        lowRangeFillColor: 'transparent'">
+                        </wf-gauge-1>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="wf-lines-t-inverted col-xs-6 col-xs-push-1 wf-bhkw-border-1">
+                    <div class="wf-arrow-small wf-bhkw-border-1"></div>
+                </div>
+                <div class="wf-lines-t-inverted col-xs-6 col-xs-pull-1 b wf-bhkw-border-2">
+                    <div class="wf-arrow-small  wf-bhkw-border-2"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="wf-content-block wf-meter-block row">
+                        <div class="col-sm-3 text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-heat wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4 class="wf-title">Gesamte Wärmeenergie</h4>
+                            <wf-value-display params="signalName: 'Local Second', unitLabel: true"></wf-value-display>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="wf-content-block wf-meter-block row">
+                        <div class="col-sm-3 text-center">
+                            <i class="wf-bhkw-icon wf-lg wf-power wf-4x"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4 class="wf-title">Gesamte elektr. Energie</h4>
+                            <wf-value-display params="signalName: 'Local Minute', unitLabel: true"></wf-value-display>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: flowView() -->
+    <div class="row">
+        <div class="col-xm-12">
+            <div class="wf-demo-bhkw">
+                <div class="stretch">
+                    <!-- #region arrows -->
+                    <div class="absolute bhkw-animated-arrow-1">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-2">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-3">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+                    <!--<div class="absolute bhkw-animated-arrow-4">
+                        <div class="fa fa-caret-down wf-2x ct-fade-translation-v"></div>
+                    </div>-->
+                    <div class="absolute bhkw-animated-arrow-5 fa-flip-vertical">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-6 fa-flip-horizontal">
+                        <div class="wf wf-arrow wf-2x-bhkw ct-fade-translation"></div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-7">
+                        <div class="wf wf-arrow wf-2x-bhkw ct-fade-translation"></div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-8 fa-flip-horizontal">
+                        <div class="wf wf-arrow wf-2x-bhkw ct-fade-translation"></div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-9">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+                    <div class="absolute bhkw-animated-arrow-10 fa-flip-horizontal">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-11 fa-flip-horizontal">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-12 ">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-13">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-14 fa-flip-horizontal">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-15">
+                        <div class="wf wf-arrow wf-2x ct-fade-translation"></div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-16 fa-flip-vertical">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bhkw-animated-arrow-17">
+                        <div class="ct-fade-translation-v">
+                            <div class="wf wf-arrow wf-2x-bhkw fa-rotate-90"></div>
+                        </div>
+                    </div>
+                    <!-- #endregion  -->
+                    <!-- #region pointers -->
+                    <div class="wf-label-pointer wf-bhkw-pointer-1 absolute">
+                        <span>Warmwasser</span>
+                        <div class="wf-pointer-block ">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-2 absolute">
+                        <span>Abgaswärmetauscher</span>
+                        <div class="wf-pointer-block">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-3 absolute">
+                        <span>Filter</span>
+                        <div class="wf-pointer-block">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-4 absolute">
+                        <span>Abgas</span>
+                        <div class="wf-pointer-block fa-flip-horizontal">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+
+                    <div class="wf-label-pointer wf-bhkw-pointer-6 absolute">
+                        <span>Strom</span>
+                        <div class="wf-pointer-block">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-7 absolute">
+                        <span>Motor</span>
+                        <div class="wf-pointer-block fa-flip-horizontal">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-9 absolute">
+                        <span>Generator</span>
+                        <div class="wf-pointer-block">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-10 absolute">
+                        <span>Kaltes Wasser</span>
+                        <div class="wf-pointer-block fa-flip-vertical">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+                    <div class="wf-label-pointer wf-bhkw-pointer-11 absolute">
+                        <span>Kühlwasserwärmetauscher</span>
+                        <div class="wf-pointer-block fa fa-flip-vertical">
+                            <div class="indicator-pointer-line"></div>
+                            <div class="wf-pointer-icon"></div>
+                        </div>
+                    </div>
+
+                    <!-- #endregion -->
+
+                    <i data-bind="draggable: {showCoordinates: true, isActive: editMode}" class="wf wf-heat wf-4x bh-heating"></i>
+                    <i class="wf wf-power wf-3x wf-circle-border-1-5 bhkw-generator-1"></i>
+                    <i class="wf wf-power wf-3x wf-circle-border-1-5 bhkw-generator-2"></i>
+
+
+                    <div class="bhkw-animated-power-1 fa fa-flip-horizontal">
+                        <i class="wf wf-power fa-2x ct-fade-translation"></i>
+                    </div>
+                    <div class="bhkw-animated-power-2">
+                        <i class="wf wf-power fa-2x ct-fade-translation"></i>
+                    </div>
+
+
+                    <!-- #region BHKW online values -->
+                    <div class="wf-bhkw-gas-1" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-gas"></i>
+                            Gaszähler 1
+                        </label>
+                        <wf-value-display params="signalName: 'Servo 1', unitLabel: true"></wf-value-display>
+                    </div>
+
+                    <div class="wf-bhkw-gas-2" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-gas"></i>
+                            Gaszähler 2
+                        </label>
+                        <wf-value-display params="signalName: 'Servo 1', unitLabel: true"></wf-value-display>
+                    </div>
+
+                    <div class="wf-bhkw-power-1" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-power"></i>
+                            Stromzähler 1
+                        </label>
+                        <wf-value-display params="signalName: 'Vibration 1', unitLabel: true"></wf-value-display>
+                    </div>
+
+                    <div class="wf-bhkw-power-2" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-power"></i>
+                            Stromzähler 2
+                        </label>
+                        <wf-value-display params="signalName: 'Sensor 1', unitLabel: true"></wf-value-display>
+                    </div>
+
+                    <div class="wf-bhkw-heat-1" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-heat"></i>
+                            Wärmemenge 1
+                        </label>
+                        <wf-value-display params="signalName: 'Level 2', unitLabel: true"></wf-value-display>
+                    </div>
+
+                    <div class="wf-bhkw-heat-2" data-bind="draggable: {showCssBox: true, showClassAttr: true, isActive: editMode}">
+                        <label class="wf-title">
+                            <i class="wf-bhkw-icon wf-lg wf-heat"></i>
+                            Wärmemenge 2
+                        </label>
+                        <wf-value-display params="signalName: 'Level 2', unitLabel: true"></wf-value-display>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>

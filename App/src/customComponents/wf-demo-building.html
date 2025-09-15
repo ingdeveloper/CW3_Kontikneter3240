@@ -1,0 +1,190 @@
+<div id="wf-demo-building" class="stretched overflow-hidden">
+    <div style="width: 1600px; height: 1327px;" data-bind="esmartzoom: {transition: true, minScale: 0.25, maxScale: 5,  initPosition: {x: 0, y: 0}, controlsBarClass: 'wf-zoom-controlbar btn-group bottom-center', panControlBar: true, panControlsBarClass: 'wf-pan-controlbar right-bottom hidden-xs'}">
+        <div class="relative" style="width: 1600px; height: 1327px;">
+
+            <img class="wf-demo-floor-plan-bg stretched" src="ContentDemos/svg/building-floor-1.svg" />
+
+            <div class="wf-demo-floor-plan stretched">
+                <!-- #region Buildings -->
+                <!-- data-bind="draggable: {showCssBox: true}"  -->
+                <wf-svg-path id="wf-demo-r1" class="wf-svg-path" style="left: 74px; top: 277px; width: 378px; height: 241px;" params="viewBox: '0 0 378 241', pathData: 'M1 97 1 97 269 1 377 130 89 240 Z',
+                    states: [{conditionRule:'%Setpoint 1% != 0'}], labelText: 'Raum 1', signalName: 'Local Hour', tooltipEnabled: true, tooltipTitle: 'Raum 1', tooltipText: 'Zimmertemperatur'"></wf-svg-path>
+                <wf-svg-path id="wf-demo-r2" class="wf-svg-path" style="width:632px; height: 377px; left: 368px; top: 119px;" params="viewBox: '0 0 632 344', pathData: 'M1 135 1 135 388 1 631 197 205 376 Z',
+                    states: [{conditionRule:'%Setpoint 2% != 0'}], labelText: 'Raum 2', signalName: 'Local Hour', tooltipEnabled: true, tooltipTitle: 'Raum 2', tooltipText: 'Zimmertemperatur'"></wf-svg-path>
+
+                <wf-svg-path id="wf-demo-r3" class="wf-svg-path" style="width:780px; height: 415px; left: 779px; top: 14px;" params="viewBox: '0 0 780 415', pathData: 'M1 116 326 1 779 286 511 414 329 271 241 309 Z',
+                    states: [{conditionRule:'%Setpoint 3% != 0'}], labelText: 'Raum 3', signalName: 'Local Hour', tooltipEnabled: true, tooltipTitle: 'Raum 3', tooltipText: 'Zimmertemperatur'"></wf-svg-path>
+                <wf-svg-path id="wf-demo-r3-2" class="wf-svg-path" style="width:118px; height: 117px; left: 1367px; top: 396px;" params="viewBox: '0 0 118 117', pathData: 'M7 51 8 51 117 1 86 91 32 116 1 91 Z',
+                    states: [{conditionRule:'%Setpoint 3% != 0'}]"></wf-svg-path>
+
+                <wf-svg-path id="wf-demo-r4" class="wf-svg-path" style="width:806px; height: 522px; left: 590px; top: 309px;" params="viewBox: '0 0 806 522', pathData: 'M1 219 516 1 805 231 255 521 Z',
+                    states: [{conditionRule:'%OperationMode1% != 0'}] , tooltipTitle: 'Raum 4', signalName: 'Local Hour', tooltipEnabled: true, tooltipTitle: 'Raum 4', tooltipText: 'Zimmertemperatur'"></wf-svg-path>
+                <wf-svg-path id="wf-demo-r4-2" class="wf-svg-path" style="width:158px; height: 165px; left: 1043px; top: 714px;" params="viewBox: '0 0 158 165', pathData: 'M13 76 14 76 157 1 141 86 1 164 Z',
+                    states: [{conditionRule:'%OperationMode1% != 0'}]"></wf-svg-path>
+
+                <wf-svg-path id="wf-demo-r5" class="wf-svg-path" style="width:785px; height: 692px; left: 37px; top: 422px;" params="viewBox: '0 0 785 692', pathData: 'M1 167 2 167 426 1 784 424 278 691 Z',
+                    states: [{conditionRule:'%OperationMode2% != 0'}], tooltipTitle: 'Raum 5', signalName: 'Local Hour', tooltipEnabled: true,tooltipTitle: 'Raum 5', tooltipText: 'Zimmertemperatur'"></wf-svg-path>
+                <wf-svg-path id="wf-demo-r5-2" class="wf-svg-path" style="width:214px; height: 198px; left: 478px; top: 992px;" params="viewBox: '0 0 214 198', pathData: 'M208 1 213 84 17 196 1 113 Z',
+                    states: [{conditionRule:'%OperationMode2% != 0'}]"></wf-svg-path>
+
+                <wf-modal-dialog id="wf-demo-r1-light" class="relative" params="viewName: 'dialog-room-lights', viewModalName: 'dialog-room-lights', viewModel: {signalName:'Setpoint ', objectId: 1}, title: 'LICHT RAUM 01', draggable: false">
+                    <div class="marker marker-xlg marker-orange">
+                        <div class="pulse pulse-orange"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon" data-bind="css: 'wf wf-light'"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r2-light" class="relative" params="viewName: 'dialog-room-lights', viewModel: {signalName:'Setpoint ', objectId: 2}, title: 'LICHT RAUM 02', draggable: false">
+                    <div class="marker marker-xlg marker-orange">
+                        <div class="pulse pulse-orange"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon" data-bind="css: 'wf wf-light'"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r3-light" class="relative" params="viewName: 'dialog-room-lights', viewModel: {signalName:'Setpoint ', objectId: 3}, title: 'LICHT RAUM 03', draggable: false">
+                    <div class="marker marker-xlg marker-orange">
+                        <div class="pulse pulse-orange"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon" data-bind="css: 'wf wf-light'"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r4-light" class="relative" params="viewName: 'dialog-room-lights', viewModel: {signalName:'OperationMode', objectId: 1}, title: 'LICHT RAUM 04', draggable: false">
+                    <div class="marker marker-xlg marker-orange">
+                        <div class="pulse pulse-orange"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon" data-bind="css: 'wf wf-light'"></i>
+                    </div>
+                </wf-modal-dialog>
+                <wf-modal-dialog id="wf-demo-r5-light" class="relative" params="viewName: 'dialog-room-lights', viewModel: {signalName:'OperationMode', objectId: 2}, title: 'LICHT RAUM 05', draggable: false">
+                    <div class="marker marker-xlg marker-orange">
+                        <div class="pulse pulse-orange"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon" data-bind="css: 'wf wf-light'"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r3-blinds" class="block" params="title: 'Schlafzimmer', viewName: 'dialog-room-blind', viewModel: { signalName: 'OperationMode3', jalousieUpValue: 5,  jalousieDownValue: 0 }">
+                    <div class="marker marker-xlg marker-blue">
+                        <div class="pulse pulse-blue"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon fa fa-bars"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r4-blinds" class="block" params="title: 'Wohnzimmer', viewName: 'dialog-room-blind', viewModel: { signalName: 'OperationMode3', jalousieUpValue: 5, jalousieDownValue: 0 }">
+                    <div class="marker marker-xlg marker-blue">
+                        <div class="pulse pulse-blue"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon fa fa-bars"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r5-blinds" class="block" params="title: 'Kinderzimmer', viewName: 'dialog-room-blind', viewModel: { signalName: 'OperationMode3', jalousieUpValue: 5,  jalousieDownValue: 0 }">
+                    <div class="marker marker-xlg marker-blue">
+                        <div class="pulse pulse-blue"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon fa fa-bars"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r3-heat" class="block" params="title: 'Raumtemperatur Kinderzimmer', position: 'bottom', viewName: 'dialog-room-temperature', viewModel: { signalNameBarGraph1: 'Local Minute', signalNameBarGraph2: 'Setpoint 2'}">
+                    <div class="marker marker-xlg marker-red">
+                        <div class="pulse pulse-red"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon wf wf-heat"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r4-heat" class="block" params="title: 'Raumtemperatur Wohnzimmer', position: 'bottom', viewName: 'dialog-room-temperature', viewModel: { signalNameBarGraph1: 'Local Minute', signalNameBarGraph2: 'Setpoint 2'}">
+                    <div class="marker marker-xlg marker-red">
+                        <div class="pulse pulse-red"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon wf wf-heat"></i>
+                    </div>
+                </wf-modal-dialog>
+
+                <wf-modal-dialog id="wf-demo-r5-heat" class="block" params="title: 'Raumtemperatur Schlafzimmer', position: 'bottom', viewName: 'dialog-room-temperature', viewModel: { signalNameBarGraph1: 'Local Minute', signalNameBarGraph2: 'Setpoint 2'}">
+                    <div class="marker marker-xlg marker-red">
+                        <div class="pulse pulse-red"></div>
+                        <div class="touchpoint"></div>
+                        <i class="marker-icon wf wf-heat"></i>
+                    </div>
+                </wf-modal-dialog>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="wf-sidebar">
+        <h4 class="wf-title text-center">Beleuchtung</h4>
+        <wf-button class="block m-a" params="buttonText: 'Zentral AN', cssClass: 'btn-block btn btn-warning', iconClass: 'wf wf-light',
+        writeItems: [
+        {name:'Setpoint 1', value: 1},
+        {name:'Setpoint 2', value: 1},
+        {name:'Setpoint 3', value: 1},
+        {name:'OperationMode1', value: 1},
+        {name:'OperationMode2', value: 1}]"></wf-button>
+        <wf-button class="block m-a" params="buttonText: 'Zentral AUS', cssClass: 'btn-block btn btn-variant-dark', iconClass: 'wf wf-light-off',
+        writeItems: [
+        {name:'Setpoint 1', value: 0},
+        {name:'Setpoint 2', value: 0},
+        {name:'Setpoint 3', value: 0},
+        {name:'OperationMode1', value: 0},
+        {name:'OperationMode2', value: 0}]"></wf-button>
+
+
+        <h4 class="wf-title text-center m-t-lg">Wetterstation</h4>
+        <label class="wf-title block text-center m-t">Außentemperatur</label>
+
+        <wf-arc class="block" params="signalName: 'Local Hour', 
+        width: 200, height: 120,
+        startAngle: 0.0, endAngle: 360, minRange: -20, maxRange: 45, innerRadius: 0.85, showTickLines: false,
+        marginBottom: 5, 
+        backgroundColor: '#E6E6E6', foregroundColor: 'rgba(218, 26, 26, .9)', iconClass: 'fa fa-thermometer-half wf-1x'">
+        </wf-arc>
+
+        <label class="wf-title block text-center m-t hidden-xs">Luftfeuchte</label>
+
+        <wf-arc class="block hidden-xs" params="signalName: 'Local Minute', 
+                width: 200, height: 120,
+                startAngle: 0.0, endAngle: 360, minRange: 0, maxRange: 100, innerRadius: 0.85, showTickLines: false,
+                marginBottom: 5, 
+                backgroundColor: '#E6E6E6', foregroundColor: 'rgba(17, 96, 184, .9)', iconClass: 'wf wf-drop-o wf-1x'">
+        </wf-arc>
+
+        <div class="row m-a-0 hidden-xs">
+            <div class="col-xs-6 text-center b-r b-t b-b p-b">
+                <label class="wf-title block m-t">Wind</label>
+                <i class="wf-2x wf-lg wf-wind-blow"></i>
+                <div class="text-center">
+                    <wf-value class="wf-demo-building-value" params="signalName: 'Servo 2', format:	'0,0.0'"></wf-value>
+                    <span class="wf-demo-building-unit">km/h</span>
+                </div>
+            </div>
+            <div class="col-xs-6 text-center b-t b-b p-b">
+                <label class="wf-title block m-t">Luftdruck</label>
+                <i class="wf-2x wf-lg wf-atmospheric-pressure"></i>
+                <div class="text-center">
+                    <wf-value class="wf-demo-building-value" params="signalName: 'AlarmCount'"></wf-value>
+                    <span class="wf-demo-building-unit">hPa</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-xs">
+            <label class="wf-title block m-t text-center">Windrichtung</label>
+            <wf-rotation-container class="wf-wind-direction relative" params="signalName: 'Sensor 2'">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stretched" viewBox="0 0 500 500" style="width:105px; height:105px">
+                    <path class="wf-svg-path wf-state-element" style="stroke:none !important" fill="#F5F5F5" d="M250 98.01l76.075 301.512L250 342.117l-76.075 57.405z"/>
+                    <path fill="rgba(17, 96, 184, 0.9)" d="M250 98.008L218.56 222.605 250 198.885l31.435 23.72L250 98.008z" />
+                    <path fill="#fff" fill-opacity="0.49019608" d="M250 98.008v244.108l76.074 57.405L250 98.01z" />
+                    <path class="wf-svg-path wf-state-element" style="fill:none !important" stroke="#000000" stroke-width="1" d="M250 98.01l76.075 301.512L250 342.117l-76.075 57.405z"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </wf-rotation-container>
+        </div>
+    </div>
+</div>

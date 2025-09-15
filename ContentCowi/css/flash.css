@@ -1,0 +1,133 @@
+/*-----------------------
+    Flash für Button's oder andere Components  AM
+    Button etc.
+-----------------------*/
+.ccw-flash{
+	background:blue;
+	padding:5px 10px;
+	color:#fff;
+	border:none;
+	border-radius:5px;
+	
+	animation-name: flash;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-flash-bg{
+	/*background:#ff6a00;*/
+	/*padding:5px 10px;*/
+	/*color:#000;*/
+	/*border:none;*/
+	/*border-radius:5px;*/
+	
+	animation-name: flash;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+.ccw-flash-bg-slow{
+	animation-name: flash-slow;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	/*Firefox 1+*/
+	-webkit-animation-name: flash-slow;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	/*Safari 3-4*/
+	-moz-animation-name: flash-slow;
+	-moz-animation-duration: 2s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+
+@keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+
+@keyframes flash-slow {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flash-slow {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flash-slow {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes ccw-flash-background-red {  
+    0% { background-color: red; color: white; }
+    50% { background-color: transparent;  color: black;}
+    100% { background-color: red;  color: white;}
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes ccw-flash-background-red {  
+    0% { background-color: red; color: white; }
+    50% { background-color: transparent;  color: black;}
+    100% { background-color: red;  color: white;}
+}
+
+/*Safari 3-4*/
+@-moz-keyframes ccw-flash-background-red {  
+    0% { background-color: red; color: white; }
+    50% { background-color: transparent;  color: black;}
+    100% { background-color: red;  color: white;}
+}

@@ -1,0 +1,39 @@
+<div>
+    <header>
+        <h1 class="page-header">
+            {{ connector.translate('I4SCADA_AllWidgets_Header')()}}
+        </h1>
+    </header>
+
+    <div>
+        <ul class="wf-widget-categories-list list-unstyled row" data-bind="foreach: widgets">
+            <li class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center">
+                <!-- ko if: $parent.selectedLanguageId() === 7 -->
+                <span class="wf-widget-category-title" data-bind="text: category"></span>
+                <div class="wf-hexagon wf-widget-category" data-bind="css: {'active': $parent.selectedCategory == category}, bsPopover: { template: 'popover-template' , options: { closeButton: false, title: category, placement: 'bottom', singleMode: true}, data: {category: category, components: components, routePrefix: $parent.routePrefix, selectedWidgetName: $parent.selectedWidgetName() }}">
+                    <span class="wf-widget-category-icon" data-bind="css: icon"></span>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                <span class="wf-widget-category-title" data-bind="text: categoryEN"></span>
+                <div class="wf-hexagon wf-widget-category" data-bind="css: {'active': $parent.selectedCategory == category}, bsPopover: { template: 'popover-template' , options: { closeButton: false, title: categoryEN, placement: 'bottom', singleMode: true}, data: {category: categoryEN, components: componentsEN, routePrefix: $parent.routePrefix, selectedWidgetName: $parent.selectedWidgetName() }}">
+                    <span class="wf-widget-category-icon" data-bind="css: icon"></span>
+                </div>
+                <!-- /ko -->
+            </li>
+        </ul>
+        <script id="popover-template" type="text/html">
+            <div style="margin-top: -10px;">
+                <div class="row list-group wf-widget-list" data-bind="foreach: components">
+                    <a class="list-group-item wf-widget-list-item" href="#" data-bind="attr: { href: '#' + $parent.routePrefix + component }, css: {active: widgetName === $parent.selectedWidgetName}">
+                        <span class="block" data-bind="text: name"></span>
+
+                        <!--<span class="label label-primary" data-bind="text: widgetName"></span>
+                        <span class="label label-warning" data-bind="text: component"></span>-->
+                    </a>
+                </div>
+            </div>
+        </script>
+
+    </div>
+</div>

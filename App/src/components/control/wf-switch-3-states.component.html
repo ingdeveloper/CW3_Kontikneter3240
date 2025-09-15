@@ -1,0 +1,120 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<div class="wf-switch-3-states relative" data-bind="css: cssClass + ' ' + statusCssClass(), attr : {title: tooltipText}">
+    <button class="btn wf-switch-button" type="button" data-bind="disable: isDisabled, event: { mousedown: function () {writeInputValue(onValue)}}">
+        <i class="wf-switch-3-states-icon" data-bind="css: onIconClass"></i>
+        <span data-bind="attr: {style: textStyle}" class="wf-switch-3-states-label">{{connector.translate(onText)()}}</span>
+    </button>
+    <button class="btn wf-switch-button" type="button" data-bind="disable: isDisabled, event: { mousedown: function () {writeInputValue(neutralValue)}}">
+        <i class="wf-switch-3-states-icon" data-bind="css: neutralIconClass"></i>
+        <span data-bind="attr: {style: textStyle}" class="wf-switch-3-states-label">{{connector.translate(neutralText)()}}</span>
+    </button>
+    <button class="btn wf-switch-button" type="button" data-bind="disable: isDisabled, event: { mousedown: function () {writeInputValue(offValue)}}">
+        <i class="wf-switch-3-states-icon" data-bind="css: offIconClass"></i>
+        <span data-bind="attr: {style: textStyle}" class="wf-switch-3-states-label">{{connector.translate(offText)()}}</span>
+    </button>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 123 123">
+        <defs>
+            <linearGradient id="a">
+                <stop offset="0" stop-opacity=".196" />
+                <stop offset=".217" stop-opacity=".392" />
+                <stop offset=".729" stop-color="#fff" stop-opacity=".392" />
+                <stop offset="1" stop-color="#fff" stop-opacity=".196" />
+            </linearGradient>
+            <linearGradient id="b">
+                <stop offset="0" stop-opacity=".427" />
+                <stop offset="1" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="c">
+                <stop offset="0" stop-color="#fff" />
+                <stop offset=".782" stop-color="#424242" />
+                <stop offset=".854" stop-color="silver" />
+                <stop offset=".942" stop-color="#cdcdcd" />
+                <stop offset="1" stop-color="#797979" />
+            </linearGradient>
+            <linearGradient id="d">
+                <stop offset="0" stop-color="#d6d6d6" />
+                <stop offset="1" stop-color="#717171" />
+            </linearGradient>
+            <linearGradient id="e">
+                <stop offset="0" stop-color="#fff" />
+                <stop offset=".782" stop-color="#424242" />
+                <stop offset=".854" stop-color="silver" />
+                <stop offset=".942" stop-color="#cdcdcd" />
+                <stop offset="1" stop-color="#797979" />
+            </linearGradient>
+            <linearGradient id="f">
+                <stop offset="0" stop-color="#d6d6d6" />
+                <stop offset="1" stop-color="#717171" />
+            </linearGradient>
+            <linearGradient id="g">
+                <stop offset="0" stop-opacity=".427" />
+                <stop offset="1" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="h">
+                <stop offset="0" stop-opacity=".196" />
+                <stop offset=".217" stop-opacity=".392" />
+                <stop offset=".729" stop-color="#fff" stop-opacity=".392" />
+                <stop offset="1" stop-color="#fff" stop-opacity=".196" />
+            </linearGradient>
+            <radialGradient id="j" cx="709.286" cy="209.337" r="118.319" fx="709.286" fy="209.337" gradientTransform="matrix(.21293 0 0 .2106 -89.51 15.891)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <radialGradient id="k" cx="709.286" cy="216.648" r="117.494" fx="709.286" fy="216.648" gradientTransform="matrix(.1692 0 0 .1692 -58.498 24.858)" gradientUnits="userSpaceOnUse" xlink:href="#f" />
+            <radialGradient id="l" cx="709.286" cy="209.337" r="118.319" fx="709.286" fy="209.337" gradientTransform="matrix(.0364 0 0 .03601 35.693 53.715)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <linearGradient id="m" x1="616.42" x2="719.128" y1="198.354" y2="198.354" gradientTransform="matrix(.26458 0 0 .26458 -126.04 -119.403)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <radialGradient id="n" cx="709.286" cy="209.337" r="118.319" fx="709.286" fy="209.337" gradientTransform="matrix(.21293 0 0 .2106 -89.51 15.89)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <radialGradient id="o" cx="709.286" cy="216.648" r="117.494" fx="709.286" fy="216.648" gradientTransform="matrix(.1692 0 0 .1692 -58.498 24.858)" gradientUnits="userSpaceOnUse" xlink:href="#f" />
+            <radialGradient id="p" cx="709.286" cy="209.337" r="118.319" fx="709.286" fy="209.337" gradientTransform="matrix(.0364 0 0 .03601 35.693 53.715)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <linearGradient id="q" x1="321.25" x2="321.25" y1="247.157" y2="448.157" gradientTransform="matrix(.26458 0 0 .26458 0 -.343)" gradientUnits="userSpaceOnUse" xlink:href="#g" />
+            <linearGradient id="r" x1="163.527" x2="163.527" y1="255.659" y2="193.515" gradientTransform="matrix(.26458 0 0 .26458 0 -.343)" gradientUnits="userSpaceOnUse" xlink:href="#h" />
+            <linearGradient id="s" x1="322.25" x2="322.25" y1="261.491" y2="211.287" gradientTransform="matrix(.26458 0 0 .26458 0 -.343)" gradientUnits="userSpaceOnUse" xlink:href="#g" />
+            <radialGradient id="t" cx="-71.626" cy="112.986" r="25.501" fx="-71.626" fy="112.986" gradientTransform="matrix(1 0 0 .99999 133.142 -51.467)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <radialGradient id="u" cx="-71.627" cy="112.986" r="19.881" fx="-71.627" fy="112.986" gradientTransform="matrix(1 0 0 .99999 133.142 -51.467)" gradientUnits="userSpaceOnUse" xlink:href="#f" />
+            <radialGradient id="v" cx="709.286" cy="209.337" r="118.319" fx="709.286" fy="209.337" gradientTransform="matrix(.0364 0 0 .03601 35.693 53.717)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+            <linearGradient id="w" x1="616.42" x2="719.128" y1="198.354" y2="198.354" gradientTransform="matrix(.26458 0 0 .26458 -126.041 2.755)" gradientUnits="userSpaceOnUse" xlink:href="#e" />
+        </defs>
+        <g class="wf-3-switch-off">
+            <path fill="url(#j)" d="M61.515 36.015a25.501 25.501 0 0 0-25.5 25.501 25.501 25.501 0 0 0 25.5 25.5 25.501 25.501 0 0 0 25.502-25.5 25.501 25.501 0 0 0-25.502-25.501zm0 5.618A19.883 19.883 0 0 1 81.4 61.516 19.883 19.883 0 0 1 61.515 81.4a19.883 19.883 0 0 1-19.883-19.883 19.883 19.883 0 0 1 19.883-19.883z" />
+            <path fill="url(#k)" d="M41.635 61.516c0-10.98 8.9-19.88 19.88-19.88 10.98 0 19.88 8.9 19.88 19.88 0 10.98-8.902 19.88-19.88 19.88-10.98 0-19.88-8.9-19.88-19.88z" />
+            <path fill="url(#l)" d="M61.515 57.156a4.36 4.36 0 1 0 .001 8.721 4.36 4.36 0 0 0 0-8.721z" />
+            <rect width="5.613" height="15.809" x="58.709" y="-74.826" fill="url(#m)" ry="2.806" transform="scale(1 -1)" />
+            <path fill="red" d="M41.445 103.397c-.703 0-1.138-.58-1.27-1.271l-1.879-9.88-.06-.323a.91.91 0 0 1-.015-.166h-.008a1.563 1.563 0 0 1 .144-.943l13.51-26.698h19.298l13.51 26.698c.158.314.19.637.145.943h-.005c0 .055-.003.11-.014.166l-.06.32-1.88 9.883c-.132.691-.567 1.27-1.271 1.27H41.447z" class="switch-off" />
+            <path fill="#fff" fill-opacity=".392" d="M52.176 64.51L39.099 90.351c-.04.08-.071.163-.096.245l-.023.288c-.01.129-.014.256-.014.38h45.1c0-.124-.005-.25-.014-.38l-.023-.285a1.574 1.574 0 0 0-.098-.248L70.855 64.509z" />
+            <path fill-opacity=".235" d="M38.36 120.674l-.136 2.014h46.59l-.137-2.012-4.098-17.28H42.455zm23.155-79.038c-10.98 0-19.88 8.9-19.88 19.88 0 .6.031 1.191.084 1.778.9-10.147 9.416-18.103 19.796-18.103 10.38 0 18.898 7.956 19.798 18.103.052-.586.083-1.178.083-1.778 0-10.98-8.903-19.88-19.88-19.88zm-25.44 21.1a25.578 25.578 0 0 0-.106 2.083c.007 6.344 2.364 12.981 6.417 18.033l1.712-3.383c-4.649-4.165-7.7-9.994-8.022-16.732zm50.861.826c-.861 6.161-3.802 11.712-8.067 15.78l1.773 3.504c4.054-5.05 6.412-11.686 6.42-18.027a13.295 13.295 0 0 0-.126-1.257z" />
+        </g>
+        <g class="wf-3-switch-neutral">
+            <path fill="url(#n)" d="M61.515 36.014a25.501 25.501 0 0 0-25.5 25.502 25.501 25.501 0 0 0 25.5 25.5 25.501 25.501 0 0 0 25.502-25.5 25.501 25.501 0 0 0-25.502-25.501zm0 5.619A19.883 19.883 0 0 1 81.4 61.516 19.883 19.883 0 0 1 61.515 81.4a19.883 19.883 0 0 1-19.883-19.883 19.883 19.883 0 0 1 19.883-19.883z" />
+            <path fill="url(#o)" d="M41.635 61.516c0-10.98 8.9-19.88 19.88-19.88 10.98 0 19.88 8.9 19.88 19.88 0 10.98-8.902 19.88-19.88 19.88-10.98 0-19.88-8.9-19.88-19.88z" />
+            <path fill-opacity=".274" d="M36.076 62.736a25.577 25.577 0 0 0-.107 2.083c.007 6.955 2.84 14.262 7.636 19.445l2.121-3.454c-5.559-4.21-9.291-10.578-9.65-18.074zm50.86.82v.006c-.964 6.899-4.535 13.034-9.655 17.177l.01.047 2.133 3.472c4.796-5.183 7.629-12.49 7.638-19.441a13.582 13.582 0 0 0-.126-1.26z" />
+            <path fill="url(#p)" d="M61.515 57.156a4.36 4.36 0 1 0 .001 8.721 4.36 4.36 0 0 0 0-8.721z" />
+            <path fill="url(#q)" d="M61.515 41.636c-10.339 0-18.832 7.893-19.788 17.982-.003-.041-.01-.082-.013-.123a20.088 20.088 0 0 0-.08 1.72c0 .05.005.1.005.15 0 .05-.004.1-.004.151 0 .58.031 1.152.079 1.72.005-.041.01-.082.013-.123a19.849 19.849 0 0 0 6.945 13.271 3.419 3.419 0 0 1-.264.065c-2.133-.33-2.186 2.31-2.664 4.34l-7.406 12.058-.3 8.327.622 14.022h45.722l.62-14.022-.3-8.327-7.406-12.059c-.48-2.03-.533-4.67-2.666-4.339-.091-.017-.178-.041-.265-.065a19.85 19.85 0 0 0 6.943-13.274c.003.042.01.084.013.126a19.981 19.981 0 0 0 .079-1.72c0-.05-.004-.1-.004-.15 0-.05.004-.1.004-.151 0-.58-.031-1.152-.08-1.72l-.014.126c-.955-10.09-9.448-17.985-19.788-17.985zm0 3.44c9.754 0 17.862 7.024 19.552 16.29-1.007 5.52-4.293 10.243-8.846 13.161-.506-.948-.836-2.196-1.032-3.673l-6.842-2.713v-4.127a2.8 2.8 0 0 0-2.805-2.806l-.024.003h-.024a2.802 2.802 0 0 0-2.807 2.807v4.127l-6.842 2.712c-.193 1.477-.524 2.726-1.032 3.675-4.553-2.918-7.84-7.64-8.845-13.16 1.69-9.266 9.798-16.291 19.553-16.291z" />
+            <path fill-opacity=".292" d="M47.079 75.079l.047.146a19.776 19.776 0 0 0 2.317 2.059l.015-.032a35.16 35.16 0 0 1-2.38-2.172zm26.606 2.145v.001c.57-.464.466-.374 0-.002z" />
+            <rect width="46.831" height="11.774" x="38.034" y="55.286" fill="orange" stroke="orange" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529" class="switch-neutral" ry=".618" />
+            <rect width="46.831" height="11.774" x="38.034" y="55.286" fill="url(#r)" stroke="url(#s)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529" ry=".618" />
+        </g>
+        <g class="wf-3-switch-on">
+            <path fill="url(#t)" d="M61.516 36.016a25.501 25.501 0 0 0-25.501 25.502 25.501 25.501 0 0 0 25.5 25.5 25.501 25.501 0 0 0 25.502-25.5 25.501 25.501 0 0 0-25.501-25.502zm0 5.619a19.883 19.883 0 0 1 19.883 19.883 19.883 19.883 0 0 1-19.883 19.883 19.883 19.883 0 0 1-19.883-19.883 19.883 19.883 0 0 1 19.883-19.883z" />
+            <path fill="url(#u)" d="M41.635 61.518c0-10.98 8.901-19.88 19.881-19.88s19.88 8.9 19.88 19.88c0 10.98-8.902 19.88-19.88 19.88-10.98 0-19.881-8.9-19.881-19.88z" />
+            <path fill-opacity=".196" d="M76.35 47.853l-2.013 3.979c3.416 3.946 3.555 13.513 2.457 19.74a18.422 18.422 0 0 1-2.1 2.605c.016-1.348.033-2.835.05-2.845-.906-1.444-2.642-6.498-3.466-10.353l-6.832-1.54v-1.337h-5.737v1.337l-6.832 1.54c-.827 3.872-2.566 8.955-3.477 10.374v2.878a18.469 18.469 0 0 1-1.995-2.42c-1.135-6.172-1.047-15.832 2.337-19.884l-2.057-4.067c-3.225 3.825-4.973 8.166-5.04 12.98v.009c.054 3.791 1.192 7.458 2.948 10.477 1.728 4.376 4.876 8.218 8.986 10.182a20.889 20.889 0 0 0 7.938 1.577 20.89 20.89 0 0 0 7.965-1.596c3.95-1.896 7.01-5.53 8.77-9.701 4.737-7.308 3.978-17.107-1.9-23.934zM36.077 62.739a25.57 25.57 0 0 0-.107 2.082c.01 9.83 5.66 20.372 14.53 24.611a28.992 28.992 0 0 0 11.017 2.189 28.981 28.981 0 0 0 11.053-2.216c8.848-4.246 14.48-14.771 14.494-24.584a13.388 13.388 0 0 0-.127-1.259C85.176 76.15 74.754 86.21 62.045 86.224c-13.597-.017-25.318-9.905-25.97-23.487z" />
+            <path fill="url(#v)" d="M61.515 57.158a4.36 4.36 0 1 0 .001 8.721 4.36 4.36 0 0 0 0-8.721z" />
+            <rect width="5.613" height="15.809" x="58.709" y="47.331" fill="url(#w)" ry="2.806" />
+            <path fill="green" d="M41.446 18.82c-.704 0-1.139.58-1.27 1.271l-1.88 9.88-.06.323a.91.91 0 0 0-.015.166h-.008c-.046.307-.012.63.145.944l13.508 26.697h19.299l13.509-26.697a1.56 1.56 0 0 0 .144-.944h-.007a.885.885 0 0 0-.014-.164l-.061-.32-1.88-9.884c-.132-.691-.568-1.27-1.271-1.27h-40.14z" class="switch-on" />
+            <path fill="#fff" fill-opacity=".392" d="M41.682 19.099c-.695 0-1.125.565-1.254 1.24l-1.858 9.646-.06.315a.873.873 0 0 0-.015.162h46.04a.868.868 0 0 0-.014-.161l-.058-.313-1.858-9.648c-.13-.676-.56-1.241-1.256-1.241z" />
+        </g>
+    </svg>
+    <div class="wf-switch-3-states-base stretched">
+        <div class="wf-switch-3-states-gradient stretched">
+            <div class="wf-switch-3-states-border">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                               signalNames: [signalName],
+                               signalValues: writeSecureValues,
+                               draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!--/ko-->
+<!--/ko-->

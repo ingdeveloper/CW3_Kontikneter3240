@@ -1,0 +1,34 @@
+﻿/*---------------------------------------------------------------------- 
+    wf-transformer
+----------------------------------------------------------------------*/
+
+ .wf-switch-transformer svg {
+     overflow: visible !important;
+ }
+
+.wf-switch-transformer .base .wf-switch-transformer-switch-closed,
+.wf-switch-transformer .base .wf-switch-transformer-switch-opened,
+.wf-switch-transformer .opened .wf-switch-transformer-base,
+.wf-switch-transformer .opened .wf-switch-transformer-switch-closed,
+.wf-switch-transformer .closed .wf-switch-transformer-base,
+.wf-switch-transformer .closed .wf-switch-transformer-switch-opened {
+    visibility: hidden;
+    display: none;
+}
+
+
+ .wf-switch-transformer-box {
+     fill: #eee;
+ }
+
+ .wf-switch-transformer-base {
+     stroke: #000;
+ }
+
+ .wf-switch-transformer-switch-closed {
+     stroke: #000;
+ }
+
+ .wf-switch-transformer-switch-opened {
+     stroke: #000;
+ }

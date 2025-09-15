@@ -1,0 +1,245 @@
+/*---------------------------------------------
+  Visibility and opacity modifiers 
+---------------------------------------------*/
+
+.hidden {
+    visibility: hidden !important;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-25 {
+    opacity: .25;
+}
+
+.opacity-50 {
+    opacity: .5;
+}
+
+.opacity-75 {
+    opacity: .75;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+/*---------------------------------------------
+  Background image behavior and position modifiers 
+---------------------------------------------*/
+
+.background-cover {
+    background-size: cover !important;
+    background-position: center center;
+}
+
+.background-contain {
+    background-size: contain !important;
+    background-position: center center;
+}
+
+.background-no-repeat {
+    background-repeat: no-repeat;
+}
+
+.background-x-repeat {
+    background-repeat: repeat-x;
+}
+
+.background-y-repeat {
+    background-repeat: repeat-y;
+}
+
+
+/*---------------------------------------------
+  Cursor and pointer events modifiers 
+---------------------------------------------*/
+
+.cursor-hand {
+    cursor: pointer;
+}
+
+.has-pointer-events{
+    pointer-events: all;
+}
+
+.has-no-pointer-events,
+.has-no-authorization {
+    pointer-events: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/*---------------------------------------------
+  Border modifiers 
+---------------------------------------------*/
+
+.has-border,
+.b-a {
+    border: 1px solid #ccc;
+}
+
+.has-border-bottom,
+.b-b {
+    border-bottom: 1px solid #ccc;
+}
+
+.has-border-top,
+.b-t {
+    border-top: 1px solid #ccc;
+}
+
+.b-l {
+    border-left: 1px solid #ccc;
+}
+
+.b-r {
+    border-right: 1px solid #ccc;
+}
+
+.b-a-0 {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.border-radius-50, 
+.border-radius-round {
+    border-radius: 50%;
+}
+
+/*---------------------------------------------
+  Typography modifiers 
+---------------------------------------------*/
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.font-weight-bolder {
+    font-weight: bolder;
+}
+
+.text-overflow {
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.word-wrap-break-word {
+   word-wrap: break-word; 
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+
+
+/* TODO REVIEW */
+.has-shadow {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.line-heigh-1 {
+    line-height: 1;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.draggable {
+    cursor: move;
+}
+
+.dragging.draggable {
+    cursor: move;
+    display: inherit;
+    background-color: rgba(34, 116, 172,.95);
+    color: #ffffff;
+    opacity: .9;
+    -moz-animation: pulse 1s infinite;
+    -o-animation: pulse 1s infinite;
+    -webkit-animation: pulse 1s infinite;
+    animation: pulse 1s infinite;
+}
+
+.no-after-content:after {
+    content: none !important;
+}
+
+.no-before-content:before {
+    content: none !important;
+}
+
+
+/* DEPRECATED CLASS NAMES */
+
+.v-orientation > *{
+    display: block;
+}
+
+.h-orientation > *{
+    display: inline-block;
+}
+
+.h-centered,
+.centered {
+    margin: 0 auto;
+}
+
+.absolute.h-centered,
+.absolute.centered {
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.v-centered {
+    margin-top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.center-horizontal {
+    margin: 0 auto;
+}
+
+.center-vertical,
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.scroll-x {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.scroll-y {
+    overflow-y: auto;
+    max-width: 100%;
+}

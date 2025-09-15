@@ -1,0 +1,880 @@
+﻿/****************************************************
+    CSS für ofen Seite
+*****************************************************/
+
+.fuellOfenSeiteTable {
+    font-size: x-small;
+    /*margin-bottom: 3px;*/
+    line-height: 18px;
+    margin-top: 5px;
+
+}
+
+.fuellOfenSeiteTableUeberschrift {
+    font-size: large;
+}
+
+.fuellOfenSeiteTdInput {
+    padding: 1px 1px !important;
+    width: 50px;
+}
+
+.fuellOfenSeiteTdStationsNummerBreite {
+    padding: 1px 1px !important;
+    width: 20px;
+}
+
+.fuellOfenSeiteTdStationNummer {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+    font-size: x-small;
+}
+
+
+
+.waageGewOK {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: #23D403;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: right;
+       /* font-size: x-small; */
+}
+
+.waageGewfalse {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: hotpink;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: right;
+    /* font-size: x-small; */
+}
+
+.waageGew {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: #DFDCDC ;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: right;
+       /* font-size: x-small; */
+}
+
+
+.waageGewichtOK {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: #23D403;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+       /* font-size: x-small; */
+}
+
+.waageGewichtfalse {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: hotpink;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+    /* font-size: x-small; */
+}
+
+.waageGewichtGew {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 2px;
+    background-color: #DFDCDC ;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+       /* font-size: x-small; */
+}
+
+
+.fuellOfenSeiteTdBtnFeld {
+    padding: 1px 0px !important;
+    width: 20px;
+}
+
+.fuellOfenSeiteTableBtn {
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin: 0px auto !important;
+    padding: 0px 0px !important;
+}
+
+span.css-vertical-text {
+    color: #333;
+    /*border: 1px solid red;*/
+    /*writing-mode:  vertical-rl;*/
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px; 
+    font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+    font-size: x-small;
+    font-weight: normal;
+    /*text-shadow: 0px 0px 1px #333;*/
+    /*background-color: aquamarine;*/
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+th.fuellOfenSeitePaddingAus {
+    padding: 0px !important;
+}
+
+td.fuellOfenSeitePaddingAus {
+    padding: 0px !important;
+}
+
+tr.fuellOfenSeiteTableRahmenUnten > td { /* Rahmen unten*/
+    border-bottom: 1px solid black !important;
+}
+
+.fuellOfenSeiteEinzelAnsichtTextSpalte1 {
+    text-align: right !important;
+    padding-right: 10px;
+}
+
+.fuellOfenSeiteDivRezeptur {
+    /*background-color: rgba(127, 255, 212, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin-left: 15px;
+}
+
+.fuellOfenSeiteDivofen {
+    /*background-color: rgba(255, 106, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: antiquewhite;
+}
+
+.fuellOfenSeiteDivRezeptnummer {
+    /*background-color: rgba(182, 255, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin-right: 15px;
+}
+
+div.fuellOfenSeitePaddingAus {
+    padding: 0px !important;
+}
+
+.fuellOfenSeiteBeschrVorValue {
+    text-align: left;
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+}
+
+.fuellOfenSeiteValueRahmenFloatLeft {
+    border: 1px solid #C6C6C6;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteFiexedTop {
+    background-color: antiquewhite;
+    padding: 0.25em 0;
+    text-align: center;
+    position: -webkit-sticky; /* Fest an der Kante beim scrollen anheften */
+    position: sticky;
+    top: 1px;
+    z-index: 99;
+}
+#header_fixed.sticky
+{
+    position: fixed;
+    background-color: antiquewhite;
+    height: 50px;
+    z-index: 99;
+    /* Element wird aus Textfluss genommen, also mit diesen Werten arbeiten */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    
+}
+
+.fuellOfenSeiteBtn {
+    padding: 2px 0px !important;
+    float: left;
+}
+
+.fuellOfenSeiteProduktionsNummer {
+    width: 50%;
+      
+}
+.fuellOfenSeiteZeitscheibeTabelleKopfHoehe1{
+    height: 30px !important;
+}
+.fuellOfenSeiteZeitscheibeTabelleKopfHoehe2{
+    height: 45px;
+}
+
+.fuellOfenSeiteValueRahmenKomponentenTabelle, .fuellOfenSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    text-align: center;
+    /*width: 100%;*/
+    /*float: left;*/
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+.fuellOfenSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #e2dada;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: #ebe8e4;*/
+    color: #C6C6C6;
+}
+
+.fuellOfenSeiteKomponentenTabelleTextMinHeight {
+    height: 16px;
+}
+
+.fuellOfenSeiteKomponentenSollIstBreite {
+    width: 60px !important;
+}
+
+.borderOff {
+    border: 0px !important;
+}
+
+.fuellOfenSeiteValueRahmenGruenFloatLeft {
+    border: 1px solid #23D403;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 1px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteValueRahmenGrauFloatLeft {
+    border: 1px solid #C6C6C6;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+
+
+.fuellOfenSeiteValueRahmenRotFloatLeft {
+    border: 1px solid #FC0404;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+/* .ofenSeiteValueRahmenRotFloatLeft1 {
+    border: 1px solid #FC0404;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    /* margin: 1px 2px;
+    padding: 0px 2px;
+} */ 
+
+.fuellOfenSeiteValueRahmenBlauFloatLeft {
+    border: 1px solid rgb(4, 29, 252);
+    border-radius: 8px;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteValueRahmenBlauLeft {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(4, 29, 252) !important;
+    border-top: 1px solid rgb(4, 29, 252)!important;
+    border-radius: 4px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.waageValueRahmenSchwarzFloatLeft {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    /* text-align: center; */
+    /* background-color: blue; */
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+
+.fuellOfenRahmenSchwarzSenden {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: left;
+    height: 40px;
+    /* background-color: blue; */
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteValueRahmenGelbFloatLeft {
+    border: 1px solid #FCF104;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.waageRahmenBlau {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(4, 29, 252) !important;
+    border-top: 1px solid rgb(4, 29, 252)!important;
+    border-radius: 2px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+.waageRahmenGruen {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(25, 252, 4) !important;
+    border-top: 1px solid rgb(25, 252, 4)!important;
+    border-radius: 2px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+.waageRahmenOrange {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid #FFBB43 !important;
+    border-top: 1px solid#FFBB43 !important;
+    border-radius: 2px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.waageRahmenRot {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(252, 83, 4)  !important;
+    border-top: 1px solid rgb(252, 83, 4)  !important;
+    border-radius: 2px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+
+
+
+.waageRahmenSchwarz {
+    border: 1px solid #000000;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    border-radius: 8px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    /* margin: 0px 2px; */
+    /* padding: 0px 2px; */
+}
+.waageRahmenSVG {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgba(22, 22, 20, 0.877) !important;
+    border-top: 1px solid rgb(22, 22, 20, 0.877) !important;
+    border-radius: 8px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    /* margin: 0px 2px;
+    padding: 0px 2px; */
+}
+.waageRahmenSVG {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgba(22, 22, 20, 0.877) !important;
+    border-top: 1px solid rgb(22, 22, 20, 0.877) !important;
+    border-radius: 8px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    /* margin: 0px 2px;
+    padding: 0px 2px; */
+}
+
+.fuellOfenRahmenIstFeld {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgba(22, 22, 20, 0.877) !important;
+    border-top: 1px solid rgb(22, 22, 20, 0.877) !important;
+    border-radius: 5px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 2px;
+    padding: 2px ;
+}
+
+
+
+.fuellRahmenIstFeld {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgba(22, 22, 20, 0.877) !important;
+    border-top: 1px solid rgb(22, 22, 20, 0.877) !important;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 2px;
+    padding: 2px ;
+}
+
+.fuellOfenSeiteValueRahmenBlauFloatLeft {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(4, 41, 252) !important;
+    border-top: 1px solid rgb(4, 41, 252) !important;
+    border-radius: 8px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+
+.fuellOfenSeiteValueRahmenGruenFloatLeft {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(4, 252, 25) !important;
+    border-top: 1px solid rgb(4, 252, 25) !important;
+    border-radius: 8px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteValueRahmenRotFloatLeft {
+    border: 1px solid #b2b2b2;
+    border-left: 2px solid rgb(252, 83, 4) !important;
+    border-top: 1px solid rgb(252, 83, 4) !important;
+    border-radius: 8px;
+    text-align: left;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    /* float: left; */
+    margin: 0px 2px;
+    padding: 0px 2px;
+}
+
+.fuellOfenSeiteValueRahmenSchwarzFloatLeft1 {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    border-left: 2px solid #b2b2b2 !important;
+    border-top: 1px solid #b2b2b2 !important;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    float: left;
+    /* margin: 1px 2px; */
+    padding: 0px 2px;
+}
+
+.fuellOfentxtKommentar{
+    /* border: 1px solid #000000; */
+    /* border-radius: 8px; */
+    text-align: left;
+    padding: 0px 2px;
+    margin: 3px;
+}
+
+.fuellOfenAnzEinAus{
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+.fuellOfenIstAnz{
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+.fuell-ccw-btn-xs {
+    padding: 0px 0px;
+    font-size: 10px;
+    /* line-height: 12px; */
+    border-radius: 2px;
+}
+
+
+.waageAnzgrau{
+    border: 1px solid #000000;
+    background-color: #808080;
+    height: 17px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+.waageAnzgruen{
+    border: 1px solid #000000;
+    background-color: #23D403;
+    height: 17px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+.waageAnzgelb{
+    border: 1px solid #000000;
+    background-color: #FCF104 ;
+    height: 17px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+.waageAnzrot{
+    border: 1px solid #000000;
+    background-color: #FC0404 ;
+    height: 17px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0px 2px;
+    margin: 2px;
+}
+
+
+.Seite-SpalteButton {
+    padding: 1px 1px !important;
+}
+
+
+.SeiteButton {
+    /* font-size: xx-large; */
+    width: 100% !important;
+    font-size: 10px;
+    margin: 2px;
+    padding: 2px 0px 0px 2px ;
+    /* line-height: 13px; */
+    margin-top: 0px;
+}
+
+
+.text-right{
+    text-align: right;
+}
+
+.fuellOfenSeiteRahmen100Proz{
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.fuellOfenSeiteRahmen110Proz{
+    width: 110%;
+    box-sizing: border-box;
+    float: left;
+}
+.fuellOfenSeiteRahmen33Proz{
+    width: 33%;
+    box-sizing: border-box;
+    float: left;
+}
+.fuellOfenSeiteRahmen20Proz{
+    width: 20%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.waagenFarbe1 {
+    background-color: #FDEDEC !important;
+}
+
+.waagenFarbe2 {
+    background-color: #F4ECF7 !important;
+}
+
+.waagenFarbe3 {
+    background-color: #EBF5FB !important;
+}
+
+.waagenFarbe4 {
+    background-color: #E8F6F3 !important;
+}
+
+
+.waagenFarbe5 {
+    background-color: #EAFAF1 !important;
+}
+
+
+.waagenFarbe6 {
+    background-color: #E8F6F3 !important;
+}
+
+
+.waagenFarbe7 {
+    background-color: #FDF2E9 !important;
+}
+
+
+.waagenFarbe8 {
+    background-color: #F2F3F4 !important;
+}
+
+
+.waagenFarbe9 {
+    background-color: #F8F9F9 !important;
+}
+
+
+.waagenFarbe10 {
+    background-color: #EBEDEF !important;
+}
+
+
+.waagenFarbe11 {
+    background-color: #D5D8DC !important;
+}
+
+.ccw-btn-xs-buffer {
+    /* padding: 2px 2px; */
+    font-size: 10px;
+    line-height: 12px;
+    border-radius: 2px;
+  }
+
+
+  .ccw-bild.zoom4 {
+    transition: transform 0.8s;
+    -moz-transition: transform 0.8s;
+    -webkit-transition: transform 0.8s;
+    -o-transition: transform 0.8s;
+    -ms-transition: transform 0.8s;
+   }
+   .ccw-bild.zoom4:hover {
+    cursor: zoom-in; 
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    transform: scale(4.0, 4.0);
+    -moz-transform: scale(4.0, 4.0);
+    -webkit-transform: scale(4.0, 4.0);
+    -o-transform: scale(4.0, 4.0);
+    -ms-transform: scale(4.0, 4.0);
+   }
+
+   .ccw-bild.zoom2 {
+    transition: transform 0.6s;
+    -moz-transition: transform 0.6s;
+    -webkit-transition: transform 0.6s;
+    -o-transition: transform 0.6s;
+    -ms-transition: transform 0.6s;
+   }
+   .ccw-bild.zoom2:hover {
+    cursor: zoom-in; 
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+   }
+  
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 767px) { /* Breite beträgt höchstens */
+    .fuellOfenSeiteDivRezeptur {
+        margin-right: 15px;
+    }
+
+    .fuellOfenSeiteDivofen {
+        margin: 0px 15px;
+    }
+
+    .fuellOfenSeiteDivRezeptnummer {
+        margin-left: 15px;
+    }
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1030px) { /* 767Breite beträgt höchstens */
+    .waageSeiteDivRezeptur {
+        margin-right: 15px;
+    }
+
+    .waageSeiteDivwaage {
+        margin: 0px 15px;
+    }
+
+    .waageSeiteDivRezeptnummer {
+        margin-left: 15px;
+    }
+
+    .waageSeiteTable {
+        /* font-size: xx-large; */
+        font-size: xx-small;
+        /*margin-bottom: 3px;*/
+        /* line-height: 13px; */
+        margin-top: 5px;
+    }
+ 
+    .waageSeiteButton {
+        /* font-size: xx-large; */
+        font-size: xx-small;
+        margin-bottom: 3px;
+        /* line-height: 13px; */
+        margin-top: 0px;
+    }
+    .waageSeiteNavButton {
+        /* font-size: xx-large; */
+        font-size: x-small;
+        margin-bottom: 3px;
+        /* line-height: 13px; */
+        margin-top: 0px;
+    }
+ 
+    .waageAnzgrau{
+        border: 1px solid #000000;
+        background-color: #808080;
+        height: 10px !important;
+        border-radius: 2px;
+        text-align: center;
+        padding: 0px 1px;
+        margin: 1px;
+    }
+  
+    .waageAnzgruen{
+        border: 1px solid #000000;
+        background-color: #23D403;
+        height: 10px !important;
+        border-radius: 4px;
+        text-align: center;
+        padding: 0px 2px;
+        margin: 2px;
+    }
+
+}
+  

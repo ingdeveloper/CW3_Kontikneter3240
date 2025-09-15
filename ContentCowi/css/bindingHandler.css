@@ -1,0 +1,15 @@
+﻿.bindingHandler_Class_Input {
+   display: inline;
+   /* width: 70%; */
+
+   text-align: right;
+   padding: 0px 2px 0px 0px;
+   margin: 0px;
+   /*height: 12px;*/
+
+   /*color: red;*/
+
+   border: 1px solid #ccc;
+   border-bottom-left-radius: 2px;
+   border-top-left-radius: 2px;  
+}

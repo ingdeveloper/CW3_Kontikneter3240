@@ -1,0 +1,194 @@
+<div class="container">
+    <div class="visible-xs">
+        <h4>Temperaturen</h4>
+
+        <wf-bargraph params="signalName: 'Local Hour', precision: 2, unitLabel: true, titleText: 'Innentemperatur', minRange: 0, maxRange: 30, cssClass: 'progress-bar-success', iconClass: 'wf wf-temperature', progressBarSize: 'progress-sm', showTickLabels: true"></wf-bargraph>
+        <wf-bargraph params="signalName: 'Local Minute', precision: 2, unitLabel: true, titleText: 'Außentemperatur', minRange: -20, maxRange: 40, cssClass: 'progress-bar-danger', iconClass: 'wf wf-temperature', progressBarSize: 'progress-sm', showTickLabels: true"></wf-bargraph>
+
+        <div class="row b-t m-y-md"></div>
+
+        <h4>LU 5.1 Ventillator 1</h4>
+
+        <wf-state-text class="block text-center" params="symbolicTextNormalState: 'Standby', cssClassNormalState: 'alert block b-a',
+        states:[{conditionRule: '%Local Second% > 10 && %Local Second% < 30' , symbolicText: 'Automatik', cssClassName: 'block alert alert-success'} ,
+               {conditionRule: '%Local Second% >= 30 && %Local Second% < 40' , symbolicText: 'Störung', cssClassName: 'block alert alert-danger critical'} ,
+               {conditionRule: '%Local Second% >= 40 && %Local Second% < 45' , symbolicText: 'Wartung', cssClassName: 'block alert alert-warning'} ,
+               {conditionRule: '%Local Second% > 45 && %Local Second% <= 59' , symbolicText: 'Handbetrieb', cssClassName: 'block alert alert-info'}]">
+        </wf-state-text>
+
+
+        <h3 class="text-center margin-bottom">Elektrische Leistung Ventillator 1</h3>
+        <wf-gauge-1 params="signalName: 'Temperature 1', iconClass: 'wf wf-power wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+
+        <h3 class="text-center margin-bottom">Geschwindigkeit Ventillator 1</h3>
+        <wf-gauge-1 params="signalName: 'Servo 1', iconClass: 'wf wf-fan wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+
+        <div class="row b-t m-y-md"></div>
+
+        <h4>LU 5.1 Ventillator 2</h4>
+
+        <wf-state-text class="block text-center" params="symbolicTextNormalState: 'Standby', cssClassNormalState: 'alert block b-a',
+        states:[{conditionRule: '%Local Second% >= 40 && %Local Second% < 59' , symbolicText: 'Automatik', cssClassName: 'block alert alert-success'} ,
+               {conditionRule: '%Local Second% >= 30 && %Local Second% < 40' , symbolicText: 'Störung', cssClassName: 'block alert alert-danger critical'} ,
+               {conditionRule: '%Local Second% >= 15 && %Local Second% < 30' , symbolicText: 'Wartung', cssClassName: 'block alert alert-warning'} ,
+               {conditionRule: '%Local Second% > 0 && %Local Second% <= 15' , symbolicText: 'Handbetrieb', cssClassName: 'block alert alert-info'}]">
+        </wf-state-text>
+
+
+        <div class="col-xs-12 col-sm-6">
+            <h3 class="text-center margin-bottom">Elektrische Leistung Ventillator 2</h3>
+            <wf-gauge-1 params="signalName: 'Temperature 2', iconClass: 'wf wf-power wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <h3 class="text-center margin-bottom">Geschwindigkeit Ventillator 2</h3>
+            <wf-gauge-1 params="signalName: 'Servo 2', iconClass: 'wf wf-fan wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+        </div>
+    </div>
+           
+    <div class="wf-demo-air-handling hidden-xs">
+        <h1 class="page-header">
+            <span data-bind="text: titleText1"></span> 
+        
+        </h1>
+            <div class="wf-demo-air-valves stretch">
+                <!-- #region valves -->
+                <wf-state-symbol class="wf-valve1 wf-symbol-2x" params="cssClassNormalState: 'wf-valves wf-valve-4-way', cssClassState1: 'wf-valves wf-valve-4-way running', conditionRule1: '%Local Second% > 10'"></wf-state-symbol>
+                <wf-state-symbol class="wf-valve2 wf-symbol-2x" params="cssClassNormalState: 'wf-valves wf-valve-4-way', cssClassState1: 'wf-valves wf-valve-4-way running', conditionRule1: '%Local Second% > 20'"></wf-state-symbol>
+                <wf-state-symbol class="wf-valve3 wf-symbol-2x wf-n" params="cssClassNormalState: 'wf-pid wf-3-way-valve-c-b', cssClassState1: 'wf-pid wf-3-way-valve-a-b running', conditionRule1: '%Local Second% < 30', cssClassState2: 'wf-pid wf-3-way-valve-c-b running', conditionRule2: '%Local Second% >= 30'"></wf-state-symbol>
+                <wf-state-symbol class="wf-valve4 wf-symbol-2x wf-n" params="cssClassNormalState: 'wf-pid wf-3-way-valve-c-b', cssClassState1: 'wf-pid wf-3-way-valve-a-b running', conditionRule1: '%Local Second% < 30', cssClassState2: 'wf-pid wf-3-way-valve-c-b running', conditionRule2: '%Local Second% >= 30'"></wf-state-symbol>
+                <!-- #endregion -->
+                <!-- #region pumps -->
+                <wf-state-symbol class="wf-pump1 wf-symbol-2x wf-circle-decorator wf-n clickable" data-bind="click: function(){ activateDialog(true, 1, 'Local Second'); }" params="cssClassNormalState: 'wf-hvac wf-fan', cssClassState1: 'wf-hvac wf-fan hand', conditionRule1: '%Local Second% > 10'">
+                </wf-state-symbol>
+
+                <wf-state-symbol class="wf-pump2 wf-symbol-2x wf-circle-decorator wf-s clickable" data-bind="click: function(){ activateDialog(true, 2, 'OperationMode2'); }" params="cssClassNormalState: 'wf-hvac wf-fan', cssClassState1: 'wf-hvac wf-fan critical', conditionRule1: '%Local Second% > 30'"></wf-state-symbol>
+                <wf-state-symbol class="wf-pump3 wf-symbol-1x wf-s" params="cssClassNormalState: 'wf-pid wf-pump', cssClassState1: 'wf-pid wf-pump running', conditionRule1: '%Local Second% > 15'"></wf-state-symbol>
+                <wf-state-symbol class="wf-pump4 wf-symbol-1x wf-s" params="cssClassNormalState: 'wf-pid wf-pump', cssClassState1: 'wf-pid wf-pump running', conditionRule1: '%Local Second% > 15'"></wf-state-symbol>
+                <!-- #endregion -->
+                <!-- #region filters -->
+                <wf-state-symbol class="wf-filter1 wf-symbol-2x" params="cssClassNormalState: 'wf-pid wf-filter-2', cssClassState1: 'wf-pid wf-filter-2 running', conditionRule1: '%Local Second% > 10'"></wf-state-symbol>
+                <wf-state-symbol class="wf-filter2 wf-symbol-2x" params="cssClassNormalState: 'wf-pid wf-filter-2 running', cssClassState1: 'wf-pid wf-filter-2 error', conditionRule1: '%Local Second% > 30'"></wf-state-symbol>
+                <wf-state-symbol class="wf-filter3 wf-symbol-2x wf-w" params="cssClassNormalState: 'wf-pid wf-filter-2', cssClassState1: 'wf-pid wf-filter-2 running', conditionRule1: '%Local Second% > 10'"></wf-state-symbol>
+                <!-- #endregion -->
+                <!-- #region flaps -->
+                <wf-state-symbol class="wf-flap1 wf-symbol-2x" params="cssClassNormalState: 'wf-pid wf-flap-2'"></wf-state-symbol>
+
+                <div class="wf-flap2 wf-symbol-bordered">
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% > 20'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% > 20'"></wf-state-symbol>
+                </div>
+
+                <div class="wf-flap3 wf-symbol-bordered">
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% < 30'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% < 30'"></wf-state-symbol>
+                </div>
+
+                <div class="wf-flap4 wf-symbol-bordered">
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% < 30'"></wf-state-symbol>
+                    <wf-state-symbol class="wf-symbol-1x" params="cssClassNormalState: 'wf-pid wf-flap-4 wf-s', cssClassState1: 'wf-pid wf-flap-4 running-foreground', conditionRule1: '%Local Second% < 30'"></wf-state-symbol>
+                </div>
+
+                <!-- #endregion -->
+                <!-- #region sensors -->
+                <wf-sensor class="wf-sensor1" params="pointerLength: '20', pointerRotation: '0', sensorText: 'T', signalName: 'Local Second', staticUnitText: '°C'"></wf-sensor>
+                <wf-sensor class="wf-sensor2" params="pointerLength: '20', pointerRotation: '0', sensorText: 'T', signalName: 'Local Hour', staticUnitText: '°C'"></wf-sensor>
+                <wf-sensor class="wf-sensor3" params="pointerLength: '30', pointerRotation: '90', sensorText: 'T', signalName: 'Local Hour', staticUnitText: '°C'"></wf-sensor>
+                <wf-sensor class="wf-sensor4" params="pointerLength: '0', sensorText: 'T', signalName: 'Local Hour', staticUnitText: '°C'"></wf-sensor>
+                <wf-sensor class="wf-sensor5" params="pointerLength: '0', sensorText: 'T', signalName: 'Local Hour', staticUnitText: '°C'"></wf-sensor>
+                <wf-sensor class="wf-sensor6" params="pointerLength: '0', sensorText: 'T', signalName: 'Local Second', staticUnitText: '°C'"></wf-sensor>
+
+                <div class="wf-sensor7  wf-sensor-label">ΔP</div>
+                <div class="wf-sensor8  wf-sensor-label">ΔP</div>
+                <div class="wf-sensor9  wf-sensor-label">ΔP</div>
+                <div class="wf-sensor10 wf-sensor-label">ΔP</div>
+                <div class="wf-sensor11 wf-sensor-label">ΔP</div>
+                <wf-sensor class="wf-sensor12" params="pointerLength: '30', pointerRotation: '180', sensorText: 'V'"></wf-sensor>
+                <wf-sensor class="wf-sensor13" params="pointerLength: '30', pointerRotation: '180', sensorText: 'V'"></wf-sensor>
+                <div class="wf-sensor14 wf-sensor-label wf wf-arrow wf-nw border-radius-50"></div>
+
+                <!-- #endregion -->
+                <!-- #region arrows -->
+
+                <wf-state-symbol class="wf-arrow1 wf-symbol-1x" params="cssClassNormalState: 'wf-lg wf-arrow fadeInTranslateFadeOut', cssClassState1: 'wf-lg wf-arrow green running fadeInTranslateFadeOut', conditionRule1: '%Local Second% > 5'"></wf-state-symbol>
+                <wf-state-symbol class="wf-arrow2 wf-symbol-1x" params="cssClassNormalState: 'wf-lg wf-arrow fadeInTranslateFadeOut', cssClassState1: 'wf-lg wf-arrow red fadeInTranslateFadeOut', conditionRule1: '%Local Second% > 5'"></wf-state-symbol>
+                <wf-state-symbol class="wf-arrow3 wf-symbol-1x invert-x" params="cssClassNormalState: 'wf-lg wf-arrow fadeInTranslateFadeOut', cssClassState1: 'wf-lg wf-arrow yellow fadeInTranslateFadeOut', conditionRule1: '%Local Second% > 5'"></wf-state-symbol>
+                <wf-state-symbol class="wf-arrow4 wf-symbol-1x invert-x" params="cssClassNormalState: 'wf-lg wf-arrow fadeInTranslateFadeOut', cssClassState1: 'wf-lg wf-arrow brown fadeInTranslateFadeOut', conditionRule1: '%Local Second% > 5'"></wf-state-symbol>
+
+
+                <!-- #endregion -->
+                <!-- #region value displays -->
+
+                <wf-value-display class="wf-value-display1" data-bind="draggable: {}" params="signalName: 'Local Minute', unitLabel: true"></wf-value-display>
+                <wf-value-display class="wf-value-display2" data-bind="draggable: {}" params="signalName: 'Local Minute', unitLabel: true"></wf-value-display>
+
+                <!-- #endregion -->
+                <!-- #region arrows -->
+
+                <div class="wf-text-label1 wf-text-label-bordered">LU 5.1 Ventillator 2</div>
+                <div class="wf-text-label2 wf-text-label-bordered">LU 5.1 Ventillator 1</div>
+                <div class="wf-text-label3 wf-text-label">M</div>
+                <div class="wf-text-label4 wf-text-label">M</div>
+
+                <!-- #endregion -->
+            </div>
+</div>
+</div>
+<!-- Modal template -->
+
+<div data-bind="attr: { id: 'modal-fan-back-container-' }">
+    <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: ventDialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-fan-' }"style="display: none;">
+
+    <!-- ko if: ventDialog() -->
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <div class="modal-title">
+                    <span data-bind="text: param1"></span>
+                    Ventilator
+                    <span data-bind="text: param2"></span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-content-title">
+                    Statusinformationen
+                </h3>
+                <div class="row m-t">
+                    <div class="col-xs-12">
+                        <wf-state-text class="block text-center bold" params="symbolicTextNormalState: 'Standby', cssClassNormalState: 'alert block b-a',
+                        states:[{conditionRule: '%'+statusSignal+'% > 10 && %'+statusSignal+'% < 30' , symbolicText: 'Automatik', cssClassName: 'block alert alert-success'} ,
+                               {conditionRule: '%'+statusSignal+'% >= 30 && %'+statusSignal+'% < 40' , symbolicText: 'Störung', cssClassName: 'block alert alert-danger critical'} ,
+                               {conditionRule: '%'+statusSignal+'% >= 40 && %'+statusSignal+'% < 45' , symbolicText: 'Wartung', cssClassName: 'block alert alert-warning'} ,
+                               {conditionRule: '%'+statusSignal+'% > 45 && %'+statusSignal+'% <= 59' , symbolicText: 'Handbetrieb', cssClassName: 'block alert alert-info'}]">
+                        </wf-state-text>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="text-center margin-bottom">Elektrische Leistung</h3>
+                        <wf-gauge-1 params="signalName: 'Temperature ' + param2, iconClass: 'wf wf-power wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="text-center margin-bottom">Geschwindigkeit</h3>
+                        <wf-gauge-1 params="signalName: 'Servo 1', iconClass: 'wf wf-speed-gauge wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <wf-bargraph params="signalName: 'Local Hour', unitLabel: true, titleText: 'Temperatur', minRange: 0, maxRange: 30, iconClass: 'wf wf-thermometer', progressBarSize: 'progress-sm', showTickLabels: true, cssClass: 'progress-bar-danger'"></wf-bargraph>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bind="click: close">
+                    <wf-symbolictext params="symbolicText: 'I4SCADA_Close'"></wf-symbolictext>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+
+    </div>
+</div>
+<!--/ko-->

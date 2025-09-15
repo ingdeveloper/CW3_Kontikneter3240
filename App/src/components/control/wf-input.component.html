@@ -1,0 +1,54 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible() -->
+    <div class="relative">
+        <div class="form-group input-group fluid" data-bind="css: inputSize, attr : {title: tooltipText}">
+            <!-- ko if: iconClass || label || signalNameLabel -->
+            <span class="input-group-addon wf-label-addon">
+                <span class="">
+                    <!-- ko if: iconClass -->
+                    <i class="wf-label-icon" data-bind="css: iconClass, attr: { style: iconStyle }"></i>
+                    <!-- /ko -->
+                    <!-- ko if: label -->
+                    <span>{{connector.translate(label)()}}</span>
+                    <!-- /ko -->
+                    <!-- ko if: signalNameLabel -->
+                    <span data-bind="text: signalName, visible: signalNameLabel"></span>
+                    <!-- /ko -->
+                </span>
+            </span>
+            <!-- /ko -->
+
+            <input type="text" class="form-control wf-input-box" data-bind="keyboard: virtualKeyboardType(), disable: isDisabled, value: signalValue, css: cssClass, attr: { style: textStyle }, hasfocus: isSelected, valueUpdate: 'keyup', event: { keyup: keyupEventHandler}" />
+
+            <!-- ko if: unitLabel -->
+            <!-- ko if: staticUnitText -->
+            <span class="input-group-addon wf-unit-addon" data-bind="text: staticUnitText, visible: settings.staticUnitText"></span>
+            <!-- /ko -->
+            <!-- ko ifnot: staticUnitText -->
+            <span class="input-group-addon wf-unit-addon">
+                <wf-signal-information params="signalName: signalName, propertyName: 'Unit'"></wf-signal-information>
+            </span>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <div class="input-popover popover" style="display: none;" data-bind="visible: isEditing, css:popoverPosition">
+            <div class="arrow"></div>
+            <div class="popover-content">
+                <div class="btn-group">
+                    <button class="btn btn-success" type="button" data-bind="click: writeInputValue, visible: isEditing"><i class="wf wf-check"></i></button>
+                    <button class="btn btn-default" type="button" data-bind="click: resetInputValue, visible: isEditing"><i class="wf wf-arrow-undo"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                               signalNames: [signalName],
+                               signalValues: writeSecureValues,
+                               cancelCalback: function() { cancelWriteSecure() },
+                               successCalback: function() { successWriteSecure()}"></wf-write-secure-signal>
+<!-- /ko -->
+<!--/ko-->
+<!--/ko-->

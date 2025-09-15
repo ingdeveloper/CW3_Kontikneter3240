@@ -1,0 +1,48 @@
+<!-- ko if: isVisible()-->
+<div class="btn-group btn-breadcrumb">
+    <!--ko foreach: items-->
+
+    <!--ko ifnot: $data.childItems-->
+    <!-- ko component: {  name: 'wf-secured-container', params: { projectAuthorization: $data.projectAuthorization }} -->
+    <a href="#" class="btn" data-bind="css:{active:$parents[1].active, 'wf-first-item': $parentContext.$index() === 0,  'wf-last-item': $parentContext.$index() + 1 === $parents[2].items.length }, attr:{href: $parents[1].url}">
+        <!--ko if:$parents[1].icon-->
+        <i data-bind="css:$parents[1].icon"></i>
+        <!--/ko-->
+        {{$parents[2].connector.translate($parents[1].text)()}}
+    </a>
+    <!--/ko-->
+    <!--/ko-->
+
+    <!--ko if: $data.childItems-->
+    <!-- ko component: {  name: 'wf-secured-container', params: { projectAuthorization: $data.projectAuthorization }} -->
+    <div class="dropdown btn-group" data-bind="css:{'wf-last-item': $parentContext.$index() + 1 === $parents[2].items.length, 'wf-first-item': $parentContext.$index() === 0 }">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" data-bind="css:{active:$parents[1].active}, attr:{href: $parents[1].url}">
+            <!--ko if:$parents[1].icon-->
+            <i data-bind="css:$parents[1].icon"></i>
+            <!--/ko-->
+            {{$parents[2].connector.translate($parents[1].text)()}}
+            <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <!--ko foreach: $parents[1].childItems-->
+            <!-- ko component: {  name: 'wf-secured-container', params: { projectAuthorization: $data.projectAuthorization }} -->
+            <li>
+                <a href="#" data-bind="css:{active: $parents[1].active}, attr:{href: $parents[1].url}">
+                    <!--ko if: $parents[1].icon-->
+                    <i data-bind="css: $parents[1].icon"></i>
+                    <!--/ko-->
+                    {{$parents[3].connector.translate( $parents[1].text)()}}
+                </a>
+            </li>
+            <!--/ko-->
+            <!--/ko-->
+        </ul>
+
+    </div>
+    <!--/ko-->
+    <!--/ko-->
+
+    <!--/ko-->
+</div>
+<!-- /ko -->

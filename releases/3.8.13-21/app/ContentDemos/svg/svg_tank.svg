@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+enable-background="new 0 0 250 500" viewBox="0 0 250 500" >
+  <defs>
+    <radialGradient id="top_gradient" cx="75%" cy="50%" r="70%" spreadMethod="pad" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#fafafa" stop-opacity="1"/>
+      <stop offset="150%" stop-color="#888888" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="body_gradient" x1="0%" y1="0%" x2="100%" y2="0%" spreadMethod="pad" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#888888" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#fafafa" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#D3D3D3" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="bottom_gradient" cx="75%" cy="50%" r="70%" spreadMethod="pad" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#fafafa" stop-opacity="1"/>
+      <stop offset="150%" stop-color="#888888" stop-opacity="1"/>
+    </radialGradient>    
+  </defs>
+  <g>
+    <rect fill="url(#body_gradient)"
+      x="0" y="50" width="250" height="400" stroke="#aaa" stroke-width="1"/>
+    <path fill="url(#top_gradient)"
+      d="M0,50 A125,50 0 1,1 250,50 M250,100 L250,100" stroke="#aaa" stroke-width="1"/>
+    <path fill="url(#bottom_gradient)"
+      d="M0,450 A125,50 0 1,0 250,450 M250,400 L250,400" stroke="#aaa" stroke-width="1"/>
+ 
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-sensor</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSensorValue_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <wf-sensor params="pointerLength: '18', pointerRotation: '0', signalName: 'Local Second'"></wf-sensor>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-10">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-sensor params=&quot;pointerLength: &#39;18&#39;, pointerRotation: &#39;0&#39;, signalName: &#39;Local Second&#39;&quot;&gt;&lt;/wf-sensor&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr data-bind="css: {'wf-deprecated': $data.deprecated}">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-sensor class="col-xs-6 col-md-2" params="pointerLength: '35', pointerRotation: '45', sensorText: 'P', signalName: 'Local Minute', setpointSignalName: 'Local Second', staticUnitText: 'bar', sensorShape: 'pin', states: [{conditionRule: '%Local Second% != 0', cssClassName: 'critical'}]"></wf-sensor>
+                    <wf-sensor class="col-xs-6 col-md-2" params="pointerLength: '35', pointerRotation: '135', sensorText: 'P', signalName: 'Local Minute', staticUnitText: 'bar', valueLabelPosition: 'bottom'"></wf-sensor>
+                    <wf-sensor class="col-xs-6 col-md-2" params="pointerLength: '25', pointerRotation: '180', sensorShape: 'square', signalName: 'Temperature 1', staticUnitText: '°C', valueLabelPosition: 'left'"></wf-sensor>
+                    <wf-sensor class="col-xs-6 col-md-2" params="pointerLength: '35', pointerRotation: '0', signalName: 'Setpoint 1', valueLabelPosition: 'left'"></wf-sensor>
+                    <wf-sensor class="col-xs-6 col-md-2" style="margin-top: 30px;" params="signalName: 'Local Minute', staticUnitText: '°C', conditionRule1: '%Local Minute% >= 30', cssClassState1: 'wf-sensor-warning', conditionRule2: '%Local Second% >= 30', conditionRule2: '%Local Second% < 30', cssClassState2: 'blue',  sensorShape: 'pin', valueLabelPosition: 'top'"></wf-sensor>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

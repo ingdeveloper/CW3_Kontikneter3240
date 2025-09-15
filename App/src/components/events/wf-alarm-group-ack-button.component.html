@@ -1,0 +1,8 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if:hasAuthorization-->
+<button class="btn" data-bind="css: cssClass, click: onAcknowledge" title="{{connector.translate(tooltipText)}}">
+        <span data-bind="css: iconClass"></span>
+        <span>{{connector.translate(buttonText)()}}</span>
+    </button>
+<!--/ko-->
+<!--/ko-->

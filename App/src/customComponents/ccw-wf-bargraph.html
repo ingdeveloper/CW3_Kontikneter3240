@@ -1,0 +1,25 @@
+<!-- ko if:hasAuthorization-->
+<div class="inline">
+    <div class="ccw-bar-component" data-bind="style: {fontSize: fontSize,height: hoehe, width: breite}">
+        <div class="ccw-bar" data-bind="css: displayClass, attr : {title: tooltipText}, style: {fontSize: fontSize,height: hoehe, width: breite}">
+
+            <div class='ccw-bar-rect' data-bind="style:{height: anzeigeHoehe() + '%'}">
+                <div data-bind="text:anzeigeValue, style:{marginTop: (marginTopAnzeigeValue() +'px')}"></div>
+                
+            </div>
+        </div>
+        
+        <div class="ccw-bar-max" data-bind="text: max"></div>
+
+        <!-- ko if:nulllinieVisible-->
+        <div class="ccw-bar-null" data-bind="style:{bottom: nulllinie}">
+            <div class="ccw-bar-nulllinie"></div>
+        </div>
+        <!-- /ko -->
+        <div class="ccw-bar-min" data-bind="text: min"></div>
+    </div>
+</div>
+<!-- /ko -->
+
+
+<!-- data-bind="style:{height: hoehe, width: breite}" -->

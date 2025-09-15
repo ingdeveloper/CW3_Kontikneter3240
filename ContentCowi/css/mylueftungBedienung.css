@@ -1,0 +1,96 @@
+﻿.bedienungBreiteSpalte1 {
+	width: 20%;
+}
+.bedienungBreiteSpalte2 {
+	width: 10%;
+}
+.bedienungBreiteSpalte3{
+	width: 10%;
+}
+.bedienungBreiteSpalte4 {
+	width: 10%;
+}
+.bedienungBreiteSpalte5 {
+	width: 25%;
+}
+.bedienungBreiteSpalte6 {
+	width: 25%;
+}
+
+.bedienungBetriebsartBreiteSpalte1 {
+	width: 24%;
+}
+.bedienungBetriebsartBreiteSpalte2 {
+	width: 10%;
+}
+.bedienungBetriebsartBreiteSpalte3 {
+	width: 24%;
+}
+.bedienungBetriebsartBreiteSpalte4 {
+	width: 12%;
+}
+.bedienungBetriebsartBreiteSpalte5 {
+	width: 12%;
+}
+.bedienungBetriebsartBreiteSpalte6 {
+	width: 8%;
+}
+.bedienungBetriebsartBreiteSpalte7 {
+	width: 8%;
+}
+
+.lueftungBedienungBeschriftungTable {
+	font-size: 10px;
+	/* background: rgb(218, 218, 218); */
+	text-align: left;
+}
+
+.BedienungSeiteTd {
+	text-align: left;
+	vertical-align: middle;
+	padding: 2px;
+	font-size: 14px;
+
+}
+.btnBedienung{
+	height:24px;
+	width:100%;
+} 
+/*.antriebeInput{
+	display: inline;
+	width: 70%;
+}*/
+.input-hidden{
+	display: hidden;
+}
+.input-visible{
+	display: inline;
+}
+
+.bedienungAntriebeBreiteSpalte1 {
+	width: 8%;
+}
+.bedienungAntriebeBreiteSpalte2 {
+	width: 27%;
+}
+.bedienungAntriebeBreiteSpalte3 {
+	width: 10%;
+}
+.bedienungAntriebeBreiteSpalte4 {
+	width: 10%;
+}
+.bedienungAntriebeBreiteSpalte5 {
+	width: 5%;
+}
+.bedienungAntriebeBreiteSpalte6 {
+	width: 10%;
+}
+.bedienungAntriebeBreiteSpalte7 {
+	width: 5%;
+}
+.bedienungAntriebeBreiteSpalte8 {
+	width: 10%;
+}
+.bedienungAntriebeBreiteSpalte9 {
+	width: 10%;
+}

@@ -1,0 +1,9 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+<div class="wf-secured-container" data-bind="css: {'disabled': isDisabled}">
+    <div data-part="content">
+        <!-- ko template: { nodes: $componentTemplateNodes, data: $data } --><!-- /ko -->
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

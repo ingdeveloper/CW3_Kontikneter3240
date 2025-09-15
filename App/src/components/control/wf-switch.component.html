@@ -1,0 +1,24 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<div class="btn-group" data-bind="css: { 'btn-group-justified': btnGroupJustified }, attr : {title: tooltipText}">
+    <div class="btn-group">
+        <button type="button" class="btn" data-bind="disable: isDisabled, css: onCssClass(), event: { mousedown: writeOnValue }, attr: {style: buttonStyle}">
+            <i data-bind="css: onIconClass, attr: {style: iconStyle}"></i>
+            <span data-bind="attr: {style: textStyle}">{{connector.translate(onLabelText)()}}</span>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn" data-bind="disable: isDisabled, css: offCssClass(), event: { mousedown: writeOffValue }, attr: {style: buttonStyle}">
+            <i data-bind="css: offIconClass, attr: {style: iconStyle}"></i>
+            <span data-bind="attr: {style: textStyle}">{{connector.translate(offLabelText)()}}</span>
+        </button>
+    </div>
+</div>
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                               signalNames: [signalName],
+                               signalValues: writeSecureValues,
+                               draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!--/ko-->
+<!--/ko-->

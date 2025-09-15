@@ -1,0 +1,106 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-gauge-1</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfValueGauge_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <wf-gauge-1 params="signalName: 'Local Second'"></wf-gauge-1>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-gauge-1 params=&quot;signalName: &#39;Local Second&#39;&quot;&gt;&lt;/wf-gauge-1&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td>
+                                <!-- ko if: defaultValue.indexOf('#') !== -1 -->
+                                <span class="wf-1x inline-block round" style="transform: translateY(3px)" data-bind="style: {'background-color': defaultValue} "></span>
+                                <!-- /ko -->
+                                <span data-bind="text: defaultValue"></span>
+                            </td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+
+                        <pre class="prettyprint">
+&lt;wf-gauge-1 params=&quot;&quot;&gt;
+   [...]
+&lt;/wf-gauge-1&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">{{connector.translate("I4SCADA_Example_Header")()}}</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        <wf-gauge-1 params="signalName: 'Setpoint 1', iconClass: 'fa fa-bolt fa-2x', iconBackgroundColor: '#428BCA', format: '0,0.00'"></wf-gauge-1>
+                    </div>
+                    <div class="col-sm-4">
+                        <wf-gauge-1 params="signalName: 'Temperature 1', minRange: 0, maxRange: 100, majorTicks: 6, minorTicks: 5, innerRadius: 0.9, iconClass: 'wf wf-valve-symbol fa-2x', backgroundFillColor: '#5BC0DE'"></wf-gauge-1>
+                    </div>
+                    <div class="col-sm-4">
+                        <wf-gauge-1 params="signalName: 'Temperature 2', minRange: 0, maxRange: 90, majorTicks: 7, minorTicksInterval: 5, lowRangeStart: 45, lowRangeEnd: 75, highRangeStart: 75, highRangeEnd: 90, iconClass: 'wf wf-solar-pannel fa-2x'"></wf-gauge-1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

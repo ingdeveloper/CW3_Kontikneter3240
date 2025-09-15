@@ -1,0 +1,185 @@
+﻿<div class="container">
+    <header>
+        <h1 class="page-header">WEBfactory 2010 - HTML5 - Writing Values</h1>
+    </header>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-5 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Signalvalue Input widget</h3>
+                </div>
+                <div class="panel-body">
+                    <h5>Simple, configurable and flexible!</h5>
+                    <wf-input params="signalName: 'Setpoint 1'"></wf-input>
+                    <wf-input params="signalName: 'Setpoint 2', unitLabel: true"></wf-input>
+                    <wf-input params="signalName: 'Setpoint 3', signalNameLabel: true, unitLabel: true"></wf-input>
+                    <wf-input params="signalName: 'Setpoint 1', signalNameLabel: true, label: 'Label', iconClass: 'fa fa-flask'"></wf-input>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Write Button widget</h3>
+                </div>
+                <div class="panel-body">
+                    <h5>Ready to use nice and consistent styles available</h5>
+
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 0, buttonText: 'Hoch', cssClass: 'btn btn-primary', iconClass: 'fa fa-chevron-up'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Runter', cssClass: 'btn btn-info', iconClass: 'fa fa-chevron-down'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: 1, buttonText: 'Reinigung', cssClass: 'btn btn-success', iconClass: 'wf wf-flask'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: 1, buttonText: 'Licht AN',  iconClass: 'wf wf-light-bulb-eco', cssClassNormalState: 'btn btn-default', conditionRule1: '%Setpoint 2% != 0', cssClassState1: 'btn btn-warning'"></wf-button>
+
+
+                    <br />
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', writeValue: 1, buttonText: 'Pumpe AN', cssClass: 'btn-lg btn-warning', iconClass: 'wf wf-fan-symbol'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 3', writeValue: 0, buttonText: 'Motor AUS', cssClass: 'btn-lg btn-danger', iconClass: 'wf wf-motor-electric'"></wf-button>
+
+                    <h5>Using the button widget as Push-Button (optional TipMode)</h5>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 1', writeValue: 1, writeUpValue: 0, isTipModeEnabled: true, writeUpDelay: 2000, buttonText: 'Licht', cssClass: 'btn-lg btn-primary', iconClass: 'fa fa-hand-up'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: 1, writeUpValue: 0, isTipModeEnabled: true, writeUpDelay: 500, buttonText: 'Brenner schalten', cssClass: 'btn-lg btn-warning', iconClass: 'fa fa-fire'"></wf-button>
+                    <wf-button class="btn-inline" params="signalName: 'Setpoint 2', writeValue: -1, writeUpValue: 0, isTipModeEnabled: true, writeUpDelay: 500, cssClass: 'btn-lg btn-default', iconClass: 'fa fa-plus'"></wf-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Different sizes</h3>
+                </div>
+                <div class="panel-body">
+
+                    <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Large', cssClass: 'btn-lg btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 2', writeValue: 1, buttonText: 'Default', cssClass: 'btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 3', writeValue: 1, buttonText: 'Small', cssClass: 'btn-sm btn-block btn-default'"></wf-button>
+                    <br />
+                    <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Extra small', cssClass: 'btn-xs btn-block btn-default'"></wf-button>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Switch widget</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-switch class="" params="signalName: 'Setpoint 1', onValue: 1, offValue: 0, defaultCssClass: 'btn-default'"></wf-switch>
+                    <br />
+                    <wf-switch params="signalName: 'Setpoint 2', onValue: 1, onLabelText: 'Motor AN', offValue: 0, offLabelText: 'Motor AUS', onIconClass: 'wf wf-motor-electric', offIconClass: 'wf wf-motor-electric', defaultCssClass: 'btn-lg btn-default', activeCssClass: 'btn-lg btn-danger'"></wf-switch>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Write and read Slider widget</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-slider params="signalName:'Setpoint 1', showTickLabels:true"></wf-slider><br />
+                    <wf-slider params="signalName:'Setpoint 1', showTickLabels:true, scale:'logarithmic'"></wf-slider>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Write Signal Combobox widget</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-combobox class="inline-block" params="symbolicTexts: ['LICHT AUS', 'LICHT AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn btn-warning'"></wf-combobox>
+                    <wf-combobox class="inline-block" params="symbolicTexts: ['Rezept 1', 'Rezept 2', 'Rezept 3', 'Rezept 4'], symbolicTextNormalState: 'Rezeptauswahl', signalNames: ['Setpoint 3', 'Setpoint 3', 'Setpoint 3', 'Setpoint 3'], signalValues: [1, 2, 3, 4], iconClass: ['fa fa-tint', 'fa fa-coffee', 'fa fa-leaf', 'fa fa-glass'], cssClass: 'btn btn-default'"></wf-combobox>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Write Signals over a Buffer Table</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row p-b-md">
+                        <wf-button class="col-sm-2" params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Write Value: 1', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                        <wf-button class="col-sm-2" params="signalName: 'Setpoint 2', writeValue: 2, buttonText: 'Write Value: 2', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                        <wf-button class="col-sm-2" params="signalName: 'Setpoint 3', writeValue: 3, buttonText: 'Write Value: 3', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                        <wf-button class="col-sm-2" params="signalName: 'OperationMode1', writeValue: 4, buttonText: 'Write Value: 4', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                        <wf-button class="col-sm-2" params="signalName: 'OperationMode2', writeValue: 5, buttonText: 'Write Value: 5', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                        <wf-button class="col-sm-2" params="signalName: 'OperationMode3', writeValue: 6, buttonText: 'Write Value: 6', cssClass: 'btn-primary', writeToBuffer: true"></wf-button>
+                    </div>
+
+                    <div class="row p-b-md">
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'Setpoint 1', toggleValue1: 0, toggleValue2: 1, buttonText: 'Toggle Values: 0-1', cssClass: 'btn-primary',states:[{signalName:'Setpoint 1', maskSignal:0, cssClassName:'wf wf-light-bulb-o'},{signalName:'Setpoint 1', maskSignal:1, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'Setpoint 2', toggleValue1: 2, toggleValue2: 3, buttonText: 'Toggle Values: 2-3', cssClass: 'btn-primary',states:[{signalName:'Setpoint 2', maskSignal:2, cssClassName:'wf wf-light-bulb-o'},{signalName:'Setpoint 2', maskSignal:3, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'Setpoint 3', toggleValue1: 4, toggleValue2: 5, buttonText: 'Toggle Values: 4-5', cssClass: 'btn-primary',states:[{signalName:'Setpoint 3', maskSignal:4, cssClassName:'wf wf-light-bulb-o'},{signalName:'Setpoint 3', maskSignal:5, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'OperationMode1', toggleValue1: 6, toggleValue2: 7, buttonText: 'Toggle Values: 6-7', cssClass: 'btn-primary',states:[{signalName:'OperationMode1', maskSignal:6, cssClassName:'wf wf-light-bulb-o'},{signalName:'OperationMode1', maskSignal:7, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', maskSignal:3, cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'OperationMode2', toggleValue1: 8, toggleValue2: 9, buttonText: 'Toggle Values: 8-9', cssClass: 'btn-primary',states:[{signalName:'OperationMode2', maskSignal:8, cssClassName:'wf wf-light-bulb-o'},{signalName:'OperationMode2', maskSignal:9, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', maskSignal:3, cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                        <wf-toggle-button class="col-sm-2" params="signalName: 'OperationMode3', toggleValue1: 10, toggleValue2: 11, buttonText: 'Toggle Values: 10-11', cssClass: 'btn-primary',states:[{signalName:'OperationMode3', maskSignal:10, cssClassName:'wf wf-light-bulb-o'},{signalName:'OperationMode3', maskSignal:11, cssClassName:'wf wf-light-bulb-eco', conditionRule:'', operator:''},{signalName:'Setpoint 1', maskSignal:3, cssClassName:'wf wf-light-bulb-symbol', conditionRule:'', operator:''}], writeToBuffer: true"></wf-toggle-button>
+                    </div>
+
+                    <div class="row p-b-md">
+                        <wf-switch class="col-sm-2" params="signalName: 'Setpoint 1', onValue: 1, offValue: 0, onLabelText: 'Value 1', offLabelText: 'Value 0', writeToBuffer: true"></wf-switch>
+                        <wf-switch class="col-sm-2" params="signalName: 'Setpoint 2', onValue: 3, offValue: 2, onLabelText: 'Value 3', offLabelText: 'Value 2', writeToBuffer: true"></wf-switch>
+                        <wf-switch class="col-sm-2" params="signalName: 'Setpoint 3', onValue: 5, offValue: 4, onLabelText: 'Value 5', offLabelText: 'Value 4', writeToBuffer: true"></wf-switch>
+                        <wf-switch class="col-sm-2" params="signalName: 'OperationMode1', onValue: 7, offValue: 6, onLabelText: 'Value 7', offLabelText: 'Value 6', writeToBuffer: true"></wf-switch>
+                        <wf-switch class="col-sm-2" params="signalName: 'OperationMode2', onValue: 9, offValue: 8, onLabelText: 'Value 9', offLabelText: 'Value 8', writeToBuffer: true"></wf-switch>
+                        <wf-switch class="col-sm-2" params="signalName: 'OperationMode3', onValue: 11, offValue: 10, onLabelText: 'Value 11', offLabelText: 'Value 10', writeToBuffer: true"></wf-switch>
+                    </div>
+
+                    <div class="row p-b-md">
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'Setpoint 1', writeToBuffer: true"></wf-switch-3-states>
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'Setpoint 2', writeToBuffer: true"></wf-switch-3-states>
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'Setpoint 3', writeToBuffer: true"></wf-switch-3-states>
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'OperationMode1', writeToBuffer: true"></wf-switch-3-states>
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'OperationMode2', writeToBuffer: true"></wf-switch-3-states>
+                        <wf-switch-3-states class="col-sm-2" params="signalName: 'OperationMode3', writeToBuffer: true"></wf-switch-3-states>
+                    </div>
+
+                    <div class="row p-b-md">
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 0', 'Value 1'], symbolicTextNormalState: 'Value unknow', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 2', 'Value 3'], symbolicTextNormalState: 'Value unknow', signalNames: ['Setpoint 2', 'Setpoint 2'], signalValues: [2, 3], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 4', 'Value 5'], symbolicTextNormalState: 'Value unknow', signalNames: ['Setpoint 3', 'Setpoint 3'], signalValues: [4, 5], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 6', 'Value 7'], symbolicTextNormalState: 'Value unknow', signalNames: ['OperationMode1', 'OperationMode1'], signalValues: [6, 7], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 8', 'Value 9'], symbolicTextNormalState: 'Value unknow', signalNames: ['OperationMode2', 'OperationMode2'], signalValues: [8, 9], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                        <wf-combobox class="col-sm-2" params="symbolicTexts: ['Value 10', 'Value 11'], symbolicTextNormalState: 'Value unknow', signalNames: ['OperationMode3', 'OperationMode3'], signalValues: [10,11], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-lg btn-warning', writeToBuffer: true"></wf-combobox>
+                    </div>
+
+                    <div class="row">
+                        <wf-input class="col-sm-2" params="signalName: 'Setpoint 1', unitLabel: true, writeToBuffer: true"></wf-input>
+                        <wf-input class="col-sm-2" params="signalName: 'Setpoint 2', unitLabel: true, writeToBuffer: true"></wf-input>
+                        <wf-input class="col-sm-2" params="signalName: 'Setpoint 3', unitLabel: true, writeToBuffer: true"></wf-input>
+                        <wf-input class="col-sm-2" params="signalName: 'OperationMode1', unitLabel: true, writeToBuffer: true"></wf-input>
+                        <wf-input class="col-sm-2" params="signalName: 'OperationMode2', unitLabel: true, writeToBuffer: true"></wf-input>
+                        <wf-input class="col-sm-2" params="signalName: 'OperationMode3', unitLabel: true, writeToBuffer: true"></wf-input>
+                    </div>
+
+                    <div class="row p-b-md">
+                        <wf-slider class="col-sm-4" params="signalName: 'Setpoint 1', writeToBuffer: true, minRange: 0, maxRange: 5, showTickLabels: true"></wf-slider>
+                        <wf-slider class="col-sm-4" params="signalName: 'Setpoint 2', writeToBuffer: true, minRange: 0, maxRange: 5, showTickLabels: true"></wf-slider>
+                        <wf-slider class="col-sm-4" params="signalName: 'Setpoint 3', writeToBuffer: true, minRange: 0, maxRange: 5, showTickLabels: true"></wf-slider>
+                    </div>
+
+                    <div>
+                        <wf-buffer-button class="inline" params="buttonText: 'Buffer ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                        <wf-buffer-button class="inline" params="buttonText: 'Clear Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 150px;">&nbsp;</div>
+
+    </div>
+</div>

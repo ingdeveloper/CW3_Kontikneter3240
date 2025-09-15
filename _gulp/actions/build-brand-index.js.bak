@@ -1,0 +1,43 @@
+﻿"use strict";
+
+// ReSharper disable InconsistentNaming
+var gulp = require("gulp");
+var plumber = require("gulp-plumber");
+var consolidate = require("gulp-consolidate");
+var rename = require("gulp-rename");
+var newer = require("gulp-newer");
+var stripBom = require("strip-bom");
+var debug = require("../debug");
+var fs = require("fs");
+var swig = require("swig");
+var deployment = require("../bundles/deployment").deployment;
+var extractAppVersion = require("./extract-app-version");
+
+function buildBrandIndex(configurationName) {
+    if (!configurationName) {
+        throw "No configuration name specified";
+    }
+
+    var appVersion = extractAppVersion();
+    configurationName = configurationName.toLowerCase();
+    console.log(`Configuration name: ${configurationName}`);
+    const definition = deployment[configurationName];
+    definition.splashContents = stripBom(fs.readFileSync(definition.splashFile, "utf8"));
+    definition.isDebug = definition.debug;
+    definition.appVersion = appVersion;
+    definition.configurationName = configurationName;       
+    
+    var fileName = `./index-${configurationName}.html`;
+
+    swig.setDefaults({ autoescape: false });
+
+    return gulp.src(definition.indexFile)
+        .pipe(plumber())
+        .pipe(newer(fileName))        
+        .pipe(consolidate("swig", definition))
+        .pipe(rename(fileName))       
+        .pipe(debug())
+        .pipe(gulp.dest(`./`));
+}
+
+module.exports = buildBrandIndex;

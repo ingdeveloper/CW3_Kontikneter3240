@@ -1,0 +1,29 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if:isVisible()-->
+<div class="check-box-group-container">
+    <div class="flexbox flexbox-x-justified">
+        <label data-bind="text: textLabel" for="item"></label>
+        <div class="m-b-sm">
+
+
+            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                <label data-bind="click: selectAllItems.bind($data)" class="btn btn-default" title="{{connector.translate('I4SCADA_UM_SelectAll')()}}">
+                    <input type="radio" name="options" id="option1">
+                    <i class="wf wf-select-all"></i>
+                </label>
+                <label data-bind="click: unselectAllItems.bind($data)" class="btn btn-default active" title="{{connector.translate('I4SCADA_UM_UnSelectAll')()}}">
+                    <input type="radio" name="options" id="option2">
+                    <i class="wf wf-unselect-all"></i>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="check-box-group" data-bind="foreach: itemsList">
+        <div class="checkbox">
+            <label><input data-bind="checked: $data.Selected" type="checkbox" value=""><span data-bind="text: $data.Name"></span></label>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

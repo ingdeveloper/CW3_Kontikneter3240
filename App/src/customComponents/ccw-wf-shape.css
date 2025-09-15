@@ -1,0 +1,91 @@
+.ccw-wf-shape-aus {
+	fill: #c0c0c0;  /* grau */
+}
+
+.ccw-wf-shape-ein {
+  fill: #00ff00;  /* gruen */
+}
+.ccw-wf-shape-ein-dgruen {
+  fill: #0a4b0a;  /* dunkel-gruen */
+}
+.ccw-wf-shape-ein-gelb {
+  fill: #f6fa24;  /* gruen */
+}
+.ccw-wf-shape-ein-blau {
+  fill: #0d2ee7;  /* gruen */
+}
+.ccw-wf-shape-ein-rot {
+  fill: #fa182b;  /* gruen */
+}
+.ccw-wf-shape-stoer {
+    fill: #ff0000;
+    /* rot */
+}
+.ccw-wf-shape-transparent {
+	fill: transparent ;  /* transparent */
+  stroke: transparent; 
+}
+
+.ccw-wf-shape-stoerNeu {
+    fill: #ff0000;
+    /* rot */
+
+    animation-name: flashShape;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /*Firefox 1+*/
+    -webkit-animation-name: flashShape;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    /*Safari 3-4*/
+    -moz-animation-name: flashShape;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+.ccw-wf-shape-ohneSignal {
+    fill: #bb1bbb;
+    /* rot */
+
+    animation-name: flashShape;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /*Firefox 1+*/
+    -webkit-animation-name: flashShape;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    /*Safari 3-4*/
+    -moz-animation-name: flashShape;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+
+
+@keyframes flashShape {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+
+/*Firefox 1+*/
+@-webkit-keyframes flashShape {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+/*Safari 3-4*/
+@-moz-keyframes flashShape {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}

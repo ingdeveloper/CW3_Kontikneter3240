@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": false, // Parse in strict mode and emit "use strict" for each source file.
+        "esModuleInterop": true,
+        "target": "ES5",
+        "module": "amd",
+        "lib": [
+            "dom",
+            "es6",
+            "dom.iterable",
+            "scripthost",
+            "es2016.array.include",
+            "ES2017",
+        ],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "isolatedModules": false,
+        "noResolve": false,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "classic",
+        "sourceMap": true,
+        "listFiles": false,
+        "listEmittedFiles": false,
+        "pretty": true,
+        "stripInternal": true,
+        "downlevelIteration": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "node_modules",
+        "Gulp",
+        "Docs",
+        "Content"
+    ]
+}

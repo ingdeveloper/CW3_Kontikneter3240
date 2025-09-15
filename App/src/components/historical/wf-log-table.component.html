@@ -1,0 +1,249 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+<div class="wf-logtable-container">
+    <div class="wf-logtable-panel wf-panel panel" data-bind="css: panelBarCssClass">
+
+        <!-- ko if: headerVisibility -->
+        <div class="panel-heading" data-part="panelHeader">
+            <div class="pull-right wf-panel-toolbar">
+
+                <!-- ko if: exportButtonVisibility() && hasExportAuthorization() -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: handleExport, disable: isDataLoading" title="{{connector.translate('I4SCADA_Export')()}}">
+                    <span class="wf wf-download"></span>
+                </button>
+                <!-- /ko -->
+                <!-- ko if: autoUpdate -->
+                <button type="button" data-bind="css: buttonBarCssClass, disable: isDataLoading, click: toggleIsAutoUpdating, attr : { title: isAutoUpdating() ? connector.translate('I4SCADA_Cyclic_Update')() : connector.translate('I4SCADA_Pause')() } ">
+                    <i class="wf" data-bind="css: {'wf-play-round':isAutoUpdating, 'wf-pause-round':!isAutoUpdating()}"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko ifnot: autoUpdate -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: updateLogs, disable: isDataLoading" title="{{connector.translate('I4SCADA_Refresh')()}}">
+                    <i class="wf wf-arrow-refresh-right"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko if: configurationButtonVisibility() && hasConfigurationAuthorization()-->
+                <wf-configuration params="controlType: controlType,
+                                  getConfiguration: function(){ return getConfig(); },
+                                  loadConfiguration: function(content){ loadConfig(content); },
+                                  namespace : configurationNamespace,
+                                  buttonBarCssClass: buttonBarCssClass,
+                                  buttonBarIconClass: configurationButtonIconClass,
+                                  isModalDialogsDraggable: isModalDialogsDraggable,
+                                  showOnlyOwnConfigurations: showOnlyOwnConfigurations,
+                                  isDataLoading: isDataLoading,
+                                  parameters: settings.parameters"></wf-configuration>
+                <!-- /ko-->
+                <!--ko ifnot: connector.disableSignalBrowser-->
+                <!-- ko if: signalsButtonVisibility() && hasSignalSelectionAuthorization() -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: showSignalsSettings, disable: isSignalLoading() || isDataLoading()" title="{{connector.translate('I4SCADA_Log_Tag_Settings')()}}">
+                    <!-- ko if: isSignalLoading-->
+                    <div class="spinner m-a-0" style="width: 20px; height: 20px;"></div>
+                    <!-- /ko -->
+                    <!-- ko ifnot: isSignalLoading-->
+                    <span class="wf wf-sine-wave"></span>
+                    <!-- /ko -->
+                </button>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: settingsButtonVisibility -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: showSettings, disable: (isDataLoading() || isSignalLoading()) && !connector.disableSignalBrowser" title="{{connector.translate('I4SCADA_Settings')()}}">
+                    <span class="wf wf-clock"></span>
+                </button>
+                <!-- /ko -->
+
+            </div>
+            <h3 class="panel-title overflow-x-ellipsis p-r-md">
+                <span class="logtable-title">{{connector.translate(title)()}}</span>
+                <!--ko if:showDateTimeTooltip-->
+                <i class="wf wf-info wf-1x" data-bind="tooltip: { title: moment(startDate()).format(dateTimeTooltipFormat) + ' - '+ moment(endDate()).format(dateTimeTooltipFormat) , container: 'body'}"></i>
+                <!-- /ko -->
+                <!--ko ifnot:showDateTimeTooltip-->
+                <span class="badge label-default">
+                    <span data-bind="formattedDate: { value: startDate, format: dateTimeTooltipFormat }"></span>
+                    -
+                    <span data-bind="formattedDate: { value: endDate, format: dateTimeTooltipFormat }"></span>
+                </span>
+                <!-- /ko -->
+            </h3>
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: hasSelectedItems-->
+        <div class="alert alert-info text-center animated fadeIn m-a-md">
+            <i class="wf wf-alert-o"></i>
+            {{ connector.translate('I4SCADA_No_log_tags_selected') }}
+        </div>
+        <!-- /ko -->
+        <!-- ko if: hasSelectedItems-->
+        <div class="panel-body relative overflow-y-scroll" data-part="tableBody" data-bind="style: { height: tableHeight() + 'px'}, attr: {id: 'wrap_' + id() }">
+            <div class="row">
+                <!-- ko ifnot: busyContext.active -->
+                <div class="spinner">{{connector.translate('I4SCADA_Loading...')()}}</div>
+                <!-- /ko -->
+                <!-- ko if: busyContext.active -->
+                <table class="table table-striped table-condensed wf-table-logs" data-bind="css: cssClass, 
+                       fixTableHeader:{ wrapperId: 'wrap_' + id()}, 
+                       sortTable: {sortFunction: function(index, asc) { handleSortTable(index, asc); }, iconCssClass: 'm-l-sm'}">
+                    <thead>
+                        <tr>
+                            <th class="clickable">{{connector.translate('I4SCADA_Date')()}}</th>
+                            <!-- ko foreach: logTags-->
+                            <th class="clickable">
+                                <!-- ko if: $parent.columnTooltipIconVisibility -->
+                                <span class="wf wf-info logtable-title-icon" data-bind="tooltip: { title: $data.signalName + '<br />' + $data.logTagName , container: 'body'}" data-html="true"></span>
+                                <!-- /ko -->
+                                <span data-bind="html: $data.columnTitle"></span>
+                            </th>
+                            <!-- /ko -->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: {data: pagedItems, as: 'item'}">
+                        <tr>
+                            <!-- ko foreach: item -->
+                            <!-- ko if: $index() === 0 -->
+                            <td data-bind="formattedDate: { value: $data, format: $component.dateTimeFormat }"></td>
+                            <!-- /ko -->
+                            <!-- ko ifnot: $index() === 0 -->
+                            <td>
+                                <!-- ko if: ($data.value1 != null && $data.value2 != null) -->
+                                <i class="wf wf-info" title="{{'value: ' + $data.value1 + '/ value2: '+ $data.value2 }}"></i>
+                                <!-- /ko -->
+                                <!-- ko if: $data.isEdited -->
+                                <i class="wf wf-edit"></i>
+                                <!-- /ko -->
+                                {{$data.value}}
+                            </td>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
+            </div>
+        </div>
+        <!-- ko if: pagingControlEnabled -->
+        <div class="wf-logtag-table-pager">
+            <ul class="pager">
+                <li class="previous" data-bind="css: { 'disabled': !firstPageEnabled() }">
+                    <a href="#" data-bind="click: firstPage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.077 15.077" style="height: 15px; width: 15px;">
+                            <path style="fill:currentColor" d="M.5 1.537c-.135 0-.252.05-.352.15-.098.1-.148.215-.148.35v11c0 .136.05.255.148.354.1.1.217.147.352.147h1c.135 0 .252-.048.352-.146.098-.098.148-.217.148-.353V7.742c.026.058.06.107.102.15l5.546 5.545c.1.1.184.13.25.1.068-.03.102-.114.102-.25V7.742c.026.058.06.107.102.15l5.546 5.545c.1.1.184.13.25.1.068-.03.102-.114.102-.25v-11.5c0-.135-.034-.22-.102-.25-.066-.03-.15.005-.25.104L8.102 7.19c-.042.046-.075.096-.102.148v-5.55c0-.134-.034-.218-.102-.25-.066-.03-.15.006-.25.105L2.102 7.19c-.042.046-.075.096-.102.148v-5.3c0-.134-.05-.25-.148-.35-.1-.1-.217-.15-.352-.15h-1z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="previous" data-bind="css: { 'disabled': !previousPageEnabled() }">
+                    <a href="#" data-bind="click: previousPage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.077 15.077" style="height: 15px; width: 15px;">
+                            <path style="fill:currentColor" d="M4.037 1.537c-.134 0-.25.05-.35.15-.1.1-.15.215-.15.35v11c0 .136.05.254.15.354.1.1.216.147.35.147h1c.136 0 .254-.046.354-.146.1-.098.15-.217.15-.353V7.742c.024.058.06.11.1.15l5.548 5.545c.1.1.18.132.25.1.067-.03.1-.114.1-.25v-11.5c0-.135-.033-.218-.1-.25-.07-.03-.15.004-.25.104L5.64 7.19c-.04.048-.074.096-.1.148v-5.3c0-.134-.05-.25-.15-.35-.098-.1-.216-.15-.353-.15h-1z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="label label-default">
+                    <div class="inline-block" data-bind="text: currentPage"></div>
+                    /
+                    <div class="inline-block" data-bind="text: totalPages"></div>
+                </li>
+                <li class="next" data-bind="css: { 'disabled': !lastPageEnabled() }">
+                    <a href="#" data-bind="click: lastPage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" style="height: 15px; width: 15px;">
+                            <path style="fill:currentColor" d="M.352 1.64q-.15-.148-.25-.102Q0 1.585 0 1.788v11.5q0 .204.102.25.1.047.25-.1L5.898 7.89q.063-.062.102-.148v5.546q0 .204.102.25.1.047.25-.1l5.546-5.548q.063-.062.102-.148v5.296q0 .204.148.352.15.148.352.148h1q.203 0 .352-.148.148-.148.148-.352v-11q0-.203-.148-.35-.15-.15-.352-.15h-1q-.203 0-.352.15-.148.147-.148.35v5.297q-.04-.078-.102-.148L6.352 1.64q-.15-.148-.25-.102Q6 1.585 6 1.788v5.547q-.04-.078-.102-.148z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="next" data-bind="css: { 'disabled': !nextPageEnabled() }">
+                    <a href="#" data-bind="click: nextPage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" style="height: 15px; width: 15px;">
+                            <path style="fill:currentColor" d="M3.538 13.288c0 .136.034.22.102.25.068.032.15-.002.25-.1L9.437 7.89c.042-.04.075-.09.1-.148v5.296c0 .136.05.253.15.352.1.1.216.148.352.148h1c.134 0 .25-.05.35-.148.1-.1.15-.216.15-.352v-11c0-.135-.05-.252-.15-.35-.1-.1-.216-.15-.35-.15h-1c-.137 0-.254.05-.353.15-.1.098-.15.215-.15.35v5.297c-.025-.052-.058-.1-.1-.148L3.89 1.64c-.1-.1-.182-.133-.25-.102-.068.032-.102.115-.102.25z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: footerVisibility -->
+        <div class="panel-footer text-right" data-part="panelFooter">
+            <span class="label label-default " data-bind="text: values().length + ' ' + connector.translate('I4SCADA_Entries')()"></span>
+        </div>
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+
+    <div data-bind="attr: { id: 'modal-settings-back-container-' + id() }">
+        <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showDialog, draggable: isModalDialogsDraggable}, attr: { id: 'modal-settings-' + id() }" style="display: none;">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                        <div class="modal-title"><strong>{{connector.translate('I4SCADA_Settings')()}}</strong></div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row m-b-sm">
+                            <div class="col-xs-12">
+                                <wf-time-range class="block" params="startDateInput: startDateInput,
+                                                                     endDateInput: endDateInput,
+                                                                     timeRangeDateInput: timeRangeDateInput,
+                                                                     selectedRangeInput: selectedRangeInput,
+                                                                     startOffset: startOffset,
+                                                                     startOffsetIntervall: startOffsetIntervall"></wf-time-range>
+                            </div>
+                        </div>
+                        <div class="row m-b-sm">
+                            <div class="col-sm-6">
+                                <label>{{connector.translate('I4SCADA_Maximum_number_of_records')()}}</label>
+                                <input class="form-control" type="number" data-bind="value: maxResultsInput" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applyFilterSettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-signal-settings-back-container-' + id() }">
+        <div class="modal fade wf-panel-signal-settings wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showSignalsDialog, draggable: isModalDialogsDraggable}, attr: { id: 'modal-signal-settings-' + id() }" style="display: none;">
+            <div class="modal-dialog modal-lg modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeSignalSettings">&times;</button>
+                        <div class="modal-title"><strong>{{connector.translate('I4SCADA_Settings')()}}</strong></div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                        <wf-log-browser params="items: selectedLogTags,
+                                                   beginLoadSignalsFunc : function(){ isSignalLoading(true); },
+                                                   endLoadSignalsFunc : function(){ isSignalLoading(false); },
+                                                   showIsAlphanumeric: true,
+                                                   signalCount: maxSignalCount" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applySignalsSettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSignalSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ko-->
+<!--/ko-->

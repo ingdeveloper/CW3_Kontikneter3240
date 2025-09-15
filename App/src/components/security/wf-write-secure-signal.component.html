@@ -1,0 +1,46 @@
+<div data-bind="attr: { id: 'wf-write-secure-dialog-back-container-' + id() }" style="display:none">
+    <div class="modal fade wf-write-secure-dialog wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showWriteSecure, draggable: draggable}, attr: { 'id': 'wf-write-secure-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-lg modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: handleCancelWriteSecure">&times;</button>
+                    <div class="modal-title">{{connector.translate('I4SCADA_Confirm_Password')()}}</div>
+                </div>
+
+                <div class="modal-body wf-panel-write-secure">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- ko if: isUserLoggedIn-->
+                            <label>{{connector.translate('I4SCADA_Password')()}}: </label>
+                            <input type="password" class="form-control" placeholder="{{connector.translate('I4SCADA_Password')()}}" data-bind="textInput: reinforcementPassword"/>
+                            <!--/ko-->
+                            <!-- ko ifnot: isUserLoggedIn-->
+                            <div class="wf-callout-box wf-callout-box-warning">
+                                <h4 class="wf-callout-box-title">
+                                    {{connector.translate('I4SCADA_Signal_write_No_user_logged_in')()}}
+                                </h4>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <!-- ko if: isUserLoggedIn-->
+                        <button class="btn btn-primary" data-bind="click: handleWriteSecure">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Confirmed')()}}
+                        </button>
+                        <!--/ko-->
+                        <button class="btn btn-default" data-bind="click: handleCancelWriteSecure">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

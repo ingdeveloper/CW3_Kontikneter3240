@@ -1,0 +1,240 @@
+﻿/*--------------------------------------------------------------
+    Graphical Elements
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    Markers
+--------------------------------------------------------------*/
+.marker-sm,
+.marker,
+.marker-md,
+.marker-lg,
+.marker-xlg {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    cursor: pointer;
+}
+
+.marker-sm {
+    width: 12px;
+    height: 12px;
+}
+
+.marker-lg {
+    width: 32px;
+    height: 32px;
+}
+
+.marker-xlg {
+    width: 42px;
+    height: 42px;
+}
+
+.marker-sm .touchpoint,
+.marker .touchpoint,
+.marker-md .touchpoint,
+.marker-lg .touchpoint,
+.marker-xlg .touchpoint {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.marker-sm .pulse,
+.marker .pulse,
+.marker-md .pulse,
+.marker-lg .pulse,
+.marker-xlg .pulse {
+    width: 100%;
+    height: 100%;
+ 
+    position: absolute;
+    pointer-events: none;
+}
+
+/* .marker:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+ 
+    position: absolute;
+    pointer-events: none;
+} */
+
+.marker-icon {
+    position: absolute;
+    margin-top: -50%;
+    margin-left: -50%; 
+    width: 100%;
+} 
+
+.marker-sm.marker-icon {
+    font-size: 8px;
+    line-height: 12px;
+}
+
+.marker .marker-icon,
+.marker-md .marker-icon {
+    font-size: 14px;
+    line-height: 48px;
+}
+
+.marker-lg .marker-icon {
+    font-size: 20px;
+    line-height: 64px;
+}
+
+.marker-xlg .marker-icon {
+    font-size: 28px;
+    line-height: 84px;
+}
+
+
+/*--------------------------------------------------------------
+    Ribbons Elements
+--------------------------------------------------------------*/
+
+.wf-ribbon {
+    width: 100%;
+    min-height: 50px;
+    font-size: 18px;
+    background-color: #da0808;
+    position: relative;
+    padding: 10px;
+    color: #ffffff !important;
+    line-height: 30px;
+}
+
+.wf-ribbon:after,
+.wf-ribbon:before {
+    content: "";
+    background-size: contain;
+    position: absolute;
+}
+
+.wf-ribbon .wf-ribbon-title {
+    color: #ffffff;
+    line-height: 28px;
+}
+
+.wf-ribbon .wf-ribbon-title small,
+.wf-ribbon .wf-ribbon-title .small {
+    color: #dddddd;
+}
+
+.wf-ribbon-l-b:after {
+    width: 65px;
+    height: 30px;
+    background-image: url('svg/svg_ribbon_element_1.svg');
+    bottom: -30px;
+    left: -18px;
+}
+
+.wf-ribbon-l-t:before {
+    width: 100px;
+    height: 45px;
+    background-image: url('svg/svg_ribbon_element_2.svg');
+    top: -45px;
+    left: 0px;
+}
+
+.wf-ribbon-r-t:before {
+    width: 65px;
+    height: 30px;
+    background-image: url('svg/svg_ribbon_element_1.svg');
+    bottom: auto;
+    left: auto;
+    right: -18px;
+    top: -30px;
+    transform: rotate(180deg);
+}
+
+.wf-ribbon-r-b:after {
+    width: 100px;
+    height: 45px;
+    background-image: url('svg/svg_ribbon_element_2.svg');
+    top: auto;
+    bottom: -45px;
+    right: 0px;
+    transform: rotate(180deg);
+}
+
+
+/*--------------------------------------------------------------
+    Decorative Elements
+--------------------------------------------------------------*/
+
+.wf-circle-decorator:before,
+.wf-circle-decorator-1x-2x:before {
+    content: "";
+    position: absolute;
+    width: 78px;
+    height: 78px;
+    top: -15px;
+    left: -16px;
+    background-color: rgba(255, 255, 255, 0.56);
+    border-radius: 50%;
+    border: 2px solid rgb(216, 216, 216);
+    text-align: center;
+}
+
+.wf-circle-decorator-1x-2x:before {
+    left: -26px;
+}
+
+.wf-hexagon {
+    margin: 20px auto;
+    width: 110px;
+    height: 110px;
+    background: url("svg/svg_hex_icon.svg") no-repeat center;
+    -ms-background-size: contain;
+    background-size: contain;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.wf-hexagon.active,
+.wf-hexagon:hover,
+.wf-hexagon:focus,
+.wf-hexagon[aria-expanded=true]  {
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.25);
+    text-decoration: none;
+    color: #ffffff;
+    background-image: url("svg/svg_hex_icon_red.svg");
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.wf-hexagon .wf-feature-icon {
+    display: block;
+    color: #555;
+    text-align: center;
+    font-size: 46px;
+    line-height: 104px;
+    opacity: 1;
+}
+
+.wf-hexagon.active .wf-feature-icon,
+.wf-hexagon:hover .wf-feature-icon,
+.wf-hexagon:focus .wf-feature-icon,
+.wf-hexagon[aria-expanded=true] .wf-feature-icon {
+    color: #fff;
+}

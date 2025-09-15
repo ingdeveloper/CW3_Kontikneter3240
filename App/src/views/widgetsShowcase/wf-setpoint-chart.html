@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory, selectedCategory: widgetCategory}"></div>
+
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab"
+                        data-toggle="tab">Component <span class="label label-warning">wf-setpoint-chart</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSetpointChart_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <wf-setpoint-chart params="xAxesValues:[-20, 0, 20], yAxesSignalNames:['Setpoint 1', 'Setpoint 2', 'Setpoint 3']"></wf-setpoint-chart>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">&lt;wf-setpoint-chart params=&quot;xAxesValues:[-20, 0, 20], yAxesSignalNames:[&#39;Setpoint 1&#39;,&#39;Setpoint 2&#39;,&#39;Setpoint 3&#39;]&quot;&gt;&lt;/wf-setpoint-chart&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel-footer">
+                    <h5 class="panel-title">{{connector.translate("I4SCADA_Characteristics")()}}</h5>
+                    <div data-bind="foreach: signalProperties">
+                        <span style="margin-bottom: 5px; display: inline-block" class="label label-black" data-bind="text: $data"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <wf-value style="margin-right:20px" params="signalName: 'Local Second', format: '0.', unitLabel: true"></wf-value>
+                        <wf-value params="signalName: 'Local Second', format: '0.', unitLabel: true, staticUnitText: '°C'"></wf-value>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+</div>

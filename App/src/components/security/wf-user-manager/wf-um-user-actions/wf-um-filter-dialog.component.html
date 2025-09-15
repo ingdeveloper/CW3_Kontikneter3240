@@ -1,0 +1,48 @@
+<div style="display:none">
+    <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal}" style="display: none;">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: close">&times;</button>
+                    <div class="modal-title">{{connector.translate('I4SCADA_UM_Filter')()}}</div>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="maxCountEventsId">{{connector.translate('I4SCADA_UM_MaxCountEvents')()}}</label>
+                        <input data-bind="value: maxCountEvents, valueUpdate: 'afterkeydown'" min="0" required value="0"
+                               oninput="validity.valid||(value='0');" type="number" class="form-control" id="maxCountEventsId"
+                               autocomplete="new-password" />
+                    </div>
+
+                    <!-- ko if: hasAuthorization()-->
+                    <wf-um-check-box-group params="textLabel: managamentEventsLoc, itemsList: managamentEvents"></wf-um-check-box-group>
+                    <wf-um-check-box-group params="textLabel: activityEventsLoc, itemsList: activityEvents"></wf-um-check-box-group>
+
+                    <!--<div class="checkbox">
+                        <label><input data-bind="checked: shouldFilterByUsers" type="checkbox" value="">{{connector.translate('I4SCADA_UM_ShouldFilterEventsByUsers')()}}</label>
+                    </div>-->
+                    <wf-um-check-box-group params="textLabel: filterUsersLoc, itemsList: filterUsers"></wf-um-check-box-group>
+                    <!-- /ko -->
+
+                    <!-- ko if: hasNoAuthorization()-->
+                    <label for="maxCountEventsId" class="error-message">{{connector.translate('I4SCADA_UM_CurrentUserIsNotAuthorized')()}}</label>
+                    <!-- /ko -->
+                </div>
+
+                <div class="modal-footer">
+                    <button data-bind="click: onSaveClick" class="btn btn-sm btn-primary">
+                        <i class="wf wf-check"></i>
+                        {{connector.translate('I4SCADA_UM_Save')()}}
+                    </button>
+                    <button data-bind="click: close" class="btn btn-sm btn-default">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_UM_Cancel')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

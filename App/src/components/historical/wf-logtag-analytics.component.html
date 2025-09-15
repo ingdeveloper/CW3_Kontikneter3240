@@ -1,0 +1,163 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="wf-logtag-analytics-container" data-bind="attr: { id: 'wf-logtag-analytics-' + id() }">
+    <div class="wf-logtag-analytics-panel wf-panel panel" data-bind="css: showMainPanel ? panelBarCssClass : ''">
+
+        <!-- ko if:headerVisibility-->
+        <div class="panel-heading">
+            <div class="pull-right wf-panel-toolbar">
+                <!-- ko if: configurationButtonVisibility-->
+                <wf-configuration params="controlType: controlType,
+                                  getConfiguration: function(){ return getConfig(); },
+                                  loadConfiguration: function(content){ loadConfig(content);},
+                                  selectedRowCssClass:'danger',
+                                  namespace : configurationNamespace,
+                                  buttonBarCssClass: buttonBarCssClass,
+                                  buttonBarIconClass: configurationButtonIconClass,
+                                  isModalDialogsDraggable: isModalDialogsDraggable,
+                                  parameters: settings.parameters" ></wf-configuration>
+                <!-- /ko -->
+
+                <!-- ko if: autoUpdate -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: toggleIsAutoUpdating, attr : { title: isAutoUpdating() ? connector.translate('I4SCADA_Cyclic_Update')() : connector.translate('I4SCADA_Pause')() } ">
+                    <i class="wf" data-bind="css: {'wf-play-round':isAutoUpdating, 'wf-pause-round':!isAutoUpdating()}"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko ifnot: autoUpdate -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: triggerRefreshChartData " title="{{connector.translate('I4SCADA_Refresh')()}}">
+                    <i class="wf wf-arrow-refresh-right"></i>
+                </button>
+                <!-- /ko-->
+                <!-- ko if: settingsButtonVisibility -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: handleShowSettings " title="{{connector.translate('I4SCADA_Settings')()}}">
+                    <!-- ko if: isSignalLoading-->
+                    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+                    <!-- /ko -->
+                    <!-- ko ifnot: isSignalLoading-->
+                    <span class="wf wf-sine-wave"></span>
+                    <!-- /ko -->
+                </button>
+                <!-- /ko -->
+
+            </div>
+
+            <h3 class="panel-title overflow-x-ellipsis p-r-md">
+                <span>{{connector.translate(title)}}&nbsp;</span>
+                <span class="badge label-default">
+                    <span data-bind="formattedDate: { value: fromDate, format: dateTimeFormat }"></span>
+                    -
+                    <span data-bind="formattedDate: { value: toDate, format: dateTimeFormat }"></span>
+                </span>
+            </h3>
+        </div>
+        <!-- /ko -->
+
+        <div class="wf-logtag-analytics-panel-body" data-bind="css: {'panel-body' : headerVisibility}">
+            <!-- ko ifnot: hasData-->
+            <!-- ko ifnot: isLoading-->
+            <div class="alert alert-info text-center animated fadeIn m-a-md">
+                {{ connector.translate('I4SCADA_No_data_available')}}
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+            <!-- ko foreach: viewModel() -->
+            <div class="wf-logtag-analytics-item-panel" data-bind="css: $parent.datasetItemCssClass">
+                <!-- ko if: $parent.showHeaderForDataset-->
+                <div data-bind="text: caption, css: $parent.datasetItemHeaderCssClass"></div>
+                <!-- /ko -->
+                <div class="wf-logtag-analytics-item-panel-body">
+                    <div class="flexbox flexbox-h-justified">
+                        <!-- ko if: $parent.showMaxValue -->
+                        <div class="wf-logtag-analytics-item wf-logtag-analytics-max" data-bind="visible: maxPanelIsVisible">
+                            <i class="wf-logtag-analytics-icon" data-bind="css:  $parent.maxIconClass"></i>
+                            <span class="wf-logtag-analytics-label" data-bind="visible: showMaxLabel, text: maxLabelText"></span>
+                            <span class="wf-logtag-analytics-value" data-bind="text: maxValue"></span>
+                            <!-- ko if: $parent.showUnitLabel-->
+                            <span class="wf-logtag-analytics-unit" data-bind="text: unit"></span>
+                            <!-- /ko -->
+                            <span class="wf-logtag-analytics-timestamp" data-bind="visible: showMaxDate, text: maxDate"></span>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko if: $parent.showMinValue -->
+                        <div class="wf-logtag-analytics-item wf-logtag-analytics-min" data-bind="visible: minPanelIsVisible">
+                            <i class="wf-logtag-analytics-icon" data-bind="css:  $parent.minIconClass"></i>
+                            <span class="wf-logtag-analytics-label" data-bind="visible: showMinLabel, text: minLabelText"></span>
+                            <span class="wf-logtag-analytics-value" data-bind="text: minValue"></span>
+                            <!-- ko if: $parent.showUnitLabel-->
+                            <span class="wf-logtag-analytics-unit" data-bind="text: unit"></span>
+                            <!-- /ko -->
+                            <span class="wf-logtag-analytics-timestamp" data-bind="visible: showMinDate, text: minDate"></span>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko if: $parent.showAvg -->
+                        <div class="wf-logtag-analytics-item wf-logtag-analytics-avg" data-bind="visible: avgPanelIsVisible">
+                            <i class="wf-logtag-analytics-icon" data-bind="css:  $parent.avgIconClass"></i>
+                            <span class="wf-logtag-analytics-label" data-bind="visible: showAvgLabel, text: avgLabelText"></span>
+                            <span class="wf-logtag-analytics-value" data-bind="text: avgValue"></span>
+                            <!-- ko if: $parent.showUnitLabel-->
+                            <span class="wf-logtag-analytics-unit" data-bind="text: unit"></span>
+                            <!-- /ko -->
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: isLoading-->
+            <div class="spinner"></div>
+            <!-- /ko -->
+
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-signal-settings-back-container-' + id() }">
+        <div class="modal fade wf-panel-signal-settings wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showDialog, draggable: isModalDialogsDraggable}, attr: { id: 'modal-signal-settings-' + id() }"
+            style="display: none;">
+            <div class="modal-dialog modal-lg modal-top">
+                <div class="modal-content">
+                    <div class="modal-header modal-primary">
+                        <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                        <div class="modal-title">
+                            <strong>{{connector.translate('I4SCADA_Settings')()}}</strong>
+                        </div>
+                    </div>
+
+                    <div class="modal-body wf-panel-settings">
+                        <div class="row">
+                            <wf-log-browser params="items: selectedLogTags,
+                                       beginLoadSignalsFunc : function(){ isSignalLoading(true); },
+                                       endLoadSignalsFunc : function(){ isSignalLoading(false); }" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <wf-time-range class="block" params="hideTimeRangeSelector: isRealTimeUpdating, 
+                                startDateInput: fromDateInput, 
+                                endDateInput: toDateInput, 
+                                timeRangeDateInput: timeRangeDateInput,
+                                selectedRangeInput: selectedRangeInput,
+                                startOffset: startOffset,
+                                startOffsetIntervall: startOffsetIntervall,
+                                endOffset: endOffset,
+                                endOffsetIntervall: endOffsetIntervall"></wf-time-range>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bind="click: applySettings">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: closeSettings">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

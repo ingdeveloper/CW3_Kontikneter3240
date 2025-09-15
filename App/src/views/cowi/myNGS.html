@@ -1,0 +1,386 @@
+﻿<div class="container-fluid">
+    <div class="row ef-Rahmen4 padding-2" style="border: thin solid black; border-radius:4px; margin-bottom:4px">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+            <div class="text-center">
+                <span style="font-size: 24px" class="text-center"><strong>Kontikneter 3240</strong></span></br>
+                <span style="font-size: 20px" class="text-center">Gärschrank</span>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-9 col-xs-12">
+            <div class="row" style="padding-bottom: 5px;">
+                <a href="#rezeptur_Linie">
+                    <div class="col-lg-1 col-md-2 col-sm-4 col-xs-3">
+                        <img src="ContentCowi/svg/rezept.svg"
+                            style="max-width:60px; max-height: 60px; width:100%; height: 100%;">
+                    </div>
+                    <!-- Rezeptnummer -->
+                    <div class="col-lg-11 col-md-10 col-sm-8 col-xs-8 padding-10">
+                        <strong>
+                            <rez-info-schmal class="rez-info-padding ccw_context" params="databaseName: 'broet3240',
+                                signalNamePaNr: 'VMI3240DB4B126',
+                                signalNameProdTyp: 'VMI3240DB4DINT128',
+                                tooltipText: 'aktuelle Rezeptinformation',
+                                werk: 2,
+                                halle: 3,
+                                etage: 2,
+                                linie: 4,
+                                maschine: 40">
+                            </rez-info-schmal>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-6 col-sm-9 col-xs-12">
+        </div>
+        <div class="col-lg-1 col-md-6 col-sm-9 col-xs-12">
+        </div>
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+            <div class="text-center" style="margin-top: 12px">
+                <button class="btn btn-success btn-sm inline" type="submit" style="vertical-align: bottom"
+                    data-bind="enable: UserLevel(), click: function (){sendWerteZurSps()}, css: sendBtnCss">
+                    Werte zur SPS</button>
+                <wf-buffer-button class="btn btn-sm inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-sm'">
+                </wf-buffer-button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="ef-Rahmen4 margin-4">
+                <table class="table table-hover table-responsive" style="margin-bottom:0px">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2" class="text-center ccw-bg-info padding-2">
+                                <span style="font-size:16px" class="text-center ccw-bg-info">Entspannkoffer (EK)</span>
+                            </th>
+                            <th colspan="2" class="text-center ccw-bg-warning padding-2">
+                                <span style="font-size:16px" class="text-center ccw-bg-warning">Vorgärschrank
+                                    (VGS)</span>
+                            </th>
+                            <th colspan="4" class="text-center ccw-bg-success padding-2">
+                                <span style="font-size:16px" class="text-center ccw-bg-success">Nachgärschrank
+                                    (NGS)</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th style="width:10%" class="text-center ccw-bg-info padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Soll</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-info padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Ist</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-warning padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Soll</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-warning padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Ist</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-success padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Soll</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-success padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Ist</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-success padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Soll</span>
+                            </th>
+                            <th style="width:10%" class="text-center ccw-bg-success padding-2">
+                                <span class="antriebeBeschriftungTable text-center">Ist</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: istwerteNGS">
+                        <tr>
+                            <!-- Kommentar  ############################################## -->
+                            <td class="antriebeSeiteTd">
+                                <strong><span class="" data-bind="text: $data.kommentar"></span></strong>
+                            </td>
+                            <!-- Entspannkoffer Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-info">
+                                <!-- ko if: $data.Entspannkoffer().sichtbarSoll == true -->
+                                <ccw-wf-input-tastatur-2
+                                    params="signalName: $data.Entspannkoffer().sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                </ccw-wf-input-tastatur-2>
+                                <!-- /ko -->
+                            </td>
+                            <!--  Entspannkoffer Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-info">
+                                <!-- ko if: $data.Entspannkoffer().sichtbarIst == true -->
+                                <ccw-wf-input-tastatur-2
+                                    params="signalName: $data.Entspannkoffer().istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                </ccw-wf-input-tastatur-2>
+                                <!-- /ko -->
+                            </td>
+                            <!-- VGS Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-warning">
+                                <!-- ko if: $data.VGS().sichtbarSoll == true -->
+                                <ccw-wf-input-tastatur-2
+                                    params="signalName: $data.VGS().sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                </ccw-wf-input-tastatur-2>
+                                <!-- /ko -->
+                            </td>
+                            <!--  VGS Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-warning">
+                                <div>
+                                    <!-- ko if: $data.VGS().sichtbarIst == true -->
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.VGS().istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                    <!-- /ko -->
+                                </div>
+                            </td>
+                            <!-- NGS Zone 1 Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <div>
+                                    <!-- ko if: $data.Zone1().sichtbarSollA == true -->
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.Zone1().sollwertA.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                    <!-- /ko -->
+                                </div>
+                            </td>
+                            <!--  NGS Zone 1 Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <div>
+                                    <!-- ko if: $data.Zone1().sichtbarIstA == true -->
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.Zone1().istwertA.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                    <!-- /ko -->
+                                </div>
+                            </td>
+                            <!-- NGS Zone 2 Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <div>
+                                    <!-- ko if: $data.Zone2().sichtbarSoll == true -->
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.Zone2().sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                    <!-- /ko -->
+                                </div>
+                            </td>
+                            <!--  NGS Zone 2 Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <div class="ccw-bg-success">
+                                    <!-- ko if: $data.Zone2().sichtbarIst == true -->
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.Zone2().istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'65%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                    <!-- /ko -->
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody data-bind="foreach: statusKlima">
+                        <tr>
+                            <!-- Kommentar  ############################################## -->
+                            <td class="antriebeSeiteTd">
+                                <strong><span data-bind="text: $data.kommentar"></span></strong>
+                            </td>
+                            <!-- Entspannkoffer Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-info">
+                            </td>
+                            <!--  Entspannkoffer Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-info">
+                            </td>
+                            <!-- VGS Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-warning">
+                            </td>
+                            <!--  VGS Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-warning">
+                            </td>
+                            <!-- NGS Zone 1 Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                            </td>
+                            <!--  NGS Zone 1 Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <ccw-wf-ventil2b style="position: absolute; height:24px; width:24px"
+                                    params="nameVentil: $data.name, infoAktiv:true, ausrichtung: 0, bmk: $data.bmk, signalEin: $data.lblStateZone1().signalNameEin.signalName(), signalStoer: $data.lblStateZone1().signalNameStoer.signalName()">
+                                </ccw-wf-ventil2b>
+                            </td>
+                            <!-- NGS Zone 2 Soll  ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                            </td>
+                            <!--  NGS Zone 2 Ist ############################################## -->
+                            <td class="antriebeSeiteTd ccw-bg-success">
+                                <div class="">
+                                    <ccw-wf-ventil2b style="position: absolute; height:24px; width:24px"
+                                        params="nameVentil: $data.name, infoAktiv:true, ausrichtung: 0, bmk: $data.bmk, signalEin: $data.lblStateZone2().signalNameEin.signalName(), signalStoer: $data.lblStateZone2().signalNameStoer.signalName()">
+                                    </ccw-wf-ventil2b>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody data-bind="foreach: roehrenUV">
+                        <tr>
+                            <!-- Kommentar  ############################################## -->
+                            <td class="antriebeSeiteTd">
+                                <strong><span data-bind="text: $data.kommentar"></span></strong>
+                            </td>
+                            <td colspan="2" class="antriebeSeiteTd-center ccw-bg-info">
+                                <div class="progress progress-ccw-small"
+                                    data-bind="attr:{title: $data.bargraph1().title}">
+                                    <div class="progress-bar ccw-progress-bar"
+                                        data-bind="style: { width: $data.bargraph1().erg + '%'}, css: $data.bargraph1().farbe">
+                                        <span style="margin-left:20px"
+                                            data-bind="text: $data.bargraph1().istwert + ' ' + $data.einheit"></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2" class="antriebeSeiteTd-center ccw-bg-warning">
+                                <div class="progress progress-ccw-small"
+                                    data-bind="attr:{title: $data.bargraph2().title}">
+                                    <div class="progress-bar ccw-progress-bar"
+                                        data-bind="style: { width: $data.bargraph2().erg + '%'}, css: $data.bargraph2().farbe">
+                                        <span style="margin-left:20px"
+                                            data-bind="text: $data.bargraph2().istwert + ' ' + $data.einheit"></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="4" class="antriebeSeiteTd-center ccw-bg-success">
+                                <div class="progress progress-ccw-small"
+                                    data-bind="attr:{title: $data.bargraph3().title}">
+                                    <div class="progress-bar ccw-progress-bar"
+                                        data-bind="style: { width: $data.bargraph3().erg + '%'}, css: $data.bargraph3().farbe">
+                                        <span style="margin-left:20px"
+                                            data-bind="text: $data.bargraph3().istwert + ' ' + $data.einheit"></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="float:right; margin-right:30px; margin-top:-10px">
+            <span style="font-size:16px">Auswahl:</span>
+            <select id="selectChart" class="form-control ccw-header-navigation"
+                data-bind="value: $data.selectTrend, event: {change: function(){setAuswahl(selectChart.value)}}">
+                <option value="1">Entspannkoffer</option>
+                <option value="2">VGS</option>
+                <option value="3">NGS Zone 1</option>
+                <option value="5">NGS Zone 2</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ko if: auswahlTrend() == 1  -->
+        <ccw-wf-chart-1 class="block" params="
+            lines:
+            [
+            { signalName: 'GaerDB120DBW602',    logTagName: 'GaerDB120DBW602_LOG' , color: '#FF0000' , axis: 'y2'},
+            { signalName: 'GaerDB122DBW38',    logTagName: 'GaerDB122DBW38_LOG' , color: '#00FF00' , axis: 'y2'},
+            { signalName: 'GaerDB120DBW600',   logTagName: 'GaerDB120DBW600_LOG' , color: '#0000FF' , axis: 'y1' },
+            { signalName: 'GaerDB122DBW36',   logTagName: 'GaerDB122DBW36_LOG' , color: '#FF6500' , axis: 'y1'}
+            ],
+            dbName:'broet3240',
+            format:'0,0.[00]',
+            autoUpdate: false,  
+            startOffset:'hours',
+            startOffsetIntervall:4,
+            y1AxisColor: '#000000', y1AxisLabel: 'Stellgröße/ Luftfeuchte [%]',
+            y1AxisMin: null,
+            y1AxisMax: null,
+            y2AxisColor: '#fcba03', y2AxisLabel: 'Temperatur [°C]',
+            y2AxisMin: null,
+            y2AxisMax: null,                                    
+            exportButtonVisibility: true,
+            chartHeight: 400, title:'Entspannkoffer',
+            legendVisible: true,
+            headerVisibility: true,
+            legendText: 'Description',
+            tooltipPosition: 'top-left'">
+        </ccw-wf-chart-1>
+        <!-- /ko -->
+        <!-- ko if: auswahlTrend() == 2  -->
+        <ccw-wf-chart-1 class="block" params="
+            lines:
+            [
+            { signalName: 'GaerDB120DBW646', logTagName: 'GaerDB120DBW646_LOG' , color: '#FF0000' , axis: 'y2'},
+            { signalName: 'GaerDB122DBW70', logTagName: 'GaerDB122DBW70_LOG' , color: '#00FF00' , axis: 'y2'},
+            { signalName: 'GaerDB120DBW644', logTagName: 'GaerDB120DBW644_LOG' , color: '#0000FF' , axis: 'y1'},
+            { signalName: 'GaerDB122DBW68', logTagName: 'GaerDB122DBW68_LOG' , color: '#FF6500' , axis: 'y1'}
+            ],
+            dbName:'broet3240',
+            format:'0,0.[00]',
+            autoUpdate: false,  
+            startOffset:'hours',
+            startOffsetIntervall:4,
+            y1AxisColor: '#000000', y1AxisLabel: 'Stellgröße/ Luftfeuchte [%]',
+            y1AxisMin: null,
+            y1AxisMax: null,
+            y2AxisColor: '#fcba03', y2AxisLabel: 'Temperatur [°C]',
+            y2AxisMin: null,
+            y2AxisMax: null,                                    
+            exportButtonVisibility: true,
+            chartHeight: 400, title:'VGS',
+            legendVisible: true,
+            headerVisibility: true,
+            legendText: 'Description',
+            tooltipPosition: 'top-left'">
+        </ccw-wf-chart-1>
+        <!-- /ko -->
+        <!-- ko if: auswahlTrend() == 3  -->
+        <ccw-wf-chart-1 class="block" params="
+            lines:
+            [
+            { signalName: 'GaerDB120DBW646', logTagName: 'GaerDB120DBW646_LOG' , color: '#FF0000' , axis: 'y2'},
+            { signalName: 'GaerDB120DBW646', logTagName: 'GaerDB120DBW646_LOG' , color: '#00FF00' , axis: 'y2'},
+            { signalName: 'GaerDB120DBW716', logTagName: 'GaerDB120DBW716_LOG' , color: '#0000FF' , axis: 'y1'},
+            { signalName: 'GaerDB122DBW102', logTagName: 'GaerDB122DBW102_LOG' , color: '#FF6500' , axis: 'y1'}
+            ],
+            dbName:'broet3240',
+            format:'0,0.[00]',
+            autoUpdate: false,  
+            startOffset:'hours',
+            startOffsetIntervall:4,
+            y1AxisColor: '#000000', y1AxisLabel: 'Stellgröße/ Luftfeuchte [%]',
+            y1AxisMin: null,
+            y1AxisMax: null,
+            y2AxisColor: '#fcba03', y2AxisLabel: 'Temperatur [°C]',
+            y2AxisMin: null,
+            y2AxisMax: null,                                    
+            exportButtonVisibility: true,
+            chartHeight: 400, title:'NGS Zone 1',
+            legendVisible: true,
+            headerVisibility: true,
+            legendText: 'Description',
+            tooltipPosition: 'top-left'">
+        </ccw-wf-chart-1>
+        <!-- /ko -->
+        <!-- ko if: auswahlTrend() == 5  -->
+        <ccw-wf-chart-1 class="block" params="
+            lines:
+            [
+            { signalName: 'GaerDB120DBW722', logTagName: 'GaerDB120DBW722_LOG' , color: '#FF0000' , axis: 'y1'},
+            { signalName: 'GaerDB122DBW108', logTagName: 'GaerDB122DBW108_LOG' , color: '#00FF00' , axis: 'y2'},
+            { signalName: 'GaerDB120DBW720', logTagName: 'GaerDB120DBW720_LOG' , color: '#0000FF' , axis: 'y1'},
+            { signalName: 'GaerDB122DBW106', logTagName: 'GaerDB122DBW106_LOG' , color: '#FF6500' , axis: 'y1'}
+            ],
+            dbName:'broet3240',
+            format:'0,0.[00]',
+            autoUpdate: false,  
+            startOffset:'hours',
+            startOffsetIntervall:4,
+            y1AxisColor: '#000000', y1AxisLabel: 'Stellgröße/ Luftfeuchte [%]',
+            y1AxisMin: null,
+            y1AxisMax: null,
+            y2AxisColor: '#fcba03', y2AxisLabel: 'Temperatur [°C]',
+            y2AxisMin: null,
+            y2AxisMax: null,                                    
+            exportButtonVisibility: true,
+            chartHeight: 400, title:'NGS Zone 2',
+            legendVisible: true,
+            headerVisibility: true,
+            legendText: 'Description',
+            tooltipPosition: 'top-left'">
+        </ccw-wf-chart-1>
+        <!-- /ko -->
+    </div>
+</div>

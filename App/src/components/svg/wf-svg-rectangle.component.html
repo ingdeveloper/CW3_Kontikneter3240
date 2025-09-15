@@ -1,0 +1,62 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+    <div class="wf-svg-path wf-enabled-container" data-bind="css: statusCssClass" >
+            <!-- setZIndexOnMouseOver: { zIndex: 10000 } -->
+           
+        <!-- ko if: shouldNavigateToUrl -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="" data-bind="css: pathCssClass, attr: {width:width, height:height, event: {mouseover: mouseover, mouseout: mouseout}}" >
+            <a class="wf-svg-path-link" rel="noopener" data-bind="attr: {'href': navigationUrl}">
+                <rect class="wf-svg-path wf-state-element" data-bind="attr: {height: height, width: width}" />
+            
+                <!-- <path class="wf-svg-path wf-state-element" d="" data-bind="css: pathCssClass, attr: {d: pathData}, event: {mouseover: mouseover, mouseout: mouseout}"/> -->
+            </a>
+        </svg>
+        <!-- /ko -->
+        <!-- ko if: !shouldNavigateToUrl() -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="" data-bind="css: pathCssClass, attr: {width:width, height:height, event: {mouseover: mouseover, mouseout: mouseout}}" >
+            <rect class="wf-svg-path wf-state-element" data-bind="attr: {height: height, width: width}" />
+            
+            <!-- <path class="wf-svg-path wf-state-element" d="" data-bind="css: pathCssClass, attr: {d: pathData}, "/> --> 
+        </svg>
+        <!-- /ko -->
+
+        <div class="wf-path-label">
+            <div data-bind="text: labelText"></div>
+            <!-- ko if:subLabelText -->
+            <div class="wf-path-sublabel" data-bind="text: subLabelText"></div>
+            <!-- /ko -->
+        </div>
+
+        <!-- ko if:tooltipEnabled -->
+        <div class="wf-tooltip" data-bind="css: { 'block animated fadeIn': tooltipVisible() }">
+            
+            <!-- ko if:tooltipTitle -->
+            <div class="wf-svg-path-tooltip-title">
+                {{connector.translate(tooltipTitle)()}}
+            </div>
+            <!-- /ko -->
+
+            <div class="wf-svg-path-content">
+                <!-- ko if:tooltipText -->
+                <div class="wf-svg-path-tooltip-text">
+                    {{connector.translate(tooltipText)()}}
+                </div>
+                <!-- /ko -->
+                <!-- ko if:signalName -->
+                <div class="wf-svg-path-value-container">
+                    <div class="wf-svg-path-value" data-bind="text: signalValue"></div>
+                    <wf-signal-information class="wf-svg-path-value-unit" params="signalName: signalName"></wf-signal-information>
+                </div>
+                <!-- /ko -->
+            </div>
+
+        </div>
+        <!-- /ko -->
+    </div>
+
+<div class="wf-svg-path-content stretched">
+    <!-- ko template: { nodes: $componentTemplateNodes} -->
+    <!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- /ko -->

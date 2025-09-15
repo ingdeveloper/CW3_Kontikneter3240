@@ -1,0 +1,44 @@
+﻿<div class="container">
+    <header>
+        <h1 class="page-header">WEBfactory i4SCADA Examples</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="m-y">Example showing values for a set of signals</h3>
+
+            <!--<pre data-bind="text: ko.toJSON(signalDefinitions,0,2)"></pre>-->
+
+            <div class="row" data-bind="foreach: signalDefinitions">
+                <div class="col-sm-4 col-lg-2">
+                    <div class="panel panel-default wf-demo-signals" data-bind="css: {'panel-virtual': vChannel}">
+                        <div class="panel-body ">
+                            <div class="wf-demo-signals-value" data-bind="text: value">VALUE</div>
+                            <div class="wf-demo-signals-unit">
+                                [
+                                <span data-bind="text: unit">
+                                    UNIT
+                                </span>
+                                ]
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+
+                            <span class="text-info" data-bind="text: signalName">SIGNALNAME</span>
+                            <!-- ko if: description-->
+                            <i class="fa fa-info-circle text-info" data-bind="tooltip: { title: description }"></i>
+                            <!-- /ko-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3 class="m-y">Example showing values for a set of signals with a template containign a WEBfactory widget</h3>
+
+            <div data-bind="foreach: signalNames">
+                <wf-value-display class="wf-demo-signals-valuedisplay" params="signalName: $data, unitLabel: true, precision: 2, signalNameLabel: true, iconClass: 'fa fa-tag', displayClass: 'label-primary'"></wf-value-display>
+            </div>
+        </div>
+    </div>
+</div>

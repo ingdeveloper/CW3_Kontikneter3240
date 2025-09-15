@@ -1,0 +1,86 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex:2} -->
+<!-- ko if: isVisible()-->
+<div class="wf-panel panel relative panel-default" style="height:100%">
+
+    <div class="panel-heading p-a-xs">
+        <div class="flexbox-h-justified flexbox">
+            <div class="nowrap flexbox">
+                <div class="dropdown m-r-sm">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span data-bind="text: dropDownSelectedItem().text"></span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" data-bind="foreach: dropDownItems">
+                        <li data-bind="click: $parent.onClickSelectItem.bind($parent, $data)">
+                            <a data-bind="text: text"></a>
+                        </li>
+                    </ul>
+                </div>
+                <button data-bind="click: onClickRefreshPage.bind($data), visible: dropDownSelectedItem().value !== 'userActions'"
+                        type="button" class="btn btn-default">
+                    <span class="wf wf-arrow-refresh-right" aria-hidden="true"></span>
+                </button>
+            </div>
+            <!-- User buttons -->
+            <div class="users-btns" data-bind="visible: dropDownSelectedItem().value === 'users'">
+                <button data-bind="click: onDefaultSettingsClick.bind($data), clickBubble: false" type="button" class="btn btn-default">
+                    <span class="wf wf-user-id m-r-sm" aria-hidden="true"></span>
+                    {{connector.translate('I4SCADA_UM_UserDefaultSettings')()}}
+                </button>
+                <button data-bind="click: onPasswordPolicyClick.bind($data), clickBubble: false" type="button" class="btn btn-default">
+                    <span class="wf wf-password m-r-sm" aria-hidden="true"></span>
+                    {{connector.translate('I4SCADA_UM_PasswordPolicies')()}}
+                </button>
+            </div>
+            <!-- User actions buttons -->
+            <div class="users-actions-btns" data-bind="visible: dropDownSelectedItem().value === 'userActions' && connector.currentLoggedInUser()">
+                <button data-bind="click: onClickAutoRefresh.bind($data), clickBubble: false, css: { btn-primary: userActionFilter.AutoUpdate() }" type="button"
+                        class="btn btn-default">
+                    <span class="wf wf-arrow-refresh-right" aria-hidden="true"></span>
+                    {{connector.translate('I4SCADA_UM_AutoRefresh')()}}
+                </button>
+                <button data-bind="click: onTimeIntervalClick.bind($data), clickBubble: false" type="button" class="btn btn-default">
+                    <span class="wf wf-clock-o" aria-hidden="true"></span>
+                    {{connector.translate('I4SCADA_UM_TimeInterval')()}}
+                </button>
+                <button data-bind="click: onFilterClick.bind($data), clickBubble: false" type="button" class="btn btn-default">
+                    <span class="wf wf-filter" aria-hidden="true"></span>
+                    {{connector.translate('I4SCADA_UM_Filter')()}}
+                </button>
+                <wf-configuration params="controlType: controlType,
+                                  getConfiguration: function(){ return getConfig(); },
+                                  loadConfiguration: function(content, configuration){ loadConfig(content, configuration); }" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- ko if: dropDownSelectedItem().value === Pages.Users -->
+        <wf-um-users params="showDefaultSettingsDialog: showDefaultSettingsDialog,
+                 showPasswordPolicyDialog: showPasswordPolicyDialog,
+                 refreshPageTrigger: refreshPageTrigger" ></wf-um-users>
+        <!-- /ko -->
+        <!-- ko if: dropDownSelectedItem().value === Pages.AuthorizationGroups -->
+        <wf-um-authorization-groups params="refreshPageTrigger: refreshPageTrigger" ></wf-um-authorization-groups>
+        <!-- /ko -->
+        <!-- ko if: dropDownSelectedItem().value === Pages.ProjectAuthorizations -->
+        <wf-um-projects-authorizations params="refreshPageTrigger: refreshPageTrigger" ></wf-um-projects-authorizations>
+        <!-- /ko -->
+        <!-- ko if: dropDownSelectedItem().value === Pages.AccessGroups -->
+        <wf-um-access-groups params="refreshPageTrigger: refreshPageTrigger" ></wf-um-access-groups>
+        <!-- /ko -->
+        <!-- ko if: dropDownSelectedItem().value === Pages.AccessAuthorizations -->
+        <wf-um-access-authorizations params="refreshPageTrigger: refreshPageTrigger" ></wf-um-access-authorizations>
+        <!-- /ko -->
+        <!-- ko if: dropDownSelectedItem().value === Pages.UserActions -->
+        <wf-um-user-actions params="showfilterDialog: showfilterDialog,
+                        showTimeIntervalDialog: showTimeIntervalDialog,
+                        autoUpdate: autoUpdate,
+                        updateRate: updateRate,
+                        activeUserActionConfigName: activeUserActionConfigName,
+                        userActionFilter: userActionFilter,
+                        refreshPageTrigger: refreshPageTrigger" ></wf-um-user-actions>
+        <!-- /ko -->
+    </div>
+</div>
+<!--/ko-->
+<!--/ko-->

@@ -1,0 +1,66 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex:2} -->
+<!-- ko if: isVisible()-->
+<div style="height: 100%" data-bind="css: orientation, attr : {title: tooltipText}">
+    <div class="progressbar-title clearfix">
+        <span class="progressbar-label">
+            <span class="progressbar-title-icon-container">
+                <i class="progressbar-title-icon" data-bind="css: iconClass"></i>
+            </span>
+            <span class="progressbar-text">{{connector.translate(titleText)()}}</span>
+        </span>
+
+        <span class="progressbar-display">
+            <!-- ko if: minValueVioliation -->
+            <span class="progressbar-low-under">
+                <i class="wf wf-alarm"></i>
+            </span>
+            <!-- /ko -->
+            <!-- ko if: maxValueVioliation -->
+            <span class="progressbar-high-over">
+                <i class="wf wf-alarm"></i>
+            </span>
+            <!-- /ko -->
+            <!-- ko if: valueLabel -->
+            <span class="progressbar-value" data-bind="text: formattedSignalValue"></span>
+            <!-- /ko -->
+            <!-- ko if: unitLabel -->
+            <span class="progressbar-unit inline" data-bind="component: {name: 'wf-signal-information', params: { signalName: signalName, propertyName: 'Unit'} }"></span>
+            <!-- /ko -->
+        </span>
+    </div>
+    <div class="wf-progress-bar-container">
+        <!-- ko ifnot: rangeIsActive() -->
+        <div class="relative overflow-visible" data-bind="progress: 'progressValue', cssClass: 'statusCssClass', orientation: orientation, css: progressBarSize + ' ' + orientation, style: {height: height}">
+        </div>
+        <!-- /ko -->
+        <!-- ko if: rangeIsActive() && isVertical() -->
+        <div class="relative overflow-visible" data-bind="ccw_progress: 'progressValue', cssClass: 'statusCssClass', orientation: orientation, css: progressBarSize + ' ' + orientation, style: {height: height}">
+            <div class="progress-bar" style="border-radius: 4px 4px 0 0; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { height : (range1Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range1ColorHighlight() +'),to('+ range1Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)' }">
+            </div>
+            <div class="progress-bar" style="border-radius: 0; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { height : (range2Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range2ColorHighlight() +'),to('+ range2Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)'  }">
+            </div>
+            <div class="progress-bar" style="border-radius: 0 0 4px 4px; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { height : (range3Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range3ColorHighlight() +'),to('+ range3Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)' }">
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- Horizontale Ausrichtung -->
+        <!-- ko if: rangeIsActive() && !isVertical() -->
+        <div class="relative overflow-visible" data-bind="ccw_progress: 'progressValue', cssClass: 'statusCssClass', orientation: orientation, css: progressBarSize + ' ' + orientation, style: {height: height}">
+            <div class="progress-bar" style="border-radius: 4px 0 0 4px; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { width : (range1Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range1ColorHighlight() +'),to('+ range1Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range1ColorHighlight() +' 0,'+ range1Color() +' 100%)' }">
+            </div>
+            <div class="progress-bar" style="border-radius: 0; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { width : (range2Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range2ColorHighlight() +'),to('+ range2Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range2ColorHighlight() +' 0,'+ range2Color() +' 100%)'  }">
+            </div>
+            <div class="progress-bar" style="border-radius: 0 4px 4px 0; background-image:-webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-o-linear-gradient(top,#5cb85c 0,#449d44 100%);background-image:-webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));background-image:linear-gradient(to bottom,#5cb85c 0,#449d44 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0)" data-bind="css: statusCssClass, style: { width : (range3Value() +'%'), backgroundImage:'-webkit-linear-gradient(top,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)', backgroundImage:'-o-linear-gradient(top,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)', backgroundImage:'-webkit-gradient(linear,left top,left bottom,from('+ range3ColorHighlight() +'),to('+ range3Color() +'))',backgroundImage:'linear-gradient(to bottom,'+ range3ColorHighlight() +' 0,'+ range3Color() +' 100%)' }">
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: showTickLabels -->
+        <div class="wf-axis" data-bind="d3axis:{orientation: axisOrientation, revertAxis: revertAxis, minValue: minRangeValue, maxValue: maxRangeValue, height: settings.height}, css: {'wf-axis-vertical': isVertical}">
+        </div>
+        <!-- /ko -->
+    </div>
+
+</div>
+<!--/ko-->
+<!--/ko-->

@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>WEBfactory i4SCADA HTML Components Library</title>
+    <meta name="description" content="WEBfactory i4SCADA App HTML5 Template - für Prozessvisualisierung mit individuellem Design zum Bedienen und Beobachten von Maschinen, Produktionsanlagen und das Gebäudemanagement."/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-landscape.png" media="(orientation:landscape)"/>
+    <link rel="apple-touch-startup-image" href="Content/images/ios-startup-image-portrait.png" media="(orientation:portrait)"/>
+    <link rel="apple-touch-icon" href="Content/images/icon.png"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="Content/images/ccw-favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="Content/images/ccw-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Content/images/ccw-favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Content/images/ccw-favicon-16x16.png">
+
+    <meta name="apple-mobile-web-app-title" content="WEBfactory i4SCADA App - {{appVersion}}">
+
+	<link rel="stylesheet" type="text/css" href="Content/styles.bundle.css?v={{appVersion}}"/>
+	<link rel="stylesheet" type="text/css" href="Content/custom/custom.bundle.css?v={{appVersion}}"/>
+</head>
+
+<body>
+    <script type="text/javascript" src="Scripts/vendor1.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript" src="Scripts/vendor2.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript" src="Scripts/vendor3.bundle.js?v={{appVersion}}"></script>
+
+    <script type="text/javascript" src="Scripts/core.bundle.js?v={{appVersion}}"></script>
+    <script type="text/javascript">
+        wf.utilities.initializeConstants(); 
+    </script>
+
+    {% if isDebug %}
+    <script type="text/javascript" src="./node_modules/requirejs/require.js" data-main="App/src/main-standalone"></script>
+    {% else %}
+    <script defer type="text/javascript" src="App/dist/{{configurationName}}.js"></script>
+    {% endif %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xs-12 page-header">
+                <h3>WEBfactory HTML/JS Components</h3>
+            </div>
+            <div class="col-xs-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#c1" aria-controls="c1" role="tab" data-toggle="tab">Output</a></li>
+                    <li role="presentation"><a href="#c2" aria-controls="c2" role="tab" data-toggle="tab">Buttons</a></li>
+                    <li role="presentation"><a href="#c3" aria-controls="c3" role="tab" data-toggle="tab">Status Components</a></li>
+                    <li role="presentation"><a href="#c4" aria-controls="c4" role="tab" data-toggle="tab">Misc</a></li>
+                    <li role="presentation"><a href="#c5" aria-controls="c5" role="tab" data-toggle="tab">Charts</a></li>
+                    <li role="presentation"><a href="#c6" aria-controls="c6" role="tab" data-toggle="tab">Alarms</a></li>
+					<li role="presentation"><a href="#c7" aria-controls="c7" role="tab" data-toggle="tab">Custom Components</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!-- #region Output components-->
+                    <div role="tabpanel" class="tab-pane active" id="c1">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-value</h3>
+                                <span class="label label-info">Local Second</span>
+                                <wf-value params="signalName: 'Local Second', unitLabel: true"></wf-value>								    
+                                <br />
+                                <span class="label label-info">Setpoint 1</span>
+                                <wf-value params="signalName: 'Setpoint 1'"></wf-value>
+                                <br />
+                                <h5>Beispiel mit staticUnitText</h5>
+                                <span class="label label-info">Setpoint 1</span>
+                                <wf-value params="signalName: 'Setpoint 1', unitLabel: true, staticUnitText:'°C'"></wf-value>
+                            </div>
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-value-display</h3>
+
+                                <wf-value-display params="signalName: 'Local Second', unitLabel: true, displayClass: 'label-primary'"></wf-value-display>
+                                <wf-value-display params="signalName: 'Setpoint 1', unitLabel: true, signalLabel: true"></wf-value-display>
+                                <h5>Beispiel mit staticUnitText</h5>
+                                <wf-value-display params="signalName: 'Setpoint 1', unitLabel: true, signalLabel: true, staticUnitText: '°C' "></wf-value-display>
+
+                            </div>
+
+
+
+                            <div class="col-sm-3">
+                                <h3 class="page-header">wf-bargraph</h3>
+                                <wf-bargraph params="signalName: 'Local Second', unitLabel: true, titleText: 'Energiebedarf',  minRange: 0, maxRange: 60, cssClass: 'progress-bar-danger', iconClass: 'fa fa-bolt', showTickLabels: true"></wf-bargraph>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <h3 class="page-header">wf-gauge-1</h3>
+                                <wf-gauge-1 params="signalName: 'Local Second'"></wf-gauge-1>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-arc</h3>
+                                <wf-arc params="signalName: 'Local Second', startAngle: -180.0, endAngle: 90, maxRange: 90, width: 180, height: 150, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#EB9316', iconClass: 'wf wf-flash fa-2x', showTickLabels: true, majorTicks: 9"></wf-arc>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                    <!-- #region Input components-->
+                    <div role="tabpanel" class="tab-pane" id="c2">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h3 class="page-header">wf-input</h3>
+                                <wf-input params="signalName: 'Setpoint 1', unitLabel: true, label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan'"></wf-input>
+                                <wf-input params="signalName: 'Setpoint 2', unitLabel: true, label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan', displayClass: 'label-danger'"></wf-input>
+                                <h5>Beispiel mit staticUnitText</h5>
+                                <wf-input params="signalName: 'Setpoint 2', unitLabel: true, staticUnitText: '°C', label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan', displayClass: 'label-danger'"></wf-input>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-button</h3>
+
+                                <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Write 1 to Setpoint 1', iconClass: 'fa fa-eye', iconStyle: 'color: #2E6DA4'"></wf-button>
+
+                                <div class="clearfix"></div>
+                                <br />
+
+                                <wf-button params="signalName: 'Setpoint 1', writeValue: 0,  writeUpValue: 1, buttonText: 'Write 0 and write 1', isTipModeEnabled: true, cssClass: 'btn-danger'"></wf-button>
+                            </div>
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-switch</h3>
+                                <div class="btn-group">
+                                    <wf-switch params="signalName: 'Setpoint 1', onValue: 1, offValue: 0"></wf-switch>
+                                    <br />
+                                    <wf-switch params="signalName: 'Setpoint 2', onValue: 10, offValue: 20, activeCssClass: 'btn btn-danger', defaultCssClass: 'btn btn-default'"></wf-switch>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-combobox</h3>
+                                <wf-combobox params="symbolicTexts: ['Licht AUS', 'Licht AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-md btn-warning'"></wf-combobox>
+                                <br />
+                                <wf-combobox params="symbolicTexts: ['Rezept 1', 'Rezept 2', 'Rezept 3', 'Rezept 4'], symbolicTextNormalState: 'Rezeptauswahl', signalNames: ['Setpoint 3', 'Setpoint 3', 'Setpoint 3', 'Setpoint 3'], signalValues: [1, 2, 3, 4], iconClass: ['fa fa-tint', 'fa fa-coffee', 'fa fa-leaf', 'fa fa-glass'], cssClass: 'btn-md btn-primary'"></wf-combobox>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <h3 class="page-header">wf-slider</h3>
+                                <wf-slider class="block" params="signalName: 'Setpoint 1'"></wf-slider>
+                                <br />
+                                <wf-slider class="block" params="signalName: 'Setpoint 1', showTickLabels: true, cssClass: 'slider-danger'"></wf-slider>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <h3 class="page-header">wf-switch-3-states</h3>
+                                <wf-switch-3-states params="signalName: 'Setpoint 1'"></wf-switch-3-states>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                    <!-- #region Status components-->
+                    <div role="tabpanel" class="tab-pane" id="c3">
+                        <div class="row">
+
+                            <div class="col-sm-3">
+                                <h3 class="page-header">wf-state-indicator</h3>
+                                <wf-state-indicator params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf wf-fan'"></wf-state-indicator>
+
+                                <wf-state-indicator class="indicator-lg inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+                                <wf-state-indicator class="indicator-md inline-block" params="stateSignalName2: 'Setpoint 1', maskSignal2: 1, operator2: '=', iconClass: 'wf-lg wf-light-bulb-eco'"></wf-state-indicator>
+                                <wf-state-indicator class="indicator-sm inline-block" params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+                                <wf-state-indicator class="indicator-xs inline-block" params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-state-text</h3>
+                                <wf-state-text params="conditionRule1: '%Setpoint 1% >= 1', symbolicTextState1: 'Status OK', symbolicTextNormalState: 'Defaulttext'"></wf-state-text>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-state-symbol </h3>
+                                <wf-state-symbol params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o wf-2x',
+                                     stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb wf-2x text-danger'"></wf-state-symbol>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-watchdog</h3>
+                                <wf-watchdog class="wf-3x" params="signalName: 'Local Second'"></wf-watchdog>
+                                <wf-watchdog class="wf-3x" params="signalName: 'Setpoint 1', period: 2000, onlineClass: 'wf-watchdog-online wf-lg wf-server', offlineClass: 'wf-watchdog-offline wf-lg wf-server-alert'"></wf-watchdog>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                    <!-- #region Misc components-->
+                    <div role="tabpanel" class="tab-pane" id="c4">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-symbolictext</h3>
+                                <wf-symbolictext params="symbolicText: 'I4SCADA_ON'"></wf-symbolictext>
+                                <br />
+                                <h3 class="page-header">wf-language-selector</h3>
+                                <wf-language-selector params="symbolicText: 'I4SCADA_ON'"></wf-language-selector>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <h3 class="page-header">wf-user-login</h3>
+                                <wf-user-login></wf-user-login>
+                            </div>
+
+                            <div class="col-sm-2">
+
+                                <h3 class="page-header">wf-signal-information</h3>
+                                <wf-signal-information params="signalName: 'Setpoint 1', propertyName: 'Unit'"></wf-signal-information>
+                                <div data-bind="component: {name: 'wf-signal-information', params: { signalName: 'Setpoint 1', propertyName: 'Unit'} }"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                    <!-- #region Charts components-->
+                    <div role="tabpanel" class="tab-pane" id="c5">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3 class="page-header">wf-chart-1</h3>
+                                <wf-chart-1 params="lines: [{ signalName: 'Level 1', logTagName: 'LogTagLevel1', color: '#880000' },
+                                          { signalName: 'Level 2', logTagName: 'LogTagLevel2', color: '#f0ad4e', axis: 'y2' }],
+										  buttonBarCss: 'btn-primary', autoUpdate: true, statisticsVisibility: true"></wf-chart-1>
+
+                                <!--<wf-chart-1 params="signalName: 'Level 1', logTagName: 'LogTagLevel1',  trendColor: '#880000', buttonBarCss: 'btn-primary'"></wf-chart-1>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                    <!-- #region Alarms components-->
+                    <div role="tabpanel" class="tab-pane" id="c6">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3 class="page-header">wf-alarm-viewer (with tile view)</h3>
+                                <wf-alarm-viewer params="height: 400"></wf-alarm-viewer>
+
+                                <h3 class="m-y-md">wf-alarm-viewer (with table view)</h3>
+
+                                <wf-alarm-viewer params="tableView: true, alarmStatusFilter: 'NotAcknowledged', alarmType: 'Fehler.Kritisch', alarmGroup: 'Produktion.KR.203', titleText: 'Meldungen für KR 203'"></wf-alarm-viewer>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+					<!-- #region Demos components-->
+                    <div role="tabpanel" class="tab-pane" id="c7">
+                        <div class="row">
+                            <div class="col-xs-12">
+								<h5 class="m-t">Beispiel für eine eigene Komponente (custom component)</h5>
+								<custom-value params="signalName: 'Local Second', unitLabel: true"></custom-value>
+                             <!--   <h3 class="page-header">HVAC</h3>
+								<wf-demo-hvac></wf-demo-hvac>
+
+                                <h3 class="m-y-md">BHKW</h3>
+								<wf-demo-bhkw></wf-demo-bhkw>
+								-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #endregion-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    // WEBfactory Utilities Scripts
+    (function() {
+        wf.utilities.ResolvePagePlaceholders();
+        wf.utilities.initializeModalLoading(); 
+    }());
+
+</script>
+<script id="validationErrorTemplate" type="text/html">
+    <!-- ko if: field.isModified() && !field.isValid() -->
+    <div class="form-control-validation">
+        <i class="fa fa-question-circle form-control-validation-indicator animated fadeIn"
+            data-bind="tooltip: { title: translate(field.error()) , placement: 'top'  }"
+            data-container="body"></i>
+    </div>
+    <!-- /ko -->
+</script>
+</body>
+
+</html>

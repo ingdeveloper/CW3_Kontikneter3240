@@ -1,0 +1,19 @@
+/*Überschreibe "app.css" im WF-Ordner "Content" */
+#applicationHost {
+    position: relative;
+}
+.page-host {
+    top: 0px;
+    position: relative;
+}
+
+.main {
+    position: relative;
+	overflow: visible;
+}
+
+#content {
+    padding-bottom: 5px;
+    position: relative;
+	overflow: visible;  /* muss mit rein, damit der Inhalt komplett dargestellt wird.*/
+}

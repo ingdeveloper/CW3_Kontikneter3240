@@ -1,0 +1,110 @@
+﻿<div class="container">
+    <header>
+        <h1 class="page-header">i4SCADA App - HTML5 - Security Widgets</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status Indicator</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-user-login params="cssClass: 'btn btn-primary btn-block'"></wf-user-login>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Security protected areas</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>The following content will be visible if the user has project authorization "Administration"</h5>
+
+                            <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Button visible for Admins only', cssClass: 'btn-danger', projectAuthorization: 'Administration'"></wf-button>
+
+                            <wf-combobox class="m-y-md" params="
+                            symbolicTexts: ['Licht AUS', 'Licht AN'],
+                            signalNames: ['Setpoint 1', 'Setpoint 1'],
+                            signalValues: [0, 1],
+                            symbolicTextNormalState: 'Licht schalten',
+                            iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'],
+                            cssClass: 'btn-lg btn-warning',
+                            projectAuthorization: 'Administration' "></wf-combobox>
+
+
+                            <wf-state-indicator class="inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 1,  projectAuthorization: 'Administration'"></wf-state-indicator>
+                            <wf-state-indicator class="inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 1,  projectAuthorization: 'Administration'"></wf-state-indicator>
+
+                            <wf-state-symbol class="wf-3x" params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o',
+                            stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb', projectAuthorization: 'Administration' "></wf-state-symbol>
+
+                            <br />
+
+                            <wf-input params="signalName: 'Setpoint 1', unitLabel: true, label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan', projectAuthorization: 'Administration'"></wf-input>
+
+                            <wf-secured-container params="projectAuthorization: 'Administration'">
+                                <div data-part="content">
+                                    <div class="alert alert-danger">
+                                        <i class="wf-lg wf-users fa-3x"></i> VISIBLE ONLY FOR USERS WITH ADMINISTRATION AUTHORIZATION
+                                    </div>
+
+                                    <ul data-bind="foreach: $parent.items">
+                                        <li data-bind="text: $data"></li>
+                                    </ul>
+
+                                </div>
+                            </wf-secured-container>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>The following content will be visible if the user has project authorization "Gast"</h5>
+                            <wf-secured-container params="projectAuthorization: 'Gast'">
+                                <div data-part="content">
+                                    <div class="alert alert-info">
+                                        <i class="wf-lg wf-users fa-3x"></i> VISIBLE FOR USERS WITH GUEST AUTHORIZATION
+                                        <br/><br/>
+                                    </div>
+                                </div>
+                            </wf-secured-container>
+                            <h5>The following content will be visible without any authorization</h5>
+
+                            <wf-secured-container>
+                                <div data-part="content">
+                                    <div class="alert alert-success">
+                                        VISIBLE WITHOUT ANY AUTHORIZATION
+                                    </div>
+                                </div>
+                            </wf-secured-container>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">WEBfactory User Project- and Systemauthorizations</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Projectauthorizations</h3>
+                            <hr class="divider" />
+                            <wf-user-authorizations-list></wf-user-authorizations-list>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Systemauthorizations</h3>
+                            <hr class="divider" />
+                            <wf-user-authorizations-list params="showSystemAuthorizations: true, showProjectAuthorizations: false, listItemClass: 'list-group-item list-group-item-info'"></wf-user-authorizations-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

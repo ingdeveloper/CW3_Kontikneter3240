@@ -1,0 +1,57 @@
+<table class="table table-striped wf-historical-cursors">
+    <thead>
+        <tr>
+            <th>{{connector.translate('I4SCADA_Name')()}}</th>
+            <th>{{connector.translate('I4SCADA_Timestamp')()}}</th>
+            <th>{{connector.translate('I4SCADA_Offset_Interval')()}}</th>
+            <th>{{connector.translate('I4SCADA_Offset')()}}</th>
+            <th>
+                <button type="button" class="btn btn-success btn-xs" title="{{connector.translate('I4SCADA_Add')()}}"
+                    data-bind="click: onAdd">
+                    <span class="wf wf-add"></span>
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: cursors-->
+        <tr>
+            <td>
+                <div class="relative">
+                    <input type="text" class="form-control input-sm" id="name" data-bind="textInput: name" />
+                </div>
+            </td>
+            <td>
+                <div class="relative">
+
+                    <div class='input-group date'
+                        data-bind="css: 'input-group-sm', datepicker: timestamp, datepickerOptions:{showClear: true, locale: 'de'}">
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="wf wf-clock"></span>
+                        </span>
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <div class="relative">
+                    <input type="number" class="form-control input-sm" id="name" data-bind="value: offsetInterval" />
+                </div>
+            </td>
+            <td>
+                <div class="relative">
+                    <select class="form-control input-sm"
+                        data-bind=" options: $parent.offsets, value: offset, optionsText: 'name', optionsValue: 'id'"></select>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-xs btn-danger" data-bind="click: $parent.onDelete"
+                    title="{{ $parent.connector.translate('I4SCADA_Delete')()}}">
+                    <span class="wf wf-bin"></span>
+                </button>
+            </td>
+        </tr>
+        <!-- /ko-->
+    </tbody>
+</table>

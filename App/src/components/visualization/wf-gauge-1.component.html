@@ -1,0 +1,60 @@
+<!-- ko if: typeof($$SCOPE$$) !== "undefined" && $$SCOPE$$ === "I4SCADA" -->
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<div class="wf-gauge-1" data-bind="style: { marginBottom: marginBottom(), width: width + 'px', height: width + 'px' }, attr : {title: tooltipText}">
+
+    <div class="wf-gauge-arc" data-bind="drawArc: 'background-arc', arcOptions: { width: width, height: width, arcFillColor: backgroundFillColor, innerRadius: innerRadius, startAngle: startAngle, endAngle: endAngle }"></div>
+    <div class="wf-gauge-arc" data-bind="drawArc: 'high-arc', arcOptions: { width: width, height: width, arcFillColor: highRangeFillColor, innerRadius: innerRadius, startAngle: highRangeStartAngle, endAngle: highRangeEndAngle }"></div>
+    <div class="wf-gauge-arc" data-bind="drawArc: 'low-arc', arcOptions: { width: width, height: width, arcFillColor: lowRangeFillColor, innerRadius: innerRadius, startAngle: lowRangeStartAngle, endAngle: lowRangeEndAngle }"></div>
+
+    <div>
+        <!-- ko foreach: minorTicksArray -->
+        <div class="wf-gauge-minortick-container" data-bind="style: { '-webkit-transform': 'rotate(' + $data + 'deg)', '-o-transform': 'rotate(' + $data + 'deg)', 'transform': 'rotate(' + $data + 'deg)', '-moz-transform': 'rotate(' + $data + 'deg)' }">
+            <div class="wf-gauge-minortick"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div>
+        <!-- ko foreach: majorTicksArray -->
+        <div class="wf-gauge-majortick-container" data-bind="style: { '-webkit-transform': 'rotate(' + $data + 'deg)', '-o-transform': 'rotate(' + $data + 'deg)', 'transform': 'rotate(' + $data + 'deg)', '-moz-transform': 'rotate(' + $data + 'deg)'}">
+            <div class="wf-gauge-majortick"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="wf-gauge-needle" data-bind="style: { '-webkit-transform': needleAngle(), '-o-transform': needleAngle(), 'transform': needleAngle(), '-moz-transform': needleAngle() }">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 16 100" style="width: 100%; height: 100%; position: relative;">
+            <path d="m 8,0 8,100 c 0,8 -16,8 -16,0 z" stroke-width="0" data-bind="attr: { fill: needleFillColor}" />
+        </svg>
+    </div>
+
+    <div class="wf-gauge-icon-container" data-bind="style: { background: iconBackgroundColor }">
+        <i data-bind="css: iconClass, attr: {style:  'color:' + iconColor +';' + iconStyle}"></i>
+    </div>
+
+    <!-- ko if: minValueVioliation -->
+    <div class="wf-gauge-low-under-symbol">
+        <i class="wf wf-alarm"></i>
+    </div>
+    <!-- /ko -->
+    <div class="wf-gauge-min-label" data-bind="text: minRangeValue"></div>
+
+    <div class="wf-gauge-max-label" data-bind="text: maxRangeValue"></div>
+
+    <!-- ko if: maxValueVioliation -->
+    <div class="wf-gauge-high-over-symbol">
+        <i class="wf wf-alarm"></i>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: showValueLabel -->
+    <div class="wf-gauge-value">
+        <span data-bind="text: formattedSignalValue"></span>
+        <span class="wf-gauge-unit" data-bind="component: {name: 'wf-signal-information', params: { signalName: settings.signalName, propertyName: 'Unit'} }"></span>
+    </div>
+    <!-- /ko -->
+</div>
+<!-- ko template: { nodes: $componentTemplateNodes} -->
+<!-- /ko -->
+<!--/ko-->
+<!--/ko-->
+<!--/ko-->

@@ -1,0 +1,172 @@
+﻿.antriebeDialogTabelle{
+    font-size: small;
+    margin-bottom: 0px;
+    padding: 1px;
+}
+.antriebeDialogTabelleTd{ 
+    vertical-align: middle !important;
+}
+
+.antriebeDialogTabelleTextSchraeg{
+    /*height: 80px;*/
+    /*position: relative;*/
+    -ms-transform: rotate(270deg);
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+    /*margin-left: 0px;*/
+    /*background-color: #ffd800;*/
+    /*text-align: left;*/
+    width: 40px;
+}
+
+.antriebeDialogAbfuellSpaltenbreite1{
+    width:190px;
+    /*text-align:center;*/
+    vertical-align: central;
+}
+.antriebeDialogAbfuellSpaltenbreite2{
+    width:100px;
+    /*text-align:center;*/
+    vertical-align: central;
+}
+
+
+.antriebeDialogDruckbWfValue {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 98%;
+    float: left;
+}
+
+.antriebeDialogSvg4Feuerball{
+    /*transition: all 20s;*/
+    /*transform: translate(calc(100% + 20px), 2px);*/
+    /*animation-name: feuerball;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;*/
+    animation: feuerball 3s infinite linear;
+    -webkit-animation: feuerball 3s infinite linear;
+    position: relative;
+}
+
+#feuerball{
+    animation: feuerball 3s infinite linear;
+    -webkit-animation: feuerball 3s infinite linear;
+    /*position: relative;*/
+}
+
+
+@-moz-keyframes feuerball { 
+  from { 
+    transform: translate(100px, 2px); 
+  } 
+  to { 
+    transform: translate(0px, 2px); 
+  } 
+}
+
+@-webkit-keyframes feuerball { 
+  from { 
+    transform: translate(100px, 2px);
+  } 
+  to { 
+    transform: translate(0px, 2px);
+  } 
+}
+
+@-ms-keyframes feuerball { 
+  from { 
+    transform: translate(100px, 2px);
+  } 
+  to { 
+    transform: translate(0px, 2px);
+  } 
+}
+
+@keyframes feuerball { 
+  from { 
+    transform: translate(10px, 2px);
+  } 
+  to { 
+    transform: translate(50px, 2px);
+  } 
+
+  /*0% { 
+    transform: translate(-65px,18px);
+  } 
+  8% { 
+    transform: translate(-55px, 15px);
+  } 
+  16% { 
+    transform: translate(-45px, 12px);
+  } 
+  25% { 
+    transform: translate(-32px, 0px);
+  } 
+  33% { 
+    transform: translate(-45px, -12px);
+  } 
+  41% { 
+    transform: translate(-55px, -15px);
+  } 
+  50% { 
+    transform: translate(-80px, -18px);
+  } 
+  58% { 
+    transform: translate(-95px, -15px);
+  } 
+  66% { 
+    transform: translate(-115px, -12px);
+  } 
+  75% { 
+    transform: translate(-125px, 0px);
+  } 
+  83% { 
+    transform: translate(-115px, 12px);
+  } 
+  91% { 
+    transform: translate(-105px, 15px);
+  } 
+  100% { 
+    transform: translate(-95px, 18px);
+  }*/ 
+}
+
+
+/*Hubantriebe referenzieren*/
+.antriebeDialogHubReferenzierenSpaltenbreite1{
+    width:100px;
+    /*text-align:center;*/
+    vertical-align: central;
+}
+
+.antriebeDialogHubReferenzierenBtnResetUmrichter{
+    width:100px;
+    margin-left: 15px !important;
+    float: left;
+}
+
+/*Mitfahrantriebe referenzieren*/
+.antriebeDialogMitfahrantrReferenzierenSpaltenbreite1{
+    width:100px;
+    /*text-align:center;*/
+    vertical-align: central;
+}
+
+.antriebeDialogMitfahrantrWfValue {
+    border: 1px solid #C6C6C6;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 98%;
+    float: left;
+}
+
+.antriebeDialogReferenzTdAbstaende {
+    padding: 2px 1px !important;
+}
+
+.antriebeDialogeModalHeaderBodyFooter {
+    padding: 3px 5px !important;
+}

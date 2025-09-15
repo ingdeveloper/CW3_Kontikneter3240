@@ -1,0 +1,110 @@
+
+<div class="wf-user-login relative" >
+    <button type="button" class="wf-user-login-btn" data-bind="css: cssClass, bsPopover: { template: 'wf-user-login-' + id(), options: {title: 'Login', placement: position, singleMode: true, headerCssClass: popoverHeaderCssClass }, data: { id: 'wf-user-login' + id()}}, attr: {title: tooltipText }">
+        <div class="flexbox flexbox-v-center">
+            <i class="p-r-sm" data-bind="css: iconCssclass, attr: {style: iconStyle}"></i>
+            <div class="wf-user-login-data-content">
+                <!-- ko if: $componentTemplateNodes.length -->
+                <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+                <!-- /ko -->
+                <!-- ko ifnot: $componentTemplateNodes.length -->
+                <span class="wf-user-login-labels">
+                    <!-- ko foreach: labels-->
+                    <span class="" data-bind="fadeInText: $data, attr: {style: $parent.textStyle}, css: {'block':$parent.labelOrientation === 'vertical'}"></span>
+                    <!-- /ko -->
+                </span>
+                <!-- /ko -->
+            </div>
+        </div>
+    </button>
+
+    <script id="{{'wf-user-login-' + id()}}" type="text/html">
+        <div class="wf-user-login-content" data-bind="css: {'wf-user-logout' : userIsLoggedIn}">
+            <form class="form-horizontal">
+                <!-- ko ifnot: userIsLoggedIn -->
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="wf-lg wf-user"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="{{connector.translate('I4SCADA_Username')()}}" data-bind="textInput: userName" autofocus/>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="wf-lg wf-lock"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="{{connector.translate('I4SCADA_Password')()}}" data-bind="textInput: password" />
+                </div>
+
+                <div class="input-group block">
+                    <button class="btn  btn-sm btn-default btn-block" type="button" data-bind="checkbox: isDomainUser, css: {'btn-success': isDomainUser}">
+                        <!-- ko if: !isDomainUser() -->
+                        <i class="wf wf-user-o"></i>
+                        <!-- /ko -->
+                        <!-- ko if: isDomainUser -->
+                        <i class="wf wf-user-id-o"></i>
+                        <!-- /ko -->
+
+                        <span>{{connector.translate('I4SCADA_Domain_user')()}}</span>
+                    </button>
+                </div>
+                <!-- /ko -->
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-sm btn-primary" data-bind="click: clickLogin, enable: loginEnabled">{{connector.translate('I4SCADA_LOGIN')()}}</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-sm btn-primary" data-bind="click: clickLogout, enable: logoutEnabled">{{connector.translate('I4SCADA_LOGOUT')()}}</button>
+                    </div>
+                </div>
+                <!-- ko if: changePasswordVisibility -->
+                <!-- ko if: userIsLoggedIn -->
+                <!-- ko ifnot: isDomainUser -->
+                <div class="btn-group btn-group-justified m-t-sm">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-sm btn-link" data-bind="toggle: showChangePassword">{{connector.translate('I4SCADA_Change_Password')()}}</button>
+                    </div>
+                </div>
+                <div data-bind="visible: showChangePassword">
+                    <div class="input-group m-t-md">
+                        <span class="input-group-addon">
+                            <i class="wf-lg wf-user"></i>
+                        </span>
+                        <input type="text" class="form-control" data-bind="textInput: userDetails()['Name']" disabled />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="wf-lg wf-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" placeholder="{{connector.translate('I4SCADA_Password')()}}" data-bind="textInput: actuallyPassword" />
+                    </div>
+                    <div class="input-group" data-bind="css: {'has-error':  !passwordsIsIdentish() }">
+                        <span class="input-group-addon">
+                            <i class="wf-lg wf-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" placeholder="{{connector.translate('I4SCADA_New_Password')()}}" data-bind="textInput: newPassword" />
+                    </div>
+                    <div class="input-group" data-bind="css: {'has-error':  !passwordsIsIdentish() }">
+                        <span class="input-group-addon">
+                            <i class="wf-lg wf-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" placeholder="{{connector.translate('I4SCADA_Confirm_Password')()}}" data-bind="textInput: confirmPassword" />
+                    </div>
+                    <!-- ko if: errorText -->
+                    <div class="has-error">
+                        <span class="help-block" data-bind="text: errorText" />
+                    </div>
+                    <!-- /ko -->
+                    <div class="btn-group btn-group-justified m-t-sm">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-sm btn-success" data-bind="click: clickChangePassword, enable: changePasswordEnabled">{{connector.translate('I4SCADA_Change')()}}</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- /ko -->
+            </form>
+        </div>
+    </script>
+</div>

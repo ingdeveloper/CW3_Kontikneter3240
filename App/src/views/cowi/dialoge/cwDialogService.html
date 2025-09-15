@@ -1,0 +1,50 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content" style="left:0px;top:50px;width:350px;height:auto;"
+            data-bind="ccwDraggable:{}, dragId: 'titleBarDialogService', BGclose: true, ESCclose: true">
+
+            <!-- Kopfzeile Dialog -->
+            <div id="titleBarDialogService" class="modal-header modal-title modal-danger text-center">
+                <strong style="font-size: 20px;">
+                    Servicefunktionen
+                </strong>
+                <button type="button" class="close" style="margin:4px" data-bind="click: function (){close()}">
+                    <i class="wf wf-close-round-o"></i>
+                </button>
+            </div>
+
+            <!-- Inhalt Dialog -->
+            <div class="row m-a">
+                <div class="text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-default"
+                            data-bind="click: function (){setReloadTime()}, enable: UserLevel5">
+                            <i class="wf-lg wf wf-arrow-refresh-right"></i>
+                            <span>Reload alle Clients</span>
+                        </button>
+                    </div>
+                    <div class="m-a">
+                        <span>
+                            Reload Zeitstempel:
+                        </span>
+                        <span data-bind="text: wertReloadTime">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fusszeile Dialog -->
+            <div class="modal-footer" style="margin-top:20px">
+                <!-- <button class="btn btn-success inline"
+                    data-bind="click: function (){sendWerteZurSps()}, css: sendBtnCss, enable: UserLevel1">Werte
+                    zur SPS</button>
+                <wf-buffer-button class="inline"
+                    params="buttonText: 'L&ouml;sche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+                </wf-buffer-button> -->
+                <button class="btn btn-primary inline" style="margin-left:20px"
+                    data-bind="click: function (){close()}">Schlie&szlig;en</button>
+            </div>
+
+        </div>
+    </div>
+</div>

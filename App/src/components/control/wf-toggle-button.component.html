@@ -1,0 +1,17 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<button class="relative btn" type="button" data-bind="disable: isDisabled, css: displayClassNames() + ' ' + statusCssClass(), click: toggleSignal, attr: {style: buttonStyle, title: tooltipText }">
+    <div class="wf-toggle-button-content">
+        <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+    </div>
+    <i data-bind="css: iconClass, attr: {style: iconStyle}"></i>
+    <span data-bind="attr: {style: textStyle}">{{connector.translate(buttonText)()}}</span>
+</button>
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                                signalNames: [signalName],
+                                signalValues: writeSecureValues,
+                                draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->

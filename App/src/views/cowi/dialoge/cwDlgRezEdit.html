@@ -1,0 +1,38 @@
+<!--
+ ********************************************
+ * View für das modale Fenster Rezepteditor *
+ ********************************************
+ -->
+<div class="modal">
+    <div class="modal-dialog modal-center">
+        <div class="modal-content" data-bind="ccwDraggable:{}, dragId: 'rezEditDlg', BGclose: false, ESCclose: false">
+            <!-- header -->
+            <div class="modal-header" id="rezEditDlg" style="background-color: dodgerblue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: abort">&times;</button>
+                <h4 class="modal-title">
+                    <i class="wf-lg wf-article" style="font-size: 30px"></i>
+                    <span data-bind="html: title"></span>
+                </h4>
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+                <span data-bind="html: txtBody"></span>
+            </div>
+            <!-- footer -->
+            <div class="modal-footer">
+                <span class="badge swinginfo pull-left" title="Anzahl geänderten Werten"
+                    data-bind="css: { changed: changedElements().length !== 0 }, text: changedElements().length"></span>
+                <button class="btn btn-default" data-bind="enable:(!busy() && changedElements().length), click:save" type="submit">
+                    <span class="rezspinner" data-bind="css: { active: busy }">
+                        <i class="fa fa-spinner"></i>
+                    </span>
+                    <i data-bind="visible:!busy()" class="wf wf-article"></i>
+                    &nbsp;Übernehmen
+                </button>
+                <button class="btn btn-default" data-bind="enable:!busy(), click:abort"
+                    data-dismiss="modal">Schließen</button>
+            </div>
+        </div>
+    </div>
+</div>

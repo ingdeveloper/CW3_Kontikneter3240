@@ -1,0 +1,42 @@
+<!-- ############################################################# -->
+<!-- Modaler Dialog für User + Passwort-Eingabe -->
+<!-- ############################################################# -->
+<div class="modal" style="width: 100%;">
+    <div class="modal-dialog modal-top" style="width: 400px;">
+        
+            <div class="modal-content">
+
+                <div class="modal-header ccw-wf-motor1-head-dialog1">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: function(){close('mit Kreuz geschlossen')}">&times;</button>
+                    <h4 class="modal-title">
+                        <i class="wf wf-users" style="font-size: 30px"></i>
+                        <span>&nbsp;Benutzer Login</span>
+                    </h4>
+                </div>
+                <form id="form" autocomplete="off">
+                    <fieldset>
+                        <div class="modal-body text-center">
+
+                            <div class="input-group">
+                                <span class="input-group-addon">&nbsp;Username</span>
+                                <input id="loginoutname" class="form-control" data-bind="value: user, hasFocus: isSelectedUser, style:{backgroundColor: isSelectedUser() == true ? '#F3F781' : 'transparent'}" type="text" title="Benutzername" required>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">&nbsp;Password&nbsp;</span>
+                                <input id="loginoutpw" class="form-control" data-bind="value: pass, hasFocus: isSelectedPass, style:{backgroundColor: isSelectedPass() == true ? '#F3F781' : 'transparent'}" type="password" pattern="\w.{1,20}" title="Passwort" required>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-default" type="submit" data-bind="click: function(){ requestLogIn() }">Login</button>
+                                <button class="btn btn-default" data-dismiss="modal" data-bind="click: function(){close('mit Abbrechen geschlossen',null)}">Abbrechen</button>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+       
+    </div>
+</div>
+<!-- Ende Dialog -->

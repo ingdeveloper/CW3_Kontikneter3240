@@ -1,0 +1,1702 @@
+.vp-Rahmen1 {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.vp-Rahmen2 {
+    border: 2px #a0a0a0 solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.vp-Rahmen3 {
+    border: 1px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.vp-Rahmen4 {
+    border: 1px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.vp-Rahmen5 {
+    border: 1px #ffffff solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.vp-Rahmen6 {
+    border: 1px #808080 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 2px;
+}
+
+.vp-Rahmen7 {
+    border: 1px #c0c0c0 solid;
+    margin: 4px 4px 4px 4px;
+    border-radius: 1px;
+    -webkit-box-shadow: 4px 4px 8px 4px rgba(94, 87, 94, 0.8);
+    -moz-box-shadow: 4px 4px 8px 4px rgba(94, 87, 94, 0.8);
+    box-shadow: 4px 4px 8px 4px rgba(94, 87, 94, 0.8);
+}
+
+.vp-Rahmen8 {
+    border: 1px #404040 solid;
+    border-radius: 2px;
+}
+
+.vp-Rahmen9 {
+    border: none;
+    margin: 0px 0px 2px 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.vp-Rahmen10 {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    border: 0px solid #A9A9A9;
+}
+
+.vp-Rahmen10:hover {
+    cursor: pointer;
+    border: 3px solid #A9A9A9;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+}
+
+.vp-RahmenTransparent {
+    border: 2px transparent solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+}
+
+.vp-shadowBox1 {
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.vp-linkBox1 {
+    cursor: pointer;
+}
+
+.vp-linkBox1:hover {
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+}
+
+.vp-titelleiste {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#c0ff00, #dff0d8) !important;
+}
+
+.vp-titelleiste2 {
+    background: linear-gradient(#f9a938, #ffff00) !important;
+}
+
+.vp-titelleiste-waagen {
+    background: linear-gradient(#00c0ff, #d9edf7) !important;
+}
+
+.vp-titelleisteStoer {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#ff7070, #f2dede) !important;
+}
+
+.vp-titleBar-radius-1 {
+    -moz-border-radius: 1px 1px 0 0;
+    -webkit-border-radius: 1px 1px 0 0;
+    border-radius: 1px 1px 0 0;
+}
+
+.vp-titleBar-radius-4 {
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.vp-titleBar-radius-5 {
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.vp-modalTitleBar-gn-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.vp-modalTitleBar-bl-3 {
+    padding: 2px;
+    font-size: 16px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.vp-modalTitleBar-bl-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.vp-modalTitleBar-dbl-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.vp-modalTitleBar-or-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.vp-modalTitleBar-br-5 {
+    padding: 2px;
+    font-size: 20px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.vp-titleBar-rd-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.vp-titleBar-gn-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.vp-titleBar-bl-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.vp-titleBar-dbl-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.vp-titleBar-or-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.vp-titleBar-tr-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: transparent;
+    color: #000000;
+}
+
+.vp-titleBar-br-sm {
+    padding: 1px;
+    min-height: 24px;
+    font-size: 14px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.vp-titleBar-rd-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.vp-titleBar-gn-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.vp-titleBar-bl-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.vp-titleBar-dbl-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.vp-titleBar-or-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.vp-titleBar-br-md {
+    padding: 1px;
+    min-height: 26px;
+    font-size: 16px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.vp-titleBar-rd-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #ff4040;
+    color: #ffffff;
+}
+
+.vp-titleBar-gn-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #51a351;
+    color: #ffffff;
+}
+
+.vp-titleBar-bl-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #2aabd2;
+    color: #ffffff;
+}
+
+.vp-titleBar-dbl-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #346396;
+    color: #ffffff;
+}
+
+.vp-titleBar-or-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #f9a938;
+    color: #ffffff;
+}
+
+.vp-titleBar-br-lg {
+    padding: 1px;
+    min-height: 32px;
+    font-size: 20px;
+    background-color: #c09050;
+    color: #ffffff;
+}
+
+.vp-valueBar-auto-ws-1 {
+    margin: auto;
+    max-width: 95%;
+    height: 22px;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.vp-valueBar-auto-gr-1 {
+    margin: auto;
+    max-width: 95%;
+    height: 22px;
+    font-size: 12px;
+    background-color: #eaeaea;
+}
+
+.vp-valueBar-auto-ws-2 {
+    margin: auto;
+    max-width: 95%;
+    height: 24px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+.vp-valueBar-auto-gr-2 {
+    margin: auto;
+    max-width: 95%;
+    height: 24px;
+    font-size: 14px;
+    background-color: #eaeaea;
+}
+
+.vp-valueBar-auto-bl-2 {
+    margin: auto;
+    max-width: 95%;
+    height: 24px;
+    font-size: 14px;
+    background-color: #d9edf7;
+}
+
+.vp-valueBar-auto-ws-3 {
+    margin: auto;
+    max-width: 95%;
+    height: 26px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.vp-valueBar-auto-gr-3 {
+    margin: auto;
+    max-width: 95%;
+    height: 26px;
+    font-size: 16px;
+    background-color: #eaeaea;
+}
+
+.vp-statusBox-auto {
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 4px 0px 4px 0px;
+    max-width: 95%;
+}
+
+.vp-statusBox1 {
+    margin: auto;
+    padding: 0px;
+    width: 64px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vp-btnBox-auto {
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 4px 0px 4px 0px;
+    max-width: 95%;
+}
+
+.vp-btn-kuehlraumFunc {
+    padding: 3px;
+    width: 61px;
+    height: 46px;
+}
+
+.vp-btn-kuehlraumTrend {
+    margin-bottom: 4px;
+    padding: 3px;
+    width: 319px;
+    height: 46px;
+    font-size: 22px;
+}
+
+.vp-rotate-L40 {
+    -ms-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -webkit-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
+
+.vp-AnzRef {
+    width: 50px;
+    vertical-align: middle;
+    padding: 0px 12px 0px 12px;
+    border: 2px #a0a0a0 solid;
+    border-radius: 50px;
+}
+
+.vp-AnzRef-m {
+    font-size: 18px !important;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 0px 12px 1px 12px;
+    border: 2px #a0a0a0 solid;
+    border-radius: 50px;
+}
+
+.buttonKarton {
+    background: linear-gradient(#c09050, #906020) !important;
+    color: #ffffff !important;
+    border: 1px solid #707070;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+
+.buttonKarton:hover {
+    opacity: 1 !important;
+}
+
+.buttonKarton:active {
+    background: linear-gradient(#906020, #603000) !important;
+}
+
+.vp-zeileButton1 {
+    padding: 6px !important;
+}
+
+.vp-tabelle1>tbody>tr>td,
+.vp-tabelle1>tbody>tr>th,
+.vp-tabelle1>tfoot>tr>td,
+.vp-tabelle1>tfoot>tr>th,
+.vp-tabelle1>thead>tr>td,
+.vp-tabelle1>thead>tr>th {
+    border: 2px solid #ddd !important;
+}
+
+.vp-th-xs {
+    padding: 0px !important;
+}
+
+.vp-grau {
+    background-color: #c0c0c0 !important;
+}
+
+.vp-hellgrau {
+    background-color: #eaeaea !important;
+}
+
+.vp-bg-danger {
+    background-color: #f2dede !important;
+}
+
+.vp-bg-warning {
+    background-color: #fcf8e3 !important;
+}
+
+.vp-bg-success {
+    background-color: #dff0d8 !important;
+}
+
+.vp-bg-info {
+    background-color: #d9edf7 !important;
+}
+
+.vp-bg-primary {
+    background-color: #337ab7 !important;
+}
+
+.vp-bg-primary2 {
+    color: #fff;
+    background: linear-gradient(#337ab7, #63aae7) !important;
+}
+
+.vp-td-text-werte {
+    font-size: 14px;
+}
+
+.vp-td-text-werte-sm {
+    font-size: 12px;
+}
+
+.vp-td-text-istwert {
+    background-color: #eaeaea !important;
+}
+
+.vp-td-istwert {
+    background-color: #eaeaea !important;
+}
+
+.vp-btn-antr-hand {
+    padding: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.vp-btn-antr-ein {
+    padding: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.vp-btn-antr-einR {
+    padding: 0px;
+    width: 96%;
+    height: 19px;
+}
+
+.vp-btn-antr-einL {
+    padding: 0px;
+    width: 96%;
+    height: 19px;
+}
+
+.vp-btn-antr-aus {
+    padding: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.vp-btn-ein-aus {
+    padding: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.vp-btn-antr-hand-sm {
+    padding: 0px;
+    width: 46%;
+    height: 19px;
+    font-size: 12px !important;
+}
+
+.vp-btn-antr-ein-sm {
+    padding: 0px;
+    width: 46%;
+    height: 19px;
+    font-size: 12px !important;
+}
+
+.vp-btn-antr-einR-sm {
+    padding: 0px;
+    width: 44%;
+    height: 19px;
+    font-size: 12px !important;
+}
+
+.vp-btn-antr-einL-sm {
+    padding: 0px;
+    width: 44%;
+    height: 19px;
+    font-size: 12px !important;
+}
+
+.vp-btn-antr-aus-sm {
+    padding: 0px;
+    width: 46%;
+    height: 19px;
+    font-size: 12px !important;
+}
+
+.vp-btn-vor_zurueck {
+    float: right;
+    width: 100px;
+}
+
+.vp-btnLink1 {
+    margin: 10px 4px 10px 4px;
+    padding: 0px;
+    width: 140px;
+    height: 34px;
+    font-size: 14px;
+}
+
+.vp-btnLink2 {
+    margin: 10px 4px 10px 4px;
+    padding: 0px;
+    width: 140px;
+    height: 34px;
+    font-size: 18px;
+}
+
+.vp-tableFunktion_3031 {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.vp-Funktion_3031 {
+    padding: 2px;
+    text-align: center;
+}
+
+.vp-Funktion_3031 select {
+    margin: 2px;
+    padding: 2px;
+    min-width: 200px;
+    width: 85%;
+    height: auto;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.vp-tableFunktion_3032 {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.vp-reiheProd {
+    height: 25px;
+}
+
+.vp-reiheAntriebe {
+    height: 25px;
+}
+
+.vp-reiheStatusAnlage {
+    height: 25px;
+}
+
+.vp-reiheSchlauchbeutel {
+    height: 25px;
+}
+
+.vp-reiheBanderolierer {
+    height: 25px;
+}
+
+.vp-status-normal {
+    background: linear-gradient(#ffffff, #f0f0f0) !important;
+}
+
+.vp-status-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.vp-status-ein {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.vp-status-auto {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.vp-status-hand {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.vp-status-okay {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.vp-status-warnung {
+    background: linear-gradient(#ffd9c0, #ffd900) !important;
+}
+
+.vp-status-stoer {
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+    color: #ffffff !important;
+}
+
+.vp-status-kuehlen {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.vp-status-abtauen {
+    background: linear-gradient(#ffd9c0, #ffd900) !important;
+}
+
+.vp-ref-nOk {
+    color: #ffffff !important;
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+}
+
+.vp-ref-Ok {
+    color: #000000 !important;
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.vp-statusPal2 {
+    margin: 4px 0px 4px 0px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.vp-statusPal3 {
+    margin: 4px 0px 4px 0px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.vp-linkBox-rez {
+    min-height: 66px;
+}
+
+.vp-boxRez {
+    min-height: 98px;
+}
+
+.vp-boxParam {
+    margin-bottom: 10px;
+}
+
+.vp-boxProd_3031 {
+    margin-bottom: 10px;
+}
+
+.vp-boxWaage_3031 {
+    margin-bottom: 10px;
+}
+
+.vp-boxProd_3032 {
+    margin-bottom: 10px;
+}
+
+.vp-boxWaage_3032 {
+    margin-bottom: 10px;
+}
+
+.vp-boxPal {
+    margin-bottom: 10px;
+}
+
+.vp-boxVorwahl {
+    margin-bottom: 10px;
+}
+
+.vp-boxZeit {
+    margin-bottom: 10px;
+}
+
+.vp-boxSBM {
+    margin-bottom: 10px;
+}
+
+.vp-boxSchrumpftunnel {
+    margin-bottom: 10px;
+}
+
+.vp-boxBanderolierer {
+    margin-bottom: 10px;
+}
+
+.vp-boxKartonierer {
+    margin-bottom: 10px;
+}
+
+.vp-boxCheckwaage {
+    margin-bottom: 10px;
+}
+
+.vp-boxFilmline {
+    margin-bottom: 10px;
+}
+
+.vp-boxTraypack {
+    margin-bottom: 10px;
+}
+
+.vp-boxDrucker {
+    margin-bottom: 10px;
+    min-height: 280px;
+}
+
+.vp-boxWartung {
+    margin-bottom: 10px;
+    min-height: 280px;
+}
+
+.vp-indicator-td-xs {
+    margin: auto;
+    width: 28px;
+}
+
+.vp-indicator-td-xxs {
+    margin: auto;
+    width: 20px;
+}
+
+.vp-tableInBox {
+    width: 100%;
+}
+
+.vp-tableInBox-tr {
+    height: 32px;
+}
+
+.vp-zelleText-produktion {
+    font-size: 16px !important;
+}
+
+.vp-zelleWert-produktion {
+    width: 80px;
+    font-size: 16px !important;
+}
+
+.vp-zelleText-kartonZaehl {
+    font-size: 16px !important;
+}
+
+.vp-zelleWert-kartonZaehl {
+    width: 110px;
+    font-size: 16px !important;
+}
+
+.vp-zelleText-pal {
+    font-size: 16px !important;
+}
+
+.vp-zelleWert-pal {
+    width: 110px;
+    font-size: 16px !important;
+}
+
+.vp-zelleText-vorwahl {
+    font-size: 16px !important;
+}
+
+.vp-zelleBtn-vorwahl {
+    width: 80px;
+}
+
+.vp-btn-vorwahl {
+    margin: 4px;
+    padding: 0px;
+    width: 90%;
+    min-height: 30px;
+}
+
+.vp-zelleText-zeit {
+    font-size: 16px !important;
+}
+
+.vp-zelleWert-zeit {
+    width: 110px;
+    font-size: 16px !important;
+}
+
+.vp-zelleText-statusAnlage {
+    font-size: 12px !important;
+}
+
+.vp-zelleWert-statusAnlage {
+    width: 90px;
+    font-size: 12px !important;
+}
+
+.vp-zelleText-schlauchbeutel {
+    font-size: 12px !important;
+}
+
+.vp-zelleWert-schlauchbeutel {
+    width: 90px;
+    font-size: 14px !important;
+}
+
+.vp-zelleText-banderolierer {
+    font-size: 12px !important;
+}
+
+.vp-zelleWert-banderolierer {
+    width: 90px;
+    font-size: 14px !important;
+}
+
+.vp-zelleText-checkwaage {
+    font-size: 16px !important;
+}
+
+.vp-zelleWert-checkwaage {
+    width: 80px;
+    font-size: 16px !important;
+}
+
+.vp-zelleText-drucker {
+    margin: 4px;
+    font-size: 14px !important;
+}
+
+.vp-zelleWert-drucker {
+    margin: 4px;
+    max-width: 134px;
+    width: 134px;
+    font-size: 14px !important;
+}
+
+.vp-zelleText-wartung {
+    margin: 4px;
+    font-size: 14px !important;
+}
+
+.vp-zelleWert-wartung {
+    margin: 4px;
+    max-width: 134px;
+    width: 120px;
+    font-size: 14px !important;
+}
+
+.vp-boxSollwert-scanner {
+    max-width: 130px;
+    width: 130px;
+    height: 22px;
+    font-size: 14px !important;
+}
+
+.vp-boxIstwert-scanner {
+    padding: 1px 2px;
+    max-width: 130px;
+    width: 130px;
+    height: 22px;
+    background-color: #eaeaea !important;
+    font-size: 14px !important;
+}
+
+.vp-boxStatusLKA {
+    margin: auto;
+    padding: 5px;
+    width: 200px;
+}
+
+.vp-btnDiv {
+    margin: 10px 0px 10px 0px;
+}
+
+.vp-btnDiv3031 {
+    margin: 10px 0px 10px 0px;
+}
+
+.vp-btnTrend3031 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.vp-btnTrendStoer3031 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.vp-btnWaage3031 {
+    margin: 6px;
+    padding: 0px;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.vp-btnDrucker3031 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.vp-btnDiv3032 {
+    margin: 10px 0px 10px 0px;
+}
+
+.vp-btnTrend3032 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.vp-btnTrendStoer3032 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.vp-btnWaage3032 {
+    margin: 6px;
+    padding: 0px;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.vp-btnDrucker3032 {
+    margin: 6px;
+    padding: 0px;
+    width: 210px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.vp-btnFroster {
+    margin: 6px;
+    padding: 0px;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.vp-btn-reset-karton {
+    padding: 0px;
+    width: 200px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.vp-btnZaehlung {
+    margin: 6px;
+    padding: 0px;
+    min-width: 200px;
+    width: 380px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.vp-btn-zoom-pal {
+    padding: 0px;
+    float: right;
+    width: 48px;
+    height: 19px;
+}
+
+.vp-btn-info {
+    padding: 0px;
+    float: right;
+    width: 48px;
+    height: 19px;
+}
+
+.vp-btn-infoSignal {
+    padding: 0px;
+    min-width: 200px;
+    width: 80%;
+    height: 24px;
+    font-size: 16px;
+}
+
+.vp-btn-reset-SBM {
+    padding: 0px;
+    width: 60px;
+    height: 18px;
+    font-size: 12px;
+}
+
+.vp-btn-reset-banderol {
+    padding: 0px;
+    width: 60px;
+    height: 20px;
+    font-size: 14px;
+}
+
+.vp-btn-trend-waage {
+    padding: 0px;
+    width: 100px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.vp-btn-send-scanner {
+    padding: 0px;
+    width: 72px;
+    height: 24px;
+    font-size: 14px;
+}
+
+.vp-btn-reset-scanner {
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+}
+
+.vp-btn-clear-scanner {
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+}
+
+.vp-btn-ean-scanner {
+    padding: 0px;
+    max-width: 130px;
+    width: 130px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.vp-btn-wartung-drucker {
+    padding: 0px;
+    width: 116px;
+    height: 24px;
+    font-size: 14px;
+}
+
+.vp-dialogFeld-zaehlPal {
+    text-align: center;
+    font-size: 150px;
+    font-weight: bold;
+}
+
+.vp-infoBanner {
+    margin-top: 4px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.vp-imgInfoSignal {
+    margin: 10px;
+    height: 400px;
+}
+
+.vp-zeile1InfoSignal {
+    margin-top: 42px;
+}
+
+.vp-zeileInfoSignal {
+    margin-top: 24px;
+}
+
+.vp-rotInfoSignal {
+    width: 80px;
+    font-size: 16px;
+    background-color: #ff0000;
+}
+
+.vp-gelbInfoSignal {
+    width: 80px;
+    font-size: 16px;
+    background-color: #ffc000;
+}
+
+.vp-gruenInfoSignal {
+    width: 80px;
+    font-size: 16px;
+    background-color: #00c000;
+}
+
+.vp-violettInfoSignal {
+    width: 80px;
+    font-size: 16px;
+    background-color: #c000ff;
+}
+
+.vp-blauInfoSignal {
+    width: 80px;
+    font-size: 16px;
+    background-color: #0000ff;
+}
+
+.vp-flash-warn {
+    animation-name: flash-warn;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: flash-warn;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: flash-warn;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+
+#SVG_Antr_1 {
+    margin: 4px;
+}
+
+#SVG_Antr_2 {
+    margin: 4px;
+}
+
+#SVG_Antr_3 {
+    margin: 4px;
+}
+
+#SVG_Antr_4 {
+    margin: 4px;
+}
+
+#antriebVP_A1 {
+    position: absolute;
+    left: 132px;
+    top: 106px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A2 {
+    position: absolute;
+    left: 132px;
+    top: 228px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A3 {
+    position: absolute;
+    left: 198px;
+    top: 160px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_A4 {
+    position: absolute;
+    left: 132px;
+    top: 520px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A5 {
+    position: absolute;
+    left: 340px;
+    top: 275px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A6 {
+    position: absolute;
+    left: 340px;
+    top: 296px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A7 {
+    position: absolute;
+    left: 340px;
+    top: 317px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A8 {
+    position: absolute;
+    left: 340px;
+    top: 338px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A9 {
+    position: absolute;
+    left: 340px;
+    top: 360px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A10 {
+    position: absolute;
+    left: 340px;
+    top: 381px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A11 {
+    position: absolute;
+    left: 340px;
+    top: 402px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A12 {
+    position: absolute;
+    left: 340px;
+    top: 423px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A13 {
+    position: absolute;
+    left: 340px;
+    top: 444px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A14 {
+    position: absolute;
+    left: 340px;
+    top: 465px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A15 {
+    position: absolute;
+    left: 340px;
+    top: 486px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A16 {
+    position: absolute;
+    left: 340px;
+    top: 508px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_A17 {
+    position: absolute;
+    left: 464px;
+    top: 188px;
+    width: 35px;
+    height: 35px;
+}
+
+#antriebVP_B1 {
+    position: absolute;
+    left: 2px;
+    top: 236px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B2 {
+    position: absolute;
+    left: 35px;
+    top: 174px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B3 {
+    position: absolute;
+    left: 35px;
+    top: 90px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B4 {
+    position: absolute;
+    left: 286px;
+    top: 49px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B5 {
+    position: absolute;
+    left: 506px;
+    top: 49px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B6 {
+    position: absolute;
+    left: 728px;
+    top: 49px;
+    width: 30px;
+    height: 30px;
+}
+
+.antriebVP_B7a {
+    position: absolute;
+    left: 842px;
+    top: 142px;
+    width: 30px;
+    height: 30px;
+}
+
+.antriebVP_B7b {
+    position: absolute;
+    left: 850px;
+    top: 123px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_B8 {
+    position: absolute;
+    left: 842px;
+    top: 220px;
+    width: 30px;
+    height: 30px;
+}
+
+.antriebVP_C1a {
+    position: absolute;
+    left: 130px;
+    top: 150px;
+    width: 30px;
+    height: 30px;
+}
+
+.antriebVP_C1b {
+    position: absolute;
+    left: 110px;
+    top: 131px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C2 {
+    position: absolute;
+    left: 130px;
+    top: 230px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C3 {
+    position: absolute;
+    left: 156px;
+    top: 102px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C4 {
+    position: absolute;
+    left: 158px;
+    top: 131px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C5 {
+    position: absolute;
+    left: 296px;
+    top: 102px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C6 {
+    position: absolute;
+    left: 843px;
+    top: 206px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C7 {
+    position: absolute;
+    left: 812px;
+    top: 302px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_C8 {
+    position: absolute;
+    left: 812px;
+    top: 470px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D1 {
+    position: absolute;
+    left: 816px;
+    top: 70px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D2 {
+    position: absolute;
+    left: 736px;
+    top: 136px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D3 {
+    position: absolute;
+    left: 642px;
+    top: 146px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D4 {
+    position: absolute;
+    left: 436px;
+    top: 96px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D5 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D6 {
+    position: absolute;
+    left: 382px;
+    top: 57px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D7 {
+    position: absolute;
+    left: 348px;
+    top: 74px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D8 {
+    position: absolute;
+    left: 244px;
+    top: 90px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D9 {
+    position: absolute;
+    left: 6px;
+    top: 206px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D10 {
+    position: absolute;
+    left: 84px;
+    top: 268px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D11 {
+    position: absolute;
+    left: 230px;
+    top: 294px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D12 {
+    position: absolute;
+    left: 348px;
+    top: 334px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D13 {
+    position: absolute;
+    left: 508px;
+    top: 170px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D14 {
+    position: absolute;
+    left: 630px;
+    top: 203px;
+    width: 30px;
+    height: 30px;
+}
+
+#antriebVP_D15 {
+    position: absolute;
+    left: 868px;
+    top: 203px;
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes flash-warn {
+    0% {
+        background: #ffff00;
+    }
+
+    10% {
+        background: #ffff00;
+    }
+
+    50% {
+        background: #ff0000;
+    }
+
+    90% {
+        background: #ffff00;
+    }
+
+    100% {
+        background: #ffff00;
+    }
+}
+
+@-webkit-keyframes flash-warn {
+    0% {
+        background: #ffff00;
+    }
+
+    10% {
+        background: #ffff00;
+    }
+
+    50% {
+        background: #ff0000;
+    }
+
+    90% {
+        background: #ffff00;
+    }
+
+    100% {
+        background: #ffff00;
+    }
+}
+
+@-moz-keyframes flash-warn {
+    0% {
+        background: #ffff00;
+    }
+
+    10% {
+        background: #ffff00;
+    }
+
+    50% {
+        background: #ff0000;
+    }
+
+    90% {
+        background: #ffff00;
+    }
+
+    100% {
+        background: #ffff00;
+    }
+}

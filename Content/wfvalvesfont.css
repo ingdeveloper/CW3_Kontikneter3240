@@ -1,0 +1,313 @@
+
+/*--------------------------------------------------------------------------------------------------
+ *  WEBfactory Valves Symbols - Icon Font Version 2.2.0 by WEBfactory GmbH - http://webfactory-world.de
+ *  Copyright  WEBfactory GmbH - http://webfactory-world.de
+ *--------------------------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'WFValvesSymbolsFont';
+    src: url('fonts/WFValvesSymbolsFont.eot?vn6pha');
+    src: url('fonts/WFValvesSymbolsFont.eot?vn6pha#iefix') format('embedded-opentype'), url('fonts/WFValvesSymbolsFont.ttf?vn6pha') format('truetype'), url('fonts/WFValvesSymbolsFont.woff?vn6pha') format('woff'), url('fonts/WFValvesSymbolsFont.svg?vn6pha#WFValvesSymbolsFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wf-valves {
+    font-family: 'WFValvesSymbolsFont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    position: relative;
+}
+
+    .wf-valves:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .wf-valves:before {
+        color: lightgrey;
+        z-index: -1;
+    }
+
+
+
+    .wf-valves.wf-diaphragm-A1:before {
+        content: "\e600";
+    }
+
+    .wf-valves.wf-diaphragm-A1:after {
+        content: "\e601";
+    }
+
+    .wf-valves.wf-pressure-indicator:before {
+        content: "\e602";
+    }
+
+    .wf-valves.wf-pressure-indicator:after {
+        content: "\e603";
+    }
+
+    .wf-valves.wf-regulator-disc:before {
+        content: "\e604";
+    }
+
+    .wf-valves.wf-regulator-disc:after {
+        content: "\e605";
+    }
+
+    .wf-valves.wf-rupture-disc-vacuum:before {
+        content: "\e606";
+    }
+
+    .wf-valves.wf-rupture-disc-vacuum:after {
+        content: "\e607";
+    }
+
+    .wf-valves.wf-valve-3-way:before {
+        content: "\e608";
+    }
+
+    .wf-valves.wf-valve-3-way:after {
+        content: "\e609";
+    }
+
+    .wf-valves.wf-valve-4-way:before {
+        content: "\e60a";
+    }
+
+    .wf-valves.wf-valve-4-way:after {
+        content: "\e60b";
+    }
+
+    .wf-valves.wf-valve-angle:before {
+        content: "\e60c";
+    }
+
+    .wf-valves.wf-valve-angle:after {
+        content: "\e60d";
+    }
+
+    .wf-valves.wf-valve-ball:before {
+        content: "\e60e";
+    }
+
+    .wf-valves.wf-valve-ball:after {
+        content: "\e60f";
+    }
+
+    .wf-valves.wf-valve-bleed-purge:before {
+        content: "\e610";
+    }
+
+    .wf-valves.wf-valve-bleed-purge:after {
+        content: "\e611";
+    }
+
+    .wf-valves.wf-valve-blow-angle:before {
+        content: "\e612";
+    }
+
+    .wf-valves.wf-valve-blow-angle:after {
+        content: "\e613";
+    }
+
+    .wf-valves.wf-valve-blow-down:before {
+        content: "\e614";
+    }
+
+    .wf-valves.wf-valve-blow-down:after {
+        content: "\e615";
+    }
+
+    .wf-valves.wf-valve-butterfly:before {
+        content: "\e616";
+    }
+
+    .wf-valves.wf-valve-butterfly:after {
+        content: "\e617";
+    }
+
+    .wf-valves.wf-valve-check-stop:after {
+        content: "\e618";
+    }
+
+    .wf-valves.wf-valve-check:after {
+        content: "\e619";
+    }
+
+    .wf-valves.wf-valve-control-hand:before {
+        content: "\e61a";
+    }
+
+    .wf-valves.wf-valve-control-hand:after {
+        content: "\e61b";
+    }
+
+    .wf-valves.wf-valve-cylinder-actuated:before {
+        content: "\e61c";
+    }
+
+    .wf-valves.wf-valve-cylinder-actuated:after {
+        content: "\e61d";
+    }
+
+    .wf-valves.wf-valve-diaphragm:before {
+        content: "\e61e";
+    }
+
+    .wf-valves.wf-valve-diaphragm:after {
+        content: "\e61f";
+    }
+
+    .wf-valves.wf-valve:before {
+        content: "\e620";
+    }
+
+    .wf-valves.wf-valve:after {
+        content: "\e621";
+    }
+
+    .wf-valves.wf-valve-check-stop:before {
+        content: "\e622";
+    }
+
+    .wf-valves.wf-valve-check:before {
+        content: "\e623";
+    }
+
+    .wf-valves.wf-diaphragm-A1-off:before {
+        content: "\e624";
+    }
+
+    .wf-valves.wf-diaphragm-A1-off:after {
+        content: "\e625";
+    }
+
+    .wf-valves.wf-valve-3-way-c-b:before {
+        content: "\e626";
+    }
+
+    .wf-valves.wf-valve-3-way-c-b:after {
+        content: "\e627";
+    }
+
+    .wf-valves.wf-valve-3-way-a-b:before {
+        content: "\e628";
+    }
+
+    .wf-valves.wf-valve-3-way-a-b:after {
+        content: "\e629";
+    }
+
+    .wf-valves.wf-valve-control-hand-off:before {
+        content: "\e62a";
+    }
+
+    .wf-valves.wf-valve-control-hand-off:after {
+        content: "\e62b";
+    }
+
+    .wf-valves.wf-valve-cylinder-actuated-off:before {
+        content: "\e62c";
+    }
+
+    .wf-valves.wf-valve-cylinder-actuated-off:after {
+        content: "\e62d";
+    }
+
+    .wf-valves.wf-valve-off:before {
+        content: "\e62e";
+    }
+
+    .wf-valves.wf-valve-off:after {
+        content: "\e62f";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-a-b:before {
+        content: "\e630";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-a-b:after {
+        content: "\e631";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-c-b:before {
+        content: "\e632";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-c-b:after {
+        content: "\e633";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-off:before {
+        content: "\e634";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-off:after {
+        content: "\e635";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-a-c:before {
+        content: "\e636";
+    }
+
+    .wf-valves.wf-three-way-valve-ball-a-c:after {
+        content: "\e637";
+    }
+
+    .wf-valves.wf-valve-control-hand-1:before {
+        content: "\e638";
+    }
+
+    .wf-valves.wf-valve-control-hand-1:after {
+        content: "\e639";
+    }
+
+    .wf-valves.wf-three-way-valve-a-b:before {
+        content: "\e63a";
+    }
+
+    .wf-valves.wf-three-way-valve-a-b:after {
+        content: "\e63b";
+    }
+
+    .wf-valves.wf-three-way-valve-c-b:before {
+        content: "\e63c";
+    }
+
+    .wf-valves.wf-three-way-valve-c-b:after {
+        content: "\e63d";
+    }
+
+    .wf-valves.wf-three-way-valve-off:before {
+        content: "\e63e";
+    }
+
+    .wf-valves.wf-three-way-valve-off:after {
+        content: "\e63f";
+    }
+
+    .wf-valves.wf-three-way-valve-a-c:before {
+        content: "\e640";
+    }
+
+    .wf-valves.wf-three-way-valve-a-c:after {
+        content: "\e641";
+    }
+
+    .wf-valves.wf-pressure-regulator-valve:before {
+        content: "\e642";
+    }
+
+    .wf-valves.wf-pressure-regulator-valve:after {
+        content: "\e643";
+    }

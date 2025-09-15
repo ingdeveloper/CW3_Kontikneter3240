@@ -1,0 +1,54 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content" style="font-size: 16px;">
+            <div class="modal-header">
+                <span type="button" class="btn btn-primary close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">&times;</span>
+                <h4 class="modal-title">
+                    <span>Überprüfung Benutzerrechte</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="font-weight-bold">
+                        Grund eintragen !
+                    </div>
+                    <div>
+                        <textarea placeholder="Grund eintragen ..." rows="2" data-bind="textInput: userGrund"
+                            style="width: 100%;"></textarea>
+                    </div>
+                    <div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="font-weight-bold text-right">
+                                        User-Name:
+                                    </td>
+                                    <td>
+                                        <input placeholder="Name" data-bind="textInput: userName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-right">
+                                        Password:
+                                    </td>
+                                    <td>
+                                        <input type="password" placeholder="Passwort"
+                                            data-bind="textInput: userPassword" />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: anmelden">Anmelden und Werte senden</button>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">Abbrechen (Schließen)</button>
+            </div>
+        </div>
+    </div>
+</div>

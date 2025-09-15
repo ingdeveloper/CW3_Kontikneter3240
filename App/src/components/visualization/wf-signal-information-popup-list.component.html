@@ -1,0 +1,89 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if:isVisible()-->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label> {{connector.translate('I4SCADA_Signal_Name')()}} </label>
+            <div class="relative">
+                <i class="wf wf-search wf-input-sm-icon-right wf-input-icon-right opacity-50"></i>
+                <input type="text" class="form-control input-sm"
+                    data-bind="textInput:pattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>{{connector.translate('I4SCADA_Signal_Name')()}}</th>
+            <th>{{connector.translate('I4SCADA_Description')()}}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: filteredSignalDefinitions">
+        <tr>
+            <td>{{AliasName || Name}}</td>
+            <td>{{Description}}</td>
+            <td>
+                <wf-input class="wf-table-input" params="signalName:AliasName, 
+                        inputSize: 'sm', 
+                        unitLabel:true, 
+                        projectAuthorization: $parent.projectAuthorization, 
+                        securityDenyAccessBehavior: $parent.securityDenyAccessBehavior, 
+                        systemAuthorization: $parent.systemAuthorization
+                        enableSignalName: $parent.settings.enableSignalName,
+                        enableSignalValue: $parent.settings.enableSignalValue,
+                        enableOperator: $parent.settings.enableOperator,
+                        visibilitySignalName: $parent.settings.visibilitySignalName,
+                        visibilitySignalValue: $parent.settings.visibilitySignalValue,
+                        visibilityOperator: $parent.settings.visibilityOperator,
+                        objectID: $parent.objectID,
+                        writeToBuffer: $parent.writeToBuffer,
+                        additionalCssForPendingAnimation: 'label-warning'"></wf-input>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ko if: writeToBuffer-->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group pull-right">
+            <wf-buffer-button class="inline" params="buttonText: connector.translate('I4SCADA_Apply')(),
+                    iconClass: 'wf wf-check', 
+                    cssClass: 'btn-success btn-sm',
+                    projectAuthorization: projectAuthorization, 
+                    securityDenyAccessBehavior: securityDenyAccessBehavior, 
+                    systemAuthorization: systemAuthorization
+                    enableSignalName: settings.enableSignalName,
+                    enableSignalValue: settings.enableSignalValue,
+                    enableOperator: settings.enableOperator,
+                    visibilitySignalName: settings.visibilitySignalName,
+                    visibilitySignalValue: settings.visibilitySignalValue,
+                    visibilityOperator:  settings.visibilityOperator,
+                    objectID: objectID">
+            </wf-buffer-button>
+            <wf-buffer-button class="inline" params="buttonText: connector.translate('I4SCADA_Reset')(), 
+                    iconClass: 'wf wf-arrow-undo',
+                    clearBuffer: true,
+                    cssClass: 'btn-default btn-sm',
+                    projectAuthorization: projectAuthorization, 
+                    securityDenyAccessBehavior: securityDenyAccessBehavior, 
+                    systemAuthorization: systemAuthorization
+                    enableSignalName: settings.enableSignalName,
+                    enableSignalValue: settings.enableSignalValue,
+                    enableOperator: settings.enableOperator,
+                    visibilitySignalName: settings.visibilitySignalName,
+                    visibilitySignalValue: settings.visibilitySignalValue,
+                    visibilityOperator:  settings.visibilityOperator,
+                    objectID: objectID">
+        </div>
+        <div class=" clearfix">
+        </div>
+    </div>
+</div>
+<!-- /ko-->
+
+<!-- /ko-->
+<!-- /ko-->

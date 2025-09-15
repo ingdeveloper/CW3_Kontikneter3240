@@ -1,0 +1,37 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+    <div class="wf-slider" data-bind="css:displayClassNames, style: { height: height}, attr : {title: tooltipText}">
+        <input type="text" class="slider form-control" data-bind="sliderValue:{
+                value: unCommittedValue,
+                min: minRange,
+                max: maxRange,
+                step: step,
+                tooltip: tooltip,
+                orientation: orientation,
+                handle: handle,
+                scale: scale,
+                ticks:ticks,
+                ticks_labels:ticks_labels,
+                refresh:refresh,
+                format:format,
+                unit:unit,
+                unitLabel:unitLabel,
+                committedValue:committedValue,
+                reversed:reversed,
+                enabled: !isDisabled(),
+              }, event:{slideStop:slideStop,change:change}, enable: !isDisabled()" />
+    </div>
+   
+<!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->    
+
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                               signalNames: [signalName],
+                               signalValues: writeSecureValues,
+                               cancelCalback: function() { cancelWriteSecure() },
+                               draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+
+<!--/ko-->
+<!--/ko-->
+

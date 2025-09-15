@@ -1,0 +1,55 @@
+<!-- ko addAuthorizationClass: hasNoAuthorization -->
+<div class="relative" data-bind="if: hasAuthorization() && isVisible()">
+    <div class="form-group input-group fluid ccw-date-time-picker-border" data-bind="css: inputSize, attr : {title: tooltipText}">
+        <!-- ko if: iconClass || label || signalNameLabel -->
+        <span class="input-group-addon wf-label-addon">
+            <!-- ko if: iconClass -->
+            <i class="wf-label-icon" data-bind="css: iconClass, attr: { style: iconStyle }"></i>
+            <!-- /ko -->
+            <!-- ko if: label -->
+            <span>{{connector.translate(label)()}}</span>
+        <!-- /ko -->
+        <!-- ko if: signalNameLabel -->
+        <span data-bind="text: signalName, visible: signalNameLabel"></span>
+        <!-- /ko -->
+        </span>
+        <!-- /ko -->
+        <!-- ko with: datepickerOptions-->
+        <div class='input-group date' data-bind="css: $parent.inputSize, datepicker: $parent.signalValue, datepickerOptions: $data">
+            <input type='text' class="form-control ccw-date-time-form-control wf-input-box" data-bind="disable: $parent.disableInputFeld, css: $parent.cssClass" />
+            <span class="input-group-addon ccw-date-time-picker-input-group-addon">
+                <span class="wf wf-clock" data-bind="attr: { disabled : $parent.disableInputFeld }"></span>
+            </span>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: unitLabel -->
+        <!-- ko if: staticUnitText -->
+        <span class="input-group-addon wf-unit-addon" data-bind="text: staticUnitText"></span>
+        <!-- /ko -->
+        <!-- ko ifnot: staticUnitText -->
+        <span class="input-group-addon wf-unit-addon" data-bind="wfSignalInformation: { signalName: signalName, propertyName: 'Unit' }"></span>
+        <!-- /ko -->
+        <!-- /ko -->
+
+    </div>
+    <div class="input-popover popover top" style="display: none;" data-bind="visible: isEditing">
+        <div class="arrow"></div>
+        <div class="popover-content">
+            <div class="btn-group">
+                <button class="btn btn-success" type="button" data-bind="click: writeInputValue, visible: isEditing"><i class="wf wf-check"></i></button>
+                <button class="btn btn-default" type="button" data-bind="click: resetInputValue, visible: isEditing"><i class="wf wf-arrow-undo"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ko if: writeSecure -->
+    <wf-write-secure-signal params="show: showWriteSecure,
+                               signalName: signalName,
+                               signalValue: writeSecureValue,
+                               cancelCalback: function() { cancelWriteSecure() },
+                               draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+    <!-- /ko -->
+
+</div>
+ <!-- /ko -->

@@ -1,0 +1,24 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">WEBfactory HTML/JS Workshop - SecuredService</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <wf-user-login></wf-user-login>
+        </div>
+        <div class="col-xs-12">
+            <h1>Geschützter Bereich "Administration"</h1>
+            <h2>hasAuthorization: {{hasAuthorization}}</h2>
+            <!-- ko if:hasAuthorization-->
+            <div>
+                Projektberechtigung: Administration
+            </div>
+            <!-- /ko-->
+            <h1>Ungeschützter Bereich Bereich </h1>
+            <div>
+                Ungeschützt
+            </div>
+        </div>
+    </div>
+</div>

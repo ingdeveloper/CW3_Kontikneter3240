@@ -1,0 +1,410 @@
+﻿<div class="modal">
+    <div class="modal-dialog modal-top modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-bind="css: cssWaage">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">
+                            <span><strong>Knetermantelkühlung</strong></span>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"
+                            data-bind="click: close">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped table-condensed table-hover">
+                            <caption>
+                                <h4>Regler Teigtemperatur</h4>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th style="width: 70%; font-size: 10px">
+                                        <span>Beschreibung</span>
+                                    </th>
+                                    <th style="width: 15%; font-size: 10px">
+                                        <span>Sollwert</span>
+                                    </th>
+                                    <th style="width: 15%; font-size: 10px">
+                                        <span>Istwert</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">
+                                        Temperatur Vorkneter
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB46REAL34', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr data-bind="css: reglerTeigAktiv().newCss1">
+                                    <td class="text-left">
+                                        <!-- ko if: reglerTeigAktiv().sichtbar -->
+                                        <span class="glyphicon glyphicon-arrow-right running"
+                                            title="Regler für Teigtemperatur ist aktiv!"></span>
+                                        <span class="running"
+                                            title="Regler für Teigtemperatur ist aktiv!">Teigtemperatur</span>
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: reglerTeigAktiv().sichtbar -->
+                                        <span>Teigtemperatur</span>
+                                        <!-- /ko -->
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB220REAL498', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel1()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB46REAL46', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Proportionalwert Teigtemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL70', staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Integrationszeit Teigtemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL74', staticUnitText: 'Min', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Oberer Grenzwert Stellgröße für Regler Teigtemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL78', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Unterer Grenzwert Stellgröße für Regler Teigtemperatur
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL82', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Stellgröße Regler Teigtemperatur
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL86', staticUnitText: '°C', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>                                
+                                <!-- <tr>
+                                    <td class="text-left">
+                                        Regler Teigtemperatur START/STOP
+                                    </td>
+                                    <td colspan="2">
+                                        <wf-state-text class="error"
+                                            params="states:[{signalName:'VMI3240DB56DBX330', operator:'==', maskSignal:0, symbolicText:'Regler ist Aus'}]">
+                                        </wf-state-text>
+                                        <wf-state-text class="running"
+                                            params="states:[{signalName:'VMI3240DB56DBX330', operator:'!=', maskSignal:0, symbolicText:'Regler ist Ein'}]">
+                                        </wf-state-text>
+                                    </td>
+                                    <td></td>
+                                </tr> -->
+                                <!-- <tr>
+                                    <td colspan="8">
+                                        <wf-switch params="signalName: 'VMI3240DB56DBX330', 
+                                    onValue: 1, 
+                                    offValue: 0,
+                                        onIconClass: 'wf wf-play-round-o',
+                                        offIconClass: 'wf wf-stop-round-o',
+                                        onLabelText: 'Regler EIN',
+                                        offLabelText: 'Regler AUS'"></wf-switch>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>Regler Teigtemperatur</td>
+                                    <td><button class="btn btn-xs ccw-button-Vorwahl wf-lg wf-play-round-o" data-bind="css: reglerTeigEinAus().newCss1">&nbsp;Ein</button></td>
+                                    <td><button class="btn btn-xs ccw-button-Vorwahl wf-lg wf-stop-round-o" data-bind="css: reglerTeigEinAus().newCss2">&nbsp;Aus</button></td>
+                                </tr>
+                            </tbody>  
+                        </table>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <ccwViewBox data-bind="ccwViewBox: {}, width: 160, maxScale: 1.2, DOMVerz: 500">
+                            <ccwViewBoxContent>
+                                <div>
+                                    <!-- SVG laden -->
+                                    <div id="containerSole1" style="position: absolute; top: 60px; left: 65px;"></div>
+                                    <!-- Temperatur Vorlauf -->
+                                    <wf-sensor style="position:absolute; left:82px; top:185px"
+                                        params="  cssClassNormalState: '', tooltipText: 'Temperatur Vorlauf Solekreislauf', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB56REAL42', staticUnitText: '°C', valueLabelPosition: 'left' ">
+                                    </wf-sensor>
+                                    <!-- Temperatur Rücklauf -->
+                                    <wf-sensor style="position:absolute; left:158px; top:185px"
+                                        params="  cssClassNormalState: '', tooltipText: 'Temperatur Rücklauf Solekreislauf', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB56REAL46', staticUnitText: '°C', valueLabelPosition: 'right'">
+                                    </wf-sensor>
+                                    <!-- Temperatur Teig -->
+                                    <wf-sensor style="position:absolute; left:150px; top:253px"
+                                        params="  cssClassNormalState: '', tooltipText: 'Temperatur Teig (Kneterauslauf)', pointerLength: '0', pointerRotation: '0', sensorText: 'T', format: '0,0.0', signalName: 'VMI3240DB46REAL46', staticUnitText: '°C', valueLabelPosition: 'bottom'">
+                                    </wf-sensor>
+                                    <!-- Stellgröße Kühlventil-->
+                                    <wf-sensor style="position:absolute; left:57px; top:91px"
+                                        params="  cssClassNormalState: '', tooltipText: 'Stellgröße Kühlventil', pointerLength: '15', pointerRotation: '270', sensorText: 'M', format: '0,0.0', signalName: 'VMI3240DB56REAL66', staticUnitText: '%', valueLabelPosition: 'left' ">
+                                    </wf-sensor>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 150px; left: 158px; width:24px; height:24px">
+                                        <ccw-wf-pump0 params="nameAntrieb:'Umwälzpumpe Knetermantelkühlung', bmk:'xxxUx', infoAktiv: true, ausrichtung: -90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB56B2', steuerAktiv: true, 
+                                                                            dialogAktiv: false"></ccw-wf-pump0>
+                                    </div>
+                                    <ccw-wf-ventil2ml
+                                        style="position: absolute; top: 92px; left: 84px; width:24px; height:24px"
+                                        params="signalVentil: '', signalIstwert:'VMI3240DB23REAL68', bmk: '20Y4', nameVentil: 'Stellventil Solekühlung', infoAktiv: true, dialogAktiv: false, farbStatusHand: false, freigabeBedienung: false">
+                                        </ccw-wf-ventil3ml>
+                                </div>
+                            </ccwViewBoxContent>
+                        </ccwViewBox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-striped table-condensed table-hover">
+                            <caption>
+                                <h4>Vorlaufregler Soletemperatur</h4>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th style="width: 70%; font-size: 10px">
+                                        <span>Beschreibung</span>
+                                    </th>
+                                    <th style=" width: 15%; font-size: 10px">
+                                        <span>Sollwert</span>
+                                    </th>
+                                    <th style=" width: 15%; font-size: 10px">
+                                        <span>Istwert</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-bind="css: reglerTeigAktiv().newCss2">
+                                    <td class="text-left">
+                                        <!-- ko ifnot: reglerTeigAktiv().sichtbar -->
+                                        <span class="glyphicon glyphicon-arrow-right warning"
+                                            title="Regler mit Festsollwert ist aktiv!"></span>
+                                        <span class="warning"
+                                            title="Regler mit Festsollwert ist aktiv!">Festsollwert für Start</span>
+                                        <!-- /ko -->
+                                        <!-- ko if: reglerTeigAktiv().sichtbar -->
+                                        <span>Festsollwert für Start</span>
+                                        <!-- /ko -->
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB220REAL494', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel1()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL42', staticUnitText: '°C', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>                                
+                                <tr>
+                                    <td class="text-left">
+                                        Proportionalwert Vorlaufregelung Knetermantelkühlung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL50', staticUnitText: '', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Integrationszeit Vorlaufregelung Knetermantelkühlung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL54', staticUnitText: 'Min', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Oberer Grenzwert Stellgröße für Vorlaufregelung
+                                    </td>
+                                    <td >
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL58', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Unterer Grenzwert Stellgröße für Vorlaufregelung
+                                    </td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL62', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: !UserLevel5()">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        Stellgröße Regler Teigtemperatur
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB56REAL66', staticUnitText: '%', format: '0,0.00', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'60%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </td>
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-condensed table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <!-- <th class="tableBreiteSpalte1 antriebeBeschriftungTable">Nr</th> -->
+                                    <th class="tableBreiteSpalte2 antriebeBeschriftungTable">BMK</th>
+                                    <th class="tableBreiteSpalte3 antriebeBeschriftungTable">Kommentar</th>
+                                    <th class="tableBreiteSpalte4 antriebeBeschriftungTable">Soll</th>
+                                    <th class="tableBreiteSpalte5 antriebeBeschriftungTable">Ist</th>
+                                    <th class="tableBreiteSpalte6 antriebeBeschriftungTable">Hand/Auto</th>
+                                    <th class="tableBreiteSpalte7 antriebeBeschriftungTable">Ein</th>
+                                    <th class="tableBreiteSpalte8 antriebeBeschriftungTable">Aus</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: antriebePumpe">
+                                <tr data-bind="css: $data.lblByteError().newcssTd">
+                                    <!-- BMK  ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <span class="" data-bind="text: $data.bmk"></span>
+                                    </td>
+                                    <!-- Kommentar  ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.lblByteError().sichtbar == true -->
+                                        <span class="" style="width:20px; height:20px"
+                                            data-bind="css: $data.lblByteError().newCss, attr: { title: $data.lblByteError().newCssText }"></span>
+                                        <!-- /ko -->
+                                        <span class="" data-bind="text: $data.kommentar"></span>
+                                    </td>
+                                    <!-- StateDisplay ############################################## -->
+                                    <!-- ko if: $data.lblState().sichtbar == true -->
+                                    <td colspan="2" data-bind="css: $data.lblState().newCss">
+                                        <p class="lblState">
+                                            <span data-bind="text: $data.lblState().state"></span>
+                                        </p>
+                                    </td>
+                                    <!-- /ko -->
+                                    <!-- Soll ############################################## -->
+                                    <!-- ko if: $data.lblState().sichtbar == false -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.sichtbarSoll == true -->
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: $data.freigabe">
+                                        </ccw-wf-input-tastatur-2>
+                                        <!-- /ko -->
+                                    </td>
+                                    <!-- Ist ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.sichtbarIst == true -->
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: $data.istwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'70%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                        <!-- /ko -->
+                                    </td>
+                                    <!-- /ko -->
+
+                                    <!-- Btn Hand-Auto ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="enable: $data.btnHandAuto().freigabe, click: function (obj, event){$parent.setBtnValueByteHand($data.btnHandAuto().signalName, obj, event, $data.bmk)}, visible: $data.btnHandAuto().sichtbar, css: $data.btnHandAuto().newCss, text: $data.btnHandAuto().text">Hand</button>
+                                    </td>
+                                    <!-- Btn Ein ############################################## -->
+                                    <td class="antriebeSeiteTd">
+                                        <!-- ko if: $data.btnByteEin().sichtbar == true -->
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnByteEin().freigabe, click: function (obj, event){$parent.setBtnValueByteEin($data.btnByteEin().signalName, obj, event, $data.bmk)}, css: $data.btnByteEin().newCss, text: $data.btnByteEin().text">Ein</button>
+                                        <!-- /ko -->
+                                        <div>
+                                            <!-- ko if: $data.btnEinByteLinks().sichtbar == true -->
+                                            <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteLinks().freigabe, click: function (obj, event){$parent.setBtnValueLinksEin($data.btnEinByteLinks().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteLinks().newCss, text: $data.btnEinByteLinks().text">Li</button>
+                                            <!-- /ko -->
+                                            <!-- ko if: $data.btnEinByteRechts().sichtbar == true -->
+                                            <button style="width:45%" class="btn btn-default btn-xs" type="submit"
+                                                data-bind="attr: { title: $data.btnEinByteLinks().newTitle }, enable: $data.btnEinByteRechts().freigabe, click: function (obj, event){$parent.setBtnValueRechtsEin($data.btnEinByteRechts().signalName, obj, event, $data.bmk)}, css: $data.btnEinByteRechts().newCss, text: $data.btnEinByteRechts().text">Re</button>
+                                            <!-- /ko -->
+
+                                        </div>
+                                    </td>
+                                    <!-- Btn Aus ############################################## -->
+                                    <td class="tableBreiteSpalte8 antriebeSeiteTd">
+                                        <!-- ko if: $data.btnAus().sichtbar == true -->
+                                        <button class="btn btn-default btn-xs ccw-button-Vorwahl" type="submit"
+                                            data-bind="enable: $data.btnAus().freigabe, click: function (obj, event){$parent.setBtnValueByteAus($data.btnAus().signalName, obj, event)}, css: $data.btnAus().newCss, text: $data.btnAus().text">Aus</button>
+                                        <!-- /ko -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success inline" type="submit"
+                    data-bind="enable: UserLevel(), click: function (){sendWerteZurSps()}, css: sendBtnCss">
+                    Werte zur SPS</button>
+                <wf-buffer-button class="btn inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+                </wf-buffer-button>                
+                <!-- <wf-buffer-button class="inline" data-bind="css: sendBtnCss"
+                    params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'">
+                </wf-buffer-button>
+                <wf-buffer-button class="inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+                </wf-buffer-button> -->
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

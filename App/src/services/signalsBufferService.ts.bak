@@ -1,0 +1,66 @@
+﻿import SignalsService = require("./signalsService");
+
+class SignalsBufferService {
+    private static signalsToWrite = ko.observable<SignalValue>({});
+
+    public static bufferIsEmpty = ko.computed(() => {
+        return Object.keys(SignalsBufferService.signalsToWrite()).length === 0;
+    });
+
+    public static writeSignalsToBuffer(signalValues: SignalValue) {
+        for(const signalName of Object.keys(signalValues)){
+            const signalsToWrite = SignalsBufferService.signalsToWrite();
+            signalsToWrite[signalName] = signalValues[signalName];
+            SignalsBufferService.signalsToWrite(signalsToWrite);
+        }
+    }
+
+    public static async writeSignalsFromBuffer() {
+        await SignalsService.writeSignals(SignalsBufferService.signalsToWrite());
+        SignalsBufferService.signalsToWrite({});
+
+    }
+
+    public static async writeSignalsFromBufferSecure(userPassword: string) {
+        const result = await SignalsService.writeSignalsSecure(userPassword, SignalsBufferService.signalsToWrite());
+        if (result !== undefined) {
+            SignalsBufferService.signalsToWrite({});
+            return true;
+        }
+        else return false;
+    }
+
+    public static existSignalInBuffer(signalName: string) {
+        return _.contains(Object.keys(SignalsBufferService.signalsToWrite()), signalName);
+    }
+
+    public static existSignalsInBuffer(signalName: string[]) {
+        return _.intersection(Object.keys(SignalsBufferService.signalsToWrite()), signalName).length > 0;
+    }
+
+    public static clearSignalBuffer() {
+        SignalsBufferService.signalsToWrite({});
+    }
+
+    public static getSignalsFromBuffer() {
+        return _.map(SignalsBufferService.signalsToWrite(), (value: any, key: any) => {
+            return <KeyValuePair<string, any>>{
+                key: key,
+                value: value
+            };
+        });
+    }
+
+    public static readSignals(signalNames: string[]) {
+
+        var result = [];
+
+        for (var i = 0; i < signalNames.length; i++)
+            if (this.existSignalInBuffer(signalNames[i]))
+                result.push(SignalsBufferService.signalsToWrite()[signalNames[i]]);
+
+        return result;
+    }
+}
+
+export = SignalsBufferService;

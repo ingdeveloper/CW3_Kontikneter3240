@@ -1,0 +1,49 @@
+<div class="modal">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content"
+            data-bind="ccwDraggable:{}, dragId: 'cwRezDlgLogInOut', BGclose: false, ESCclose: false">
+            <div class="modal-header" id="cwRezDlgLogInOut" style="background-color: DodgerBlue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    <i class="wf wf-users" style="font-size: 30px"></i>
+                    <span>&nbsp;Benutzer Login</span>
+                </h4>
+            </div>
+            <br>
+            <form data-bind="submit: accept" autocomplete="off">
+                <fieldset>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;Username</span>
+                                    <input class="form-control" data-bind="value: user" type="text" title="Benutzername"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;Password&nbsp;</span>
+                                    <input class="form-control" data-bind="value: pass" type="password"
+                                        pattern="\w.{1,20}" title="Passwort" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="modal-footer">
+                    <div class="rezspinner" data-bind="css: { active: busy }" style="color:tomato;font-size:1.2em;">
+                        <i class="fa fa-spinner"></i>
+                    </div>
+                    <button class="btn btn-default" type="submit" data-bind="enable: !busy()">Login</button>
+                    <button class="btn btn-default" type="button" data-dismiss="modal"
+                        data-bind="enable: !busy(), click: close">Abbrechen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

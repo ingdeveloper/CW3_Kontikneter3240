@@ -1,0 +1,117 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12"
+            data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab"
+                        data-toggle="tab">Component <span
+                            class="label label-warning">wf-historical-data-cursor-details</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfHistoricalDataCursorDetails_Component_Header")()}}
+                            </h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-historical-data-cursor-details params=&quot;groupName:'demo-cursor', controlName:'demo-cursor'&quot;&gt;&lt;/wf-historical-data-cursor-details&gt;
+</pre>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <wf-historical-data-cursor-details params="groupName:'demo-cursor', controlName:'demo-cursor'">
+                            </wf-historical-data-cursor-details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+            <div class="wf-panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'">
+                    </wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td>
+                                <!-- ko if: defaultValue.indexOf('#') !== -1 -->
+                                <span class="wf-1x inline-block round" style="transform: translateY(3px)"
+                                    data-bind="style: {'background-color': defaultValue} "></span>
+                                <!-- /ko -->
+                                <span data-bind="text: defaultValue"></span>
+                            </td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel-footer">
+                    <h5 class="panel-title">Enums</h5>
+                    <div data-bind="foreach: enums">
+                        <div class="inline-block m-r-md">
+                            <h5 class="panel-title">{{name}}</h5>
+                            <div data-bind="foreach: properties">
+                                <span style="margin-bottom: 5px; display: inline-block" class="label label-black"
+                                    data-bind="text: $data"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        <wf-historical-data-chart
+                            params="groupName:'demo-cursor', controlName:'demo-cursor', title: '', startOffsetInterval: 5, endOffsetInterval: 0, startOffset: 'minutes', endOffset: 'hours', timeRanges: CalendarTimeRanges.Actual, series: [{ name: 'Level 1', signalName: 'Level 1', tag: 'LogTagLevel1', axis: 'y1', strokeColor: '#337AB7', cursors:[  { name:'Offset 1 min', offset: 'minutes', offsetInterval:1 }, { name:'Offset 2 min', offset: 'minutes', offsetInterval:2 }, { name:'Offset 3 min', offset: 'minutes', offsetInterval:3 }, { name:'Offset 4 min', offset: 'minutes', offsetInterval:4 }]  } ], axes: [ { name: 'y1', color: '#337AB7', gridThickness: 0, minGridDistance: 20  }]">
+                        </wf-historical-data-chart>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <wf-historical-data-cursor-details
+                            params="groupName:'demo-cursor', controlName:'demo-cursor', displayMode: SeriesDetailsDisplayMode.Column">
+                        </wf-historical-data-cursor-details>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <wf-historical-data-cursor-details
+                            params="groupName:'demo-cursor', controlName:'demo-cursor', displayMode: SeriesDetailsDisplayMode.Card">
+                        </wf-historical-data-cursor-details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

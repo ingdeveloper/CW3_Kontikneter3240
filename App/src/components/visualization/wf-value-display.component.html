@@ -1,0 +1,34 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if:isVisible()-->
+    <div class="form-group input-group fluid" data-bind="css: displaySize, attr : {title: tooltipText}">
+        <!-- ko if: iconClass || label || signalNameLabel -->
+        <span class="input-group-addon wf-label-addon">
+            <span class="">
+                <!-- ko if: iconClass -->
+                <i class="wf-label-icon" data-bind="css: iconClass, attr: {style: iconStyle }"></i>
+                <!-- /ko -->
+                <!-- ko if: label -->
+                <span>{{{connector.translate(label)()}}}</span>
+                <!-- /ko -->
+                <!-- ko if: signalNameLabel -->
+                <span data-bind="text: signalName"></span>
+                <!-- /ko -->
+            </span>
+        </span>
+        <!-- /ko -->
+
+        <div class="form-control wf-output-box" data-bind="text: signalValue, css: cssClass, attr: {style: textStyle }"></div>
+
+        <!-- ko if: unitLabel -->
+        <!-- ko if: staticUnitText -->
+        <span class="input-group-addon wf-unit-addon" data-bind="text: staticUnitText, visible: settings.staticUnitText"></span>
+        <!-- /ko -->
+        <!-- ko ifnot: staticUnitText -->
+        <span class="input-group-addon wf-unit-addon">
+            <wf-signal-information params="signalName: signalName, propertyName: 'Unit'"></wf-signal-information>
+        </span>
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+<!-- /ko -->

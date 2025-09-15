@@ -1,0 +1,21 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">WEBfactory HTML/JS Workshop - VisualSecurityService</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Visible Signal: Setpoint 1</h1>
+            <h2>isVisible: {{ isVisible }}</h2>
+            <!-- ko if: isVisible-->
+            <wf-input params="signalName:'Setpoint 3'"></wf-input>
+            <!--/ko-->
+        </div>
+        <div class="col-xs-12">
+            <h1>Disable Signal: Setpoint 2</h1>
+            <h2>isDisabled: {{ isDisabled }}</h2>
+            <button class="btn btn-default" data-bind="disable:isDisabled, click:function(){alert('cliked')}">Klick mich</button>
+        </div>
+
+    </div>
+</div>

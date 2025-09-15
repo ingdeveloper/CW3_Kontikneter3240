@@ -1,0 +1,9 @@
+<!-- ko if:hasAuthorization-->
+    <span>
+        <span data-bind="text: signalValue"></span>
+        <!-- ko if:  unitLabel -->
+        <span data-bind="component: {name: 'wf-signal-information', params: { signalName:  signalName, propertyName: 'Unit'} }"></span>
+        <!-- /ko -->
+    </span>
+    <!-- /ko -->
+

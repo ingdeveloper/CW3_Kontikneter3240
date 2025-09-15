@@ -1,0 +1,54 @@
+<!-- ko if: isVisible()-->
+<button type="button" class="btn btn-default" data-bind="disable: isDisabled() || isLoading(), css: css, click: showSettings"
+    title="{{connector.translate('I4SCADA_Time_settings')()}}">
+    <span class="wf wf-clock"></span>
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Time_settings')()}}
+    <!--/ko-->
+</button>
+
+<span data-bind="attr: { id: 'modal-time-settings-back-container-' + id() }">
+    <div class="modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: dialogSettings, draggable: true} , attr: { id: 'modal-time-settings-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Time_settings')()}}</strong>
+                    </div>
+                </div>
+
+                <div class="modal-body wf-panel-settings">
+                    <div class="row m-b">
+                        <div class="col-xs-12">
+                            <wf-time-range class="block" params="hideTimeRangeSelector: false, 
+                                           startDateInput: start, 
+                                           endDateInput: end, 
+                                           timeRangeDateInput: timeRangeDate,
+                                           selectedRangeInput: selectedRange,
+                                           startOffset: startOffset,
+                                           startOffsetIntervall: startOffsetInterval,
+                                           endOffset: endOffset,
+                                           endOffsetIntervall: endOffsetInterval"></wf-time-range>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bind="click: onSettings">
+                        <i class="wf-lg wf-check"></i>
+                        {{connector.translate('I4SCADA_Apply')()}}
+                    </button>
+                    <button class="btn btn-default" data-bind="click: closeSettings">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_Close')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+<!--/ko-->

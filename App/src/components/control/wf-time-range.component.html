@@ -1,0 +1,65 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<div class="wf-time-range">
+    <!-- ko ifnot: hideTimeRangeSelector -->
+    <div class="row m-b-md">
+        <div class="col-sm-6">
+            <label>{{connector.translate('I4SCADA_Time_Range')()}}</label>
+            <select class="form-control" data-bind="options: ranges,
+                                                    optionsText: 'text',
+                                                    optionsValue: 'id',
+                                                    value: selectedRangeInput,
+                                                    event:{ change: timeRangeChanged}"></select>
+            <!-- ko ifnot: showDateTimeSelectors -->
+            <span class="badge label-default m-t-sm m-l-sm">
+                <span data-bind="formattedDate: { value: startDateInput, format: 'DD.MM.YYYY HH:mm:ss' }"></span>
+                -
+                <span data-bind="formattedDate: { value: endDateInput, format: 'DD.MM.YYYY HH:mm:ss' }"></span>
+            </span>
+            <!-- /ko -->
+        </div>
+
+        <!-- ko if: showTimerangeCalendar -->
+        <div class="col-sm-6">
+            <label data-bind="text: timeRangeLabel()"></label>
+            <div class="form-group">
+                <div class='input-group date' data-bind="datepicker: timeRangeDateInput, datepickerOptions: { locale: 'de', viewMode: timeRangeCalendarView(), format: timeRangeCalendarFormat(), calendarWeeks: timeRangeCalendarWeeks(), widgetClass: 'highlightTr' }">
+                    <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="wf wf-clock"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+
+    </div>
+    <!-- /ko -->
+    
+    <!-- ko if: showDateTimeSelectors -->
+    <div class="row m-y">
+        <div class="col-sm-6">
+            <label>{{connector.translate('I4SCADA_Time_range_from')()}}</label>
+            <div class="form-group">
+                <div class='input-group date' data-bind="datepicker: startDateInput, datepickerOptions: { locale: 'de' }">
+                    <input type='text' class="form-control" data-bind="attr: { disabled : shouldDisableRangeChange }"/>
+                    <span class="input-group-addon">
+                        <span class="wf wf-clock" data-bind="attr: { disabled : shouldDisableRangeChange }"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label>{{connector.translate('I4SCADA_Time_range_to')()}}</label>
+            <div class="form-group">
+                <div class='input-group date' data-bind="datepicker: endDateInput, datepickerOptions: { locale: 'de' }">
+                    <input type='text' class="form-control" data-bind="attr: { disabled : shouldDisableRangeChange }"/>
+                    <span class="input-group-addon">
+                        <span class="wf wf-clock" data-bind="attr: { disabled : shouldDisableRangeChange }"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div> 
+<!-- /ko -->

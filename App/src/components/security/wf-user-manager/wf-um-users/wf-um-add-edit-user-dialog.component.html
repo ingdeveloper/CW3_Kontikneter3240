@@ -1,0 +1,123 @@
+<div style="display:none">
+    <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal}" style="display: none;">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+
+                    <div class="flexbox flexbox-y-center user">
+                        <i data-bind="visible: userType() === 'scada'" class="fa fa-database"></i>
+                        <i data-bind="visible: userType() === 'domain'" class="fa fa-windows"></i>
+                        <div data-bind="visible: actionType() === 'edit'" class="modal-title">{{connector.translate('I4SCADA_UM_Edit')()}}</div>
+                        <div data-bind="visible: actionType() === 'add'" class="modal-title">{{connector.translate('I4SCADA_UM_Add')()}}</div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">{{connector.translate('I4SCADA_UM_Name')()}}</label>
+                                <span data-bind="visible: userObs.Name.isFieldEmpty()" class="error-message form-control-validation pull-right">
+                                    <i class="wf wf-question-mark-round form-control-validation-indicator animated fadeIn" title="{{connector.translate('I4SCADA_UM_FieldIsRequired')()}}"></i>
+                                </span>
+                                <input data-bind="value: userObs.Name, valueUpdate: 'afterkeydown', css: {'red-border': userObs.Name.isFieldEmpty()}" type="text" maxlength="32" class="form-control" id="name" autocomplete="new-password">
+                            </div>
+                            <wf-um-check-box-group data-bind="visible: userType() === 'scada'" params="textLabel: authorizationGroupsLoc, itemsList: authGroups"></wf-um-check-box-group>
+                            <div data-bind="visible: userType() === 'scada'" class="checkbox">
+                                <label><input data-bind="checked: userObs.Active" type="checkbox" value="">{{connector.translate('I4SCADA_UM_Active')()}}</label>
+                            </div>
+                            <div data-bind="visible: userType() !== 'scada'">
+                                <label>{{connector.translate('I4SCADA_UM_AuthGroupsForThisUserWillBe')()}}</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input data-bind="checked: userObs.AllowMultipleLogons" type="checkbox" value="">{{connector.translate('I4SCADA_UM_MultipleLogons')()}}</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input data-bind="checked: userObs.LogActivities" type="checkbox" value="">{{connector.translate('I4SCADA_UM_LogActivities')()}}</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input data-bind="checked: userObs.IsAdmin" type="checkbox" value="">{{connector.translate('I4SCADA_UM_PrivilegedWriting')()}}</label>
+                            </div>
+                            <div data-bind="visible: userType() === 'scada'" class="checkbox">
+                                <label><input data-bind="checked: userObs.PasswordExpires" type="checkbox" value="">{{connector.translate('I4SCADA_UM_PasswordExpires')()}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="userLevel">{{connector.translate('I4SCADA_UM_UserLevel')()}}:</label>
+                                <input data-bind="value: userObs.UserLevel, valueUpdate: 'afterkeydown'" min="0" required value="0" oninput="validity.valid||(value='0');"
+                                       type="number" class="form-control" id="userLevel" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="autoLogOff">{{connector.translate('I4SCADA_UM_AutoLogOffInterval')()}}</label>
+                                <input data-bind="value: userObs.AutoLogOffInterval, valueUpdate: 'afterkeydown'" min="0" required value="0" oninput="validity.valid||(value='0');"
+                                       type="number" class="form-control" id="autoLogOff" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="maintenanceForecast">{{connector.translate('I4SCADA_UM_MaintenanceForecast')()}}</label>
+                                <input data-bind="value: userObs.MobileJobsPlanViewDuration, valueUpdate: 'afterkeydown'" type="text" class="form-control"
+                                       id="maintenanceForecast" autocomplete="new-password">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="descr">{{connector.translate('I4SCADA_UM_Description')()}}</label>
+                                <input data-bind="value: userObs.Description, valueUpdate: 'afterkeydown'" type="text" maxlength="128" class="form-control" id="descr" autocomplete="new-password">
+                            </div>
+                            <div data-bind="visible: userType() === 'scada'" class="form-group">
+                                <label for="autoLogOff">{{connector.translate('I4SCADA_UM_MaxFailedLogons')()}}</label>
+                                <input data-bind="value: userObs.MaxFailedLogOns, valueUpdate: 'afterkeydown'" min="0" required value="0" oninput="validity.valid||(value='0');"
+                                       type="number" class="form-control" id="autoLogOff" autocomplete="new-password">
+                            </div>
+                            <div data-bind="visible: userType() === 'scada'" class="form-group">
+                                <label for="autoLogOff">{{connector.translate('I4SCADA_UM_FailedLogons')()}}</label>
+                                <div class="flexbox">
+                                    <input data-bind="value: userObs.FailedLogOns, valueUpdate: 'afterkeydown'" min="0" required value="0" oninput="validity.valid||(value='0');"
+                                           type="number" class="form-control" id="autoLogOff" autocomplete="new-password">
+                                    <button data-bind="visible: actionType() === 'edit', click: onResetFailedLogonsClick" class="btn btn-default margine-lelf-10">{{connector.translate('I4SCADA_UM_Reset')()}}</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">{{connector.translate('I4SCADA_UM_FirstName')()}}</label>
+                                <input data-bind="value: userObs.FirstName, valueUpdate: 'afterkeydown'" type="text" maxlength="64" class="form-control" id="firstName"
+                                       autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">{{connector.translate('I4SCADA_UM_LastName')()}}</label>
+                                <input data-bind="value: userObs.LastName, valueUpdate: 'afterkeydown'" type="text" maxlength="64" class="form-control" id="LastName" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">{{connector.translate('I4SCADA_UM_Company')()}}</label>
+                                <input data-bind="value: userObs.Company, valueUpdate: 'afterkeydown'" type="text" maxlength="64" class="form-control" id="company" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="plant">{{connector.translate('I4SCADA_UM_Plant')()}}</label>
+                                <input data-bind="value: userObs.Plant, valueUpdate: 'afterkeydown'" type="text" maxlength="64" class="form-control" id="plant" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="personnelNumber">{{connector.translate('I4SCADA_UM_PersonnelNumber')()}}</label>
+                                <input data-bind="value: userObs.IDNumber, valueUpdate: 'afterkeydown'" type="text" class="form-control" id="personnelNumber"
+                                       autocomplete="new-password">
+                            </div>
+                            <div data-bind="visible: false" class="form-group">
+                                <label for="rfidSerialNumber">{{connector.translate('I4SCADA_UM_RFIDSerialNumber')()}}</label>
+                                <input data-bind="value: userObs.RFIDSerialNo, valueUpdate: 'afterkeydown'" type="text" class="form-control" id="rfidSerialNumber"
+                                       autocomplete="new-password">
+                            </div>
+                       
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-bind="enable: !userObs.Name.isFieldEmpty(), click: onClickSaveUser" class="btn btn-sm btn-primary">
+                        <i class="wf wf-check"></i>
+                        {{connector.translate('I4SCADA_UM_Save')()}}
+                    </button>
+                    <button data-bind="click: close" class="btn btn-sm btn-default">
+                        <i class="wf wf-close-round-o" "></i>
+                        {{connector.translate('I4SCADA_UM_Cancel')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

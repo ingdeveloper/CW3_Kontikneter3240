@@ -1,0 +1,418 @@
+/*
+    Dialog für Komponente ccwDialogInputTastatur
+    amueller: Erstelldatum 7.07.2018 
+
+Änderungen:
+20.09.2019: - String wurde nicht übertragen,weil immer in Float umgewandelt wurde. Jetzt bei "writeInputValue"-Funktion Abfrage auf Parameter "isAlphanumeric"
+03.07.2019: -  Parameter "anzahlZiffern" eingearbeitet. Wenn vorhanden, dann bei Fehler ein Farbumschlag auf Anzeige-Feld
+
+*/
+
+define(['../../../services/connector', 'plugins/dialog'],
+    function(signalsConnector, dialog) {
+        var ctor = function(settings) {
+            var self = this;
+            self.settings = settings; //Übergabewerte
+            self.connector = new signalsConnector();
+            // console.log(self.parameter);
+            self.label = self.settings.label;
+            self.signalName = self.settings.signalName;
+            self.unit = self.settings.unit;
+            self.isAlphanumeric = self.settings.isAlphanumeric;
+            // self.isText = self.settings.isText;
+
+            self.show = ko.observable(false);
+
+            self.isEditing = ko.observable(false);
+            self.isEditingZiffer = self.settings.isText !== undefined ? ko.observable(!self.settings.isText) : ko.observable(true); //wenn kein Parameter vorhanden, dann Ziffer-Anzeige setzen
+            self.isEditingString = self.settings.isText !== undefined ? ko.observable(self.settings.isText) : ko.observable(false);
+            self.writeToBuffer = self.settings.writeToBuffer !== undefined ? self.settings.writeToBuffer : true; //geändert auf TRUE am 2.02.2018
+
+            self.anzahlZiffern = ko.unwrap(self.settings.anzahlZiffern) !== undefined ? ko.unwrap(self.settings.anzahlZiffern) : -1; //Neu 3.07.2019 amueller
+            self.anzahlZiffernMarkierung = ko.observable(false);
+
+
+            self.breite = ko.observable(285); //Breite des Panels nur der Zifferneingabe
+            if (self.settings.isText) { //wenn Text-Tastatur bei Start angezeigt werden soll, dann Breite umschalten
+                self.breite(635);
+            }
+
+            self.minValue = self.settings.minValue;
+            self.maxValue = self.settings.maxValue;
+
+            self.signalWfDbWert = self.connector.getSignal(self.signalName).value;
+            self.uncommittedValue = ko.observable('');
+            self.kommaBetaetigt = 0; //Aenderung Neu
+            self.cssAusrichtungKo = ko.observable('bottom');
+
+            self.yClickPosition = ko.observable(0);
+            self.xClickPosition = ko.observable(0);
+            self.ElementWidth = ko.observable(0);
+            self.elementTop = ko.observable(0);
+            self.windowInnerHeight = 0;
+            self.xClickOffsetImElement = ko.observable(0);
+
+            // console.log(dialog.getContext().minYMargin);
+            // dialog.getContext().blockoutOpacity = 0.8;
+            // dialog.getContext().marginLeft = '5px';
+            // console.log(dialog.getDialog());
+            self.eingabeNewValue = 0;
+
+            self.keyboardLayout = {
+                'qwertz': {
+                    'normal': [
+                        '1 2 3 4 5 6 7 8 9 0 - = {bksp}',
+                        '{tab} q w e r t z u i o p [ ] \\',
+                        'a s d f g h j k l ; \' {enter}',
+                        '{shift} y x c v b n m , . / {shift}',
+                        '{accept} {space} {cancel}'
+                    ],
+                    'shift': [
+                        '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+                        '{tab} Q W E R T Z U I O P { } |',
+                        'A S D F G H J K L : " {enter}',
+                        '{shift} Y X C V B N M < > ? {shift}',
+                        '{accept} {space} {cancel}'
+                    ]
+                }
+            };
+
+            self.keyboardTastenAnzeigen = ko.observableArray([]);
+            self.keyboardTastenArray = ko.observableArray([]);
+            self.configKeyboardLayout = ko.observable(self.keyboardLayout.qwertz.normal);
+
+            self.cssAusrichtung = ko.computed(function() {
+                var linksFreierPlatz = self.xClickPosition() - self.xClickOffsetImElement(); //X-Position der Mouse und X im Element abziehen
+                var rechtsFreierPlatz = window.innerWidth - self.xClickPosition() - self.xClickOffsetImElement(); //X-Position der Mouse und X im Element abziehen
+                //console.log("LinksFreierPlatz:" + linksFreierPlatz + " RechtsFreierPlatz:" + rechtsFreierPlatz);
+                var erg = 'bottom';
+                if ((self.yClickPosition() > 400) && (rechtsFreierPlatz > 280) && (linksFreierPlatz > 280)) {
+                    //console.log('top ' + self.yClickPosition());
+                    erg = 'top';
+                } else if ((self.yClickPosition() < 300) && (rechtsFreierPlatz > 280) && (linksFreierPlatz > 280)) {
+                    //console.log('bottom ' + self.yClickPosition());
+                    erg = 'bottom';
+                } else {
+                    //console.log('%cFreier Platz auf linker Seite = ' + linksFreierPlatz, 'background: lime');
+                    if (linksFreierPlatz > 280) {
+                        erg = 'left';
+                    } else {
+                        erg = 'right';
+                    }
+                }
+
+                self.cssAusrichtungKo(erg);
+                //console.log("%cCss:" + erg, 'background: #FFBF00');
+                return erg;
+            });
+
+            self.displayClassNames = ko.computed(function() {
+                var lclass;
+                var fehlerStellen = self.anzahlZiffernMarkierung();
+                //console.log("%c------------" + self.markierungEin() + self.isEditing(), "background:yellow");
+                if (fehlerStellen == true) {
+                    lclass = "ccw-wf-input-tastatur-isFehlerAnzahlStellenClass";
+                }
+                return lclass;
+            }, self);
+
+            self.keyboardTasten = ko.computed(function() {
+                var str, str2; //     "  1 2 3 4";
+                var nA = [];
+                var nA2; //["1", "2", "3"];
+
+                var i, j, k;
+                self.keyboardTastenAnzeigen([]);
+                self.keyboardTastenArray([]);
+                for (i = 0; i < self.configKeyboardLayout().length; i++) {
+
+                    str = self.configKeyboardLayout()[i];
+                    nA = [];
+                    str2 = str.split(" ");
+                    //console.log("%c---- nach SPLIT ---", "background:lime");
+                    //console.log(str2);
+                    for (k = 0; k < str2.length; k++) {
+                        var obj = {};
+                        obj["char"] = str2[k];
+                        obj["minWidth"] = 40;
+                        obj["bgcolor"] = 'btn-success';
+                        nA.push(obj);
+                        //console.log("%c---- nach FOR----", "background:lime");
+                        //console.log(nA);
+                    }
+                    nA2 = str.split(" ");
+                    for (j = 0; j < nA.length; j++) {
+                        if (nA[j].char == '{shift}') {
+                            nA[j].char = '<i class="glyphicon glyphicon-arrow-up"></i>';
+                        }
+                        if (nA[j].char == '{enter}') {
+                            nA[j].char = '<i class="fa fa-level-down fa-rotate-90"></i>';
+                        }
+                        if (nA[j].char == '{tab}') {
+                            nA[j].char = '<i class="fa fa fa-arrows-h"></i>';
+                        }
+                        if (nA[j].char == '{bksp}') {
+                            nA[j].char = '<i class="fa fa-long-arrow-left"></i>';
+                        }
+                        if (nA[j].char == '{accept}') {
+                            nA[j].char = 'Accept';
+                            nA[j].bgcolor = 'btn-warning';
+                        }
+                        if (nA[j].char == '{cancel}') {
+                            nA[j].char = 'Cancel';
+                            nA[j].bgcolor = 'btn-primary';
+                        }
+                        if (nA[j].char == '{space}') {
+                            nA[j].char = '&nbsp';
+                            nA[j].minWidth = 200;
+                        }
+                    }
+                    // console.log("%c---- Layout Ausgabe----", "background:lime");
+                    // console.log(nA);
+                    self.keyboardTastenAnzeigen.push(nA); //wird angezeigt
+                    self.keyboardTastenArray.push(nA2); //intern zum weiterbearbeiten
+                }
+                // console.log("%c---- Layout ----", "background:lime");
+                // console.log(self.keyboardTastenAnzeigen());
+                // console.log(self.keyboardTastenArray());
+            }, self);
+
+            self.isAnzahlStellenFehler = ko.computed(function() { //Neu 28.09.2017 amueller
+                var sollMarkieren = self.anzahlZiffernMarkierung;
+                var erg = {};
+                erg.anzeigen = sollMarkieren;
+                erg.text = "Fehler: Anzahl Stellen (" + self.anzahlZiffern + ")\n stimmen nicht!";
+                return erg;
+            }, self);
+
+        };
+
+        ctor.prototype = {
+            // compositionComplete: function () {
+            //     var self = this;
+            //     console.log("InputTastatur CompositionComplete");
+            //     $('#ccwwfinputtastatur2').focus();
+            //     console.log($('#ccwwfinputtastatur2'));
+
+
+            // },
+            closeModalOk: function() {
+                var self = this;
+                dialog.close(self, 'ClosedOkay');
+            },
+            closeModal: function() {
+                var self = this;
+                dialog.close(self, 'Closed');
+            },
+            toggleAnzeigeZifferBuchstaben: function() {
+                var self = this;
+                if (self.isEditingZiffer() == true) {
+                    self.isEditingZiffer(false);
+                    self.isEditingString(true);
+                    self.breite(635); //Breite des Panels nur der Stringeingabe
+                    // console.log('%cUmschaltung Tastatur auf STRING', 'background:yellow');
+                } else {
+                    self.isEditingZiffer(true);
+                    self.isEditingString(false);
+                    self.breite(285); //Breite des Panels nur der Zifferneingabe
+                    // console.log('%cUmschaltung Tastatur auf ZIFFER', 'background:yellow');
+                }
+            },
+            setZiffer: function(wert) {
+                var self = this;
+                var newVal;
+                // if (self.kommaBetaetigt) {
+                //     // newVal = self.uncommittedValue().toString() + '.' + wert;
+                //     self.eingabeNewValue = self.eingabeNewValue + wert;
+
+
+                //     newVal = self.uncommittedValue().toString() + '.' + wert;
+                //     self.kommaBetaetigt = 0;
+                //     console.log("Tastatur Komma");
+                //     console.log(newVal);
+
+
+                // } else {
+                //     newVal = self.uncommittedValue().toString() + wert;
+                // }
+                // self.uncommittedValue(parseFloat(newVal));
+
+                // wenn nur eine Null drin steht, dann diese löschen
+                if (self.uncommittedValue().toString() == '0') {
+                    newVal = wert;
+                } else {
+                    newVal = self.uncommittedValue().toString() + wert;
+                }
+                self.uncommittedValue(newVal);
+                if (isNaN(newVal)) {
+                    // ist keine Zahl 
+                    toastr.error('Die Eingabe [' + newVal + '] ist keine gültige Zahl');
+                }
+                self.anzahlZiffernMarkierung(false);
+
+            },
+            resetInputValue: function() {
+                var self = this;
+                self.isEditing(false);
+                self.isEditingZiffer(false);
+                self.isEditingString(false);
+                self.show(false);
+                self.uncommittedValue(self.zwischenWert); //den alten vorherigen Wert wieder bei Abbruch anzeigen
+                self.anzahlZiffernMarkierung(false);
+                self.closeModal(); //Fenster schließen
+            },
+            writeInputValue: function() {
+                var self = this;
+                var values = {};
+                var valString = self.uncommittedValue();
+                
+                // den String von der Eingabe wieder in Float wandeln, wenn Numeric
+                if (!self.settings.isAlphanumeric){
+                    self.uncommittedValue(parseFloat(valString));
+                }
+
+                if (!self.signalName) return;
+                //--- neue Abfrage bei Min - Max-Werten und Meldungsausgabe ------------------
+                if ((self.minValue || self.maxValue) && !self.settings.isAlphanumeric) {
+                    var val = numeral(ko.unwrap(self.uncommittedValue)).value();
+                    if (self.minValue !== null) {
+                        if (val < self.minValue) {
+                            toastr.error('Min-Value (' + self.minValue + ') unterschritten!');
+                            //console.log('Min-Value');
+                            self.isEditing(false);
+                            self.isEditingZiffer(false);
+                            self.isEditingString(false);
+                            self.show(false);
+                            self.closeModalOk(); //Fenster schließen
+                            return;
+                        }
+                    }
+                    if (self.maxValue !== null) {
+                        if (val > self.maxValue) {
+                            toastr.error('Max-Value (' + self.maxValue + ') überschritten!');
+                            //console.log('Max-Value');
+                            self.isEditing(false);
+                            self.isEditingZiffer(false);
+                            self.isEditingString(false);
+                            self.show(false);
+                            self.closeModalOk(); //Fenster schließen
+                            return;
+                        }
+                    }
+                }
+                //--Ende minValue maxValue----------------------------------------------------------------
+
+                // Abfrage, ob Parameter "anzahlZiffern" übereinstimmt und Number ist -------------------------------------
+                var uncommValue = self.uncommittedValue();
+                var len = uncommValue !== undefined ? uncommValue.toString().length : -1;
+                if (self.anzahlZiffern > 0) {
+                    if (!Number.isInteger(uncommValue)) {
+                        self.anzahlZiffernMarkierung(true);
+                        toastr.error('Fehler: Eintrag ist eine Kommazahl!');
+                        return;
+                    } else if ((len !== self.anzahlZiffern) && (uncommValue !== 0)) {
+                        self.anzahlZiffernMarkierung(true);
+                        toastr.error('Fehler: Anzahl Stellen (' + self.anzahlZiffern + ') stimmen nicht überein!');
+                        return;
+                    } else {
+                        self.anzahlZiffernMarkierung(false);
+                    }
+                } else {
+                    self.anzahlZiffernMarkierung(false);
+                }
+                // Ende: Abfrage AnzahlZiffern --------------------------------------------------------------
+
+                values[self.signalName] = self.settings.isAlphanumeric ? ko.unwrap(self.uncommittedValue) : numeral(ko.unwrap(self.uncommittedValue)).value();
+                //console.log("Ende min-max");
+
+                if (self.writeToBuffer) {
+                    self.connector.writeSignalsToBuffer(values);
+                    self.zwischenWert = self.uncommittedValue();
+                    self.isEditing(false);
+                    self.isEditingZiffer(false);
+                    self.isEditingString(false);
+                    self.show(false);
+                    //console.log("Ende min-max , danach writeToBuffer");
+                    self.closeModalOk(); //Fenster schließen
+
+                } else
+                    // Write signal values, warning if an error will be returned
+                    self.connector.writeSignals(values).then(function(result) {
+                        self.isEditing(false);
+                        self.isEditingZiffer(false);
+                        self.isEditingString(false);
+                        self.show(false);
+
+                        if (result.errorMessage) {
+                            toastr.error(result.errorMessage);
+                        }
+                        self.closeModalOk(); //Fenster schließen
+                    });
+            },
+            setCLR: function() {
+                var self = this;
+                self.uncommittedValue(0);
+                self.anzahlZiffernMarkierung(false);
+            },
+            setZeichen: function(basis, index) {
+                var self = this;
+                var taste;
+                var newVal;
+                taste = self.keyboardTastenArray()[basis][index];
+                if (taste == "{shift}") {
+                    if (self.configKeyboardLayout() == self.keyboardLayout.qwertz.shift) {
+                        self.configKeyboardLayout(self.keyboardLayout.qwertz.normal);
+                    } else {
+                        self.configKeyboardLayout(self.keyboardLayout.qwertz.shift);
+                    }
+                } else if (taste == "{bksp}") {
+                    newVal = self.uncommittedValue().toString();
+                    newVal = newVal.slice(0, -1);
+                    self.uncommittedValue((newVal));
+                } else if (taste == "{space}") {
+                    newVal = self.uncommittedValue().toString() + ' ';
+                    //console.log(this.getCursorPosition);
+
+                    //console.log(this.selectionStart);
+                    self.uncommittedValue((newVal));
+                } else if (taste == "{tab}") {
+                    newVal = self.uncommittedValue().toString() + '\t';
+                    //console.log(this.getCursorPosition);
+
+                    //console.log(this.selectionStart);
+                    self.uncommittedValue((newVal));
+                } else if (taste == "{accept}") {
+                    self.writeInputValue();
+                } else if (taste == "{cancel}") {
+                    self.resetInputValue();
+                } else if (taste == "{enter}") {
+                    newVal = self.uncommittedValue().toString() + '\r';
+                    self.uncommittedValue((newVal));
+                } else {
+                    newVal = self.uncommittedValue().toString() + taste;
+                    self.uncommittedValue((newVal));
+                }
+                self.anzahlZiffernMarkierung(false);
+
+            },
+            setPlusMinus: function() {
+                var self = this;
+                var newVal, newVal2;
+                newVal2 = self.uncommittedValue() * (-1);
+                newVal = newVal2.toString();
+                self.uncommittedValue(parseFloat(newVal));
+                self.anzahlZiffernMarkierung(false);
+            },
+
+            setKomma: function() {
+                var self = this;
+                var newVal;
+                self.kommaBetaetigt = 1; //zwischenspeichern, weil Javasript nur einen Punkt(Komma) nicht verarbeitet. Es fehlt eine Zahl hinter dem Punkt.
+                newVal = self.uncommittedValue().toString() + '.';
+                self.uncommittedValue(newVal);
+                self.anzahlZiffernMarkierung(false);
+            },
+
+        };
+        return ctor;
+    });

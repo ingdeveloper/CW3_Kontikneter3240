@@ -1,0 +1,39 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    Parameter
+                    <u><span data-bind="text: param1"></span></u>
+                    <span data-bind="text: param2"></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table table-striped table-condensed table-hover dialogParamTanks ">
+                        <tbody data-bind="foreach: paramArray">
+                            <!-- ko if: $data.wert -->
+                            <tr>
+
+                                <td class="dialogParamTanksTd">
+                                    <span data-bind="text: $data.text"></span>
+                                </td>
+                                <td style="text-align:left">
+                                    <ccw-wf-input-tastatur params="signalName: $data.wert, unitLabel: true, staticUnitText: $data.einheit, format:'0,0.0', writeToBuffer: true, displayClass: 'ccw-wf-input-tastatur-displayClass-xs', isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs'"></ccw-wf-input-tastatur>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <wf-buffer-button class="inline" params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                <wf-buffer-button class="inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>
+
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div>
+  <label class="ccw-wf-on-off-switch"
+    data-bind="style: { width: switchStyle().width, '-webkit-transform': switchStyle().scale, '-o-transform': switchStyle().scale, '-ms-transform': switchStyle().scale, '-moz-transform': switchStyle().scale }, css: freigabeBedienung().css, event: { contextmenu: function() { signalInfo() } }">
+    <input class="ccw-wf-on-off-switch-input" type="checkbox"
+      data-bind="click: function() { setValue() }, enable: freigabeBedienung().frg, checked: switchChecked().chk">
+    <span class="ccw-wf-on-off-switch-label"
+      data-bind="css: switchChecked().css, attr: { data-off: txtOff, data-on: txtOn }"></span>
+    <span class="ccw-wf-on-off-switch-handle" data-bind="style: { left: switchChecked().left }"></span>
+  </label>
+</div>

@@ -1,0 +1,26 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="overflow-y-scroll p-a-md wf-signals-buffer-wrapper"
+     data-bind="style: { height: tableHeight() + 'px' }, attr: {id: 'wrap_' + id() }">
+    <table class="table table-bordered table-responsive wf-signals-buffer-table"
+           data-bind="fixTableHeader:{ wrapperId: 'wrap_' + id()}, sortTable: {sortFunction: function(index, asc) { sortingData({ index: index-1, asc: asc }); }, iconCssClass: 'm-l-sm', excludeColumnIndexs: [0]}">
+        <thead>
+            <tr>
+                <th class="col-sm-1">#</th>
+                <th>{{connector.translate('I4SCADA_Signal_Name')()}}</th>
+                <th>{{connector.translate('I4SCADA_Value')()}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: signals-->
+            <tr>
+                <td data-bind="text: $index()" class="col-sm-1"></td>
+                <td data-bind="text: $data.key"></td>
+                <td data-bind="text: $data.value"></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+    <!-- /ko -->
+    <!-- /ko -->

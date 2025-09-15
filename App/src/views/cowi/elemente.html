@@ -1,0 +1,328 @@
+﻿<div class="container-fluid">
+    <div>
+        <!-- <button class="btn btn-default" data-bind="click: function(){myDialog()}">SENDEN</button> -->
+        <button class="btn btn-success inline" type="submit" data-bind="click: function (){sendWerteZurSps()}, css: sendBtnCss, enable: true">Werte zur SPS</button>
+        <wf-buffer-button class="inline" params="buttonText: 'Clear Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">ccw-wf-input-tastatur</div>
+        <div class="panel-body" style="display: inline;">
+            <div class="row">
+                <div>
+                    Quelle:
+                    <strong>&lt;ccw-wf-input-tastatur params=&quot;signalName: 'Local Second', staticUnitText: 'abc', elemBreite:
+                        '170px', elemBreiteVal:'70%'&quot;&gt;&lt;/ccw-wf-input-tastatur&gt;</strong>
+                    <br> Option: disableInputFeld:
+                    <u>false</u>/true/ko-Variable, tooltipText: 'Hallo', format: '0,0.[00]', isAlphanumeric: true/
+                    <u>false</u>, fontSize: '12px', textStyle:
+                    <u>'text'</u>/'number'..., minValue: 0, maxValue: 100, writeToBuffer:
+                    <u>true</u>/false
+                </div>
+                <div class="col-sm-4">
+                    <div style="width: 30%;">
+                        <ccw-wf-input-tastatur params="signalName: 'Local Second', staticUnitText: 'abc', elemBreite: '100%', elemBreiteVal: '70%', disableInputFeld: freigabe"></ccw-wf-input-tastatur>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div style="margin: 0px auto; width: 170px;">
+                        <ccw-wf-input-tastatur params="signalName: 'Local Second', staticUnitText: 'abc', elemBreite: '170px', elemBreiteVal: '70%'"></ccw-wf-input-tastatur>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div style="margin: 0px 0px 0px auto; width: 170px;">
+                        <ccw-wf-input-tastatur params="signalName: 'Local Second', staticUnitText: 'abc', elemBreite: '170px', elemBreiteVal: '70%'"></ccw-wf-input-tastatur>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div>ccw-wf-input-tastatur-2 mit externen Dialog</div>
+                    <div style="width: 30%;">
+                        <ccw-wf-input-tastatur-2 params="signalName: 'Buffer 1', staticUnitText: 'abc', writeToBuffer: false, elemBreite: '100%', elemBreiteVal: '70%', disableInputFeld: false, tooltipText: 'Ein Test', isText: true"></ccw-wf-input-tastatur-2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">S7-Datentyp "DateAndTime (DT)" testen</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div>
+                        Quelle:
+                        <strong>&lt;ccw-wf-date-time-picker-s7dt params=&quot;signalName: 'TestDateAndTime', format:'DD.MM.YYYY HH:mm:ss',writeToBuffer:true&quot;&gt;&lt;/ccw-wf-date-time-picker-s7dt&gt;</strong>
+                    </div>
+                    S7-Datentyp "DateAndTime (DT) mit Byte-Array(8)"
+                    <i class="wf-lg wf-info" data-toggle="popover" title="Übergabe mit params='signalName: 'TestDateAndTime', format:'DD.MM.YYYY HH:mm:ss'"></i>
+                    <ccw-wf-date-time-picker-s7dt params="signalName: 'TestDateAndTime', format:'DD.MM.YYYY HH:mm:ss',writeToBuffer: true"></ccw-wf-date-time-picker-s7dt>
+                    <div>
+                        Datum als Textausgabe:
+                        <span data-bind="text: myDateAndTime"></span>
+
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-sm-6">
+                    <div>
+                        Quelle:
+                        <strong>&lt;ccw-wf-date-time-picker-s7bytes params=&quot;signalName: {y:'Signal11',mo:'Signal12',d:'Signal13',h:'Signal14',mi:'Signal15',
+                            s:'Signal16'}, format:'DD.MM.YYYY HH:mm:ss', writeToBuffer: false, minDate: '2017-01-01 00:01'&quot;&gt;&lt;/ccw-wf-date-time-picker-s7bytes&gt;</strong>
+                    </div>
+                    max. 6 x Bytes: Y,M,D,H,M,S
+                    <i class="wf-lg wf-info" data-toggle="popover" title="Übergabe mit params='signalName: {y:'Signal11',mo:'Signal12',d:'Signal13',h:'Signal14',mi:'Signal15', s:'Signal16'}, format:'DD.MM.YYYY HH:mm:ss' Einzelne Parameter müssen nicht angegeben werden."></i>
+                    <ccw-wf-date-time-picker-s7bytes params="signalName: {y:'Signal11',mo:'Signal12',d:'Signal13',h:'Signal14',mi:'Signal15', s:'Signal16'}, format:'DD.MM.YYYY HH:mm:ss', writeToBuffer: false, minDate: '2017-01-01 00:01'"></ccw-wf-date-time-picker-s7bytes>
+                </div>
+
+            </div>
+            <div>
+                max. 6 x Bytes: Y,M,D,H,M,S S7-Datenbaustein Byte's testen mit Foreach-Schleife in einer Tabelle
+                <!-- <ccw-wf-date-time-picker-s7bytes params="signalName: {y:Jahr,mo:Monat,d:Tag,h:Stunde,mi:Minute, s:Sekunde}, format:'DD.MM.YYYY HH:mm:ss'"></ccw-wf-date-time-picker-s7bytes> -->
+
+                <div style="margin: 3px 5px;">
+                    <table class="table table-bordered" style="width: 700px;">
+                        <thead>
+                            <th style="width: 80px;">Index</th>
+                            <th style="width: 300px;">Datum</th>
+                        </thead>
+                        <tbody data-bind="foreach: ausgabeZeile">
+                            <tr>
+                                <td data-bind="text: $index()">
+                                </td>
+
+                                <td>
+                                    <ccw-wf-date-time-picker-s7bytes params="signalName: {y:$data.sollwerte2().Jahr,mo:$data.sollwerte2().Monat,d:$data.sollwerte2().Tag,h:$data.sollwerte2().Stunde,mi:$data.sollwerte2().Minute, s:$data.sollwerte2().Sekunde}, format:'DD.MM.YYYY HH:mm:ss'"></ccw-wf-date-time-picker-s7bytes>
+                                    <!-- <ccw-wf-date-time-picker-s7bytes params="signalName: {y:$data.Jahr,mo:$data.Monat,d:$data.Tag,h:$data.Stunde,mi:$data.Minute, s:$data.Sekunde}, format:'DD.MM.YYYY HH:mm:ss'"></ccw-wf-date-time-picker-s7bytes> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            Min oder Max-Date mit folgenden Parametern angeben:
+            <br> minDate: '2017-01-01 00:01'
+            <br> maxDate: '2018-01-01 00:01'
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Motor-Komponente</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor0</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 2px;">
+                            <ccw-wf-motor0 params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Local Second', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-motor0>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor1</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 10px;">
+                            <ccw-wf-motor1 params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: 'Buffer 3', signalIstwert: 'Local Second', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1: 'schnell', txtSollwert2: 'langsam', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, motorRichtung: 45, farbStatusHand: true, freigabeBedienung: true"></ccw-wf-motor1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor2</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 10px;">
+                            <ccw-wf-motor2 params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, motorRichtung: -225, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-motor2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor3</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 10px;">
+                            <ccw-wf-motor3 params="signalAntrieb: 'Buffer 1', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, motorRichtung: 90, farbStatusHand: true, freigabeBedienung: true"></ccw-wf-motor3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor4</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 10px;">
+                            <ccw-wf-motor4 params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Local Second', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: false, linkslaufAktiv: false, motorRichtung: -90, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-motor4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor5</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 10px;">
+                            <ccw-wf-motor5 params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Local Second', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: true, motorRichtung: 0, farbStatusHand: true, freigabeBedienung: true"></ccw-wf-motor5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="inline-block">
+                        <div>weitere Motor-Komponenten
+                            <br>
+                            <a class="btn btn-default" href="#motor" role="button">Motor-Komponenten Seite</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="inline-block">
+                        <strong>&lt;div style=&quot;position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px;
+                            margin-top: 2px;&quot;&gt; &lt;ccw-wf-motor0 params=&quot;signalAntrieb: 'Buffer 1', signalSollwert1:
+                            'Buffer 2', signalSollwert2: '', signalIstwert: 'Local Second', signalBtrStdGesamt: 'Local Second',
+                            signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', txtSollwert1:
+                            '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv:
+                            false, farbStatusHand: false, freigabeBedienung: true&quot;&gt;&lt;/ccw-wf-motor0&gt; &lt;/div&gt;</strong>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-motor0a</div>
+                        <div>(Sollwerte-Signal-Array)</div>
+                        <div style="position: relative;left:0px;top:0px;width:50px;height:50px; margin-bottom: 15px; margin-top: 2px;">
+                            <ccw-wf-motor0a params="signalsSollwerte: [{signalSollwert:'Hallo1',txtSollwert:'Tx1abcdefghijklmnopqrst', unitLabel:'%1'},{signalSollwert:'Hallo2',txtSollwert:'Tx2', unitLabel:'%2'},{signalSollwert:'Hallo1',txtSollwert:'Tx1abcdefghijklmnopqrst', unitLabel:'%1'}], signalAntrieb: 'Buffer 1',signalIstwert: 'Local Second', bmk: '220U1', nameAntrieb: 'Zufuhrband 1', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-motor0a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="inline-block">
+                        <div>Beschreibung:</div>
+                        <div>Mit dieser Komponente können mehrere Sollwerte-Signale als Objekt-Array übergeben werden.</div>
+                        <div>&lt;ccw-wf-motor0a params=&quot;signalsSollwerte: [{signalSollwert:'Buffer 1',txtSollwert:'abc',
+                            unitLabel:'%'},{signalSollwert:'Buffer 3',txtSollwert:'abcdef', unitLabel:'%'},{signalSollwert:'Buffer
+                            2',txtSollwert:'def', unitLabel:'%'}], signalAntrieb: 'Buffer 1',signalIstwert: 'Local Second',
+                            bmk: '220U1', nameAntrieb: 'Zufuhrband 1', infoAktiv: true, dialogAktiv: true, steuerAktiv: true,
+                            linkslaufAktiv: false, farbStatusHand: false, freigabeBedienung: true&quot;&gt;&lt;/ccw-wf-motor0a&gt;</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Lüfter</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-fan0</div>
+                        <ccw-wf-fan0 style="position:absolute;left:0px;top:20px;width:30px;height:30px" params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Buffer 3', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Ventilator 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-fan0>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>weitere Lüfter-Komponenten</div>
+                        <a class="btn btn-default" href="#fan" role="button">Lüfter-Komponenten Seite</a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="inline-block">
+                        <strong>&lt;ccw-wf-fan0 style=&quot;position:absolute;left:0px;top:20px;width:30px;height:30px&quot; params=&quot;signalAntrieb:
+                            'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Buffer 3', signalBtrStdGesamt:
+                            'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Ventilator 1',
+                            txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv:
+                            false, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true&quot;&gt;&lt;/ccw-wf-fan0&gt;
+                        </strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Pumpen</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-pump0</div>
+                        <ccw-wf-pump0 style="position:absolute;left:0px;top:20px;width:30px;height:30px" params="signalAntrieb: 'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Buffer 3', signalBtrStdGesamt: 'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Pumpe 1', txtSollwert1: '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv: false, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-pump0>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>weitere Pumpen-Komponenten</div>
+                        <a class="btn btn-default" href="#pumpe" role="button">Pumpen-Komponenten Seite</a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="inline-block">
+                        <strong>&lt;ccw-wf-pump0 style=&quot;position:absolute;left:0px;top:20px;width:30px;height:30px&quot; params=&quot;signalAntrieb:
+                            'Buffer 1', signalSollwert1: 'Buffer 2', signalSollwert2: '', signalIstwert: 'Buffer 3', signalBtrStdGesamt:
+                            'Local Second', signalBtrStdWartung: 'Local Second', bmk: '220U1', nameAntrieb: 'Pumpe 1', txtSollwert1:
+                            '', txtSollwert2: '', infoAktiv: true, dialogAktiv: true, steuerAktiv: true, linkslaufAktiv:
+                            false, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true&quot;&gt;&lt;/ccw-wf-pump0&gt;
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Ventile</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>ccw-wf-ventil2</div>
+                        <ccw-wf-ventil2 style="position:absolute;left:0px;top:20px;width:30px;height:30px" params="signalVentil: 'Buffer 1', bmk: '20Y4', nameVentil: 'Ventil 1', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true"></ccw-wf-ventil2>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="inline-block">
+                        <div>weitere Ventile-Komponenten</div>
+                        <a class="btn btn-default" href="#ventil" role="button">Ventile-Komponenten Seite</a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="inline-block">
+                        <strong>&lt;ccw-wf-ventil2 style=&quot;position:absolute;left:0px;top:20px;width:30px;height:30px&quot; params=&quot;signalVentil:
+                            'Buffer 1', bmk: '20Y4', nameVentil: 'Ventil 1', infoAktiv: true, dialogAktiv: true, ausrichtung:
+                            0, farbStatusHand: false, freigabeBedienung: true&quot;&gt;&lt;/ccw-wf-ventil2&gt;
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Zeige Signal-Information (signalName)</div>
+        <div class="panel-body" style="height: 100px">
+            Mit rechter Maustaste auf den unten stehenden Text klicken, dann wird ein Info-Fenster mit dem Signal-Namen angezeigt.
+            <br> >>>
+            <span data-bind="text: 'signal', ccwSignalInfo: {}, signalName: 'signalNameXYZ'"></span>
+            <<< <br>
+                Code:
+                <strong>&lt;span data-bind=&quot;text: 'signal', ccwSignalInfo: {}, signalName: 'signalName'&quot;&gt;&lt;/span&gt;</strong>
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading ccw-panel-header">Eigener Dialog</div>
+        <div class="panel-body">
+            <div>
+                <ccw-wf-buffer-button2 params="buttonText: 'Buffer', iconClass: 'wf wf-check', cssClass: 'btn-success '"></ccw-wf-buffer-button2>
+            </div>
+            <div>FUNKTIONIERT NICHT !!!
+                <button data-bind="click: btnClick">Ausgabe globale Variable</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="fa fa-snowflake-o wf-2x"></div> -->
+</div>

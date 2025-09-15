@@ -1,0 +1,35 @@
+<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top" style="width:auto;min-width:320px;margin:100px 0px 0px 0px"
+        data-bind="draggable:{}">
+        <div class="modal-content" data-bind="attr: { id: modalContentID }">
+            <div class="modal-header modal-primary">
+                <button type="button" class="close" style="margin-left:4px" data-dismiss="modal" aria-hidden="true"
+                    data-bind="click: abbruch">
+                    <i class="wf wf-close-round-o" style="color: white;"></i>
+                </button>
+                <h4 class="modal-title">
+                    <!-- ko if: txHeader() -->
+                    <span data-bind="text: txHeader"></span>
+                    <!-- /ko -->
+                </h4>
+            </div>
+            <!-- ko if: txInfo() -->
+            <div class="modal-body bg-warning">
+                <h2>
+                    <span data-bind="text: txInfo"></span>
+                </h2>
+            </div>
+            <!-- /ko -->
+            <div class="modal-body" style="height:64px">
+                <!-- ko if: txJa() -->
+                <button class="btn btn-primary" style="float:left;width:auto;min-width:80px" data-dismiss="modal"
+                    aria-hidden="true" data-bind="text: txJa, click: closeOk"></button>
+                <!-- /ko -->
+                <!-- ko if: txNein() -->
+                <button class="btn btn-primary" style="float:right;width:auto;min-width:80px" data-dismiss="modal"
+                    aria-hidden="true" data-bind="text: txNein, click: close"></button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,168 @@
+﻿<div class="stretched overflow-hidden">
+                <div id="wf-demo-conveyer" style="width: 1600px; height: 800px;" data-bind="esmartzoom: {transition: true, minScale: 0.25, maxScale: 5,  initPosition: {x: 0, y: 0}, controlsBarClass: 'wf-zoom-controlbar btn-group bottom-center', panControlBar: true, panControlsBarClass: 'wf-pan-controlbar right-bottom hidden-xs'}">
+                   
+                        <wf-svg-path id="wf-demo-conveyer-ring" class="wf-svg-path" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 925 338', 
+                            pathData: 'M402.7761 1.00624c-3.86057.064-10.22975.6855-16.75015 3.5468-10.4326 4.5782-21.21447 16.4282-21.21447 36.7431 0 7.4226-2.0399 11.7963-4.95454 15.1204-2.91463 3.3241-7.0828 5.6232-11.66278 7.0956-9.15997 2.9452-18.912 2.2234-18.912 2.2234a7.6477 7.64422 0 0 0-.66985-.027H41.9268c-22.54123 0-40.92717 18.3756-40.92717 40.9067v124.7715c0 22.531 18.38594 40.9066 40.92718 40.9066h286.6855a7.6477 7.64422 0 0 0 .66985-.029s9.75204-.7217 18.912 2.2235c4.57998 1.4724 8.74816 3.7714 11.6628 7.0956 2.91463 3.3241 4.95453 7.6977 4.95453 15.12042 0 20.3149 10.78186 32.1649 21.21447 36.743 6.5204 2.8614 12.88958 3.4829 16.75015 3.5469 1.7923.029 2.66772-.045 3.14227-.088H519.0817c.47455.043 1.34996.1179 3.14227.088 3.86057-.064 10.22977-.6855 16.75017-3.5469 10.43265-4.5781 21.21448-16.4281 21.21448-36.743 0-7.42272 2.03988-11.79632 4.95446-15.12042 2.91468-3.3242 7.08283-5.6232 11.66283-7.0956 9.1599-2.9452 18.91204-2.2235 18.91204-2.2235a7.6477 7.64422 0 0 0 .66983.029h286.6855c22.54123 0 40.92713-18.3756 40.92713-40.9066v-124.7715c0-22.5311-18.3859-40.9067-40.92713-40.9067h-286.6855a7.6477 7.64422 0 0 0-.66983.027s-9.75213.7218-18.91203-2.2234c-4.58-1.4725-8.74814-3.7715-11.66282-7.0956-2.91458-3.3241-4.95446-7.6978-4.95446-15.1204 0-20.3149-10.78193-32.1649-21.21448-36.7431-6.5204-2.8613-12.8896-3.4831-16.75017-3.5468-1.7923-.03-2.66772.047-3.14227.09H405.91837c-.47455-.043-1.34996-.1192-3.14227-.09zm1.07208 15.2981c.71513.01 1.12688.039 1.12688.039a7.6477 7.64422 0 0 0 .76553.039h113.51888a7.6477 7.64422 0 0 0 .76553-.039s6.5932-.5165 12.8013 2.2077c6.20813 2.7244 12.0671 7.1526 12.0671 22.747 0 10.5322 3.4404 19.1446 8.74704 25.1967 5.30662 6.0522 12.10067 9.5198 18.48238 11.5716 12.01608 3.8635 23.13817 3.0399 24.44263 2.9281h286.50782c14.33343 0 25.6319 11.2934 25.6319 25.6204v124.7715c0 14.327-11.29847 25.6203-25.6319 25.6203H596.56545c-1.30446-.1117-12.42655-.9354-24.44263 2.9281-6.3817 2.0518-13.17576 5.5194-18.48238 11.5715-5.30663 6.0522-8.74705 14.6647-8.74705 25.19692 0 15.5944-5.85897 20.0225-12.0671 22.7469-6.2081 2.7242-12.8013 2.2077-12.8013 2.2077a7.6477 7.64422 0 0 0-.76552-.039h-113.5189a7.6477 7.64422 0 0 0-.76552.039s-6.59317.5165-12.80133-2.2077c-6.20815-2.7244-12.06705-7.1525-12.06705-22.7469 0-10.53222-3.44044-19.14472-8.7471-25.19692-5.30663-6.0521-12.10062-9.5197-18.48235-11.5715-12.0161-3.8635-23.1382-3.0398-24.44264-2.9281H41.9268c-14.33347 0-25.63196-11.2933-25.63196-25.6203v-124.7715c0-14.327 11.2985-25.6204 25.63197-25.6204h286.5078c1.30444.1118 12.42652.9354 24.44263-2.9281 6.38173-2.0518 13.17572-5.5194 18.48236-11.5716 5.30664-6.0521 8.74708-14.6645 8.74708-25.1967 0-15.5944 5.8589-20.0226 12.06705-22.747 4.65613-2.0431 9.5292-2.2643 11.67445-2.2467z',
+                            states: [
+                            {conditionRule:'%Local Second% <= 15' , cssClassName:'error'},
+                            {conditionRule:'%Local Second% > 15 && %Local Second% <= 30', cssClassName:'running'},
+                            {conditionRule:'%Local Second% > 30 && %Local Second% <= 45', cssClassName:'warning'},
+                            {conditionRule:'%Local Second% > 45', cssClassName:'warning'}]"></wf-svg-path>
+
+                        <div class="wf-demo-conveyer stretched has-no-pointer-events">
+
+                            <wf-svg-path id="wf-demo-c1" class="vdl-40-40" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 40 40', 
+                            pathData: 'M25 0A25 25 0 0 1 0 25v15A40 40 0 0 0 40 0H25z'"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-c2" class="vdl-40-40 wf-r-180" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 40 40', 
+                            pathData: 'M25 0A25 25 0 0 1 0 25v15A40 40 0 0 0 40 0H25z'"></wf-svg-path>
+                           
+                            <wf-svg-path id="wf-demo-ch-1" class="vdl-40-40 wf-r-180" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 34', pathData: 'M0 0h41.236L28.64 33.236H12.597L0 0z'"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-ch-2" class="vdl-40-40 wf-r-90" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 34', pathData: 'M0 0h41.236L28.64 33.236H12.597L0 0z'"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-ch-3" class="vdl-40-40" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 34', pathData: 'M0 0h41.236L28.64 33.236H12.597L0 0z'"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-ch-4" class="vdl-40-40" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 34', pathData: 'M0 0h41.236L28.64 33.236H12.597L0 0z'"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-ch-5" class="vdl-40-40 wf-r-270" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 34', pathData: 'M0 0h41.236L28.64 33.236H12.597L0 0z'"></wf-svg-path>
+                            
+                            <wf-svg-rectangle id="wf-demo-ci-1" class="vdl-15-25" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-2" class="vdl-15-25" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>                           
+                            <wf-svg-rectangle id="wf-demo-ci-3" class="vdl-15-25" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            
+                            <wf-svg-rectangle id="wf-demo-ci-4" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-5" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-6" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-7" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-8" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            <wf-svg-rectangle id="wf-demo-ci-9" class="vdl-15-25 vdl-r-130" data-bind="draggable: {showCssBox: true, isActive: false}" params="width: 25, height: 15"></wf-svg-rectangle>
+                            
+
+                            <wf-svg-path id="wf-demo-bj-6" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>                            
+                            <wf-svg-path id="wf-demo-bj-5" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-bj-4" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-bj-3" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-bj-2" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>
+                            <wf-svg-path id="wf-demo-bj-1" class="vdl-42-36" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 42 36', pathData: bjPath"></wf-svg-path>
+                             
+                            <wf-svg-path id="wf-demo-stacker-1" class="vdl-125-43" data-bind="draggable: {showCssBox: true, isActive: false}" params="viewBox: '0 0 125 43', pathData: stackerPath,
+                            states: [
+                            {conditionRule:'%Local Second% <= 25' , cssClassName:'critical'},
+                            {conditionRule:'%Local Second% > 30' , cssClassName:'running'}]"></wf-svg-path>
+                                                     
+                    </div>
+                </div>       
+            </div>
+<style>
+    
+.vdl-40-40{
+    height: 40px;
+    width: 40px;
+}
+.vdl-15-25 {
+    height: 15px;
+    width: 25px;
+}
+
+.vdl-42-36 {
+    height: 36px;
+    width: 42px;
+}      
+
+.vdl-125-43 {
+    height: 43px;
+    width: 125px;
+}      
+
+.vdl-r-130 {
+    transform: rotate(130deg);
+}
+
+.wf-demo-conveyer > * {
+    pointer-events: all;
+    position: absolute;
+    display: block;
+}
+ 
+#wf-demo-conveyer-ring {
+    width: 925px; height: 338px;
+    left: 335px; top: 220px;
+}
+
+/* Positioning */
+
+#wf-demo-stacker-1 { left: 450px; top: 364px; }
+
+#wf-demo-bj-1 { left: 100px; top: 378px; }
+
+#wf-demo-ci-2 { left: 421px; top: 378px; }
+#wf-demo-ci-1 { left: 392px; top: 378px; }
+#wf-demo-ci-3 { left: 1180px; top: 377px; }
+
+#wf-demo-ci-9 { left: 388px; top: 531px; }
+#wf-demo-ci-8 { left: 1146px; top: 531px; }
+#wf-demo-ci-7 { left: 1044px; top: 531px; }
+#wf-demo-ci-6 { left: 941px; top: 531px; }
+#wf-demo-ci-5 { left: 580px; top: 531px; }
+#wf-demo-ci-4 { left: 484px; top: 531px; }
+
+#wf-demo-ch-5 { left: 352px; top: 365px; }
+#wf-demo-ch-2 { left: 1204px; top: 365px; }
+#wf-demo-ch-3 { left: 780px; top: 237px; }
+#wf-demo-ch-4 { left: 780px; top: 557px; }
+#wf-demo-ch-1 { left: 780px; top: 181px; }
+
+#wf-demo-c1 { left: 767px; top: 596px; }
+#wf-demo-c2 { left: 793px; top: 142px; }
+#wf-demo-c5 { left: 893px; top: 582px; }
+
+ 
+#wf-demo-bj-2 { left: 1061px; top: 496px; }
+#wf-demo-bj-3 { left: 958px; top: 496px; }
+#wf-demo-bj-4 { left: 597px; top: 496px; }
+#wf-demo-bj-5 { left: 501px; top: 496px; }
+#wf-demo-bj-6 { left: 405px; top: 496px; }
+#wf-demo-bj-1 { left: 1163px; top: 496px; }
+
+</style>
+
+<!-- 
+<div class="container-fluid">
+    <h1 class="page-header">Conveyer Demo</h1>
+
+<div class="" data-bind="foreach: segments">
+        <wf-svg-path class="wf-svg-path vdl-segment" params="
+        viewBox: '0 0 200 100',
+        pathData: 'M1 1 199 1 199 99 1 99 Z',
+        labelText: ($index() + 1).toString(),
+        signalName: $data,
+        objectID: $index,
+        states: [{conditionRule: '%Local Second% == [OID]', cssClassName: 'critical'}]"></wf-svg-path>
+</div>
+
+<div class="" data-bind="foreach: segments">
+        <wf-svg-path class="wf-svg-path vdl-segment" params="
+        viewBox: '0 0 200 100',
+        pathData: 'M1 1 199 1 199 99 1 99 Z',
+        labelText: ($index() + 1).toString(),
+        signalName: $data,
+        objectID: $index,
+        states: [{conditionRule: '%Local Second% == [OID]', cssClassName: 'critical'}]"></wf-svg-path>
+</div>
+<div class="" data-bind="foreach: segments">
+        <wf-svg-path class="wf-svg-path vdl-segment" params="
+        viewBox: '0 0 200 100',
+        pathData: 'M1 1 199 1 199 99 1 99 Z',
+        labelText: ($index() + 1).toString(),
+        signalName: $data,
+        objectID: $index,
+        states: [{conditionRule: '%Local Second% == [OID]', cssClassName: 'critical'}]"></wf-svg-path>
+</div>
+<style> 
+
+.vdl-segment{
+    width: 60px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+</style>
+
+</div>   -->

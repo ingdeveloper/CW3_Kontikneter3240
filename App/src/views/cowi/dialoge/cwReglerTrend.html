@@ -1,0 +1,390 @@
+﻿<div class="modal" style="width: 150%">
+    <div class="modal-dialog modal-top" style="width:1000px">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">
+                            <span>Trend - Kontikneter Linie 3240</span>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"
+                            data-bind="click: close">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- ko if: auswahlTrend == 1  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB21DBD100', logTagName: 'VMI3240DB21DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB21DBD104', logTagName: 'VMI3240DB21DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB21DBW4',   logTagName: 'VMI3240DB21DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB21DBW114', logTagName: 'VMI3240DB21DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB21DBX00',   logTagName: 'VMI3240DB21DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus', staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 1',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 2  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB22DBD100', logTagName: 'VMI3240DB22DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB22DBD104', logTagName: 'VMI3240DB22DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB22DBW4',   logTagName: 'VMI3240DB22DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB22DBW114', logTagName: 'VMI3240DB22DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB22DBX00',   logTagName: 'VMI3240DB22DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 2',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 3  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB23DBD100', logTagName: 'VMI3240DB23DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB23DBD104', logTagName: 'VMI3240DB23DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB23DBW4',   logTagName: 'VMI3240DB23DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB23DBW114', logTagName: 'VMI3240DB23DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB23DBX00',   logTagName: 'VMI3240DB23DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 3',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 4  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB24DBD100', logTagName: 'VMI3240DB24DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB24DBD104', logTagName: 'VMI3240DB24DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB24DBW4',   logTagName: 'VMI3240DB24DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB24DBW114', logTagName: 'VMI3240DB24DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB24DBX00',   logTagName: 'VMI3240DB24DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 4',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 5  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB25DBD100', logTagName: 'VMI3240DB25DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB25DBD104', logTagName: 'VMI3240DB25DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB25DBW4',   logTagName: 'VMI3240DB25DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB25DBW114', logTagName: 'VMI3240DB25DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB25DBX00',   logTagName: 'VMI3240DB25DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 5',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 6  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB26DBD100', logTagName: 'VMI3240DB26DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB26DBD104', logTagName: 'VMI3240DB26DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB26DBW4',   logTagName: 'VMI3240DB26DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB26DBW114', logTagName: 'VMI3240DB26DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB26DBX00',   logTagName: 'VMI3240DB26DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 6',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 7  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB27DBD100', logTagName: 'VMI3240DB27DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB27DBD104', logTagName: 'VMI3240DB27DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB27DBW4',   logTagName: 'VMI3240DB27DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB27DBW114', logTagName: 'VMI3240DB27DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB27DBX00',   logTagName: 'VMI3240DB27DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 7',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 9  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB29DBD100', logTagName: 'VMI3240DB29DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB29DBD104', logTagName: 'VMI3240DB29DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB29DBW4',   logTagName: 'VMI3240DB29DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB29DBW114', logTagName: 'VMI3240DB29DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB29DBX00',   logTagName: 'VMI3240DB29DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 9',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 10  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB30DBD100', logTagName: 'VMI3240DB30DBD100_LOG', color: '#FF0000', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB30DBD104', logTagName: 'VMI3240DB30DBD104_LOG', color: '#00FF00', axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB30DBW4',   logTagName: 'VMI3240DB30DBW4_LOG',   color: '#0000FF', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB30DBW114', logTagName: 'VMI3240DB30DBW114_LOG', color: '#FFFF00', axis: 'y2', type: '', staticUnitText: '%',  staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB30DBX00',   logTagName: 'VMI3240DB30DBX00_LOG',   color: '#00FFFF', axis: 'y2', type: '', staticUnitText: 'Ein/Aus',   staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        isI4Scada: true,
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 10',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 11  -->
+                <ccw-wf-chart-1 class="block" params="
+                        lines:
+                        [
+                        { signalName: 'VMI3240DB31REAL100' , logTagName: 'VMI3240DB31REAL100_LOG' , color: '#FF0000' , axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Istgewicht Waage'},
+                        { signalName: 'VMI3240DB31REAL104' , logTagName: 'VMI3240DB31REAL104_LOG' , color: '#00FF00' , axis: 'y1', type: '', staticUnitText: 'kg', staticLegendText: 'Berechneter Sollgewichtswert'},
+                        { signalName: 'VMI3240DB31REAL4' , logTagName: 'VMI3240DB31REAL4_LOG' , color: '#0000FF' , axis: 'y2', type: '', staticUnitText: '%', staticLegendText: 'Ausgang Stellgröße Waage'},
+                        { signalName: 'VMI3240DB31REAL116' , logTagName: 'VMI3240DB31REAL116_LOG' , color: '#FFFF00' , axis: 'y2', type: '', staticUnitText: '%', staticLegendText: 'Istwert Drehzahl Dosierantrieb Waage'},
+                        { signalName: 'VMI3240DB31DBX00' , logTagName: 'VMI3240DB31DBX00_LOG' , color: '#00FFFF' , axis: 'y2', type: '', staticUnitText: 'Ein/Aus', staticLegendText: 'Mengenregleung Ein'},
+                        ],
+                        dbName:'Broet3240',
+                        format:'0,0.[00]',
+                        autoUpdate: false,  
+                        startOffset:'hours',
+                        startOffsetIntervall:4,
+                        y1AxisColor: '#000000', y1AxisLabel: 'Gewicht [kg]',
+                        y1AxisMin: null,
+                        y1AxisMax: null;
+                        y2AxisColor: '#fcba03', y2AxisLabel: 'Stellgröße [%]',
+                        y2AxisMin: 0.0,
+                        y2AxisMax: 100.0;                                    
+                        exportButtonVisibility: true,
+                        chartHeight: 500, title:'Dosierwaage 11',
+                        legendVisible: true,
+                        headerVisibility: true,
+                        legendText: 'Description',
+                        tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 12  -->
+                <ccw-wf-chart-1 class="block" params="
+                    lines:
+                    [
+                    { signalName: 'VMI3240DB220REAL486' , logTagName: 'VMI3240DB220REAL486_LOG' , color: '#000000' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Solltemperatur Brauchwasser'},
+                    { signalName: 'VMI3240DB23REAL40' , logTagName: 'VMI3240DB23REAL40_LOG' , color: '#00FFFF' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Vorlauf Brauchwasser'},
+                    { signalName: 'VMI3240DB23REAL44' , logTagName: 'VMI3240DB23REAL44_LOG' , color: '#FF9900' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Rücklauf Brauchwasser'},
+                    { signalName: 'VMI3240DB23REAL48' , logTagName: 'VMI3240DB23REAL48_LOG' , color: '#0000ff' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Vorlauf Sole'},
+                    { signalName: 'VMI3240DB23REAL36' , logTagName: 'VMI3240DB23REAL36_LOG' , color: '#00FF00' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Rücklauf Sole'},
+                    { signalName: 'VMI3240DB23REAL68' , logTagName: 'VMI3240DB23REAL68_LOG' , color: '#ff0000' , axis: 'y2', type: '', staticUnitText: '%', staticLegendText: 'Stellgröße Dreiwegeventil Brauchwasser'},
+                    ],
+                    dbName:'Broet3240',
+                    format:'0,0.[00]',
+                    autoUpdate: false,  
+                    startOffset:'hours',
+                    startOffsetIntervall:4,
+                    y1AxisColor: '#ff0000', y1AxisLabel: 'Temperatur [°C]',
+                    y1AxisMin: -10.0,
+                    y1AxisMax: 30.0;
+                    y2AxisColor: '#000000', y2AxisLabel: 'Stellgröße [%]',
+                    y2AxisMin: -0.1,
+                    y2AxisMax: 100.1;                                    
+                    exportButtonVisibility: true,
+                    chartHeight: 500, title:'Solekühlung Brauchwasser' ,
+                    legendVisible: true,
+                    headerVisibility: true,
+                    legendText: 'Description',
+                    tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+                <!-- ko if: auswahlTrend == 13  -->
+                <ccw-wf-chart-1 class="block" params="
+                    lines:
+                    [
+                    { signalName: 'VMI3240DB46REAL34' , logTagName: 'VMI3240DB46REAL34_LOG' , color: '#ff9900' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Vorkneter'},
+                    { signalName: 'VMI3240DB220REAL498' , logTagName: 'VMI3240DB220REAL498_LOG' , color: '#000000' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Solltemperatur Teig'},
+                    { signalName: 'VMI3240DB46REAL46' , logTagName: 'VMI3240DB46REAL46_LOG' , color: '#00FFFF' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Teig'},
+                    { signalName: 'VMI3240DB220REAL482' , logTagName: 'VMI3240DB220REAL482_LOG' , color: '#ff00ff' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Solltemperatur Vorlauf'},
+                    { signalName: 'VMI3240DB56REAL42' , logTagName: 'VMI3240DB56REAL42_LOG' , color: '#0000ff' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Vorlauf'},
+                    { signalName: 'VMI3240DB56REAL46' , logTagName: 'VMI3240DB56REAL46_LOG' , color: '#00FF00' , axis: 'y1', type: '', staticUnitText: '°C', staticLegendText: 'Isttemperatur Rücklauf'},
+                    { signalName: 'VMI3240DB56REAL66' , logTagName: 'VMI3240DB56REAL66_LOG' , color: '#ff0000' , axis: 'y2', type: '', staticUnitText: '%', staticLegendText: 'Stellgröße 2-Wegeventil'},
+                    ],
+                    dbName:'Broet3240',
+                    format:'0,0.[00]',
+                    autoUpdate: false,  
+                    startOffset:'hours',
+                    startOffsetIntervall:4,
+                    y1AxisColor: '#000000', y1AxisLabel: 'Temperatur [°C]',
+                    y1AxisMin: -8.0,
+                    y1AxisMax: 30.0;
+                    y2AxisColor: '#ff0000', y2AxisLabel: 'Stellgröße [%]',
+                    y2AxisMin: -0.1,
+                    y2AxisMax: 100.1;                                    
+                    exportButtonVisibility: true,
+                    chartHeight: 500, title:'Solekühlung Knetermantel' ,
+                    legendVisible: true,
+                    headerVisibility: true,
+                    legendText: 'Description',
+                    tooltipPosition: 'top-left'">
+                </ccw-wf-chart-1>
+                <!-- /ko -->
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <!-- <button class="btn btn-success btn-md inline" type="submit" data-bind="enable: userFreigabe(), click: function (){sendWerteZurSps()}, css: sendBtnCss">Werte
+                        zur SPS</button>
+                    <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-md'"></wf-buffer-button> -->
+                    <button class="btn btn-md btn-primary" data-dismiss="modal" aria-hidden="true"
+                        data-bind="text: 'Schließen', click: close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

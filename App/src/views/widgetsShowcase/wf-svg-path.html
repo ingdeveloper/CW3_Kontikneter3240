@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12 m-y-md">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-svg-path</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfSvgPath_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <wf-svg-path class="wf-svg-path" style="width: 200px; height: 100px;" params="securityDenyAccessBehavior: 'disable', viewBox: '0 0 200 100', pathData: 'M1 1 199 1 199 99 1 99 Z', labelText: 'Vector Status Path', tooltipEnabled: false, tooltipText:'text'"></wf-svg-path>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-svg-path class=&quot;wf-svg-path&quot; style=&quot;width: 200px; height: 100px;&quot; params=&quot;
+                        viewBox: '0 0 200 100', 
+                        pathData: 'M1 1 199 1 199 99 1 99 Z',
+                        labelText: 'Vector Status Path'&quot;&gt;&lt;/wf-svg-path&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr data-bind="css: {'wf-deprecated': $data.deprecated}">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-svg-path class="wf-svg-path" style="height: 100px; width: 200px;" params="states: [{ conditionRule: '%Setpoint 1% != 0', cssClassName: 'warning' }], pathData: 'M1 1 199 1 199 50 150 50 100 99 1 99 Z', labelText: 'Raum 1', signalName: 'Local Second', tooltipEnabled: true, tooltipText: 'Tooltiptext', tooltipTitle: 'Tooltiptitle'"></wf-svg-path>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

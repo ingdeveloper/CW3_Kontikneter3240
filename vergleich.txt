@@ -1,0 +1,12 @@
+- root fertig
+- _gulp fertig
+- _pageTemplate fertig
+- App->src->components alle Übertragen fertig
+- App->src->customComponents keine Übertragen, weil in UpdateFiles
+- App->src->decorators fertg
+- App->src->knockoutExtenders fertig
+- App->src->services 
+
+
+
+

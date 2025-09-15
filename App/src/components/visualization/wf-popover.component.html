@@ -1,0 +1,36 @@
+﻿<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<div class="stretched" data-bind="css: {'wf-enabled-container': !isDisabled(),'wf-disabled-container': isDisabled()},attr: { title: tooltipText }">
+    <div class="wf-popover-content stretched" data-bind="attr: { 'data-original-title': tooltipText }, css: cssClass + ' ' + statusCssClass(), bsPopover: {template: template,
+                         options: {
+                             container: container,
+                             content: content,
+                             title: title(),
+                             trigger: trigger,
+                             singleMode: singleMode,
+                             placement: position,
+                             html: html,
+                             closeButton: closeButton,
+                             closeButtonCssClass: closeButtonCssClass,
+                             headerCssClass: headerCssClass,
+                             contentCssClass: contentCssClass,
+                             width: width,
+                             height: height,
+                             objectID: objectID,
+                             tooltipText: tooltipText,
+                        }
+                     }">
+
+        <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+    </div>
+    <!-- ko if: isDisabled() -->
+    <div class="wf-overlay stretched" data-bind="style: {backgroundColor: disableOverlayColor}" style="z-index: 100"></div>
+    <!-- /ko -->
+</div>
+
+<script id="{{'wf-signal-information-popover-' + id()}}" type="text/html">
+    <!-- ko component: { name: componentName, params: { viewModel: viewModel, connector: connector }} -->
+    <!-- /ko -->
+</script>
+<!-- /ko -->
+<!-- /ko -->

@@ -1,0 +1,235 @@
+<div>
+    <!-- element -->
+    <div class="relative">
+        <div>
+            <!-- class="form-group" -->
+            <div class='input-group ccw-wf-time-picker' data-bind="css: inputSize, attr : {title: tooltipText}, style: {width: elemWidth().all, fontSize: fontSize} ">
+                <div class='nowrap' data-bind="css: displayClassNames">
+                    <input onfocus="this.select()" class="ccw-form-control ccw-wf-time-picker-display" readonly data-bind="value: signalValue, css: displayClassNames,
+                        hasfocus: isSelected, valueUpdate: 'keyup', event: { keyup: keyupEventHandler, contextmenu: function(){aliasInfo()}}, style:{width: elemWidth().val, textAlign:textAlign, fontSize: fontSize }" oncontextmenu="return false" style="border: 0px solid black !important;" />
+                    <!-- ko if: einheit != '' -->
+                    <div class="ccw-wf-time-picker-display" data-bind="text:einheit, style:{fontSize: fontSize }"></div>
+                    <!-- /ko -->
+                </div>
+                <!-- ko if: isDisabled -->
+                <span class="input-group-addon ccw-time-picker-input-group-addon">
+                    <span class="wf wf-clock"></span>
+                </span>
+                <!-- /ko -->
+                <!-- ko ifnot: isDisabled-->
+                <span class="input-group-addon ccw-time-picker-input-group-addon" data-bind="click: function (){openDialog()}">
+                    <span class="wf wf-clock"></span>
+                </span>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="attr: { id: 'modal-dialog-container1-' + id() }">
+        <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: { show: show1, draggable: false }, attr: { id: 'modal-dialog-' + id() }, event: { keyup: keyupEventHandler}" style="display: none;" data-backdrop="static" data-keyboard="true">
+            <!-- ko if:  visibleDialog1 -->
+            <div class="modal-dialog modal-top">
+                <div class="modal-content" data-bind="ccwDraggable: {}">
+                    <div class="ccw-wf-time-picker" data-bind="visible: visibleDialogSenden()"></div>
+                    <div class="modal-header ccw-wf-time-picker-head-dialog">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: timerDialogClose">&times;</button>
+                        <h4 class="modal-title">
+                            <span style="font-weight:bold;font-size:16px" data-bind="text: nameTimer"></span>
+                        </h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div>
+                            <!-- ko if:  visibleMeldung-->
+                            <div class="ccw-flash" style="color: red; background-color: yellow;">
+                                <strong>Fehler Datenanbindung!</strong>
+                            </div>
+                            <!-- /ko -->
+                            <table style="margin-left: auto; margin-right: auto;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <!-- ko if:  hasDay-->
+                                        <th class="text-center">Tag</th>
+                                        <th></th>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <th class="text-center">Std</th>
+                                        <th></th>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <th class="text-center">Min</th>
+                                        <th></th>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <th class="text-center">Sek</th>
+                                        <th></th>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMillisecond-->
+                                        <th class="text-center">Ms</th>
+                                        <!-- /ko -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <!-- ko if:  hasDay-->
+                                        <td>
+                                            <button title="Tage erhöhen" class="btn ccw-time-picker-button wf wf-chevron-up" data-bind="click: function(){wertAendern('Tag', 1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasDay-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <td>
+                                            <button title="Stunden erhöhen" class="btn ccw-time-picker-button wf wf-chevron-up" data-bind="click: function(){wertAendern('Stunde',1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <td>
+                                            <button title="Minuten erhöhen" class="btn ccw-time-picker-button wf wf-chevron-up" data-bind="click: function(){wertAendern('Minute', 1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <td>
+                                            <button title="Sekunden erhöhen" class="btn ccw-time-picker-button wf wf-chevron-up" data-bind="click: function(){wertAendern('Sekunde', 1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMillisecond-->
+                                        <td>
+                                            <button title="Millisekunden erhöhen" class="btn ccw-time-picker-button wf wf-chevron-up" data-bind="click: function(){wertAendern('Millisekunde', 10)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-right:black thin solid;">
+                                        </td>
+                                        <!-- ko if:  hasDay-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <input type="number" title="Tage" class="ccw-time-picker-input-noBorder quantity text-center" placeholder="Tage" aria-describedby="inputDays" min="0" max="23" data-bind="value: uncommittedValueDay" readonly>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasDay && hasHour-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <span>T</span>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <input type="number" title="Stunden" class="ccw-time-picker-input-noBorder quantity text-center" placeholder="Std" aria-describedby="inputHours" min="0" max="23" data-bind="value: uncommittedValueHour" readonly>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour && hasMinute-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <span>:</span>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <input type="number" title="Minuten" class="ccw-time-picker-input-noBorder quantity text-center" placeholder="Min" aria-describedby="inputMinute" min="0" max="59" data-bind="value: uncommittedValueMinute" readonly>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute && hasSecond-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <span>:</span>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <input type="number" title="Sekunden" class="ccw-time-picker-input-noBorder quantity text-center" placeholder="Sek" aria-describedby="inputSecond" min="0" max="59" data-bind="value: uncommittedValueSecond" readonly>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond && hasMillisecond-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <span>.</span>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMillisecond-->
+                                        <td style="border-top:black thin solid; border-bottom:black thin solid">
+                                            <input type="number" id="inputMilliseconds" title="Millisekunden" class="ccw-time-picker-input-noBorder quantity text-center" placeholder="MSek" aria-describedby="inputMilliSecond" min="0" max="999" step="10" data-bind="value: uncommittedValueMillisecond" readonly>
+                                        </td>
+                                        <!-- /ko -->
+                                        <td style="border-left:black thin solid;">
+                                            <span style="font-weight:bold" data-bind="text:einheit"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <!-- ko if:  hasDay-->
+                                        <td>
+                                            <button title="Tage verringern" class="btn ccw-time-picker-button wf wf-chevron-down" data-bind="click: function(){wertAendern('Tag',-1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasDay-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <td>
+                                            <button title="Stunden verringern" class="btn ccw-time-picker-button wf wf-chevron-down" data-bind="click: function(){wertAendern('Stunde',-1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasHour-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <td>
+                                            <button title="Minuten verringern" class="btn ccw-time-picker-button wf wf-chevron-down" data-bind="click: function(){wertAendern('Minute',-1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMinute-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <td>
+                                            <button title="Sekunden verringern" class="btn ccw-time-picker-button wf wf-chevron-down" data-bind="click: function(){wertAendern('Sekunde',-1)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasSecond-->
+                                        <td>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- ko if:  hasMillisecond-->
+                                        <td>
+                                            <button title="Millisekunden verringern" class="btn ccw-time-picker-button wf wf-chevron-down" data-bind="click: function(){wertAendern('Millisekunde',-10)}"></button>
+                                        </td>
+                                        <!-- /ko -->
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-2">
+                                <button class="btn btn-success ccw-time-picker-fullWidth" data-dismiss="modal" aria-hidden="true" data-bind="click: timerDialogCloseOK">OK</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary ccw-time-picker-fullWidth" data-dismiss="modal" aria-hidden="true" data-bind="click: timerDialogClose">Abbrechen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

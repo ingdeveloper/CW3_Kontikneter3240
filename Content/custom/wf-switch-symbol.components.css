@@ -1,0 +1,211 @@
+﻿ /*---------------------------------------------------------------------- 
+    wf-switch-symbol
+----------------------------------------------------------------------*/
+.wf-switch-symbol{
+    position: relative;
+}
+.wf-switch-symbol svg {
+    overflow: visible !important;
+}
+
+.wf-switch-symbol svg .wf-switch-symbol-box-group{
+    transition: transform .5s ease;
+}
+
+.wf-switch-symbol .wf-switch-symbol-box,
+.wf-switch-symbol .wf-switch-symbol-box-fuse,
+.wf-switch-symbol .wf-switch-symbol-breaker-group,
+.wf-switch-symbol .wf-switch-symbol-breaker-closed,
+.wf-switch-symbol .wf-switch-symbol-breaker-opened,
+.wf-switch-symbol .wf-switch-symbol-switch-disconector-group,
+.wf-switch-symbol .wf-switch-symbol-switch-disconector-group .wf-switch-symbol-switch-disconector-closed,
+.wf-switch-symbol .wf-switch-symbol-switch-disconector-group .wf-switch-symbol-switch-disconector-opened,
+.wf-switch-symbol .wf-switch-symbol-disconector-group,
+.wf-switch-symbol .wf-switch-symbol-disconector-group .wf-switch-symbol-disconector-closed,
+.wf-switch-symbol .wf-switch-symbol-disconector-group .wf-switch-symbol-disconector-opened,
+.wf-switch-symbol .wf-switch-symbol-switch-group,
+.wf-switch-symbol .wf-switch-symbol-switch-group .wf-switch-symbol-switch-closed,
+.wf-switch-symbol .wf-switch-symbol-switch-group .wf-switch-symbol-switch-opened,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-switch-symbol-fuse-disconector-closed,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-switch-symbol-fuse-disconector-opened,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-fuse-closed-intact,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-fuse-closed-blown,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-fuse-opened-intact,
+.wf-switch-symbol .wf-switch-symbol-fuse-disconector-group .wf-fuse-opened-blown,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-switch-symbol-fuse-switch-disconector-1-closed,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-switch-symbol-fuse-switch-disconector-1-opened,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-fuse-closed-intact,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-fuse-closed-blown,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-fuse-opened-intact,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-1-group .wf-fuse-opened-blown,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-2-group,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-2-group .wf-switch-symbol-fuse-switch-disconector-2-closed,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-2-group .wf-switch-symbol-fuse-switch-disconector-2-opened,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-2-group .wf-fuse-blown,
+.wf-switch-symbol .wf-switch-symbol-fuse-switch-disconector-2-group .wf-fuse-intact {
+    visibility: hidden;
+    display: none;
+}
+
+.wf-fuse-intact,
+.wf-fuse-closed-intact,
+.wf-fuse-opened-intact{
+    stroke: #000;
+    fill: #eee;
+}
+
+.wf-fuse-blown,
+.wf-fuse-closed-blown,
+.wf-fuse-opened-blown{
+    stroke: #000;
+    fill:#eee;
+}
+
+.wf-switch-symbol .switch-symbol-base .wf-switch-symbol-base{
+    visibility: visible;
+    display: block;
+}
+.wf-switch-symbol .switch-symbol-feed .wf-switch-symbol-feed{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-box .wf-switch-symbol-box,
+.wf-switch-symbol .switch-symbol-box-fuse .wf-switch-symbol-box-fuse{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-switch .wf-switch-symbol-switch-group,
+.wf-switch-symbol .switch-symbol-switch .closed .wf-switch-symbol-switch-closed,
+.wf-switch-symbol .switch-symbol-switch .opened .wf-switch-symbol-switch-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-breaker .wf-switch-symbol-breaker-group,
+.wf-switch-symbol .switch-symbol-breaker .closed .wf-switch-symbol-breaker-closed,
+.wf-switch-symbol .switch-symbol-breaker .opened .wf-switch-symbol-breaker-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-switch-disconector .wf-switch-symbol-switch-disconector-group,
+.wf-switch-symbol .switch-symbol-switch-disconector .closed .wf-switch-symbol-switch-disconector-closed,
+.wf-switch-symbol .switch-symbol-switch-disconector .opened .wf-switch-symbol-switch-disconector-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-disconector .wf-switch-symbol-disconector-group,
+.wf-switch-symbol .switch-symbol-disconector .closed .wf-switch-symbol-disconector-closed,
+.wf-switch-symbol .switch-symbol-disconector .opened .wf-switch-symbol-disconector-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-fuse-disconector .wf-switch-symbol-fuse-disconector-group,
+.wf-switch-symbol .switch-symbol-fuse-disconector .closed .wf-switch-symbol-fuse-disconector-closed,
+.wf-switch-symbol .switch-symbol-fuse-disconector .closed.fuse-intact .wf-fuse-closed-intact,
+.wf-switch-symbol .switch-symbol-fuse-disconector .closed.fuse-blown .wf-fuse-closed-blown,
+.wf-switch-symbol .switch-symbol-fuse-disconector .opened .wf-switch-symbol-fuse-disconector-opened,
+.wf-switch-symbol .switch-symbol-fuse-disconector .opened.fuse-intact .wf-fuse-opened-intact,
+.wf-switch-symbol .switch-symbol-fuse-disconector .opened.fuse-blown .wf-fuse-opened-blown
+{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .wf-switch-symbol-fuse-switch-disconector-1-group,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .closed .wf-switch-symbol-fuse-switch-disconector-1-closed,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .closed.fuse-intact .wf-fuse-closed-intact,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .closed.fuse-blown .wf-fuse-closed-blown,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .opened .wf-switch-symbol-fuse-switch-disconector-1-opened,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .opened.fuse-intact .wf-fuse-opened-intact,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-1 .opened.fuse-blown .wf-fuse-opened-blown
+{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-2 .wf-switch-symbol-fuse-switch-disconector-2-group,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-2 .closed .wf-switch-symbol-fuse-switch-disconector-2-closed,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-2 .opened .wf-switch-symbol-fuse-switch-disconector-2-opened,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-2 .fuse-intact .wf-fuse-intact,
+.wf-switch-symbol .switch-symbol-fuse-switch-disconector-2 .fuse-blown .wf-fuse-blown {
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-symbol-box{
+    stroke: #000;
+    fill: #eeeeee;
+}
+.wf-switch-symbol-box-fuse{
+    stroke: #000;
+    fill: #eeeeee;
+}
+
+
+.wf-switch-symbol-switch-group{
+}
+.wf-switch-symbol-switch-closed {
+    stroke:#000;
+}
+.wf-switch-symbol-switch-opened {
+    stroke:#000;
+}
+
+
+.wf-switch-symbol-breaker-group {}
+.wf-switch-symbol-breaker-closed{
+    stroke:#000;
+}
+.wf-switch-symbol-breaker-opened{
+    stroke:#000;
+}
+
+
+.wf-switch-symbol-switch-disconector-group {}
+.wf-switch-symbol-switch-disconector-closed {
+    stroke:#000;
+}
+.wf-switch-symbol-switch-disconector-opened {
+    stroke:#000;
+}
+
+
+.wf-switch-symbol-disconector-group {}
+.wf-switch-symbol-disconector-closed{
+    stroke:#000;
+}
+.wf-switch-symbol-disconector-opened{
+    stroke:#000;
+}
+
+
+.wf-switch-symbol-fuse-disconector-group{}
+.wf-switch-symbol-fuse-disconector-opened{
+    stroke:#000;
+}
+.wf-switch-symbol-fuse-disconector-closed{
+    stroke:#000;
+}
+
+.wf-switch-symbol-fuse-switch-disconector-1-group {}
+.wf-switch-symbol-fuse-switch-disconector-1-closed{
+    stroke:#000;
+}
+.wf-switch-symbol-fuse-switch-disconector-1-opened{
+    stroke:#000;
+}
+
+.wf-switch-symbol-fuse-switch-disconector-2-group {}
+.wf-switch-symbol-fuse-switch-disconector-2-closed{
+    stroke:#000;
+}
+.wf-switch-symbol-fuse-switch-disconector-2-opened{
+    stroke:#000;
+}

@@ -1,0 +1,27 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if:isVisible()-->
+<button class="relative btn" type="button" data-bind="disable: isDisabled, css: displayClassNames() + ' ' + statusCssClass() + ' ' + tipModeState(), 
+    event: {    mousedown: writeMouseDownValue, 
+                touchstart: writeMouseDownValue,  
+                mouseup: writeMouseUpValue, 
+                touchend: writeMouseUpValue,
+                mouseleave: mouseleave,
+                touchcancel: writeMouseUpValue}, 
+         attr: {style: buttonStyle, title: tooltipText },">
+    <div class="wf-button-content">
+        <!-- ko template: { nodes: $componentTemplateNodes} -->
+        <!-- /ko -->
+    </div>
+    <i data-bind="css: iconClass, attr: {style: iconStyle}"></i>
+    <span data-bind="attr: {style: textStyle}">{{connector.translate(buttonText)()}}</span>
+</button>
+
+
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                                signalNames: signalNames,
+                                signalValues: writeSecureValues,
+                                draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->

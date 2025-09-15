@@ -1,0 +1,9 @@
+<!-- ko if:hasAuthorization && isVisible-->
+<button class="relative btn" type="button" data-bind="disable: isDisabled, css: cssClass + ' ' + statusCssClass(), click: writeFromBuffer, attr: {style: buttonStyle, title: tooltipText }">
+    <div class="wf-button-content">
+        <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+    </div>
+    <i data-bind="css: iconClass, attr: {style: iconStyle}"></i>
+    <span data-bind="attr: {style: textStyle}">{{connector.translate(buttonText)()}}</span>
+</button>
+<!-- /ko -->

@@ -1,0 +1,32 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top"  style="width:1000px">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #de0000">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <h4 class="modal-title">Störungen:
+                    <!-- ko if: $data.header  == 'Brauchwasser' -->
+                    <span data-bind="text: ' Solekühlung ' + $data.header"></span>
+                    <!-- /ko -->
+                    <!-- ko if: $data.header  == 'mantel' -->
+                    <span data-bind="text: ' Solekühlung ' + 'Knetermantel'"></span>
+                    <!-- /ko -->
+                    <!-- ko if: $data.header  != 'mantel' && $data.header  != 'Brauchwasser' -->
+                    <span data-bind="text: $data.header"></span>
+                    <!-- /ko -->
+                    <!-- ko if: $data.komponente  != '' -->
+                    <span data-bind="text: ' - ' + $data.komponente"></span>
+                    <!-- /ko -->
+                </h4>
+            </div>
+            <div class="modal-body">
+                <wf-alarm-viewer params="height: 350, titleText:'Aktuelle Alarme', columnFilter:'Text', columnFilterPattern: '*'+$data.header+' *', tableView: true, alarmStatusFilter: 'ActiveOrNotAcknowledged', columns: ['StatusText', 'Active', 'Group', 'Type', 'AlarmTag', 'Text']"></wf-alarm-viewer>
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <button class="btn btn-md btn-warning" data-bind="click: function () { openDialog('Ja','Nein','Störungen quittieren?','VMI3240DB1DBX2500',1)},enable: !userFreigabe()" data-toggle="tooltip" title="Quittieren">Quittieren</button>                    
+                    <button class="btn btn-md btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="text: 'Schließen', click: close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

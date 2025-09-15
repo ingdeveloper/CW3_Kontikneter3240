@@ -1,0 +1,350 @@
+.sf-Rahmen1 {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.sf-Rahmen2 {
+    border: 2px #a0a0a0 solid;
+    margin: 2px 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+}
+
+.sf-Rahmen10 {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    border: 0px solid #A9A9A9;
+}
+
+.sf-Rahmen10:hover {
+    cursor: pointer;
+    border: 3px solid #A9A9A9;
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.75);
+}
+
+.sf-text-60deg {
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+.sf-text-90deg {
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+.sf-reinSeitePadding {
+    padding: 0px 0px 2px 0px !important;
+}
+
+.sf-reinSeiteZeitscheibeTabelleKopfHoehe1 {
+    height: 80px !important;
+}
+
+.sf-td-text {
+    width: 70%;
+    text-align: left;
+    padding-left: 4px !important;
+}
+
+.sf-td-text-werte {
+    font-size: 14px;
+}
+
+.sf-td-text-istwert {
+    background-color: #eaeaea !important;
+}
+
+.sf-td-istwert {
+    background-color: #eaeaea !important;
+}
+
+.sf-td-wert {
+    background-color: #eaeaea !important;
+    width: 30%;
+    text-align: right;
+    padding-right: 4px !important;
+}
+
+.sf-td-status {
+    width: 30%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sf-rein-hand-tr1 {
+    background-color: #c0c0c0 !important;
+    font-weight: bold;
+}
+
+.sf-rein-hand-td-text {
+    width: 60%;
+    text-align: left;
+    height: 30px;
+    padding-top: 4px !important;
+    padding-left: 4px !important;
+}
+
+.sf-rein-hand-td-button {
+    width: 20%;
+    height: 30px;
+}
+
+.sf-rein-hand-btn {
+    width: 50px;
+    height: 25px;
+    padding-top: 2px !important;
+}
+
+.sf-rein-hand-td-text-pumpe {
+    width: 40%;
+    text-align: left;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 4px !important;
+    padding-left: 4px !important;
+}
+
+.sf-rein-hand-td-button-pumpe {
+    width: 60%;
+    height: 30px;
+}
+
+.sf-gurtStatus {
+    border: 2px #a0a0a0 solid;
+    margin: 0px 0px 2px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    width: 140px;
+    height: 28px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 2px !important;
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
+.sf-gurtStatus-45deg {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.sf-gurtStatus--45deg {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.sf-titelleiste {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#00c0ff, #d9edf7) !important;
+}
+
+.sf-rein-titelleiste {
+    margin-bottom: 4px;
+    height: 30px;
+    background: linear-gradient(#c0ff00, #dff0d8) !important;
+}
+
+.sf-kFreigabe {
+    background: linear-gradient(#ffc0c0, #ff0000) !important;
+    color: #ffffff !important;
+}
+
+.sf-freigabe {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+    color: #000000 !important;
+}
+
+.sf-fStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sf-fStatus-frosten {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sf-fStatus-lagern {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.sf-fStatus-reinigen {
+    background: linear-gradient(#ffffc0, #ffff00) !important;
+}
+
+.sf-vStatus-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sf-vStatus-frosten {
+    background: linear-gradient(#c0ffff, #00ffff) !important;
+}
+
+.sf-vStatus-abtauen {
+    background: linear-gradient(#ffd9c0, #ffd900) !important;
+}
+
+.sf-status-aus {
+    background: linear-gradient(#e0e0e0, #b0b0b0) !important;
+}
+
+.sf-status-ein {
+    background: linear-gradient(#c0ffc0, #00ff00) !important;
+}
+
+.sf-rein-schrittNr {
+    border: 2px solid #c6c6c6;
+    border-radius: 2px;
+    margin: auto;
+    padding: 0px 0px 0px 0px !important;
+    width: 18px !important;
+    height: 18px !important;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+.sf-schrittNr {
+    padding: 0px 1px !important;
+    border: 2px solid #c6c6c6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 15px !important;
+    margin-right: auto !important;
+    float: left;
+    width: 24px;
+    text-align: center;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.sf-sollzeit {
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.sf-istzeit {
+    padding-right: 4px !important;
+    background-color: #eaeaea !important;
+    vertical-align: middle !important;
+    font-size: 16px !important;
+    width: 60px !important;
+}
+
+.sf-rein-sollzeit {
+    vertical-align: middle !important;
+    font-size: 12px !important;
+    min-width: 70px !important;
+    width: 70px !important;
+}
+
+.sf-rein-istzeit {
+    padding-right: 4px !important;
+    background-color: #eaeaea !important;
+    vertical-align: middle !important;
+    font-size: 12px !important;
+    min-width: 70px !important;
+    width: 70px !important;
+}
+
+.sf-btn-prg {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0px !important;
+}
+
+.sf-rein-infoBox {
+    border: 4px #a0a0a0 solid;
+    margin: 2px 0px 4px 0px;
+    padding: 0px 1px 1px 1px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    width: 160px;
+    height: 48px;
+    text-align: center;
+    font-size: 14px !important;
+    font-weight: bold;
+    background-color: #00ff00;
+    color: #000000;
+}
+
+.sf-frgBox {
+    border: 4px #a0a0a0 solid;
+    margin: 2px 0px 4px 0px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    box-shadow: 2px 2px 5px 0px rgba(94, 87, 94, 1);
+    width: 160px;
+    height: 48px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 8px !important;
+}
+
+.sf-ledBox {
+    margin: auto;
+    border: 1px #a0a0a0 solid;
+    border-radius: 6px;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(94, 87, 94, 1);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(94, 87, 94, 1);
+    box-shadow: 1px 1px 2px 0px rgba(94, 87, 94, 1);
+    width: 25px;
+    height: 10px;
+}
+
+.sf-led0 {
+    background-color: #e0e0e0 !important;
+}
+
+.sf-led1 {
+    background-color: #00ff00 !important;
+}

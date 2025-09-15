@@ -1,0 +1,27 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<div class="btn-group btn-dropdown-wf" data-bind="css:dropdownDirection">
+    <button type="button" class="dropdown-toggle btn" data-bind="disable: isDisabled, css: cssClass, attr : {title: tooltipText}" data-toggle="dropdown">
+        <span data-part="statusContainer">
+            <span class="inline-block" data-bind="component: {name: 'wf-state-symbol', params: stateIconProperties }, attr: {style: iconStyle}"></span>
+            <span class="inline-block" data-bind="component: {name: 'wf-state-text', params: stateProperties }, attr: {style: textStyle}"></span>
+            <span class="caret"></span>
+        </span>
+    </button>
+    <ul class="dropdown-menu" role="menu" data-bind="foreach: signalWriteItems, css: 'dropdown-menu-' + dropdownAlignment">
+        <li>
+            <a role="menuitem" tabindex="-1" href="#" data-bind="click: $parent.updateStatus">
+                <i data-bind="css: icon, attr: {style: $parent.iconStyle}"></i>
+                <span data-bind="attr: {style: $parent.textStyle}">{{$parent.connector.translate(symbolicText)()}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- ko if: writeSecure -->
+<wf-write-secure-signal params="show: showWriteSecure,
+                               signalNames: writeSecureSignalNames,
+                               signalValues: writeSecureValues,
+                               draggable: isModalDialogsDraggable"></wf-write-secure-signal>
+<!-- /ko -->
+<!--/ko-->
+<!--/ko-->

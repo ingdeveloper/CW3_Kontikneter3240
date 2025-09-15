@@ -1,0 +1,157 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12"
+             data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-local-script</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfLocalScript_Component_Header")()}}</h4>
+                            <br/>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <wf-local-script params="inputSignalNames: ['Local Second'], outputSignalName: 'local://LocalSecondValue'">
+                                return valuesArray[0] + " seconds";
+                            </wf-local-script>
+
+                            <wf-value-display params="signalName: 'local://LocalSecondValue', unitLabel: false, signalNameLabel: true, isAlphanumeric: true"></wf-value-display>
+                        </div>
+                        <div class="col-xs-12 col-md-10">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-local-script params="inputSignalNames: ['Local Second'], outputSignalName: 'local://LocalSecondValue'"&gt;
+    return valuesArray[0] + " seconds";
+&lt;/wf-local-script&gt;
+
+&lt;wf-value-display params="signalName: 'local://LocalSecondValue', unitLabel: false, signalNameLabel: true, isAlphanumeric: true"&gt;&lt;wf-value-display&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar"
+                                          params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                    <tr>
+                        <td data-bind="text: name"></td>
+                        <td data-bind="text: type"></td>
+                        <td data-bind="text: defaultValue"></td>
+                        <!-- ko if: $parent.selectedLanguageId() === 7-->
+                        <td data-bind="html: description"></td>
+                        <!-- /ko -->
+                        <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                        <td data-bind="html: descriptionEN"></td>
+                        <!-- /ko -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <pre class="prettyprint">
+&lt;wf-button params="&quot;&gt;
+   [script]
+&lt;/wf-button&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Script_Example_Sum_Values")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <pre class="prettyprint">
+&lt;wf-local-script params="inputSignalNames: ['Setpoint 1', 'Setpoint 2'],outputSignalName: 'Setpoint 3'"&gt;
+var sum = 0;
+for(var i = 0; i&lt;valuesArray.length; ++i) {
+    sum += valuesArray[i];
+}
+return sum;
+&lt;/wf-local-script&gt;
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Script_Example_Conditional")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <pre class="prettyprint">
+&lt;wf-local-script params="inputSignalNames: ['Local Second'],outputSignalName: 'Setpoint 1'"&gt;
+if(values["Local Second"] < 30) return 0;
+else return 1;
+&lt;/wf-local-script&gt;
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Script_Example_Connector")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <pre class="prettyprint">
+&lt;wf-local-script params="inputSignalNames: ['Local Second']"&gt;
+if((values[0] % 2) === 0) {
+    var setpoint1 = connector.getSignal("Setpoint 1", false);
+    var setpoint2 = connector.getSignal("Setpoint 2", false);
+    if(setpoint1.hasValue() && setpoint2.hasValue()) {
+            connector.writeSignals({
+            "Setpoint 1": setpoint2.value(),
+            "Setpoint 2": setpoint1.value()
+            });
+    }
+}
+&lt;/wf-local-script&gt;
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

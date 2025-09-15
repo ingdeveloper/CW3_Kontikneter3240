@@ -1,0 +1,93 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <!--<li role="presentation" class="active"><a href="#widgetTab" aria-controls="widgetTab" role="tab" data-toggle="tab">Widget <span class="label label-primary">wfEnableContainer</span></a></li>-->
+                <li role="presentation"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-rotation-container</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfRotationContainer_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 m-b-md" style="z-index:2">
+
+                            <wf-rotation-container class="inline-block b-a p-a-md" params="signalName: 'Setpoint 1'">
+                             
+                                  <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: 5, buttonText: '+5', cssClass: 'btn-primary', incrementMode:true"></wf-button>
+                                  <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: 0, buttonText: 'Reset', cssClass: 'btn-danger'"></wf-button>
+                                  <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: -5, buttonText: '-5', minValue: -100, cssClass: 'btn-primary', incrementMode:true"></wf-button>
+                                
+                            </wf-rotation-container>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint m-b">
+&lt;wf-rotation-container class=&quot;inline-block b-a p-a-md&quot; params=&quot;signalName: 'Setpoint 1'&quot;&gt; 
+    &lt;wf-button class=&quot;inline-block&quot; params=&quot;signalName: 'Setpoint 1', writeValue: 5, buttonText: '+5', cssClass: 'btn-primary', incrementMode:true&quot;&gt;&lt;/wf-button&gt;
+    &lt;wf-button class=&quot;inline-block&quot; params=&quot;signalName: 'Setpoint 1', writeValue: 0, buttonText: 'Reset', cssClass: 'btn-danger'&quot;&gt;&lt;/wf-button&gt;
+    &lt;wf-button class=&quot;inline-block&quot; params=&quot;signalName: 'Setpoint 1', writeValue: -5, buttonText: '-5', cssClass: 'btn-primary', incrementMode:true&quot;&gt;&lt;/wf-button&gt;
+&lt;/wf-rotation-container&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Parts")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            
+                            <pre class="prettyprint">
+&lt;wf-rotation-container params="&quot;&gt;
+     [...]
+&lt;/wf-rotation-container&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

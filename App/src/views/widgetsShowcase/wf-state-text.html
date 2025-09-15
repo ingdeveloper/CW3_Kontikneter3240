@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-state-text</span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfStateText_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <wf-state-text class="lead" params="states:[{signalName:'Setpoint 1', maskSignal:1, symbolicText:'Status OK'}], symbolicTextNormalState: 'Defaulttext'"></wf-state-text>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-state-text params=&quot;states:[{signalName:&#39;Setpoint 1&#39;, maskSignal:1, symbolicText:&#39;Status OK&#39;}], 
+                            symbolicTextNormalState: &#39;Defaulttext&#39;&quot;&gt;&lt;/wf-state-text&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr data-bind="css: {'wf-deprecated': $data.deprecated}">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <strong>Ventilation 1:</strong>
+                        <wf-state-text class="lead" params="stateSignalName1: 'MachineOP', maskSignal1: 0, symbolicTextState1: 'AUS', stateSignalName2: 'MachineOP', maskSignal2: 1, symbolicTextState2: 'Einschaltbereit', stateSignalName3: 'MachineOP', maskSignal3: 2, symbolicTextState3: 'Normalbetrieb', stateSignalName4: 'MachineOP', maskSignal4: 3, symbolicTextState4: 'Umluftbetrieb', maskSignal5: 4, symbolicTextState5: 'Handbetrieb', symbolicTextNormalState: 'AUS'"></wf-state-text>
+                    </p>
+                    <p>
+                        <strong>Ventilation 1:</strong>
+                        <wf-state-text class="lead" params="states:[{conditionRule: '%Setpoint 1% != 0', cssClassName: 'critical', symbolicText: 'AN'}], symbolicTextNormalState: 'AUS'"></wf-state-text>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

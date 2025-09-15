@@ -1,0 +1,1953 @@
+﻿<div class="container-fluid">
+    <div class="row ef-Rahmen4 padding-2" style="border: thin solid black; border-radius:4px; margin-bottom:4px">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+            <div class="text-center">
+                <span style="font-size: 24px" class="text-center"><strong>Kontikneter 3240</strong></span></br>
+                <span style="font-size: 20px" class="text-center">Übersicht</span>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-9 col-xs-12">
+            <div class="row" style="padding-bottom: 5px;">
+                <a href="#rezeptur_VMI">
+                    <div class="col-lg-1 col-md-2 col-sm-4 col-xs-3">
+                        <img src="ContentCowi/svg/rezept.svg"
+                            style="max-width:60px; max-height: 60px; width:100%; height: 100%;">
+                    </div>
+                    <!-- Rezeptnummer -->
+                    <div class="col-lg-11 col-md-10 col-sm-8 col-xs-8 padding-10">
+                        <strong>
+                            <rez-info class="ccw_context" style="padding: 0px;" params="databaseName: 'broet3240',
+                                    signalNameRezNr: 'VMI3240DB220DBD0',
+                                    signalNamePaNr: 'VMI3240DB1DBD80',
+                                    signalNameProdTyp: 'VMI3240DB4B26',
+                                    tooltipText: 'aktuelle Rezeptinformation',
+                                    werk: 2,
+                                    halle: 3,
+                                    etage: 2,
+                                    linie: 4,
+                                    maschine: 11">
+                            </rez-info>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-9 col-xs-12">
+            <div>
+                <!-- ko if: vorwahlWartung().newSichtbar == true -->
+                <span class="badge badge-default" style="margin-top: 16px; width:100%; font-size:14px"
+                    data-bind="text: vorwahlWartung().newText, css: vorwahlWartung().newCss2">
+                </span>
+                <!-- /ko -->
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+            <div class="text-center" style="margin-top: 12px">
+                <button class="btn btn-success btn-sm inline" type="submit" style="vertical-align: bottom"
+                    data-bind="enable: UserLevel(), click: function (){sendWerteZurSps()}, css: sendBtnCss">
+                    Werte zur SPS</button>
+                <wf-buffer-button class="btn btn-sm inline"
+                    params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-sm'">
+                </wf-buffer-button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <ccwViewBox data-bind="ccwViewBox: {}, width: 1200, maxScale: 1.0, DOMVerz: 500">
+                    <ccwViewBoxContent>
+                        <!-- SVG laden -->
+                        <div style="padding-top:48px" id="container"></div>
+                        <!-- MV Einlauf Hauptkneter Öl-->
+                        <ccw-wf-ventil2b style="position:absolute;left:1009px;top:442px;width:18px;height:18px"
+                            params="signalEin: 'VMI3240DB2DBX1227', bmk: '=12+R01-34B8/36MB3', nameVentil: 'MV Entnahme Öl Hauptkneter', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                        </ccw-wf-ventil2b>
+                        <!-- MV nach PWT Brauchwasser-->
+                        <ccw-wf-ventil2b style="position:absolute;left:860px;top:270px;width:18px;height:18px"
+                            params="signalVentil: 'VMI3240DB2DBX1614', bmk: '=16+R03-33B5/36MB5', nameVentil: 'MV nach PWT Brauchwasser', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                        </ccw-wf-ventil2b>
+                        <!-- MV Hefelösung-->
+                        <ccw-wf-ventil2b style="position:absolute;left:845px;top:280px;width:18px;height:18px"
+                            params="signalVentil: 'VMI3240DB2DBX1615', bmk: '=16+R03-33B6/36MB6', nameVentil: 'MV Hefelösung', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                        </ccw-wf-ventil2b>
+                        <!-- Stellgröße -->
+                        <wf-sensor class="" style="position:absolute; left:875px; top:484px"
+                            params=" tooltipText: 'Stellgröße Hauptkneter', pointerLength: '0', pointerRotation: '0', format: '0,0.0', sensorText: 'P', signalName: 'VMI3240DB45DBW4', staticUnitText: '%', valueLabelPosition: 'top' ">
+                        </wf-sensor>
+
+                        <!-- Vorknetertemperatur -->
+                        <wf-sensor class="hidden blue" style="position:absolute; left:895px; top:335px"
+                            params=" tooltipText: 'Temperatur Vorkneter', pointerLength: '0', pointerRotation: '0', format: '0,0.0', sensorText: 'T', signalName: 'VMI3240DB46REAL34', staticUnitText: '°C', valueLabelPosition: 'top' ">
+                        </wf-sensor>
+                        <!-- Teigtemperatur -->
+                        <wf-sensor class="blue" style="position:absolute; left:1040px; top:484px"
+                            params=" tooltipText: 'Teigtemperatur', pointerLength: '0', pointerRotation: '0', format: '0,0.0', sensorText: 'T', signalName: 'VMI3240DB45DBW40', staticUnitText: '°C', valueLabelPosition: 'top' ">
+                        </wf-sensor>
+                        <!-- Massensperre -->
+                        <wf-sensor class="" style="position:absolute; left:1120px; top:484px"
+                            params=" tooltipText: 'Massensperre', pointerLength: '0', pointerRotation: '0', format: '0,0', sensorText: 'M', signalName: 'VMI3240DB45DBW44', staticUnitText: 'mm', valueLabelPosition: 'top' ">
+                        </wf-sensor>
+                        <!-- Schnecke 1 -->
+                        <div style="z-index:100; position: absolute; top: 222px; left: 26px; width:40px; height:40px">
+                            <ccw-wf-motor2
+                                params="nameAntrieb:'Vormischschnecke 1', bmk:'=01+H01-228TA1', infoAktiv: true, motorRichtung: -180, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB41DBB2', steuerAktiv: true, 
+                                                                                            dialogAktiv: true, signalIstwert:'VMI3240DB41DBW4', signalSollwert1:'VMI3240DB41DBW16'">
+                            </ccw-wf-motor2>
+                        </div>
+                        <!-- Schnecke 2 -->
+                        <div style="z-index:100; position: absolute; top: 24px; left: 826px; width:40px; height:40px">
+                            <ccw-wf-motor2
+                                params="nameAntrieb:'Vormischschnecke 2', bmk:'=01+H01-228TA5', infoAktiv: true, motorRichtung: -90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB42DBB2', steuerAktiv: true, 
+                                                                                            dialogAktiv: true, signalIstwert:'VMI3240DB42DBW4', signalSollwert1:'VMI3240DB42DBW16'">
+                            </ccw-wf-motor2>
+                        </div>
+                        <!-- Vorkneter Knetflügel -->
+                        <div style="position: absolute; top: 306px; left: 838px; width:36px; height:36px">
+                            <ccw-wf-motor1
+                                params="nameAntrieb:'Vorkneter Knetflügel', bmk:'=01+H01-229TA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB43DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB43EAL4', signalSollwert1:'VMI3240DB43DBW16'">
+                            </ccw-wf-motor1>
+                        </div>
+                        <!-- Vorkneter Knetschnecke -->
+                        <div style="position: absolute; top: 320px; left: 828px; width:20px; height:20px">
+                            <ccw-wf-motor1
+                                params="nameAntrieb:'Vorkneter Knetschnecke', bmk:'=01+H01-240TA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB44DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB44DBW4', signalSollwert1:'VMI3240DB44DBW16'">
+                            </ccw-wf-motor1>
+                        </div>
+                        <!-- Kneter Knetflügel -->
+                        <div style="position: absolute; top: 480px; left: 811px; width:50px; height:50px">
+                            <ccw-wf-motor1
+                                params="nameAntrieb:'Kneter Knetflügel', bmk:'=01+H01-250TA1', infoAktiv: true, motorRichtung: -180, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB45DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB45DBW4', signalSollwert1:'VMI3240DB45DBW16'">
+                            </ccw-wf-motor1>
+                        </div>
+                        <!-- Kneter Drehmotor Kneterwanne -->
+                        <div style="position: absolute; top: 485px; left: 1170px; width:28px; height:28px">
+                            <wf-state-symbol params="'Kneter Drehmotor Kneterwanne', 
+                                states:[
+                                {conditionRule:'%VMI3240DB45DBX32% == 0 & %VMI3240DB45DBX33% == 0', cssClassName:'wf-lg wf-motor-electric darkgray wf-s wf-2x'},
+                                {conditionRule:'%VMI3240DB45DBX32% != 0', cssClassName:'wf-lg wf-motor-electric running wf-s wf-2x'},
+                                {conditionRule:'%VMI3240DB45DBX33% != 0', cssClassName:'wf-lg wf-motor-electric running wf-s wf-2x'}
+                                ]">
+                        </div>
+                        <!-- Kneter Massensperre -->
+                        <div style="position: absolute; top: 522px; left: 1124px; width:24px; height:24px">
+                            <ccw-wf-motor1 params="nameAntrieb:'Kneter Massensperre', bmk:'=01+H01-20QA5', infoAktiv: true, motorRichtung: -180, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB45DBB22', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-motor1>
+                        </div>
+                        <!-- Waage 10 -->
+                        <div class="panel panel-warning ccw-panel"
+                            style="z-index:10; position:absolute; left:640px; top:15px;  width:150px;"
+                            data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 10</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 10', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB30DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB30DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX480% != 0 || %VMI3240DB90DBX486% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 10', $('#Waage10').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 10', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX480% != 0 || %VMI3240DB90DBX486% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX480% == 0 || %VMI3240DB90DBX486% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 10"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 10)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:200px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 10', $('#Waage10').text(), 10, _komponente10.value())}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage3"></div> -->
+                                    <small><span id="Waage10"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente10.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+                                    <!-- Rührwerk -->
+                                    <div
+                                        style="z-index:100; position: absolute; top: 60px; left: 91px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 10', bmk:'=01+H01-21QA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB30DBB32', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div
+                                        style="z-index:100; position: absolute; top: 87px; left: 6px; width:32px; height:32px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Dosierantrieb Waage 10', bmk:'=01+H01-229TA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB30DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB30DBW4', signalSollwert1:'VMI3240DB30DBW16'">
+                                        </ccw-wf-motor1>
+                                    </div>
+
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:28px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB30DBD100', orientation: 'vertical bottom', height: 95, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD276', states: [{conditionRule:'%VMI3240DB30DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB30DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB30DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB30DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB30DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB30DBW4', staticUnitText: '%', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 7 -->
+                        <div class="panel panel-warning ccw-panel"
+                            style="position:absolute; left:480px; top:15px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 7</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 7', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB27DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB27DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX390% != 0 || %VMI3240DB90DBX396% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 7', $('#Waage7').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 7', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX390% != 0 || %VMI3240DB90DBX396% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX390% == 0 || %VMI3240DB90DBX396% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 7"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 7)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:200px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 7', $('#Waage7').text(), 7, 'VMI3240DB220DBB108')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage3"></div> -->
+                                    <small><span id="Waage7"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente7.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+                                    <!-- Pumpe -->
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 60px; left: 90px; width:28px; height:28px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Rührwerk Waage 7', bmk:'=01+H01-23QA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB27DBB32', steuerAktiv: true, 
+                                                                dialogAktiv: true,signalIstwert:'VMI3240DB27REAL34', signalSollwert1:'VMI3240DB27REAL52'">
+                                        </ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 87px; left: 5px; width:32px; height:32px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Dosierantrieb Waage 7', bmk:'=01+H01-232TA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB27DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB27DBW4', signalSollwert1:'VMI3240DB27DBW16'">
+                                        </ccw-wf-motor1>
+                                    </div>
+
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:28px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB27DBD100', orientation: 'vertical bottom', height: 95, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD264', states: [{conditionRule:'%VMI3240DB27DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB27DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top:  45px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB27DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB27DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB27DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB27DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 9 -->
+                        <div class="panel panel-warning ccw-panel"
+                            style="position:absolute; left:320px; top:15px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 9</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 6', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB29DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB29DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX450% != 0 || %VMI3240DB90DBX456% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 9', $('#Waage9').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 9', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX450% != 0 || %VMI3240DB90DBX456% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX450% == 0 || %VMI3240DB90DBX456% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 9"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 9)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:200px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 9', $('#Waage9').text(), 9, 'VMI3240DB220DBB110')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage3"></div> -->
+                                    <small><span id="Waage9"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente9.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 60px; left: 89px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 9', bmk:'=01+H01-23QA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB29DBB32', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 87px; left: 4px; width:32px; height:32px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Dosierantrieb Waage 9', bmk:'=01+H01-233TA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB29DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB29DBW4', signalSollwert1:'VMI3240DB29DBW16'">
+                                        </ccw-wf-motor1>
+                                    </div>
+
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:28px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB29DBD100', orientation: 'vertical bottom', height: 95, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD272', states: [{conditionRule:'%VMI3240DB29DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB29DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB29DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB29DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB29DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB29DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 2 -->
+                        <div class="panel panel-warning ccw-panel"
+                            style="position:absolute; left:160px; top:15px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 2</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 2', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB22DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB22DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX240% != 0 || %VMI3240DB90DBX246% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 2', $('#Waage2').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 2', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX240% != 0 || %VMI3240DB90DBX246% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX240% == 0 || %VMI3240DB90DBX246% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 2"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 2)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:200px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 2', $('#Waage2').text(), 2, 'VMI3240DB220DBB103')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage2"></div> -->
+                                    <small><span id="Waage2"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente2.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 60px; left: 89px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 2', bmk:'=01+H01-21QA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB22DBB32', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 87px; left: 4px; width:32px; height:32px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Dosierantrieb Waage 2', bmk:'=01+H01-230TA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB22DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true, signalIstwert:'VMI3240DB22DBW4', signalSollwert1:'VMI3240DB22DBW16'">
+                                        </ccw-wf-motor1>
+                                    </div>
+
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:28px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB22DBD100', orientation: 'vertical bottom', height: 95, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD244', states: [{conditionRule:'%VMI3240DB22DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB22DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB22DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB22DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB22DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB22DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 1 -->
+                        <div class="panel panel-warning ccw-panel"
+                            style="position:absolute; left:0px; top:15px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 1</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 1', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB21DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB21DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX210% != 0 || %VMI3240DB90DBX216% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 1', $('#Waage1').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 1', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX210% != 0 || %VMI3240DB90DBX216% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX210% == 0 || %VMI3240DB90DBX216% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 1"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 1)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:200px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 1', $('#Waage1').text(), 1, 'VMI3240DB220DBB101')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <small><span id="Waage1"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente1.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 60px; left: 92px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 1', bmk:'=01+H01-21QA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB21DBB32', steuerAktiv: true, 
+                                                                    dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 87px; left: 7px; width:32px; height:32px">
+                                        <ccw-wf-motor1
+                                            params="nameAntrieb:'Dosierantrieb Waage 1', bmk:'=01+H01-229TA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB21DBB2', steuerAktiv: true, 
+                                                                    dialogAktiv: true, signalIstwert:'VMI3240DB21DBW4', signalSollwert1:'VMI3240DB21DBW16'">
+                                        </ccw-wf-motor1>
+                                    </div>
+
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:28px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB21DBD100', orientation: 'vertical bottom', height: 95, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD240', states: [{conditionRule:'%VMI3240DB21DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB21DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <!-- <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;" params="states:[{signalName:'VMI3240DB21DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]"></wf-state-text> -->
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB21DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB21DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB21DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 5 -->
+                        <div class="panel ccw-panel panel-success"
+                            style="position:absolute; left:0px; top:340px;  width:150px; " data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 5</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 5', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB25DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB25DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX330% != 0 || %VMI3240DB90DBX336% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 5', $('#Waage5').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 5', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX330% != 0 || %VMI3240DB90DBX336% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX330% == 0 || %VMI3240DB90DBX336% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 5"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 5)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:260px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 5', $('#Waage5').text(), 5, 'VMI3240DB220DBB106')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+
+                                    <small><span id="Waage5"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente5.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 35px; left: 46px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 5', bmk:'=01+H01-22QA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB25DBB32', steuerAktiv: true, 
+                                                                    dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Vorwahl-Anzeige Vorteigfüllleitung & Molchen, Buttons auf Dialog-Seite -->
+                                    <div class="ef-Rahmen4 padding-1 ccw-bg-warning hidden" data-bind="ccwSignalInfo:{}"
+                                        style="font-size: 11px; position: absolute; top: 20px; left: 70px; width:75px;">
+                                        <div class="row text-center">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <strong>Vorwahl</strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 text-center">
+                                                <span class="badge ccw-button-Vorwahl"
+                                                    style="font-size: 9px; padding: 3px 0px;"
+                                                    data-bind="css: waage5Vorwahlen().cssFuell, ccwSignalInfo:{}, tooltipText:'Vorwahl Vorteigfüllleitung', signalName:'VMI3240DB25DBX10'">Füll</span>
+                                            </div>
+                                            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 text-center">
+                                                <span class="badge ccw-button-Vorwahl"
+                                                    style="font-size: 9px; padding: 3px 0px;"
+                                                    data-bind="css: waage5Vorwahlen().cssMolch, ccwSignalInfo:{}, tooltipText:'Vorwahl Molchleitung', signalName:'VMI3240DB25DBX16'">Molch</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Übersicht Ventile an Waage 5 -->
+                                    <button class="btn btn-primary btn-xs hidden"
+                                        style="position: absolute; top: 195px; left: 0px;"
+                                        title="Übersicht Ventile Dosierwaage 5" data-toggle="modal"
+                                        data-target="#myWaage5">Übersicht Ventile
+                                    </button>
+                                    <!-- Drehkolbenpumpe Waage 5 -->
+                                    <div style="position: absolute; top: 236px; left: 35px; width:18px; height:18px">
+                                        <ccw-wf-pump0
+                                            params="nameAntrieb:'Dosierpumpe Waage 5', bmk:'=01+H01-231TA1', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB25DBB2', steuerAktiv: true, 
+                                                                                    dialogAktiv: true, signalIstwert:'VMI3240DB25DBW4', signalSollwert1:'VMI3240DB25DBW16'">
+                                        </ccw-wf-pump0>
+                                    </div>
+                                    <!-- Monopumpe  Waage 5-->
+                                    <div style="position: absolute; top: 236px; left: 98px; width:18px; height:18px">
+                                        <ccw-wf-pump0
+                                            params="nameAntrieb:'Dosierpumpe Waage 5', bmk:'=01+H01-231TA1', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB125DBB2', steuerAktiv: true, 
+                                                                                    dialogAktiv: true, signalIstwert:'VMI3240DB125DBW4', signalSollwert1:'VMI3240DB125DBW16'">
+                                        </ccw-wf-pump0>
+                                    </div>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:70px; top:71px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB25DBD100', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false,, maxRangeSignalName: 'VMI3240DB220DBD256',unitLabel: false, states: [{conditionRule:'%VMI3240DB25DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB25DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Ventil Befüllung DosierWaage 5 Vorteig-->
+                                    <ccw-wf-ventil2b style="position:absolute;left:15px;top:40px;width:15px;height:15px"
+                                        params="signalVentil: 'VMI3240DB25DBX10', bmk: '=19+R09-26B6/31Y2', nameVentil: 'MV Befüllung Dosierwaage 5 Vorteig', infoAktiv: true, dialogAktiv: true, ausrichtung: -90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Befüllung DosierWaage 5 Körner-->
+                                    <ccw-wf-ventil2b style="position:absolute;left:30px;top:40px;width:15px;height:15px"
+                                        params="signalEin: 'VMI3240DB25DBX11', bmk: '=19+R09-26B5/31Y1', nameVentil: 'MV Befüllung Dosierwaage 5 Körner', infoAktiv: true, dialogAktiv: true, ausrichtung: -90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Auslauf DosierWaage 5 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:56px;top:172px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1606', bmk: '=12+R03.1-71MB1', nameVentil: 'MV nach Behälter Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Pumpe 1 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:46px;top:223px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1607', bmk: '=12+R03-32B8', nameVentil: 'MV nach Behälter Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Pumpe 2 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:67px;top:223px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1605', bmk: '=16+R03-32B6', nameVentil: 'MV nach Behälter Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass DosierWaage 5 Pumpe 1 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:15px;top:237px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1610', bmk: '=12+R03-33B1', nameVentil: 'MV Bypass Saugseite Pumpe 1 Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass DosierWaage 5 Pumpe 2 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:121px;top:237px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1612', bmk: '=16+R03-33B3', nameVentil: 'MV Bypass Saugseite Pumpe 2 Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass Saugseite DosierWaage 5 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:90px;top:223px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1604', bmk: '=16+R03-32B5', nameVentil: 'MV Bypass Saugseite Pumpe 2 Dosierwaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Restmengenentlerrung Pumpe DosierWaage 5 Pumpe 2 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:79px;top:210px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1211', bmk: '=16+R03-33B2', nameVentil: 'MV Restmengenentlerrung Pumpe 2 DosierWaage 5', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Absperrung Entnahmeleitung Vorteig -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:132px;top:254px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1213', bmk: '=16+R03-33B4', nameVentil: 'MV Absperrung Vorteigleitung', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 80px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB25DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel zum Kneter offen!'},
+                                                        {signalName:'VMI3240DB25DBX12', operator:'==', maskSignal:0, symbolicText:'Deckel zum Gang offen!'}]">
+                                    </wf-state-text>
+                                    <!-- Anzeige max Füllstand -->
+                                    <wf-sensor style="position:absolute; left:100px; top:70px"
+                                        params=" cssClassNormalState: 'ccw-sensor-circle-collapse normal', tooltipText: 'max. Füllstand', pointerLength: '30', pointerRotation: '90', format: '0,0.[0]', sensorText: 'Max', signalName: '', staticUnitText: 'N', valueLabelPosition: 'left',
+                                        cssClassNormalState: '', states:[{conditionRule:'%VMI3240DB25DBX07% != 0', cssClassName:'error'}], tooltipText: 'Max Füllstand noch nicht erreicht!'">
+                                    </wf-sensor>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB25DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB25DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB25DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row hidden">
+                                    <div class="col-md-6">
+                                        <label>Vorwahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="ccw-button-Vorwahl"
+                                            data-bind="text: vorwahlWaage5().newTxt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 6 -->
+                        <div class="panel panel-success ccw-panel"
+                            style="position:absolute; left:160px; top:340px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 6</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 6', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB26DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB26DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX360% != 0 || %VMI3240DB90DBX366% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 6', $('#Waage6').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 6', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX360% != 0 || %VMI3240DB90DBX366% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX360% == 0 || %VMI3240DB90DBX366% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 6"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 6)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:260px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 6', $('#Waage6').text(), 6, 'VMI3240DB220DBB107')}">
+                                    </div>
+
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <small><span id="Waage6"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente6.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 225px; left: 54px; width:18px; height:18px">
+                                        <ccw-wf-pump0
+                                            params="nameAntrieb:'Dosierpumpe Waage 6', bmk:'=01+H01-232TA1', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB26DBB2', steuerAktiv: true, 
+                                                                                        dialogAktiv: true, signalIstwert:'VMI3240DB26DBW4', signalSollwert1:'VMI3240DB26DBW16'">
+                                        </ccw-wf-pump0>
+                                    </div>
+                                    <!-- Ventil Auslauf DosierWaage 6 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:56px;top:172px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1233', bmk: '=12+R03-70MB1', nameVentil: 'MV nach Behälter Dosierwaage 6', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass Saugseite DosierWaage 6 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:67px;top:212px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1235', bmk: '=12+R03-70MDBB2', nameVentil: 'MV Bypass Saugseite Pumpe Dosierwaage 6', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass Druckseite DosierWaage 6 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:95px;top:243px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1236', bmk: '=12+R03-70MDBB2.1', nameVentil: 'MV Bypass Druckseite Pumpe Dosierwaage 6', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:72px; top:71px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB26DBD100', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD260', states: [{conditionRule:'%VMI3240DB26DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB26DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 80px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB26DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB26DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB26DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB26DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 4 -->
+                        <div class="panel panel-success ccw-panel"
+                            style="position:absolute; left:320px; top:340px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 4</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 4', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB24DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB24DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX300% != 0 || %VMI3240DB90DBX306% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 4', $('#Waage4').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 4', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX300% != 0 || %VMI3240DB90DBX306% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX300% == 0 || %VMI3240DB90DBX306% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 4"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 4)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:260px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 4', $('#Waage4').text(), 4, 'VMI3240DB220DBB105')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <small><span id="Waage4"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente4.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+
+                                    <!-- Rührwerk -->
+                                    <div style="position: absolute; top: 35px; left: 42px; width:28px; height:28px">
+                                        <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 4', bmk:'=01+H01-22QA1', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB24DBB32', steuerAktiv: true, 
+                                                                    dialogAktiv: true"></ccw-wf-motor1>
+                                    </div>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 212px; left:48px; width:20px; height:20px">
+                                        <ccw-wf-pump0
+                                            params="nameAntrieb:'Dosierpumpe Waage 4', bmk:'=01+H01-231TA1', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB24DBB2', steuerAktiv: true, 
+                                                                                            dialogAktiv: true, signalIstwert:'VMI3240DB24DBW4', signalSollwert1:'VMI3240DB24DBW16'">
+                                        </ccw-wf-pump0>
+                                    </div>
+                                    <!-- Ventil Auslauf DosierWaage 4 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:51px;top:172px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1223', bmk: '=12+R01-34B4', nameVentil: 'MV nach Behälter Dosierwaage 4', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass Saugseite DosierWaage 4 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:62px;top:199px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1225', bmk: '=12+R01-34B6', nameVentil: 'MV Bypass Saugseite Pumpe Dosierwaage 4', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Druckseite DosierWaage 4 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:90px;top:230px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1226', bmk: '=12+R01-34B7', nameVentil: 'MV Bypass Druckseite Pumpe Dosierwaage 4', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:68px; top:71px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB24DBD100', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD252', states: [{conditionRule:'%VMI3240DB24DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB24DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <wf-state-text class="critical" style="position: absolute; top: 80px; left: 0px;"
+                                        params="states:[{signalName:'VMI3240DB24DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                                    </wf-state-text>
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB24DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB24DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB24DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Waage 3 -->
+                        <div class="panel panel-success ccw-panel"
+                            style="position:absolute; left:480px; top:340px;  width:150px;" data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-6">Waage 3</div>
+                                    <div class="col-md-2">
+                                        <wf-state-symbol
+                                            params="tooltipText:'Betriebsart Dosierwaage 3', cssClassNormalState: 'normal', 
+                                                states:[{conditionRule:'%VMI3240DB23DBX01% != 0', cssClassName:'warning wf wf-lg wf-hand'},
+                                                        {conditionRule:'%VMI3240DB23DBX01% == 0', cssClassName:'running wf wf-lg wf-play-round-o'},
+                                                        {conditionRule:'%VMI3240DB90DBX240% != 0 || %VMI3240DB90DBX246% != 0', cssClassName:'critical wf wf-lg wf-alarm'}]">
+                                        </wf-state-symbol>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Waage 3', $('#Waage3').text(), 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Dosierwaage 3', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%VMI3240DB90DBX240% != 0 || %VMI3240DB90DBX246% != 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%VMI3240DB90DBX240% == 0 || %VMI3240DB90DBX246% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis maintenance" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 3"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 3)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div style="height:260px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){ openDialogParameter('bg-info', 'Waage 3', $('#Waage3').text(), 3, 'VMI3240DB220DBB104')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <small><span id="Waage3"
+                                            data-bind="ccwGetArtikelBezeichnungVonNummer: _komponente3.value(), fuell9Stellen: true"
+                                            style="position: absolute; top: 2px; left: 2px;"
+                                            title="aktuelle Komponente">???</span></small>
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 201px; left: 51px; width:18px; height:18px">
+                                        <ccw-wf-pump0
+                                            params="nameAntrieb:'Dosierpumpe Waage 3', bmk:'=01+H01-231MA1', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB23DBB2', steuerAktiv: true, 
+                                                                                            dialogAktiv: true, signalIstwert:'VMI3240DB23DBW4', signalSollwert1:'VMI3240DB23DBW52'">
+                                        </ccw-wf-pump0>
+                                    </div>
+                                    <!-- Ventil Befüllung DosierWaage 3 -->
+                                    <ccw-wf-ventil2b style="position:absolute;left:30px;top:40px;width:15px;height:15px"
+                                        params="signalEin: 'VMI3240DB2DBX423', bmk: '=12+R01-36MB1', nameVentil: 'MV Befüllung Dosierwaage 3 Wasser', infoAktiv: true, dialogAktiv: true, ausrichtung: -90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Befüllung DosierWaage 3 -->
+                                    <ccw-wf-ventil2b style="position:absolute;left:47px;top:40px;width:15px;height:15px"
+                                        params="signalEin: 'VMI3240DB23DBX10', bmk: '=13+R03-33Y1', nameVentil: 'MV Befüllung Dosierwaage 3 Molke', infoAktiv: true, dialogAktiv: true, ausrichtung: -90, farbStatusHand: false, freigabeBedienung: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Auslauf DosierWaage 3 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:53px;top:172px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1211', bmk: '=12+R01-33B2', nameVentil: 'MV nach Behälter Dosierwaage 3', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Bypass Saugseite DosierWaage 3 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:65px;top:186px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1212', bmk: '=12+R01-33B3', nameVentil: 'MV Bypass Saugseite Pumpe Dosierwaage 3', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Ventil Druckseite DosierWaage 3 -->
+                                    <ccw-wf-ventil2b
+                                        style="position:absolute;left:90px;top:217px;width:16px;height:16px"
+                                        params="signalEin: 'VMI3240DB2DBX1213', bmk: '=12+R01-33B4', nameVentil: 'MV Bypass Druckseite Pumpe Dosierwaage 3', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true, reverse: true">
+                                    </ccw-wf-ventil2b>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <div style="position: absolute; left:72px; top:70px; width:20px;">
+                                        <wf-bargraph
+                                            params="signalName: 'VMI3240DB23DBD100', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, maxRangeSignalName: 'VMI3240DB220DBD248', states: [{conditionRule:'%VMI3240DB23REAL128% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB23REAL128% < 10', cssClass:'progress-bar-danger'}]">
+                                        </wf-bargraph>
+                                    </div>
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <!-- <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;" params="states:[{signalName:'Local Second', operator:'>', maskSignal:0, symbolicText:'Deckel offen!'}]"></wf-state-text> -->
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB23DBD104', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB23DBD100', staticUnitText: 'kg', format: '0,0.000', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Drehzahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB23DBW4', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row hidden">
+                                    <div class="col-md-6">
+                                        <label>Vorwahl</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="ccw-button-Vorwahl"
+                                            data-bind="text: vorwahlWaage3().newTxt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Solekühlung Wasser -->
+                        <div class="panel panel-primary ccw-panel"
+                            style="position:absolute; left:640px; top:383px;  width:150px; cursor:pointer;"
+                            data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-8">Brauchwasser</div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('Brauchwasser', '', 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Brauchwasserkühlung', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                    states:[{conditionRule:'%Buffer 1% == 0', cssClassName:'wf-lg wf-alert error'},
+                                                            {conditionRule:'%Buffer 1% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis normal" style="color: white;" role="button"
+                                            title="Trend für Dosierwaage 3"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 12)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-12" style="height:22px">
+                                        <!-- <span id="Waage3" title="aktuelle Komponente"><small>???</small></span> -->
+                                    </div>
+                                </div>
+                                <div style="height:195px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){openDialogKuehlungWaage3('bg-primary', $('#Waage3').text())}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 75px; left: 46px; width:20px; height:20px">
+                                        <ccw-wf-pump0 params="nameAntrieb:'Umwälzpumpe Brauchwasserkühlung', bmk:'113QA8', infoAktiv: true, ausrichtung: 90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB23DBB32', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-pump0>
+                                    </div>
+
+                                    <div style="position: absolute; top: 44px; left: 46px; width:23px; height:23px">
+                                        <ccw-wf-ventil3ml
+                                            params="signalVentil: '', signalIstwert:'VMI3240DB23DBW52', bmk: '=16+R03-28M5', nameVentil: 'Mischventil Sole Brauchwasserkühlung', infoAktiv: true, dialogAktiv: false, farbStatusHand: false, freigabeBedienung: true">
+                                        </ccw-wf-ventil3ml>
+                                    </div>
+                                    <div style="position: absolute; top: 10px; left: 50px; width:60px; font-size:16px">
+                                        <wf-state-symbol params="tooltipText:'Meldung Betriebzustand Kühlung Brauchwasser', cssClassNormalState: 'label label-default', 
+                                                                    states:[
+                                                                       {conditionRule:'%TechnikDB23DBX330% == 0', cssClassName:'label label-success'},
+                                                                       {conditionRule:'%TechnikDB23DBX330% != 0', cssClassName:'label label-danger'}
+                                                                       ]">
+                                            <wf-state-text
+                                                params="tooltipText:'Meldung Betriebzustand Kühlung Brauchwasser', symbolicTextNormalState: 'Status Kühlung Brauchwasser', 
+                                                        states:[ 
+                                                            {conditionRule:'%TechnikDB23DBX330% == 0', symbolicText:'Betrieb'},
+                                                            {conditionRule:'%TechnikDB23DBX330% != 0', symbolicText:'Stop'}]">
+                                            </wf-state-text>
+                                        </wf-state-symbol>
+                                    </div>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <!-- <div style="position: absolute; left:72px; top:70px; width:20px;">
+                                        <wf-bargraph params="signalName: 'VMI3240DB23REAL128', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, states: [{conditionRule:'%VMI3240DB23REAL128% > 98', cssClassName:'progress-bar-warning'},{conditionRule:'%VMI3240DB23REAL128% < 10', cssClassName:'progress-bar-danger'}]"></wf-bargraph>
+                                    </div> -->
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <!-- <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;" params="states:[{signalName:'Local Second', operator:'>', maskSignal:0, symbolicText:'Deckel offen!'}]"></wf-state-text> -->
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Soll</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB220DBW402', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Ist</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB23DBW42', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Stellgröße</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ccw-wf-input-tastatur-2
+                                            params="signalName: 'VMI3240DB23DBW52', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                        </ccw-wf-input-tastatur-2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Solekühlung 1 Kneter-->
+                        <div class="panel panel-primary ccw-panel"
+                            style="position:absolute; left:1020px; top:124px;  width:220px; cursor:pointer"
+                            data-bind="ccwRahmen:{}">
+                            <div class="panel-heading ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-8">Kneterkühlung</div>
+                                    <div class="col-md-2">
+                                        <i role="button"
+                                            data-bind="click: function (){ openDialogStoerung('mantel', '', 'VMI3240DB1DBX00')}">
+                                            <wf-state-symbol
+                                                params="tooltipText:'Aktuelle Störungen Knetermantelkühlung', cssClassNormalState: 'wf-lg wf-alert normal', 
+                                                                                                                                                                states:[{conditionRule:'%Buffer 1% == 0', cssClassName:'wf-lg wf-alert error'},
+                                                                                                                                                                        {conditionRule:'%Buffer 1% == 0', cssClassName:'wf-lg wf-alert normal'}]">
+                                            </wf-state-symbol>
+                                        </i>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="wf-lg wf-analysis normal" style="color: white;" role="button"
+                                            title="Trend für Knetermantelkühlung"
+                                            data-bind="click: function (){ openDialogTrend('bg-primary', 13)}"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body ccw-panel-small-padding">
+                                <div class="row">
+                                    <div class="col-md-12" style="height:22px">
+                                        <!-- <span id="Waage3" title="aktuelle Komponente"><small>???</small></span> -->
+                                    </div>
+                                </div>
+                                <div style="height:80px">
+                                    <div style="height:100%; width:100%; z-index:-10"
+                                        data-bind="click: function (){openDialogKuehlungKneter('bg-primary')}">
+                                    </div>
+                                    <!-- SVG laden -->
+                                    <!-- <div id="containerWaage1"></div> -->
+                                    <!-- Pumpe -->
+                                    <div style="position: absolute; top: 85px; left: 39px; width:18px; height:18px">
+                                        <ccw-wf-pump0 params="nameAntrieb:'Umwälzpumpe Knetermantelkühlung 1', bmk:'=01+H01-224TA5', infoAktiv: true, ausrichtung: -90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB56DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-pump0>
+                                    </div>
+                                    <div style="position: absolute; top: 85px; left: 154px; width:18px; height:18px">
+                                        <ccw-wf-pump0 params="nameAntrieb:'Umwälzpumpe Knetermantelkühlung 2', bmk:'=01+H01-224TA5', infoAktiv: true, ausrichtung: -90, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB57DBB2', steuerAktiv: true, 
+                                                                dialogAktiv: true"></ccw-wf-pump0>
+                                    </div>
+                                    <div style="position: absolute; top: 60px; left: 24px; width:20px; height:20px">
+                                        <ccw-wf-ventil3ml
+                                            params="signalVentil: '', signalIstwert:'VMI3240DB56DBW52', bmk: '=14+R02-36M1', nameVentil: 'Mischventil Sole Knetermantelkühlung 1', infoAktiv: true, dialogAktiv: false, farbStatusHand: false, freigabeBedienung: true">
+                                        </ccw-wf-ventil3ml>
+                                    </div>
+                                    <div style="position: absolute; top: 60px; left: 139px; width:20px; height:20px">
+                                        <ccw-wf-ventil3ml
+                                            params="signalVentil: '', signalIstwert:'VMI3240DB57DBW52', bmk: '=14+R02-36M5', nameVentil: 'Mischventil Sole Knetermantelkühlung 2', infoAktiv: true, dialogAktiv: false, farbStatusHand: false, freigabeBedienung: true">
+                                        </ccw-wf-ventil3ml>
+                                    </div>
+                                    <!-- Füllstand Wiegebehälter -->
+                                    <!-- <div style="position: absolute; left:72px; top:70px; width:20px;">
+                                        <wf-bargraph params="signalName: 'VMI3240DB23REAL128', orientation: 'vertical bottom', height: 72, progressBarSize: 'progress-md', valueLabel: false, unitLabel: false, states: [{conditionRule:'%VMI3240DB23REAL128% > 98', cssClassName:'progress-bar-warning'},{conditionRule:'%VMI3240DB23REAL128% < 10', cssClassName:'progress-bar-danger'}]"></wf-bargraph>
+                                    </div> -->
+                                    <!-- Anzeige Deckel Behälter offen -->
+                                    <!-- <wf-state-text class="critical" style="position: absolute; top: 45px; left: 0px;" params="states:[{signalName:'Local Second', operator:'>', maskSignal:0, symbolicText:'Deckel offen!'}]"></wf-state-text> -->
+                                </div>
+                            </div>
+                            <div class="panel-footer ccw-panel-small-padding ccw-panel-footer">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-5 text-center">
+                                                <strong style="font-size: 10px;">Kühlung 1</strong>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                            <div class="col-md-5 text-center">
+                                                <strong style="font-size: 10px;">Kühlung 2</strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB220DBW400', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <label>Soll<sub>VL</sub></label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB220DBW406', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB56DBW40', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <label>Ist<sub>VL</sub> </label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB57DBW40', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB56DBW42', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <label>Ist<sub>RL</sub> </label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB57DBW42', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB56DBW52', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <label></label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <ccw-wf-input-tastatur-2
+                                                    params="signalName: 'VMI3240DB57DBW52', staticUnitText: '%', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                                </ccw-wf-input-tastatur-2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="badge badge-default ccw-button-Vorwahl"
+                                                    data-bind="css: reglerTeigAktiv1().newCss, text:reglerTeigAktiv1().newTxt">
+                                                    ???
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-5">
+                                                <div class="badge badge-default ccw-button-Vorwahl"
+                                                    data-bind="css: reglerTeigAktiv2().newCss, text:reglerTeigAktiv2().newTxt">
+                                                    ???
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Lüftungsanlage -->
+                        <div class="ef-Rahmen4 padding-4 margin-4"
+                            style="position: absolute; left: 1035px; top:10px; width:280px">
+                            <div class="row text-center">
+                                <div class="col-lg-11 col-md-10 col-sm-11 col-xs-11">
+                                    <span class="wf-lg wf-fan red" style="font-size:22px"><span
+                                            style="color: gray;">&nbsp;Lüftungsanlage</span></span>
+                                </div>
+                                <div class="col-lg-1 col-md-2 col-sm-1 col-xs-1">
+                                    <wf-watchdog
+                                        params="signalName: 'LueftungDB100INT4', onlineClass: 'wf wf-watchdog-online wf-server ccw-icon-custom-size-2', offlineClass: 'wf wf-watchdog-offline wf-server-alert ccw-icon-custom-size-2', tooltipText: 'Verbindung zu Kontikneter 3240'">
+                                    </wf-watchdog>
+                                </div>
+                            </div>
+                            <div class="row padding-2">
+                                <div class="col-xs-8">
+                                    <span>
+                                        <strong>Raumtemperatur</strong>
+                                    </span>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: 'LueftungDB100REAL82', staticUnitText: '°C', format: '0,0.0', writeToBuffer: false, elemBreite: '100%', elemBreiteVal:'75%', disableInputFeld: true">
+                                    </ccw-wf-input-tastatur-2>
+                                </div>
+                            </div>
+                        </div>
+                    </ccwViewBoxContent>
+                </ccwViewBox>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <!-- Status -->
+            <div class="ef-Rahmen4 padding-4 margin-4">
+                <div class="row text-center">
+                    <span class="wf-lg wf-plant" style="font-size:22px"><span
+                            style="color: gray;">&nbsp;Status</span></span>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-symbol params="cssClassNormalState: 'ccw-state-text-default', 
+                                               states:[
+                                                  {conditionRule:'%VMI3240DB1DBX05% == 0', cssClassName:'ccw-state-text-default'},
+                                                  {conditionRule:'%VMI3240DB1DBX05% != 0', cssClassName:'ccw-state-text-indicate'}
+                                                  ]">
+                            <wf-state-text class="" params="symbolicTextNormalState: '???',
+                                        states:[
+                                            {conditionRule:'%VMI3240DB1DBX05% == 0', symbolicText:'Produktion AUS'},
+                                            {conditionRule:'%VMI3240DB1DBX05% != 0', symbolicText:'Produktion EIN'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12" style="text-align: right">
+                        <wf-state-symbol
+                            params="cssClassNormalState: 'ccw-state-text-default', states:[
+                                               {conditionRule:'%VMI3240DB21DBX21% == 0 & %VMI3240DB22DBX21% == 0 & %VMI3240DB23DBX21% == 0 & %VMI3240DB24DBX21% == 0 & %VMI3240DB25DBX21% == 0 & %VMI3240DB26DBX21% == 0 & %VMI3240DB27DBX21% == 0 & %VMI3240DB29DBX21% == 0 & %VMI3240DB30DBX21% == 0 & %VMI3240DB41DBX21% == 0 & %VMI3240DB42DBX21% == 0 & %VMI3240DB43DBX21% == 0 & %VMI3240DB44DBX21% == 0 & %VMI3240DB45DBX21% == 0 & %VMI3240DB48DBX21% == 0 & %VMI3240DB49DBX21% == 0 & %VMI3240DB50DBX21% == 0 & %VMI3240DB51DBX21% == 0 & %VMI3240DB52DBX21% == 0 & %VMI3240DB53DBX21% == 0 & %VMI3240DB54DBX21% == 0', cssClassName:'ccw-state-text-indicate'},
+                                               {conditionRule:'%VMI3240DB21DBX21% != 0 | %VMI3240DB22DBX21% != 0 | %VMI3240DB23DBX21% != 0 | %VMI3240DB24DBX21% != 0 | %VMI3240DB25DBX21% != 0 | %VMI3240DB26DBX21% != 0 | %VMI3240DB27DBX21% != 0 | %VMI3240DB29DBX21% != 0 | %VMI3240DB30DBX21% != 0 | %VMI3240DB41DBX21% != 0 | %VMI3240DB42DBX21% != 0 | %VMI3240DB43DBX21% != 0 | %VMI3240DB44DBX21% != 0 | %VMI3240DB45DBX21% != 0 | %VMI3240DB46DBX21% != 0 | %VMI3240DB49DBX21% == 0 | %VMI3240DB50DBX21% == 0 | %VMI3240DB51DBX21% == 0 | %VMI3240DB52DBX21% == 0 | %VMI3240DB53DBX21% == 0 | %VMI3240DB54DBX21% == 0', cssClassName:'ccw-state-text-indicate-error'}]">
+                            <wf-state-text class=""
+                                params="symbolicTextNormalState: '???',
+                                        states:[
+                                            {conditionRule:'%VMI3240DB21DBX21% == 0 & %VMI3240DB22DBX21% == 0 & %VMI3240DB23DBX21% == 0 & %VMI3240DB24DBX21% == 0 & %VMI3240DB25DBX21% == 0 & %VMI3240DB26DBX21% == 0 & %VMI3240DB27DBX21% == 0 & %VMI3240DB29DBX21% == 0 & %VMI3240DB30DBX21% == 0 & %VMI3240DB41DBX21% == 0 & %VMI3240DB42DBX21% == 0 & %VMI3240DB43DBX21% == 0 & %VMI3240DB44DBX21% == 0 & %VMI3240DB45DBX21% == 0 & %VMI3240DB48DBX21% == 0 & %VMI3240DB49DBX21% == 0 & %VMI3240DB50DBX21% == 0 & %VMI3240DB51DBX21% == 0 & %VMI3240DB52DBX21% == 0 & %VMI3240DB53DBX21% == 0 & %VMI3240DB54DBX21% == 0', symbolicText:'Alle Antriebe in Automatik'},
+                                            {conditionRule:'%VMI3240DB21DBX21% != 0 | %VMI3240DB22DBX21% != 0 | %VMI3240DB23DBX21% != 0 | %VMI3240DB24DBX21% != 0 | %VMI3240DB25DBX21% != 0 | %VMI3240DB26DBX21% != 0 | %VMI3240DB27DBX21% != 0 | %VMI3240DB29DBX21% != 0 | %VMI3240DB30DBX21% != 0 | %VMI3240DB41DBX21% != 0 | %VMI3240DB42DBX21% != 0 | %VMI3240DB43DBX21% != 0 | %VMI3240DB44DBX21% != 0 | %VMI3240DB45DBX21% != 0 | %VMI3240DB46DBX21% != 0 | %VMI3240DB49DBX21% == 0 | %VMI3240DB50DBX21% == 0 | %VMI3240DB51DBX21% == 0 | %VMI3240DB52DBX21% == 0 | %VMI3240DB53DBX21% == 0 | %VMI3240DB54DBX21% == 0', symbolicText:'Mindestens ein Antrieb in Hand'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12" style="text-align: right">
+                        <wf-state-symbol
+                            params="cssClassNormalState: 'ccw-state-text-default', states:[
+                                               {conditionRule:'%VMI3240DB21DBX01% == 0 & %VMI3240DB22DBX01% == 0 & %VMI3240DB23DBX01% == 0 & %VMI3240DB24DBX01% == 0 & %VMI3240DB25DBX01% == 0 & %VMI3240DB26DBX01% == 0 & %VMI3240DB27DBX01% == 0 & %VMI3240DB29DBX01% == 0 & %VMI3240DB30DBX01% == 0', cssClassName:'ccw-state-text-indicate'},
+                                               {conditionRule:'%VMI3240DB21DBX01% != 0 | %VMI3240DB22DBX01% != 0 | %VMI3240DB23DBX01% != 0 | %VMI3240DB24DBX01% != 0 | %VMI3240DB25DBX01% != 0 | %VMI3240DB26DBX01% != 0 | %VMI3240DB27DBX01% != 0 | %VMI3240DB29DBX01% != 0 | %VMI3240DB30DBX01% != 0', cssClassName:'ccw-state-text-indicate-error'}]">
+                            <wf-state-text class=""
+                                params="symbolicTextNormalState: '???',
+                                        states:[
+                                              {conditionRule:'%VMI3240DB21DBX01% == 0 & %VMI3240DB22DBX01% == 0 & %VMI3240DB23DBX01% == 0 & %VMI3240DB24DBX01% == 0 & %VMI3240DB25DBX01% == 0 & %VMI3240DB26DBX01% == 0 & %VMI3240DB27DBX01% == 0 & %VMI3240DB29DBX01% == 0 & %VMI3240DB30DBX01% == 0', symbolicText:'Alle Dosierungen in Automatik'},
+                                              {conditionRule:'%VMI3240DB21DBX01% != 0 | %VMI3240DB22DBX01% != 0 | %VMI3240DB23DBX01% != 0 | %VMI3240DB24DBX01% != 0 | %VMI3240DB25DBX01% != 0 | %VMI3240DB26DBX01% != 0 | %VMI3240DB27DBX01% != 0 | %VMI3240DB29DBX01% != 0 | %VMI3240DB30DBX01% != 0', symbolicText:'Mindestens eine Dosierung in Hand'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row  margin-2">
+                    <div class="col-xs-8">
+                        <span>
+                            <strong>Produktionsleistung</strong>
+                        </span>
+                    </div>
+                    <div class="col-xs-4">
+                        <ccw-wf-input-tastatur-2
+                            params="signalName: 'VMI3240DB220DBW18', staticUnitText: 'kg/h', format: '0,0.0', writeToBuffer: true, elemBreite: '100%', elemBreiteVal:'56%', disableInputFeld: !userFreigabe()">
+                        </ccw-wf-input-tastatur-2>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Linie 3240 -->
+            <div class="ef-Rahmen4 padding-4 margin-4" onclick="location = '#rezept_Linie'" style="cursor: pointer">
+                <div class="row text-center">
+                    <span style="font-size:22px"><img src="ContentCowi/svg/rezept.svg"
+                            style="width:26px; height: 26px;">&nbsp;Linie 3240</span>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <rez-info class="rez-info-padding ccw_context" params="databaseName: 'broet3240',
+                        signalNamePaNr: 'GaerDB1DBD80',
+                        signalNamePaAktiv: 'GaerDB1DBX780',
+                        signalNameProdTyp: 'vSigProdTyp_Sekt2',
+                        tooltipText: 'aktuelle Rezeptinformation',
+                        werk: 2,
+                        halle: 3,
+                        etage: 2,
+                        linie: 2,
+                        maschine: 40">
+                        </rez-info>
+                    </div>
+                </div>
+            </div>
+            <!-- Schüttgut -->
+            <div class="hidden ef-Rahmen4 padding-2 margin-2">
+                <div class="row text-center">
+                    <span class="wf-lg wf-shared-filter blue" style="font-size:22px"><span
+                            style="color: gray;">&nbsp;Reimelt CW3</span></span>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-symbol params="cssClassNormalState: 'ccw-state-text-default', 
+                                           states:[
+                                              {conditionRule:'%ReimeltDB30DBX220% == 0', cssClassName:'ccw-state-text-indicate'},
+                                              {conditionRule:'%ReimeltDB30DBX220% != 0', cssClassName:'ccw-state-text-indicate-yellow'}
+                                              ]">
+                            <wf-state-text class="" params="symbolicTextNormalState: '???', 
+                                        states:[
+                                            {conditionRule:'%ReimeltDB30DBX220% == 0', symbolicText:'Automatik'},
+                                            {conditionRule:'%ReimeltDB30DBX220% != 0', symbolicText:'Hand'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+            </div>
+            <!-- Not-Aus -->
+            <div class="ef-Rahmen4 padding-2 margin-2">
+                <div class="row text-center">
+                    <span class="wf-lg wf-stop-sign red" style="font-size:22px"><span
+                            style="color: gray;">&nbsp;Not-Aus</span></span>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX00% != 0 & %VMI3240DB45DBX01% == 0', symbolicText:'Sicherungsbolzen 1 in Betriebspostion'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX00% == 0 & %VMI3240DB45DBX01% != 0', symbolicText:'Sicherungsbolzen 1 in Reinigungsposition'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX00% != 0 & %VMI3240DB45DBX01% != 0 | %VMI3240DB45DBX00% == 0 & %VMI3240DB45DBX01% == 0', symbolicText:'Fehler - Abfrage Sicherungsbolzen 1'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX02% != 0 & %VMI3240DB45DBX03% == 0', symbolicText:'Sicherungsbolzen 2 in Betriebspostion'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX02% == 0 & %VMI3240DB45DBX03% != 0', symbolicText:'Sicherungsbolzen 2 in Reinigungsposition'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX02% == 0 & %VMI3240DB45DBX03% == 0 | %VMI3240DB45DBX02% != 0 & %VMI3240DB45DBX03% != 0', symbolicText:'Fehler - Abfrage Sicherungsbolzen 2'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:right" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX13% != 0', symbolicText:'Kneter Abdeckhaube oben'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX14% != 0', symbolicText:'Kneter Abdeckhaube unten'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX14% == 0 &  %VMI3240DB45DBX13% == 0', symbolicText:'Fehler - Abfrage Kneter Abdeckhaube'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX10% != 0 & %VMI3240DB45DBX11% == 0', symbolicText:'Massensperre in oberer Endlage'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX10% == 0 & %VMI3240DB45DBX11% != 0', symbolicText:'Massensperre in unterer Endlage'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX10% == 0 & %VMI3240DB45DBX11% == 0', symbolicText:'Massensperre positioniert'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX10% != 0 & %VMI3240DB45DBX11% != 0', symbolicText:'Fehler - Abfrage Massensperre'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX04% != 0 & %VMI3240DB45DBX05% == 0', symbolicText:'Guiliotine in Betriebsposition'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:right" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX04% == 0 & %VMI3240DB45DBX05% != 0', symbolicText:'Guillotine in Reinigungspositon'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX04% != 0 & %VMI3240DB45DBX05% != 0 | %VMI3240DB45DBX04% == 0 & %VMI3240DB45DBX05% == 0', symbolicText:'Fehler - Abfrage Guillotine'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <wf-state-text style="float:right" class="running"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX06% != 0 & %VMI3240DB45DBX07% == 0', symbolicText:'Kneterwanne in Betriebsposition'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:right" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX06% == 0 & %VMI3240DB45DBX07% != 0', symbolicText:'Kneterwanne in Reinigungspositon'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="critical"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX06% == 0 & %VMI3240DB45DBX07% == 0 & %VMI3240DB45DBX33% == 0 & %VMI3240DB45DBX32% == 0', symbolicText:'Kneterwanne nicht in Endlage'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX06% == 0 & %VMI3240DB45DBX07% == 0 & %VMI3240DB45DBX33% ', symbolicText:'Kneterwanne dreht in Betriebsposition'}]">
+                        </wf-state-text>
+                        <wf-state-text style="float:left" class="orange"
+                            params="states:[{conditionRule:'%VMI3240DB45DBX06% == 0 & %VMI3240DB45DBX07% == 0 & %VMI3240DB45DBX32% ', symbolicText:'Kneterwanne dreht in Reinigungsposition'}]">
+                        </wf-state-text>
+                    </div>
+                </div>
+            </div>
+            <!-- Verlinkung Reinigung-->
+            <div class="hidden ef-Rahmen4 padding-2 margin-2">
+                <div class="row text-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span class="wf-lg wf-drop orange" style="font-size:22px"><span
+                                style="color: gray;">&nbsp;CIP-Anlage</span></span>
+                    </div>
+                </div>
+                <div class="row text-center padding-2">
+                    <div class="col-md-12">
+                        <button class="btn btn-sm btn-info ccw-button-Vorwahl"
+                            data-bind="click: function (obj, event){setBtnLink('https://wf-koern-cw3/Koerneranlage/05_Grundbild/index_start.htm',obj, event)}"><span
+                                class="wf-lg wf-link"></span>&nbsp;Vorteig</button>
+                    </div>
+                </div>
+            </div>
+            <!-- CIP-Anlage -->
+            <div class="ef-Rahmen4 padding-2 margin-2">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
+                        <span class="wf-lg wf-drop orange" style="font-size:22px"><span
+                                style="color: gray;">&nbsp;CIP-Anlage</span></span>
+                    </div>
+                    <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-right">
+                        <wf-state-symbol params="tooltipText:'Störung CIP-Anlage 1', cssClassNormalState: 'ccw-icon-custom-size-2 wf-lg wf-alarm error',
+                                                states:[
+                                                    {conditionRule:'%VMI3240DB101DBX120% != 0', cssClassName:'ccw-icon-custom-size-2 wf-lg wf-alarm critical'},
+                                                    {conditionRule:'%VMI3240DB101DBX120% == 0', cssClassName:'ccw-icon-custom-size-2 wf-lg wf-alarm normal'}
+                                                ]">
+                        </wf-state-symbol>
+                    </div>
+                    <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-right" style="font-size:20px">
+                        <wf-state-symbol params="tooltipText:'Watchdog zu Körner/Vorteig', cssClassNormalState: 'ccw-icon-custom-size-2 wf-lg wf-server error',
+                                                states:[
+                                                    {conditionRule:'%VMI3240DB101DBX00% != 0', cssClassName:'ccw-icon-custom-size-2 wf-lg wf-server running'},
+                                                    {conditionRule:'%VMI3240DB101DBX00% == 0', cssClassName:'ccw-icon-custom-size-2 wf-lg wf-server normal'}
+                                                ]">
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row text-center padding-2">
+                    <div class="col-md-11">
+                        <wf-state-symbol params="tooltipText:'Meldung Betriebzustand von CIP-Anlage 1 RR2 2.OG West', cssClassNormalState: 'darkgray text-center', 
+                                                    states:[
+                                                       {conditionRule:'%VMI3240DB101DBX123% == 0', cssClassName:'error text-left'},
+                                                       {conditionRule:'%VMI3240DB101DBX123% != 0', cssClassName:'running text-right'}
+                                                       ]">
+                            <wf-state-text
+                                params="tooltipText:'Meldung Betriebzustand von CIP-Anlage 1', symbolicTextNormalState: 'Status CIP 1', 
+                                        states:[ 
+                                            {conditionRule:'%VMI3240DB101DBX123% == 0', symbolicText:'CIP1/RR2 2.OG West nicht betriebsbereit!'},
+                                            {conditionRule:'%VMI3240DB101DBX123% != 0', symbolicText:'CIP1/RR2 2.OG West betriebsbereit'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                    <div class="col-lg-1 text-right">
+                        <wf-state-symbol params="tooltipText:'Status CIP-Anlage 1 RR2 2.OG West', cssClassNormalState: 'wf-lg wf-stop-round-o error',
+                                                states:[
+                                                    {conditionRule:'%VMI3240DB101DBX03% != 0', cssClassName:'wf-lg wf-play-round-o running'},
+                                                    {conditionRule:'%VMI3240DB101DBX04% != 0', cssClassName:'wf-lg wf-pause-round-o warning'},
+                                                    {conditionRule:'%VMI3240DB101DBX05% != 0', cssClassName:'wf-lg wf-check-round-o normal'}
+                                                ]">
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="hidden row text-center padding-2">
+                    <div class="col-md-11">
+                        <wf-state-symbol params="tooltipText:'Meldung Betriebzustand von CIP-Anlage 2', cssClassNormalState: 'darkgray text-center', 
+                                                    states:[
+                                                       {conditionRule:'%VMI3240DB107DBX122% == 0', cssClassName:'error text-left'},
+                                                       {conditionRule:'%VMI3240DB107DBX122% != 0', cssClassName:'running text-right'}
+                                                       ]">
+                            <wf-state-text
+                                params="tooltipText:'Meldung Betriebzustand von CIP-Anlage 1 RR3 2.OG Ost', symbolicTextNormalState: 'Status CIP Reinigung', 
+                                        states:[ 
+                                            {conditionRule:'%VMI3240DB107DBX122% == 0', symbolicText:'CIP1/RR3 2.OG Ost nicht betriebsbereit!'},
+                                            {conditionRule:'%VMI3240DB107DBX122% != 0', symbolicText:'CIP1/RR3 2.OG Ost betriebsbereit'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                    <div class="col-lg-1 text-right">
+                        <wf-state-symbol params="tooltipText:'Status CIP-Anlage 1 RR2 2.OG Ost', cssClassNormalState: 'wf-lg wf-stop-round-o error',
+                                                states:[
+                                                    {conditionRule:'%VMI3240DB107DBX06% != 0', cssClassName:'wf-lg wf-play-round-o running'},
+                                                    {conditionRule:'%VMI3240DB107DBX07% != 0', cssClassName:'wf-lg wf-pause-round-o warning'},
+                                                    {conditionRule:'%VMI3240DB107DBX08% != 0', cssClassName:'wf-lg wf-check-round-o normal'}
+                                                ]">
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <strong>Vorwahl Reinigung:</strong>
+                    </div>
+                </div>
+                <div class="row text-center  padding-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <wf-state-symbol params="cssClassNormalState: 'black', 
+                                                       states:[
+                                                          {conditionRule:'%VMI3240DB101DBX20% == 0 & %VMI3240DB101DBX21% == 0 & %VMI3240DB101DBX22% == 0 & %VMI3240DB101DBX23% == 0 & %VMI3240DB101DBX24% == 0 & %VMI3240DB101DBX25% == 0', cssClassName:'black text-left'},
+                                                          {conditionRule:'%VMI3240DB101DBX20% != 0 & %VMI3240DB101DBX21% != 0 & %VMI3240DB101DBX22% != 0 & %VMI3240DB101DBX23% != 0 & %VMI3240DB101DBX24% != 0 & %VMI3240DB101DBX25% != 0', cssClassName:'running text-right'}
+                                                       ]">
+                            <wf-state-text style="font-size: small"
+                                params="symbolicTextNormalState: 'Vorwahl ???',
+                                        states:[
+                                            {conditionRule:'%VMI3240DB101DBX20% == 0 & %VMI3240DB101DBX21% == 0 & %VMI3240DB101DBX22% == 0 & %VMI3240DB101DBX23% == 0 & %VMI3240DB101DBX24% == 0 & %VMI3240DB101DBX25% == 0', symbolicText:'Keine Reinigung vorgewählt'},
+                                            {conditionRule:'%VMI3240DB101DBX20% != 0', symbolicText:'Reinigungskreis 2  Reinigungsweg Ltg Waage 4 (Hefe)'},
+                                            {conditionRule:'%VMI3240DB101DBX21% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Reserve'},
+                                            {conditionRule:'%VMI3240DB101DBX22% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Waage 3 (Wasser)'},
+                                            {conditionRule:'%VMI3240DB101DBX23% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Waage 6 (Oel)'},
+                                            {conditionRule:'%VMI3240DB101DBX24% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Quellstück_C3 und Waage 5'},
+                                            {conditionRule:'%VMI3240DB101DBX25% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg nur Ltg Waage 5'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+                <div class="row  padding-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <strong>Rückmeldung Reinigung:</strong>
+                    </div>
+                </div>
+                <div class="row text-center  padding-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <wf-state-symbol params="cssClassNormalState: 'black', 
+                                                    states:[
+                                                       {conditionRule:'%VMI3240DB101DBX40% == 0 & %VMI3240DB101DBX41% == 0 & %VMI3240DB101DBX42% == 0 & %VMI3240DB101DBX43% == 0 & %VMI3240DB101DBX44% == 0 & %VMI3240DB101DBX45% == 0', cssClassName:'black text-left'},
+                                                       {conditionRule:'%VMI3240DB101DBX40% != 0 & %VMI3240DB101DBX41% != 0 & %VMI3240DB101DBX42% != 0 & %VMI3240DB101DBX43% != 0 & %VMI3240DB101DBX44% != 0 & %VMI3240DB101DBX45% != 0', cssClassName:'running text-right'}
+                                                    ]">
+                            <wf-state-text style="font-size: small"
+                                params="symbolicTextNormalState: 'Rückmeldung ???',
+                                        states:[
+                                            {conditionRule:'%VMI3240DB101DBX40% == 0 & %VMI3240DB101DBX41% == 0 & %VMI3240DB101DBX42% == 0 & %VMI3240DB101DBX43% == 0 & %VMI3240DB101DBX44% == 0 & %VMI3240DB101DBX45% == 0', symbolicText:'Keine Rückmeldung'},
+                                            {conditionRule:'%VMI3240DB101DBX40% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Waage 4 (Hefe) Ein'},
+                                            {conditionRule:'%VMI3240DB101DBX41% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Reserve Ein'},
+                                            {conditionRule:'%VMI3240DB101DBX42% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Waage 3 (Wasser) Ein'},
+                                            {conditionRule:'%VMI3240DB101DBX43% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Waage 6 (Oel) Ein'},
+                                            {conditionRule:'%VMI3240DB101DBX44% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg Ltg Quellstück_C3 und Waage 5'},
+                                            {conditionRule:'%VMI3240DB101DBX45% != 0', symbolicText:'Reinigungskreis 2 Reinigungsweg nur Ltg Waage 5'}]">
+                            </wf-state-text>
+                        </wf-state-symbol>
+                    </div>
+                </div>
+            </div>
+            <!-- Wartungsbetrieb -->
+            <div class="ef-Rahmen4 padding-2 margin-2">
+                <div class="row text-center">
+                    <span class="wf-lg wf-service blue" style="font-size:22px"><span
+                            style="color: gray;">&nbsp;Wartungsbetrieb</span></span>
+                </div>
+                <div class="row padding-2">
+                    <div class="col-xs-12">
+                        <button class="btn btn-xs btn-default ccw-button-Vorwahl" type="submit"
+                            data-bind="enable: userFreigabe(), text: vorwahlWartung().newText, css: vorwahlWartung().newCss, click: function (obj, event){setBtnVorwahl(vorwahlWartung().signalName, obj, event)}"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" id="myWaage5" style="display: none;">
+        <div class="modal-dialog modal-top">
+            <div class="modal-content" style="width:300px">
+                <div class="modal-header bg-primary">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <h4 class="modal-title">
+                                <span>Übersicht Ventile Waage 5</span>
+                            </h4>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body" style="height:420px">
+                    <ccwViewBox data-bind="ccwViewBox: {}, width: 260, maxScale: 1.0, DOMVerz: 500">
+                        <ccwViewBoxContent>
+                            <div>
+                                <!-- SVG laden -->
+                                <div id="container5"></div>
+                            </div>
+                            <!-- Rührwerk -->
+                            <div style="position: absolute; top: 63px; left: 99px; width:28px; height:28px">
+                                <ccw-wf-motor1 params="nameAntrieb:'Rührwerk Waage 5', bmk:'=01+H01-22QA5', infoAktiv: true, motorRichtung: 270, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB25DBB32', steuerAktiv: true, 
+                                                                                                    dialogAktiv: true">
+                                </ccw-wf-motor1>
+                            </div>
+                            <!-- Pumpe -->
+                            <div style="position: absolute; top: 298px; left: 40px; width:24px; height:24px">
+                                <ccw-wf-pump0
+                                    params="nameAntrieb:'Dosierpumpe Waage 5', bmk:'=01+H01-231TA5', infoAktiv: true, ausrichtung: 180, farbStatusHand: true, freigabeBedienung: true, signalAntrieb: 'VMI3240DB25DBB2', steuerAktiv: true, 
+                                                                                    dialogAktiv: true, signalIstwert:'VMI3240DB25DBW4', signalSollwert1:'VMI3240DB25DBW16'">
+                                </ccw-wf-pump0>
+
+                            </div>
+                            <!-- Druck nach Vorteigpumpe -->
+                            <wf-sensor class="orange" style="position:absolute; left:9px; top:270px"
+                                params=" tooltipText: 'Druck in Leitung nach Vorteigpumpe', pointerLength: '0', pointerRotation: '0', format: '0,0.0', sensorText: 'P', signalName: 'VMI3240DB25REAL192', staticUnitText: 'bar', valueLabelPosition: 'top' ">
+                            </wf-sensor>
+                            <!-- Absperrventil Behälter 2 -->
+                            <ccw-wf-ventil2c style="position:absolute;left:104px;top:250px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB25INT624', bmk: '+R03.1-71MB1 (R03-32B1)', nameVentil: 'Ventil Behälterauslauf', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil Saugseite Bypass Pumpe -->
+                            <ccw-wf-ventil2c style="position:absolute;left:71px;top:315px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB25INT626', bmk: '+R03.1-71MDBB2.1 (R03-32B8)', nameVentil: 'Ventil Bypass Pumpe Saugseite', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil Druckseite Bypass Pumpe -->
+                            <ccw-wf-ventil2c style="position:absolute;left:11px;top:315px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB25INT628', bmk: '+R03.1-71MB3 (R03-33B1)', nameVentil: 'Ventil Bypass Pumpe Druckseite', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil Entleerung Bypass -->
+                            <ccw-wf-ventil2c style="position:absolute;left:71px;top:353px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB25INT630', bmk: '+R03.1-71MB3.1', nameVentil: 'Ventil Entleerung Bypass Pumpe', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2b style="position:absolute;left:150px;top:297px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB2X1612', bmk: '+R03.1-71MB5.1 (R03-33B3)', nameVentil: 'Waage 5 - VL Reiniung vor Pumpe', infoAktiv: true, dialogAktiv: false, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: false">
+                            </ccw-wf-ventil2b>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2c style="position:absolute;left:68px;top:10px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB24INT620', bmk: '+R03.1-71MB4 (R03-34B5)', nameVentil: 'Ventil Befüllung von Vorteig', infoAktiv: true, dialogAktiv: true, ausrichtung: 270, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2b style="position:absolute;left:40px;top:57px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB2X1625', bmk: '+R03.1-71MB4.1 (R03-34B6)', nameVentil: 'Waage 5 - Ventil CIP RR nach Befüllung Dosierbehälter Vorteig', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2b>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2c style="position:absolute;left:90px;top:10px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB24INT622', bmk: '+R03.1-71MB5 (R03-35B1)', nameVentil: 'Ventil Befüllung von Körner', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2c>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2b style="position:absolute;left:168px;top:70px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB2X1605', bmk: '+R03.1-71MDBB2 (R03-32B6)', nameVentil: 'Waage 5 (Vorteig) INI M Reinigungsanschluß CIP von Körner', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2b>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2b style="position:absolute;left:184px;top:133px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB2X1604', bmk: '+R03.1-71MB1.1 (R03-32B5)', nameVentil: 'Waage 5 (Vorteig) INI MV Wege Reinigungsanschluß CIP ', infoAktiv: true, dialogAktiv: true, ausrichtung: 0, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2b>
+                            <!-- Absperrventil ??? -->
+                            <ccw-wf-ventil2b style="position:absolute;left:221px;top:160px;width:24px;height:24px"
+                                params="signalVentil: 'VMI3240DB2DBX1660', bmk: '+R03.1-70MB5 (R03-38B1)', nameVentil: 'Entleerung RL Reinigung', infoAktiv: true, dialogAktiv: true, ausrichtung: 90, farbStatusHand: false, freigabeBedienung: true">
+                            </ccw-wf-ventil2b>
+                            <!-- Füllstand Wiegebehälter -->
+                            <div style="position: absolute; left:125px; top:106px; width:20px;">
+                                <wf-bargraph
+                                    params="signalName: 'VMI3240DB25DBD100', orientation: 'vertical bottom', height: 100, progressBarSize: 'progress-md', valueLabel: false,, maxRangeSignalName: 'VMI3240DB220DBD256',unitLabel: false, states: [{conditionRule:'%VMI3240DB25DBD100% > 98', cssClass:'progress-bar-warning'},{conditionRule:'%VMI3240DB25DBD100% < 10', cssClass:'progress-bar-danger'}]">
+                                </wf-bargraph>
+                            </div>
+                            <!-- Anzeige Deckel Behälter offen -->
+                            <wf-state-text class="critical" style="position: absolute; top: 122px; left: 56px;"
+                                params="states:[{signalName:'VMI3240DB25DBX02', operator:'==', maskSignal:0, symbolicText:'Deckel offen!'}]">
+                            </wf-state-text>
+                        </ccwViewBoxContent>
+                    </ccwViewBox>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <!-- <button class="btn btn-success btn-md inline" type="submit" data-bind="enable: userFreigabe(), click: function (){sendWerteZurSps()}, css: sendBtnCss">Werte
+                            zur SPS</button>
+                        <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default btn-md'"></wf-buffer-button> -->
+                        <button type="button" style="width:100px" class="btn btn-md btn-primary" data-dismiss="modal"
+                            id="modal-btn-Ok">Schließen</button>
+                        <!-- <button class="btn btn-md btn-primary" data-dismiss="modal" aria-hidden="true"
+                            data-bind="text: 'Schließen', click: close"></button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

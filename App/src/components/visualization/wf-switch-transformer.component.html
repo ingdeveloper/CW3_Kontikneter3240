@@ -1,0 +1,19 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible() -->
+<div class="wf-state-container wf-switch-transformer" data-bind="css: {'disabled' : isDisabled}">
+    <div data-bind="css: switchType">
+        <!-- ko template: { nodes: $componentTemplateNodes, data: $data } --><!-- /ko -->
+
+        <svg class="wf-state-container" data-bind="css: statusCssClass, attr : {title: tooltipText}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 48">
+            <g class="wf-switch-transformer-group" data-bind="attr: {'stroke-width': lineThickness}">
+                <path class="wf-switch-transformer-box" fill="none" stroke="#000" d="M 1.4999997,8.5 22.5,8.5 l 0,31 -21.0000002,0 z" />
+
+                <path class="wf-switch-transformer-base" fill="none" stroke="#000" stroke-linecap="butt" d="m 15.5,22 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z m 0,4 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z M 12,3 12,18.5 m 0,11 0,15.5" />
+                <path class="wf-switch-transformer-switch-closed" fill="none" stroke="#000" stroke-linecap="butt" d="m 14,25 -4,4 m 0,-4 4,4 M 12,23.53125 12,45 m 0,-42 0,9.53125 m 3.5,7.5 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z m 0,-4 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z" />
+                <path class="wf-switch-transformer-switch-opened" fill="none" stroke="#000" stroke-linecap="butt" d="M 12,23.53125 12,27 m 3.5,-10.96875 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z m 0,4 c 0,1.932997 -1.567003,3.5 -3.5,3.5 -1.932997,0 -3.5,-1.567003 -3.5,-3.5 0,-1.932997 1.567003,-3.5 3.5,-3.5 1.932997,0 3.5,1.567003 3.5,3.5 z M 12,3 12,12.53125 M 17,29 l -5,6 0,10 m -2,-20 4,4 m 0,-4 -4,4" />
+            </g>
+        </svg>
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

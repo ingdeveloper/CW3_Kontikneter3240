@@ -1,0 +1,55 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible() -->
+<div class="wf-switch-symbol" data-bind="css: {'disabled' : isDisabled}">
+    <div data-bind="css: switchType">
+        <!-- ko template: { nodes: $componentTemplateNodes, data: $data } --><!-- /ko -->
+
+        <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+        <svg class="wf-state-container stretched" data-bind="css: statusCssClass, attr : {title: tooltipText}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 44">
+            <g stroke-width="1.5" class="wf-switch-symbol-box-group" data-bind="attr: {'stroke-width': lineThickness}" transform="translate(-1 -14.004)">
+                <path fill="none" stroke="#000" d="M2.5 21.5h19v29h-19z" class="wf-switch-symbol-box" />
+                <path fill="none" stroke="#000" d="M2.5 21.5h19v29h-19z" class="wf-switch-symbol-box-fuse" />
+                <g class="wf-switch-symbol-switch-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M12 15v42" class="wf-switch-symbol-switch-closed" />
+                    <path fill="none" stroke="#000" d="M16 36l-4 8v13m0-42v18" class="wf-switch-symbol-switch-opened" />
+                </g>
+                <g class="wf-switch-symbol-breaker-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M9 28l6 6m-6 0l6-6m-3-13v42" class="wf-switch-symbol-breaker-closed" />
+                    <path fill="none" stroke="#000" d="M16 36l-4 8v13m0-42v16m-3 3l6-6m-6 0l6 6" class="wf-switch-symbol-breaker-opened" />
+                </g>
+                <g class="wf-switch-symbol-switch-disconector-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M11 18.992v24m0-42v11m.004 0c-1.833 0-3.5 1.667-3.5 3.5s1.667 3.5 3.5 3.5 3.5-1.667 3.5-3.5-1.667-3.5-3.5-3.5z" transform="translate(1 14)" class="wf-switch-symbol-switch-disconector-closed" />
+                    <path fill="none" stroke="#000" d="M15 21.992l-4 8v13m.004-31c-1.833 0-3.5 1.667-3.5 3.5s1.667 3.5 3.5 3.5 3.5-1.667 3.5-3.5-1.667-3.5-3.5-3.5zm0-10.996v11.496" transform="translate(1 14)" class="wf-switch-symbol-switch-disconector-opened" />
+                </g>
+                <g class="wf-switch-symbol-disconector-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M8 33h8m-4-18v42" class="wf-switch-symbol-disconector-closed" />
+                    <path fill="none" stroke="#000" d="M16 36l-4 8v13m0-42v18m-4 0h8" class="wf-switch-symbol-disconector-opened" />
+                </g>
+                <g class="wf-switch-symbol-fuse-disconector-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M16 28H8m4-13v42" class="wf-switch-symbol-fuse-disconector-closed" />
+                    <path fill="none" stroke="#000" d="M9 32.496l.018 7.994 5.992.004-.01-7.998zM12 32v9" class="wf-fuse wf-fuse-closed-intact" />
+                    <path fill="none" stroke="#000" d="M14 35l-4 3m2-6v9m-3-8.504l.018 7.994 5.992.004-.01-7.998z" class="wf-fuse wf-fuse-closed-blown" />
+                    <path fill="none" stroke="#000" d="M12 15v13m0 29l.067-12.961L19 32m-3-4H8" class="wf-switch-symbol-fuse-disconector-opened" />
+                    <path fill="none" stroke="#000" d="M13.294 41.88l3.57-6.172m-2.684-1.312l-3.493 6.059 5.182 2.992 3.501-6.055z" class="wf-fuse wf-fuse-opened-intact" />
+                    <path fill="none" stroke="#000" d="M17.57 38.402L12.606 39m1.574-4.604l-3.493 6.059 5.182 2.992 3.501-6.055zm-.886 7.483l3.57-6.171" class="wf-fuse wf-fuse-opened-blown" />
+                </g>
+                <g class="wf-switch-symbol-fuse-switch-disconector-1-group" data-bind="attr: {'stroke-width': lineThickness}">
+                    <path fill="none" stroke="#000" d="M11.007 10.513c-1.833 0-3.5 1.668-3.5 3.5 0 1.833 1.667 3.5 3.5 3.5s3.5-1.667 3.5-3.5c0-1.832-1.667-3.5-3.5-3.5zm-.004 6.731v25.75m0-42v9.567" class="wf-switch-symbol-fuse-switch-disconector-1-closed" transform="translate(1 14)"></path>
+                    <path fill="none" stroke="#000" d="M9 32.496l.018 7.994 5.992.004-.01-7.998zM12 32v9" class="wf-fuse wf-fuse-closed-intact" transform="translate(0 2)" />
+                    <path fill="none" stroke="#000" d="M14 35l-4 3m2-6v9m-3-8.504l.018 7.994 5.992.004-.01-7.998z" class="wf-fuse wf-fuse-closed-blown" transform="translate(0 2)" />
+                    <path fill="none" stroke="#000" d="M12.004 15v10.004m0-.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm0 32.5v-13l7-12" class="wf-switch-symbol-fuse-switch-disconector-1-opened" />
+                    <path fill="none" stroke="#000" d="M13.294 41.88l3.57-6.172m-2.684-1.312l-3.493 6.059 5.182 2.992 3.501-6.055z" class="wf-fuse wf-fuse-opened-intact" />
+                    <path fill="none" stroke="#000" d="M17.57 38.402L12.606 39m1.574-4.604l-3.493 6.059 5.182 2.992 3.501-6.055zm-.886 7.483l3.57-6.171" class="wf-fuse wf-fuse-opened-blown" />
+                </g>
+                <g class="wf-switch-symbol-fuse-switch-disconector-2-group" data-bind="attr: {'stroke-width': lineThickness}" stroke-width="1.5">
+                    <path fill="none" transform="translate(1 14)" stroke="#000" d="M11.004 10.463c-1.833 0-3.5 1.667-3.5 3.5s1.667 3.5 3.5 3.5 3.5-1.667 3.5-3.5-1.667-3.5-3.5-3.5zM11 .996v9.467m0 7v25.533" class="wf-switch-symbol-fuse-switch-disconector-2-closed"></path>
+                    <path fill="none" stroke="#000" d="M11.004 10.474c-1.833 0-3.5 1.668-3.5 3.5 0 1.833 1.667 3.5 3.5 3.5s3.5-1.667 3.5-3.5c0-1.832-1.667-3.5-3.5-3.5zM11 .996v9.478m0 32.53V21.996l7-6.992" class="wf-switch-symbol-fuse-switch-disconector-2-opened" transform="translate(1 14)"></path>
+                    <path fill="none" stroke="#000" d="M12 39v9m-3-8.504l.018 7.994 5.992.004-.01-7.998z" class="wf-fuse wf-fuse-intact"></path>
+                    <path fill="none" stroke="#000" d="M14 42l-4 3m2-6v9m-3-8.504l.018 7.994 5.992.004-.01-7.998z" class="wf-fuse wf-fuse-blown"></path>
+                </g>
+            </g>
+        </svg>
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

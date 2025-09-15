@@ -1,0 +1,96 @@
+<div style="display:none">
+    <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal}" style="display: none;">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: close">&times;</button>
+                    <div data-bind="visible: actionType() === 'edit'" class="modal-title">{{connector.translate('I4SCADA_UM_Edit')()}}</div>
+                    <div data-bind="visible: actionType() === 'add'" class="modal-title">{{connector.translate('I4SCADA_UM_Add')()}}</div>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="name">{{connector.translate('I4SCADA_UM_Name')()}}</label>
+                        <span data-bind="visible: accessAuthorizationObs.Name.isFieldEmpty()" class="error-message form-control-validation pull-right">
+                        <i class="wf wf-question-mark-round form-control-validation-indicator animated fadeIn" title="{{connector.translate('I4SCADA_UM_FieldIsRequired')()}}" ></i></span>
+                        <input data-bind="value: accessAuthorizationObs.Name, valueUpdate: 'afterkeydown', css: {'red-border': accessAuthorizationObs.Name.isFieldEmpty()}" type="text" maxlength="32"
+                            class="form-control" id="name" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="descr">{{connector.translate('I4SCADA_UM_Description')()}}</label>
+                        <input data-bind="value: accessAuthorizationObs.Description, valueUpdate: 'afterkeydown'" type="text" maxlength="128"
+                            class="form-control" id="descr" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <div >
+                            <div class="radio">
+                                <label><input type="radio" name="accessType" value="false" data-bind="checked: accessTypeRadioBtn">{{connector.translate('I4SCADA_UM_AccessViaComputerName')()}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="computerName">{{connector.translate('I4SCADA_UM_ComputerName')()}}</label>
+                                <span data-bind="visible: accessAuthorizationObs.ComputerName.isFieldEmpty() && !accessAuthorizationObs.AccessType()" class="error-message form-control-validation pull-right">
+                                    <i class="wf wf-question-mark-round form-control-validation-indicator animated fadeIn" title="{{connector.translate('I4SCADA_UM_FieldIsRequired')()}}"></i>
+                                </span>
+                                <input data-bind="value: accessAuthorizationObs.ComputerName, valueUpdate: 'afterkeydown', enable: !accessAuthorizationObs.AccessType(), css: {'red-border': accessAuthorizationObs.ComputerName.isFieldEmpty() && !accessAuthorizationObs.AccessType()}"
+                                    type="text" class="form-control" id="computerName" autocomplete="new-password" maxlength="256">
+                            </div>
+                        </div>
+                        <div >
+                            <div class="radio">
+                                <label><input type="radio" name="accessType" value="true" data-bind="checked: accessTypeRadioBtn">{{connector.translate('I4SCADA_UM_AccessViaIPAddress')()}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ipAddress">{{connector.translate('I4SCADA_UM_IPAddress')()}}</label>
+                                <div class="flexbox flexbox-x-justified">
+                                    <input data-bind="value: accessAuthorizationObs.IPFilterClassA, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" id="ipAddress" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPFilterClassB, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPFilterClassC, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPFilterClassD, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control um-mac" autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="netMask">{{connector.translate('I4SCADA_UM_NetMask')()}}</label>
+                                <div class="flexbox flexbox-x-justified">
+                                    <input data-bind="value: accessAuthorizationObs.IPMaskClassA, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" id="netMask" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPMaskClassB, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPMaskClassC, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control m-r um-mac" autocomplete="new-password">
+                                    <input data-bind="value: accessAuthorizationObs.IPMaskClassD, valueUpdate: 'afterkeydown', enable: accessAuthorizationObs.AccessType()"
+                                        min="0" max="255" required value="0" oninput="validity.valid||(value='0');" type="number"
+                                        class="form-control um-mac" autocomplete="new-password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button data-bind="enable: isSaveValid(), click: onSaveClick" class="btn btn-sm btn-primary">
+                        <i class="wf wf-check"></i>
+                        {{connector.translate('I4SCADA_UM_Save')()}}
+                    </button>
+                    <button data-bind="click: close" class="btn btn-sm btn-default">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_UM_Cancel')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

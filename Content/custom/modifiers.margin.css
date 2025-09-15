@@ -1,0 +1,261 @@
+/*---------------------------------------------
+  Margins modifiers 
+---------------------------------------------*/
+
+/* Small sized Margins */
+.m-a-sm {
+    margin: 5px !important;
+}
+
+.m-t-sm {
+    margin-top: 5px !important;
+}
+
+.m-r-sm {
+    margin-right: 5px !important;
+}
+
+.m-b-sm {
+    margin-bottom: 5px !important;
+}
+
+.m-l-sm {
+    margin-left: 5px !important;
+}
+
+.m-x-sm {
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+}
+
+.m-y-sm {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Default sized Margins */
+.m-a {
+    margin: 10px !important;
+}
+
+.m-t {
+    margin-top: 10px !important;
+}
+
+.m-r {
+    margin-right: 10px !important;
+}
+
+.m-b {
+    margin-bottom: 10px !important;
+}
+
+.m-l {
+    margin-left: 10px !important;
+}
+
+.m-x {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+}
+
+.m-y {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Medium sized Margins */
+.m-a-md {
+    margin: 15px !important;
+}
+
+.m-t-md {
+    margin-top: 15px !important;
+}
+
+.m-r-md {
+    margin-right: 15px !important;
+}
+
+.m-b-md {
+    margin-bottom: 15px !important;
+}
+
+.m-l-md {
+    margin-left: 15px !important;
+}
+
+.m-x-md {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+
+.m-y-md {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+/* Large sized margin */
+.m-a-lg {
+    margin: 30px !important;
+}
+
+.m-t-lg {
+    margin-top: 30px !important;
+}
+
+.m-r-lg {
+    margin-right: 30px !important;
+}
+
+.m-b-lg {
+    margin-bottom: 30px !important;
+}
+
+.m-l-lg {
+    margin-left: 30px !important;
+}
+
+.m-x-lg {
+    margin-right: 30px !important;
+    margin-left: 30px !important;
+}
+
+.m-y-lg {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+}
+
+/* XLarge sized margin */
+.m-a-xlg {
+    margin: 45px !important;
+}
+
+.m-t-xlg {
+    margin-top: 45px !important;
+}
+
+.m-r-xlg {
+    margin-right: 45px !important;
+}
+
+.m-b-xlg {
+    margin-bottom: 45px !important;
+}
+
+.m-l-xlg {
+    margin-left: 45px !important;
+}
+
+.m-x-xlg {
+    margin-right: 45px !important;
+    margin-left: 60px !important;
+}
+
+.m-y-xlg {
+    margin-top: 45px !important;
+    margin-bottom: 60px !important;
+}
+
+/* XXLarge sized margin */
+.m-a-xxlg {
+    margin: 60px !important;
+}
+
+.m-t-xxlg {
+    margin-top: 60px !important;
+}
+
+.m-r-xxlg {
+    margin-right: 60px !important;
+}
+
+.m-b-xxlg {
+    margin-bottom: 60px !important;
+}
+
+.m-l-xxlg {
+    margin-left: 60px !important;
+}
+
+.m-x-xxlg {
+    margin-right: 60px !important;
+    margin-left: 60px !important;
+}
+
+.m-y-xxlg {
+    margin-top: 60px !important;
+    margin-bottom: 60px !important;
+}
+
+/* 3XLarge sized margin */
+.m-a-3xlg {
+    margin: 75px !important;
+}
+
+.m-t-3xlg {
+    margin-top: 75px !important;
+}
+
+.m-r-3xlg {
+    margin-right: 75px !important;
+}
+
+.m-b-3xlg {
+    margin-bottom: 75px !important;
+}
+
+.m-l-3xlg {
+    margin-left: 75px !important;
+}
+
+.m-x-3xlg {
+    margin-right: 75px !important;
+    margin-left: 60px !important;
+}
+
+.m-y-3xlg {
+    margin-top: 75px !important;
+    margin-bottom: 60px !important;
+}
+
+
+/* Spacing modifiers - Margins */
+.m-a-0 {
+    margin: 0 !important;
+}
+
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.m-r-0 {
+    margin-right: 0 !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0 !important;
+}
+
+.m-l-0 {
+    margin-left: 0 !important;
+}
+
+.m-x-0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.m-y-0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Advanced modifiers - auto margins */
+
+.m-l-auto {
+    margin-left: auto;
+}
+.m-r-auto {
+    margin-right: auto;
+}

@@ -1,0 +1,410 @@
+<div class="container-fluid">
+
+    <div style="margin-bottom:4px">
+        <div class="text-center wartung-Titelleiste" style="height:30px">
+            <i class="wf wf-service" style="color:#0000a0;font-size:20px"></i>
+            <strong style="padding-left:10px;font-size:20px;color:#000000">Wartung Antriebe Muster</strong>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="margin-left:2px;width:500px;float:left">
+            <!-- ko if: userLogged() -->
+            <div class="input-group">
+                <span class="input-group-addon" style="width:300px"><i class="wf wf-user"
+                        data-bind="text: ' ' + userNname() + ', ' + userVname() + ', ' + 'ID: '+ userID()"></i></span>
+                <label class="form-control text-center" style="width:100px" id="countdown">00:00</label>
+                <span class="input-group-btn">
+                    <button class="btn btn-default wf wf-logout" style="width:100px" type="button"
+                        title="Benutzer abmelden"
+                        data-bind="text: 'Logout',event: { click: function(){ countdown(0, 0); }}">
+                    </button>
+                </span>
+            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: userLogged() -->
+            <div>
+                <button class="btn btn-warning inline wf wf-login" style="width:100%;height:35px" type="submit"
+                    data-bind="click: function (){openDialogLogInOut()}, enable: UserLevel1">
+                    Login Wartung
+                </button>
+            </div>
+            <!-- /ko -->
+        </div>
+        <div class="text-right" style="margin-right:2px;width:300px;float:right">
+            <button class="btn btn-success inline" style="width:127px;height:35px" type="submit"
+                data-bind="click: function (){sendWerteZurSps()}, css: sendBtnCss, enable: userFreigabe()">Werte
+                zur SPS</button>
+            <wf-buffer-button class="inline" style="width:127px;height:35px"
+                params="buttonText: 'L&ouml;sche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'">
+            </wf-buffer-button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:6px">
+        <div class="col-md-12">
+            <ul class="nav nav-pills bg-info">
+                <li class="active">
+                    <a href="#Speicher1" data-toggle="tab" data-bind="click: function () { clearBuffer() }">Seite 1</a>
+                </li>
+                <li>
+                    <a href="#Speicher2" data-toggle="tab" data-bind="click: function () { clearBuffer() }">Seite 2</a>
+                </li>
+                <li>
+                    <a href="#Speicher3" data-toggle="tab" data-bind="click: function () { clearBuffer() }">Seite 3</a>
+                </li>
+                <li>
+                    <a href="#Speicher4" data-toggle="tab" data-bind="click: function () { clearBuffer() }">Seite 4</a>
+                </li>
+            </ul>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id='Speicher1'>
+                    <table class="table table-responsive table-condensed table-hover wartung-AntriebeTable">
+                        <thead>
+                            <tr>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte1">
+                                    BMK</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte2">
+                                    Antrieb</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte3">
+                                    Sollwert</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte4">
+                                    Gesamt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte5">
+                                    nach
+                                    Wartung</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte8">
+                                    Fortschritt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte6">
+                                    Reset</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte7">
+                                    Funktionsauswahl</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: antriebeSeite_1">
+                            <!-- ko if: $data.anzeigeWerte == true  -->
+                            <!-- Nur anzeigen, wenn Parameter True ist -->
+                            <tr style="height:33px">
+                                <td class="wartung-AntriebeTd" data-bind="text: $data.bmk"></td>
+                                <td class="wartung-AntriebeTd">
+                                    <span
+                                        data-bind="visible: $data.antriebStatus().vis, css: $data.antriebStatus().css, attr: { title: $data.antriebStatus().txt }, ccwSignalInfo: {}, signalName: $data.statusByte"></span>
+                                    <span data-bind="text: $data.text"></span>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100px', elemBreiteVal:'78%', disableInputFeld: !$parent.userFreigabe()">
+                                    </ccw-wf-input-tastatur-2>
+                                </td>
+                                <td class="wartung-AntriebeTd text-center"
+                                    data-bind="text: $data.betriebsStdGesamt.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdGesamt.signalName()">
+                                </td>
+                                <td class="wartung-AntriebeTd"
+                                    data-bind="text: $data.betriebsStdNachWartung.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdNachWartung.signalName()">
+                                <td class="wartung-AntriebeTd">
+                                    <div class="progress progress-ccw-small">
+                                        <div class="progress-bar ccw-progress-bar" style="max-width:100%"
+                                            data-bind="style: { width: $data.bargraphWert().erg + '%' }, css: $data.bargraphWert().farbe">
+                                            <span style="padding-left:4px"
+                                                data-bind="text: $data.bargraphWert().erg + '&nbsp;%'"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <button class="btn btn-default btn-warning btn-block wartung-AntriebeTableBtn"
+                                        type="submit"
+                                        data-bind="enable: $data.resetBtnEnable(), click: function (){$parent.setResetAntriebeSeite_1($data.funktionsauswahl(),$index())}">Reset</button>
+                                    <!-- /ko -->
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <select class="btn btn-default wartung-AntriebeTableBtn"
+                                        data-bind="value: $data.funktionsauswahl, enable: $parent.userFreigabe(), event: {change: function (){$parent.setAuswahlAntriebeSeite_1($data.funktionsauswahl(),$index())}}, ccwSignalInfo: {}, signalName: $data.funktionsNr.signalName()">
+                                        <option value="0">(0) ---------</option>
+                                        <!--wenn Parameter "value" angegeben ist, dann wird dieser Wert übermittelt, sonst der Text-->
+                                        <option value="1">(1) Wartung</option>
+                                        <option value="2">(2) Reparatur</option>
+                                        <option value="3">(3) Austausch</option>
+                                    </select>
+
+                                    <!-- ko ifnot: $parent.userFreigabe() -->
+                                    <!-- mit diesem Div und Klick darauf wird eine Meldung bei Nichtanmeldung herausgegeben! -->
+                                    <div data-bind="click: function () { $parent.setMeldung(1) }"
+                                        class="wartung-DivFunktionsauswahl">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id='Speicher2'>
+                    <table class="table table-responsive table-condensed table-hover wartung-AntriebeTable">
+                        <thead>
+                            <tr>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte1">
+                                    BMK</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte2">
+                                    Antrieb</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte3">
+                                    Sollwert</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte4">
+                                    Gesamt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte5">
+                                    nach
+                                    Wartung</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte8">
+                                    Fortschritt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte6">
+                                    Reset</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte7">
+                                    Funktionsauswahl</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: antriebeSeite_2">
+                            <!-- ko if: $data.anzeigeWerte == true  -->
+                            <!-- Nur anzeigen, wenn Parameter True ist -->
+                            <tr style="height:33px">
+                                <td class="wartung-AntriebeTd" data-bind="text: $data.bmk"></td>
+                                <td class="wartung-AntriebeTd">
+                                    <span
+                                        data-bind="visible: $data.antriebStatus().vis, css: $data.antriebStatus().css, attr: { title: $data.antriebStatus().txt }, ccwSignalInfo: {}, signalName: $data.statusByte"></span>
+                                    <span data-bind="text: $data.text"></span>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100px', elemBreiteVal:'78%', disableInputFeld: !$parent.userFreigabe()">
+                                    </ccw-wf-input-tastatur-2>
+                                </td>
+                                <td class="wartung-AntriebeTd text-center"
+                                    data-bind="text: $data.betriebsStdGesamt.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdGesamt.signalName()">
+                                </td>
+                                <td class="wartung-AntriebeTd"
+                                    data-bind="text: $data.betriebsStdNachWartung.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdNachWartung.signalName()">
+                                <td class="wartung-AntriebeTd">
+                                    <div class="progress progress-ccw-small">
+                                        <div class="progress-bar ccw-progress-bar" style="max-width:100%"
+                                            data-bind="style: { width: $data.bargraphWert().erg + '%' }, css: $data.bargraphWert().farbe">
+                                            <span style="padding-left:4px"
+                                                data-bind="text: $data.bargraphWert().erg + '&nbsp;%'"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <button class="btn btn-default btn-warning btn-block wartung-AntriebeTableBtn"
+                                        type="submit"
+                                        data-bind="enable: $data.resetBtnEnable(), click: function (){$parent.setResetAntriebeSeite_2($data.funktionsauswahl(),$index())}">Reset</button>
+                                    <!-- /ko -->
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <select class="btn btn-default wartung-AntriebeTableBtn"
+                                        data-bind="value: $data.funktionsauswahl, enable: $parent.userFreigabe(), event: {change: function (){$parent.setAuswahlAntriebeSeite_2($data.funktionsauswahl(),$index())}}, ccwSignalInfo: {}, signalName: $data.funktionsNr.signalName()">
+                                        <option value="0">(0) ---------</option>
+                                        <!--wenn Parameter "value" angegeben ist, dann wird dieser Wert übermittelt, sonst der Text-->
+                                        <option value="1">(1) Wartung</option>
+                                        <option value="2">(2) Reparatur</option>
+                                        <option value="3">(3) Austausch</option>
+                                    </select>
+
+                                    <!-- ko ifnot: $parent.userFreigabe() -->
+                                    <!-- mit diesem Div und Klick darauf wird eine Meldung bei Nichtanmeldung herausgegeben! -->
+                                    <div data-bind="click: function () { $parent.setMeldung(1) }"
+                                        class="wartung-DivFunktionsauswahl">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id='Speicher3'>
+                    <table class="table table-responsive table-condensed table-hover wartung-AntriebeTable">
+                        <thead>
+                            <tr>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte1">
+                                    BMK</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte2">
+                                    Antrieb</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte3">
+                                    Sollwert</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte4">
+                                    Gesamt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte5">
+                                    nach
+                                    Wartung</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte8">
+                                    Fortschritt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte6">
+                                    Reset</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte7">
+                                    Funktionsauswahl</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: antriebeSeite_3">
+                            <!-- ko if: $data.anzeigeWerte == true  -->
+                            <!-- Nur anzeigen, wenn Parameter True ist -->
+                            <tr style="height:33px">
+                                <td class="wartung-AntriebeTd" data-bind="text: $data.bmk"></td>
+                                <td class="wartung-AntriebeTd">
+                                    <span
+                                        data-bind="visible: $data.antriebStatus().vis, css: $data.antriebStatus().css, attr: { title: $data.antriebStatus().txt }, ccwSignalInfo: {}, signalName: $data.statusByte"></span>
+                                    <span data-bind="text: $data.text"></span>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100px', elemBreiteVal:'78%', disableInputFeld: !$parent.userFreigabe()">
+                                    </ccw-wf-input-tastatur-2>
+                                </td>
+                                <td class="wartung-AntriebeTd text-center"
+                                    data-bind="text: $data.betriebsStdGesamt.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdGesamt.signalName()">
+                                </td>
+                                <td class="wartung-AntriebeTd"
+                                    data-bind="text: $data.betriebsStdNachWartung.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdNachWartung.signalName()">
+                                <td class="wartung-AntriebeTd">
+                                    <div class="progress progress-ccw-small">
+                                        <div class="progress-bar ccw-progress-bar" style="max-width:100%"
+                                            data-bind="style: { width: $data.bargraphWert().erg + '%' }, css: $data.bargraphWert().farbe">
+                                            <span style="padding-left:4px"
+                                                data-bind="text: $data.bargraphWert().erg + '&nbsp;%'"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <button class="btn btn-default btn-warning btn-block wartung-AntriebeTableBtn"
+                                        type="submit"
+                                        data-bind="enable: $data.resetBtnEnable(), click: function (){$parent.setResetAntriebeSeite_3($data.funktionsauswahl(),$index())}">Reset</button>
+                                    <!-- /ko -->
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <select class="btn btn-default wartung-AntriebeTableBtn"
+                                        data-bind="value: $data.funktionsauswahl, enable: $parent.userFreigabe(), event: {change: function (){$parent.setAuswahlAntriebeSeite_3($data.funktionsauswahl(),$index())}}, ccwSignalInfo: {}, signalName: $data.funktionsNr.signalName()">
+                                        <option value="0">(0) ---------</option>
+                                        <!--wenn Parameter "value" angegeben ist, dann wird dieser Wert übermittelt, sonst der Text-->
+                                        <option value="1">(1) Wartung</option>
+                                        <option value="2">(2) Reparatur</option>
+                                        <option value="3">(3) Austausch</option>
+                                    </select>
+
+                                    <!-- ko ifnot: $parent.userFreigabe() -->
+                                    <!-- mit diesem Div und Klick darauf wird eine Meldung bei Nichtanmeldung herausgegeben! -->
+                                    <div data-bind="click: function () { $parent.setMeldung(1) }"
+                                        class="wartung-DivFunktionsauswahl">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id='Speicher4'>
+                    <table class="table table-responsive table-condensed table-hover wartung-AntriebeTable">
+                        <thead>
+                            <tr>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte1">
+                                    BMK</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte2">
+                                    Antrieb</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte3">
+                                    Sollwert</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte4">
+                                    Gesamt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte5">
+                                    nach
+                                    Wartung</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte8">
+                                    Fortschritt</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte6">
+                                    Reset</th>
+                                <th class="wartung-AntriebeBeschriftungTable wartung_spalte7">
+                                    Funktionsauswahl</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: antriebeSeite_4">
+                            <!-- ko if: $data.anzeigeWerte == true  -->
+                            <!-- Nur anzeigen, wenn Parameter True ist -->
+                            <tr style="height:33px">
+                                <td class="wartung-AntriebeTd" data-bind="text: $data.bmk"></td>
+                                <td class="wartung-AntriebeTd">
+                                    <span
+                                        data-bind="visible: $data.antriebStatus().vis, css: $data.antriebStatus().css, attr: { title: $data.antriebStatus().txt }, ccwSignalInfo: {}, signalName: $data.statusByte"></span>
+                                    <span data-bind="text: $data.text"></span>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <ccw-wf-input-tastatur-2
+                                        params="signalName: $data.sollwert.signalName(), staticUnitText: $data.einheit, format: $data.format, writeToBuffer: true, elemBreite: '100px', elemBreiteVal:'78%', disableInputFeld: !$parent.userFreigabe()">
+                                    </ccw-wf-input-tastatur-2>
+                                </td>
+                                <td class="wartung-AntriebeTd text-center"
+                                    data-bind="text: $data.betriebsStdGesamt.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdGesamt.signalName()">
+                                </td>
+                                <td class="wartung-AntriebeTd"
+                                    data-bind="text: $data.betriebsStdNachWartung.value() + $data.einheit, ccwSignalInfo: {}, signalName: $data.betriebsStdNachWartung.signalName()">
+                                <td class="wartung-AntriebeTd">
+                                    <div class="progress progress-ccw-small">
+                                        <div class="progress-bar ccw-progress-bar" style="max-width:100%"
+                                            data-bind="style: { width: $data.bargraphWert().erg + '%' }, css: $data.bargraphWert().farbe">
+                                            <span style="padding-left:4px"
+                                                data-bind="text: $data.bargraphWert().erg + '&nbsp;%'"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <button class="btn btn-default btn-warning btn-block wartung-AntriebeTableBtn"
+                                        type="submit"
+                                        data-bind="enable: $data.resetBtnEnable(), click: function (){$parent.setResetAntriebeSeite_4($data.funktionsauswahl(),$index())}">Reset</button>
+                                    <!-- /ko -->
+                                </td>
+                                <td class="wartung-AntriebeTd">
+                                    <!-- ko if: $data.funktionsauswahl() != null  -->
+                                    <!-- Nur anzeigen, wenn Wert größer 0 -->
+                                    <select class="btn btn-default wartung-AntriebeTableBtn"
+                                        data-bind="value: $data.funktionsauswahl, enable: $parent.userFreigabe(), event: {change: function (){$parent.setAuswahlAntriebeSeite_4($data.funktionsauswahl(),$index())}}, ccwSignalInfo: {}, signalName: $data.funktionsNr.signalName()">
+                                        <option value="0">(0) ---------</option>
+                                        <!--wenn Parameter "value" angegeben ist, dann wird dieser Wert übermittelt, sonst der Text-->
+                                        <option value="1">(1) Wartung</option>
+                                        <option value="2">(2) Reparatur</option>
+                                        <option value="3">(3) Austausch</option>
+                                    </select>
+
+                                    <!-- ko ifnot: $parent.userFreigabe() -->
+                                    <!-- mit diesem Div und Klick darauf wird eine Meldung bei Nichtanmeldung herausgegeben! -->
+                                    <div data-bind="click: function () { $parent.setMeldung(1) }"
+                                        class="wartung-DivFunktionsauswahl">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

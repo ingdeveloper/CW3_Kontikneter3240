@@ -1,0 +1,197 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+<div class="wf-signal-list">
+    <!-- ko if: showControlBar -->
+    <div class="wf-control-bar">
+        <!-- ko ifnot: connector.disableSignalBrowser -->
+        <!-- ko if: signalsButtonVisibility && hasSignalSelectionAuthorization -->
+        <button class="pull-right btn" type="button" data-bind="click: showSettings, css: addButtonCssClass">
+            <i class="wf wf-add"></i>
+            <span>{{connector.translate('I4SCADA_Add_Signal')()}}</span>
+        </button>
+        <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: configurationButtonVisibility && hasConfigurationAuthorization -->
+        <wf-configuration class="m-r-sm pull-right" params="controlType: controlType,
+                                getConfiguration: function(){ return getConfig(); },
+                                loadConfiguration: function(content){ loadConfig(content); },
+                                namespace : configurationNamespace,
+                                buttonBarIconClass: configurationButtonIconClass,
+                                isModalDialogsDraggable: isModalDialogsDraggable,
+                                showOnlyOwnConfigurations: showOnlyOwnConfigurations,
+                                parameters: settings.parameters" ></wf-configuration>
+        <!-- /ko-->
+        <label class="wf-title h4" data-bind="html: title + '&nbsp;'"></label>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: hasData -->
+    <div class="wf-callout-box wf-callout-box-info animated fadeIn m-t-md">
+        {{ connector.translate('I4SCADA_No_signals_selected')() }}
+    </div>
+    <!-- /ko -->
+    <!-- ko if: hasData -->
+    <!-- ko if: listTemplate === "wf-value-display" -->
+    <ul class="list-unstyled p-t-md" data-bind="foreach: signals, attr : {title: tooltipText}">
+        <li>
+            <wf-value-display class="block" params="signalName: $data.signalName,  unitLabel: true, format: $parent.format, signalNameLabel: $data.signalLabel ? false : true, displayClass: $parent.valueDisplayClass, label: $data.signalLabel, staticUnitText: $data.staticUnitText, isAlphanumeric: $data.isAlphanumeric "></wf-value-display>
+        </li>
+    </ul>
+    <!-- /ko -->
+    <!-- ko if: listTemplate === "wf-value" -->
+    <ul class="list-group p-t-md" data-bind="foreach: signals, attr : {title: tooltipText}">
+        <li class="list-group-item">
+            <span data-bind="text: $data.signalLabel? $data.signalLabel : $data.signalName"></span>
+            <span class="badge">
+                <wf-value class="inline-block" params="signalName: $data.signalName,  unitLabel: true, format: $parent.format, staticUnitText: $data.staticUnitText, isAlphanumeric: $data.isAlphanumeric"></wf-value>
+            </span>
+        </li>
+    </ul>
+    <!-- /ko -->
+    <!-- ko if: listTemplate === "wf-input" -->
+    <ul class="list-unstyled p-t-md" data-bind="foreach: signals, attr : {title: tooltipText}">
+        <li>
+            <wf-input class="block" params="signalName: $data.signalName,  unitLabel: true, format: $parent.format, signalNameLabel: $data.signalLabel ? false : true, displayClass: $parent.valueDisplayClass, label: $data.signalLabel, staticUnitText: $data.staticUnitText, isAlphanumeric: $data.isAlphanumeric "></wf-input>
+        </li>
+    </ul>
+    <!-- /ko -->
+
+    <!-- ko if: listTemplate === "wf-signal-information" -->
+    <div class="p-t-md">
+        <table class="table table-striped table-hover wf-signal-list-signal-information-table">
+            <thead data-part="header">
+                <tr>
+                    <!-- ko foreach: signalInformationColumns -->
+                    <th>
+                        <wf-symbolictext params="symbolicText: $parent.getSymbolicText($data)"></wf-symbolictext>
+                    </th>
+                    <!-- /ko -->
+                </tr>
+            </thead>
+            <tbody data-part="rows" data-bind="foreach: {data: signals, as: 'signal'}">
+                <tr>
+                    <!-- ko foreach: $parent.signalInformationColumns -->
+                    <td>
+                        <wf-signal-information params="signalName: signal.signalName, propertyName: $data"></wf-signal-information>
+                    </td>
+                    <!-- /ko -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</div>
+<div data-bind="attr: { id: 'modal-settings-back-container-' + id() }">
+    <div class="wf-signal-browser modal fade wf-panel-settings wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: showDialog, draggable: isModalDialogsDraggable}, attr: { id: 'modal-settings-' + id() }"
+        style="display: none;">
+        <div class="modal-lg modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeSettings">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Settings')()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-body wf-panel-settings p-y-0">
+                    <div class="row bg-light m-b-md b-b p-t p-b-md">
+                        <div class="col-xs-12 m-b">
+                            <label>{{connector.translate('I4SCADA_Group')()}}</label>
+                            <div class="flexbox">
+                                <!--ko with: connector.translate('I4SCADA_Nothing_selected') -->
+                                <select class="form-control flex-auto" data-bind="selectpicker: {
+                                        options: $parent.groupItems,
+                                        optionsTitle: $data,
+                                        size: 20,
+                                        selectedOptions: $parent.selectedGroupId,
+                                        liveSearch: true},
+                                        optionsText: 'Name',
+                                        optionsValue:'ID'"></select>
+                                <!--/ko-->
+                                <button type="button" class="m-l-md btn btn-success" data-bind="click: addGroup, visible: selectedGroupId()||isLoading()">
+                                    <i class="wf wf-parent-unit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <label>{{connector.translate('I4SCADA_Signal_Name')()}}</label>
+                            <div class="flexbox">
+                                <div class="relative flex-auto">
+                                    <i class="wf wf-search wf-input-icon-right opacity-50"></i>
+
+                                    <input type="text" class="form-control" data-bind="textInput:pattern, disable:signalsFilter.length, , attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name')()}"
+                                    />
+                                    <!-- ko if: isLoading-->
+                                    <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+                                    <!-- /ko-->
+                                </div>
+
+                                <div class="checkbox m-l-md m-t-sm m-b-0">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: isAlphanumeric"> Alphanumeric
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <!-- ko ifnot: signalItems().length-->
+                            <div class="alert alert-info text-center animated fadeIn">
+                                <i class="wf wf-info"></i> {{ connector.translate('I4SCADA_No_data_available')() }}
+                            </div>
+                            <!--/ko-->
+
+                            <!-- ko if: signalItems().length -->
+                                <label>{{connector.translate('I4SCADA_Signals')()}}</label>
+                                <span class="label label-default" data-bind="text: signalItems().length"></span>
+                                <!-- ko if: hasMoreSignals -->
+                                <div class="label label-info">
+                                    <i class="wf wf-info"></i>
+                                    {{ connector.translate('I4SCADA_Has_more')() }}
+                                </div>
+                                <!--/ko-->
+
+                                <ul class="list-group list-group-hover wf-signal-list b-a">
+                                    <!-- ko foreach:signalItems-->
+                                    <li class="list-group-item wf-signal-item clickable flexbox flexbox-v-center" data-bind="click:$parent.onSignalClicked, css: {'active disabled': selected }">
+                                        <i class="wf wf-sine-wave m-r-sm"></i>
+                                        <div>{{ item.Name}}</div>
+                                        <i class="wf wf-add-round-o wf-icon-action" data-bind="css: {'active wf-check-round-o': selected }"></i>
+                                    </li>
+                                    <!--/ko-->
+                                </ul>
+                            <!--/ko-->
+                        </div>
+                    </div>
+
+                    <div class="m-t-md p-b-sm overflow-x-hidden" data-bind="foreach: items">
+                        <button type="button" class="btn m-b m-r-sm" data-bind="click: $parent.removeItem, css: $parent.listButtonCssClass ">
+                            <wf-signal-information params="signalName: $data.signalName, propertyName: $parent.signalFilterText"></wf-signal-information>
+                            <i class="wf wf-close-round"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bind="click: applyFilterSettings">
+                        <i class="wf-lg wf-check"></i>
+                        {{connector.translate('I4SCADA_Apply')()}}
+                    </button>
+                    <button class="btn btn-default" data-bind="click: clearFilterSettings">
+                            <i class="wf-lg wf-arrow-undo"></i>
+                            {{connector.translate('I4SCADA_Clear_selection')()}}
+                        </button>
+                    <button class="btn btn-default" data-bind="click: closeSettings">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_Close')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ko-->
+<!--/ko-->

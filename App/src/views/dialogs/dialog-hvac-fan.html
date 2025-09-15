@@ -1,0 +1,48 @@
+﻿<div class="modal" style="width: 100%">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                <h4 class="modal-title">
+                    <span data-bind="text: param2"></span>
+                    Ventilator
+                    <span data-bind="text: param1"></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-content-title">
+                    Statusinformationen
+                </h3>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <wf-state-text class="block text-center bold" params="symbolicTextNormalState: 'Standby', cssClassNormalState: 'alert block b-a',
+                        states:[{conditionRule: '%'+statusSignal+'% == 0' , symbolicText: 'Automatik', cssClassName: 'block alert alert-success'} ,
+                                {conditionRule: '%'+statusSignal+'% == 1' , symbolicText: 'Handbetrieb', cssClassName: 'block alert alert-info'},
+                                {conditionRule: '%'+statusSignal+'% == 2' , symbolicText: 'Wartung', cssClassName: 'block alert alert-warning'},
+                                {conditionRule: '%'+statusSignal+'% > 3' , symbolicText: 'Störung', cssClassName: 'block alert alert-danger critical'}]">
+                        </wf-state-text>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="text-center margin-bottom">Elektrische Leistung</h3>
+                        <wf-gauge-1 params="signalName: 'Temperature ' + param1, iconClass: 'wf wf-power wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="text-center margin-bottom">Geschwindigkeit</h3>
+                        <wf-gauge-1 params="signalName: 'Servo ' + param1, iconClass: 'wf wf-fan wf-2x', iconBackgroundColor: '#428BCA'"></wf-gauge-1>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <wf-bargraph params="signalName: 'Local Hour', unitLabel: true, titleText: 'Temperatur', minRange: 0, maxRange: 30, iconClass: 'wf wf-thermometer', progressBarSize: 'progress-sm', showTickLabels: true, cssClass: 'progress-bar-danger'"></wf-bargraph>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if:isVisible()-->
+<div class="btn-group">
+    <button type="button" class="dropdown-toggle" data-toggle="dropdown" data-bind="disable: isDisabled, css: cssClass, attr : {title: tooltipText}">
+        <div class="flexbox flexbox-v-center">
+            <i data-bind="css: iconClass, attr: {style: iconStyle}"></i>
+            <span class="m-x-sm" data-bind="text: selectedLanguageName, attr: {style: textStyle}"></span>
+            <span class="caret"></span>
+        </div>
+    </button>
+
+    <ul class="dropdown-menu" role="menu" data-bind="foreach: availableLanguages, css: 'dropdown-menu-' + dropdownAlignment">
+        <li><a data-bind="text: Name, click: function () { $parent.changeLanguage(Name, Id); }"></a></li>
+    </ul>
+</div>
+<!--/ko-->
+<!--/ko-->

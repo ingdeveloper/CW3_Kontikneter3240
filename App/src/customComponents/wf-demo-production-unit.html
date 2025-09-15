@@ -1,0 +1,36 @@
+<div class="col-lg-6 col-md-6 dashboard-machines">
+    <div class="panel" data-bind="css: { 'panel-default': status() == 0 || status() > 4, 'panel-auto': status() == 1, 'panel-alarm': status() == 2, 'panel-warning': status() == 3, 'panel-maintenance': status() == 4 }">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa" data-bind="css: { 'fa-power-off': status() == 0, 'fa-cogs': status() == 1, 'fa-wrench': status() == 4, 'fa-hand-o-up': status() == 3, 'fa-warning': status() == 2, 'fa-question-circle': status() > 4 }"></i>
+                <span data-bind="text: headerTitle + ' - ' + productionId"></span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body-inner" data-part="machine-content">
+                <div class="row">
+                    <h5 class="col-xs-12">LEISTUNGSDATEN AKTUELL</h5>
+                    <div class="col-xs-12 col-sm-6">
+                        <wf-bargraph params="titleText: 'St&uuml;ckzahl [Stk]', signalName: parts, iconClass: 'fa fa-cog', minRange: 0, maxRange: 65, progressBarSize: 'progress-sm'"></wf-bargraph>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <wf-bargraph params="titleText: 'Taktzeit [s]', signalName: takt, unitLabel: 'Sekunden', iconClass: 'fa fa-refresh',  cssClass: 'progress-bar-warning', progressBarSize: 'progress-sm', minRange: 0, maxRange: 100"></wf-bargraph>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5 class="col-xs-12">ENERGIEVERBRAUCH AKTUELL</h5>
+                    <div class="col-xs-12 col-sm-6">
+                        <span data-bind="text: electricity"></span>
+                        <h5 class="muted">Energie [kW]</h5>
+                        <wf-gauge-1 params="signalName: electricity, iconClass: 'fa fa-bolt fa-2x', maxRange: '65', width: '180', innerRadius: 0.75"></wf-gauge-1>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <span data-bind="text: pressure"></span>
+                        <h5 class="muted">Druckluft [Nm³h]</h5>
+                        <wf-gauge-1 params="signalName: pressure, iconClass: 'wf-lg wf-air-pump fa-2x', minRange: '0', maxRange: '60', width: '180', innerRadius: 0.75"></wf-gauge-1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

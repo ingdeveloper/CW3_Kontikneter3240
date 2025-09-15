@@ -1,0 +1,1 @@
+declare type KnockoutValueOrObservable<T> = T | KnockoutObservable<T>;

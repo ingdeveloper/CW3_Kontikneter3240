@@ -1,0 +1,295 @@
+<section class="clRezeptDlg">
+    <!-- aktuelle Daten -->
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <img src="Content/images/SAP-Logo-227x128.png" alt="SAP-Logo" data-bind="visible: lobsterServiceEnabled">
+            <div class="row" style="margin:0px">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-bind="attr: { href: '#collapseInfo_' + uid() }" class="collapsed">
+                        <i class="wf wf-file-o"></i>&emsp;aktuelle Daten
+                    </a>
+                </h4>
+                <div class="col-xs-10">
+                    <div class="rezstatus info">
+                        <!-- ko if: rezNr() != null -->
+                        <span title="SPS-Status: aktuelle Rezeptnummer - Beschreibung">
+                            <span>Rezept: </span>
+                            <span data-bind="text: rezNr"></span>
+                            <span> - </span>
+                            <span data-bind="text: rezName"></span>
+                            <span>;</span>
+                            <span>&emsp;</span>
+                        </span>
+                        <!-- /ko -->
+                        <!-- ko if: paNr() != null -->
+                        <span title="SPS-Status: aktuelle PA-Nummer/Status/Typ">
+                            <span>Auftrag: </span>
+                            <span data-bind="text: paNr"></span>
+                            <span>;</span>
+                            <span>&emsp;</span>
+                        </span>
+                        <!-- /ko -->
+                        <!-- ko if: paTyp() != null -->
+                        <span title="Produktionstyp">
+                            <span>Produktion: </span>
+                            <span class="pastatus info" data-typ="ProdTyp" data-bind="text: paTyp"></span>
+                            <span class="pastatus text"></span>
+                        </span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <!-- ko if: adminIsLogged() -->
+                    <div class="input-group">
+                        <span class="input-group-addon" data-bind="title: adminName()"><i class="wf wf-user"></i></span>
+                        <label class="form-control" data-bind="attr:{id:idCountdown}">00:00</label>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default wf wf-logout" type="button" title="Benutzer abmelden"
+                                data-bind="event: { click: function(){ adminIsLogged(false); }}">
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+        <div data-bind="attr: { id: 'collapseInfo_' + uid() }" class="panel-collapse collapse">
+            <div class="panel-body">
+                <blockquote style="padding: 0%; margin: 0%">
+                    <small>
+                        <span>Anlagenkennung: </span>
+                        <span>Werk</span>
+                        <span data-bind="text: werk || '0' ? werk : 'n/a'"></span>
+                        <span>, Halle</span>
+                        <span data-bind="text: halle || '0' ? halle : 'n/a'"></span>
+                        <span>, Etage</span>
+                        <span data-bind="text: etage || '0' ? etage : 'n/a'"></span>
+                        <span>, Linie</span>
+                        <span data-bind="text: linie || '0' ? linie : 'n/a'"></span>
+                        <span>, Maschine</span>
+                        <span data-bind="text: maschine || '0' ? maschine : 'n/a'"></span>
+                        <span>, Abteilung</span>
+                        <span data-bind="text: abteiNr || '0' ? abteiNr : 'n/a'"></span>
+                        <span>, Anlage</span>
+                        <span data-bind="text: anlage() || '0' ? anlage : 'n/a'"></span>
+                        <span>, Zähler</span>
+                        <span data-bind="text: zaehler() || '0' ? zaehler : 'n/a'"></span>
+                        <span>, Kennung</span>
+                        <span>"</span><span data-bind="text: kennung"></span><span>"</span>
+                        <span>, Version</span>
+                        <span data-bind="text: kompVersion"></span>
+                    </small>
+                </blockquote>
+            </div>
+            <div class="panel-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="float: right;">
+                            <button title="Logbook" class="btn btn-default"
+                                data-bind="event: {click: function(data, event) { btnShowLogs(event)}}">
+                                <i class="wf wf-book-opened-o" style="color:dodgerblue;"></i>
+                            </button>
+                            <button title="Setup" class="btn btn-default"
+                                data-bind="event: {click: function(data, event) { btnShowSetup(event)}}">
+                                <i class="wf wf-cog-o" style="color:dodgerblue;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rezeptliste -->
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-bind="attr: { href: '#' + idCollapseRezList() }" class="collapsed">
+                    <span class="badge swinginfo" title="Anzahl verfügbaren Rezepte"
+                        data-bind="css: { changed: rezRows().length !== 0 }, text: rezRows().length"></span>
+                    <i class="wf wf-article"></i>&emsp;Rezeptliste
+                    <span class="label label-default" title="aktuell gewähltes Rezept" data-bind="text: rezInfo"></span>
+                </a>
+                <div class="rezspinner"
+                    data-bind="css: { error: rezListStateConnect().timeout, active: !rezListStateConnect().timeout && rezListStateConnect().busy }, attr: { title: rezListStateConnect().text }">
+                    <i class="fa fa-spinner"></i>
+                </div>
+            </h4>
+        </div>
+        <div data-bind="attr: { id: idCollapseRezList }" class="panel-collapse collapse">
+
+            <div class="panel-body" style="padding:0px">
+                <div style="overflow:auto !important; height: 11em;">
+                    <table data-bind="attr: { id: 'rezList_' + uid() }"
+                        class="table table-bordered table-hover table-rezept">
+                        <thead data-bind="template: { name: 'rezHeadTemplate_' + uid(), foreach: rezHead }"></thead>
+                        <tbody
+                            data-bind="attr: { id: idRezTable }, template: { name: 'rezZeileTempl_' + uid(), foreach: rezRows }">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td class="col-sm-4 col-lg-2" style="padding-left: 0px;">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="wf wf-filter-o"></i></span>
+                                <input class="form-control" data-bind="attr: { id: idRezFltr }" type="text"
+                                    placeholder="z.B. 300850.. Erdbeer..">
+                                <span class="input-group-btn">
+                                    <button class="btn addon" type="button" title="Filter löschen"
+                                        data-bind="event: { click: function(){ $('#' + idRezFltr()).val('').keyup(); }}">&times;</button>
+                                </span>
+                            </div>
+                        </td>
+                        <td style="float: right;">
+
+                            <button type="button" class="btn btn-default" title="erweiterte Ansicht"
+                                data-bind="click: columnHideShow('rezList_' + uid())">
+                                <i class="fa fa-info" style="color:dodgerblue;"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-default" title="reload" data-bind="click:updateRez">
+                                <i class="fa fa-refresh" style="color:dodgerblue;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <div data-toggle="collapse" data-target="#variablenliste"
+                            style="white-space: nowrap; cursor: pointer;">
+                            <span class="wfDbState" data-bind="css:{active: dbState()}"
+                                title="Verbindungsstatus WF-Datenbank"></span>
+
+                            <!-- ko if: statusRezVarUI.loaded() -->
+                            <span class="badge info" title="Anzahl Rezept-Variablen"
+                                data-bind="css: { active: varListeRows().length !== 0 }, text: varListeRows().length"></span>
+                            <!-- /ko -->
+                            <!-- ko ifnot: statusRezVarUI.loaded() -->
+                            <div class="rezspinner"
+                                data-bind="css: { error: statusRezVarUI.error(), active: !statusRezVarUI.error() }, attr:{title: statusRezVarUI.descrp}"
+                                style="color: tomato; position: relative; right: 0.9em; top: 0.6em; font-size: 1.2em;">
+                                <i class="fa fa-spinner"></i>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </td>
+                    <td>
+                        <span class="wfDb2State" data-bind="css:{active: db2State()}"
+                            title="Verbindungsstatus DB2-Datenbank"></span>
+                    </td>
+                    <td>
+                        <div class="header-row">
+                            <button class="tooltip-toggle wfWsState" aria-label="More info"
+                                title="WebService-Verbindungsstatus. Clicken zum Anzeigen der Verbindungsstatus"
+                                data-bind="css:{active: commonWsUISatate().state}, attr: { aria-describedby: 'tooltip-wfWsState_' + uid(), popovertarget: 'tooltip-wfWsState_' + uid() }"></button>
+                            </button>
+                            <div data-bind="attr: { id: 'tooltip-wfWsState_' + uid() }" role="tooltip" popover>
+                                <div role="none">
+                                    <p class="popover-title">
+                                        WS-Verbindungsstatus
+                                    </p>
+                                    <br>
+                                    <span class="wfWsState"
+                                        style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                        data-bind="css:{active: ws1StateUI().state}, attr:{title: ws1StateUI().version}, html: ws1StateUI().version"
+                                        title="Verbindungsstatus WebService '..wcfSiem//WcfPlcRezept.svc'">
+                                        Verbindungsstatus: ..wcfSiem//WcfPlcRezept.svc</span>
+                                    <hr>
+                                    <span class="wfWsState"
+                                        style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                        data-bind="css:{active: ws2StateUI().state}, attr:{title: ws2StateUI().version}, html: ws2StateUI().version"
+                                        title="Verbindungsstatus WebService '..WcfRezept//WsRezept.svc'">Verbindungsstatus:
+                                        ..WcfRezept//WsRezept.svc</span>
+                                    <hr>
+                                    <span class="wfWsState"
+                                        style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                        data-bind="css:{active: ws3StateUI().state}, attr:{title: ws3StateUI().version}, html: ws3StateUI().version"
+                                        title="Verbindungsstatus WebService '..WsCwSAP//CwSAPService.svc'">Verbindungsstatus
+                                        WebService '..WsCwSAP//CwSAPService.svc'</span>
+                                    <hr>
+                                    <span class="wfWsState"
+                                        style="display:inline-flex; white-space:pre-wrap; align-content:baseline;"
+                                        data-bind="css:{active: ws4StateUI().state}, attr:{title: ws4StateUI().version}, html: ws4StateUI().version"
+                                        title="Verbindungsstatus WebService '..WsCcwBde//CcwBdeService.svc'">Verbindungsstatus
+                                        WebService '..WsCcwBde//CcwBdeService.svc'</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="wfUserState" data-bind="css:{active:userState()}, attr:{title:userInfo}"></span>
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-default" title="Rezept löschen"
+                            data-bind="enable:btnDeleteTitle() === 'Rezept löschen', attr: {title: btnDeleteTitle}, click:btnDeleteRecipe">
+                            <i class="fa fa-trash-o" style="color:tomato; font-size: large;"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" title="Rezept speichern"
+                            data-bind="enable: btnSaveRecipeTitle() === 'Rezept speichern', attr: {title: btnSaveRecipeTitle}, click: btnSaveRecipe">
+                            <i class="fa fa-save" style="color:dodgerblue; font-size: large;"></i>
+                        </button>
+                    </td>
+                    <td style="float: right;">
+
+                        <button type="button" style="color:dodgerblue;" class="btn btn-default"
+                            data-bind="enable: btnStartTitle() === 'Starten', attr: {title: btnStartTitle}, click: btnSendRecipe">
+                            <i class="fa fa-play" style="margin-right: 0.5em; font-size: larger;"></i>
+                            Rezept Laden
+
+
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Head-Template Variablenliste -->
+    <script type="text/html" data-bind="attr: { id: 'headTplVarListe_' + uid() }">
+        <tr data-bind="foreach: cells">
+            <th data-bind="text: $data" class="active"></th>
+        </tr>
+    </script>
+    <!-- Zeilen/Zellen-Template Variablenliste -->
+    <script type="text/html" data-bind="attr: { id: 'rowTplVarListe_' + uid() }">
+        <tr data-bind="foreach: cells, attr:{id: cells[0]}">
+            <td data-bind="text: $data"></td>
+        </tr>
+    </script>
+    <!-- Head-Template Rezeptliste -->
+    <script type="text/html" data-bind="attr: { id: 'rezHeadTemplate_' + uid() }">
+    <tr data-bind="with: cells">
+        <th data-bind="text: $parent.cells[0]"></th>
+        <th data-bind="text: $parent.cells[1]"></th>
+        <th data-bind="text: $parent.cells[2]"></th>
+        <th data-bind="text: $parent.cells[3]" class="toggleDisplay" style="display: none"></th>
+        <th data-bind="text: $parent.cells[4]" class="toggleDisplay" style="display: none"></th>
+    </tr>
+    </script>
+    <!-- Zeilen/Zellen-Template Rezeptliste -->
+    <script type="text/html" data-bind="attr: { id: 'rezZeileTempl_' + uid() }">
+        <tr data-bind="with: cells, attr:{id: (cells[0] + '_' + cells[1])}, event: { click:function(){ $parent.rezSelect((cells[0] + '_' + cells[1]))} }">
+            <td data-bind="text: $parent.cells[0]"></td>
+            <td data-bind="text: $parent.cells[1]"></td>
+            <td data-bind="text: $parent.cells[2]"></td>
+            <td data-bind="text: $parent.cells[3]" class="toggleDisplay" style="display: none"></td>
+            <td data-bind="text: $parent.cells[4]" class="toggleDisplay" style="display: none"></td>
+        </tr>
+    </script>
+    <div class="clCssloadWrapper" data-bind="visible: isLoading()">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,157 @@
+<div class="wf-config-dialog-buttons-bar btn-group">
+    <button type="button" data-bind="css: buttonBarCssClass, click: showConfigPopup, disable: isButtonDisabled " title="{{connector.translate('I4SCADA_Configuration_Manager')()}}">
+        <!-- ko if: isLoading-->
+        <div class="spinner m-a-0" style="width:20px;height:20px;"></div>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading-->
+        <i data-bind="css: buttonBarIconClass"></i>
+        <!-- /ko -->
+    </button>
+</div>
+
+<div data-bind="disable: isDisabled, attr: { id: 'wf-config-dialog-back-container-' + id() }" style="display:none">
+    <div class="modal fade wf-config-dialog wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showConfig, draggable: isModalDialogsDraggable}, attr: { 'id': 'wf-config-dialog-' + id() }" style="display: none;">
+        <div class="modal-lg modal-dialog modal-top modal-alarm-details">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeConfigPopup">&times;</button>
+                    <div class="modal-title">{{connector.translate('I4SCADA_Configuration_Manager')()}}</div>
+                </div>
+
+                <div class="modal-body wf-panel-config">
+                    <ul class="nav nav-tabs row">
+                        <li role="presentation" class="active" data-bind="click: tabClick(0), css: { active: isSaveTab }">
+                            <a role="tab" data-toggle="tab" href="#tab1">{{connector.translate('I4SCADA_Save')()}}</a>
+                        </li>
+                        <li role="presentation" data-bind="click: tabClick(1), css: { active: isLoadTab }">
+                            <a role="tab" data-toggle="tab" href="#tab2">{{connector.translate('I4SCADA_Load')()}}</a>
+                        </li>
+                        <li role="presentation" data-bind="click: tabClick(2), css: { active: isDeleteTab }">
+                            <a role="tab" data-toggle="tab" href="#tab3">{{connector.translate('I4SCADA_Delete')()}}</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active p-t" data-bind="attr: { 'id': 'tab-' + id() }">
+                            <!-- ko if: isShowTable -->
+                            <div class="row">
+                                <div class="overflow-y-scroll b-b" data-bind="style:{'max-height' : tableMaxHeight + 'px'}">
+                                    <table class="table table-responsive table-condensed table-striped">
+                                        <thead data-part="header">
+                                            <tr>
+                                                <th class="hidden"></th>
+                                                <th class="p-l-md"><span>{{connector.translate('I4SCADA_Name')()}}</span></th>
+                                                <th><span>{{connector.translate('I4SCADA_Owner')()}}</span></th>
+                                                <th><span>{{connector.translate('I4SCADA_CreatedOn')()}}</span></th>
+                                                <th><span>{{connector.translate('I4SCADA_Namespace')()}}</span></th>
+                                                <th class="col-xs-1"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-part="rows" data-bind="foreach: configurationItems">
+                                            <tr data-bind="click: $parent.selectConfig, css: {'clickable': $parent.isSaveTab()}, css: $parent.selectedConfig() && $parent.selectedConfig().ID === $data.ID ? $parent.selectedRowCssClass : ''">
+                                                <td class="hidden" data-bind="attr:{'data-configID': ID }"></td>
+                                                <td class="p-l-md" data-bind="text: Name" ></td>
+                                                <td data-bind="text: Owner" ></td>
+                                                <td data-bind="formattedDate: { value: CreatedOn }" ></td>
+                                                <td data-bind="text: Namespace" ></td>
+                                                <td>
+                                                    <!-- ko if: $parent.isDeleteTab -->
+                                                    <button class="btn-danger btn-xs" data-bind="click: $parent.removeConfig, css: $parent.operationButtonCssClass">
+                                                    <i class="wf wf-remove-round-o"></i>
+                                                </button>
+                                                    <!-- /ko -->
+
+                                                    <!-- ko if: $parent.isLoadTab -->
+                                                    <button class="btn-success btn-xs" data-bind="click: $parent.loadConfig, css: $parent.operationButtonCssClass, disable: !$parent.canLoadConfigurations()">
+                                                    <i class="wf wf-download"></i>
+                                                </button>
+                                                    <!-- /ko -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- ko ifnot: showOnlyOwnConfigurations -->
+                                <div class="col-xs-12">
+                                    <div class="checkbox m-b">
+                                        <label>
+                                        <input type="checkbox" data-bind="checked: isOnlyMeConfig, enable: connector.currentLoggedInUser()">
+                                        {{connector.translate('I4SCADA_Show_owned_configurations_only')()}}
+                                    </label>
+                                    </div>
+
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                            <!-- /ko -->
+
+
+                            <!-- ko if: isSaveTab() -->
+                            <label>{{connector.translate('I4SCADA_Name')()}}:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="textInput: selectedConfigName" />
+
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn-success" data-bind="click: saveNewConfig, enable: isSaveButtonEnabled, css: operationButtonCssClass">
+                                    {{connector.translate('I4SCADA_Save')()}}
+                                </button>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-bind="click: closeConfigPopup">
+                    <i class="wf wf-close-round-o"></i>
+                    {{connector.translate('I4SCADA_Close')()}}
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-bind="attr: { id: 'wf-config-error-dialog-back-container-' + id() }" style="display:none">
+    <div class="modal fade wf-panel-warning wf-component-configuration-dialog" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showError, draggable: isModalDialogsDraggable}, attr: { 'id': 'wf-config-error-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-warning">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: closeErrorDialog">&times;</button>
+                    <div class="modal-title">
+                        {{connector.translate('I4SCADA_Warning')()}}
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="wf-callout-box wf-callout-box-warning">
+                        <h4 class="wf-callout-box-title">
+                            <span data-bind="text: TextError"></span>
+                        </h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- ko ifnot: showYesNoButtonOnError-->
+                    <button class="btn btn-default" data-bind="click: closeErrorDialog">
+                    <i class="wf wf-close-round-o"></i>
+                    {{connector.translate('I4SCADA_Close')()}}
+                </button>
+                    <!-- /ko -->
+                    <!-- ko if: showYesNoButtonOnError-->
+                    <div class="btn-group">
+                        <button class="btn btn-warning" data-bind="click: errorYes">
+                        <i class="wf wf-check-round"></i>
+                        {{connector.translate('I4SCADA_Yes')()}}
+                    </button>
+                        <button class="btn btn-default" data-bind="click: closeErrorDialog">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_No')()}}
+                    </button>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

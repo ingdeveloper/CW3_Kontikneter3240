@@ -1,0 +1,79 @@
+<div class="um-authorization-groups-page">
+    <div class="p-x p-t p-b-sm">
+        <div class="input-container">
+            <div class="input-group m-b-sm input-group-sm">
+                <input data-bind="textInput: searchText" type="text" class="form-control">
+                <span class="input-group-addon">
+                    <i class="wf wf-search m-r-sm"></i>
+                </span>
+            </div>
+            <i class="text-info wf wf-info m-r-sm"></i>
+            <span class="text-info" data-bind="text: tableViewDS().length"></span>
+            <span class="text-info">{{connector.translate('I4SCADA_UM_Of')()}}</span>
+            <span class="text-info" data-bind="text: tableDS().length"></span>
+            <span class="text-info">{{connector.translate('I4SCADA_UM_Dispayed')()}}</span>
+        </div>
+    </div>
+    <div style="top: 110px;bottom: 1px;right: 1px;left: 1px;position: absolute;">
+        <div class="panel-body relative p-a-0" style="height:100%">
+            <div class="overflow-y-scroll" data-bind="attr: {id: 'wrap_ua'}" style="height:100%">
+
+                <table class="table table-striped table-hover " data-bind="fixTableHeader:{ wrapperId: 'wrap_ua'}, sortTable: {sortFunction: function(index, asc) { sortingData({ index: index, asc: asc }); }, iconCssClass: 'm-l-sm', excludeColumnIndexs: [4]}">
+
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th data-bind="click: onSortClick.bind($data, 'Time')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_Time')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'Time' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'Time' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'Event')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_Event')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'Event' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'Event' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'Text')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_Text')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'Text' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'Text' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'UserName')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_UserName')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'UserName' && sortedColumn.order() === SortOrder.Desc" class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'UserName' && sortedColumn.order() === SortOrder.Asc" class="fa fa-sort-asc"></i>
+                            </th>
+                            <th data-bind="click: onSortClick.bind($data, 'AffectedUserName')" class="clickable">
+                                {{connector.translate('I4SCADA_UM_AffectedUserName')()}}
+                                <i data-bind="visible: sortedColumn.name() === 'AffectedUserName' && sortedColumn.order() === SortOrder.Desc"
+                                   class="fa fa-sort-desc"></i>
+                                <i data-bind="visible: sortedColumn.name() === 'AffectedUserName' && sortedColumn.order() === SortOrder.Asc"
+                                   class="fa fa-sort-asc"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: tableViewDS">
+                        <tr>
+                            <td data-bind="css: Icon"></td>
+                            <td data-bind="text: Time"></td>
+                            <td data-bind="text: Event"></td>
+                            <td data-bind="text: Text"></td>
+                            <td data-bind="text: UserName"></td>
+                            <td data-bind="text: AffectedUserName"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DIALOGS -->
+<wf-um-time-interval-dialog params="showModalFromOutside: timeIntervalDialog.show,
+                            confirmCallBackMethod: timeIntervalDialog.responseMethod,
+                            userActionFilter: userActionFilter
+                            "></wf-um-time-interval-dialog>
+
+<wf-um-filter-dialog params="showModalFromOutside: filterDialog.show,
+                     confirmCallBackMethod: filterDialog.responseMethod,
+                     userActionFilter: userActionFilter"></wf-um-filter-dialog>

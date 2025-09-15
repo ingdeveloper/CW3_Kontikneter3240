@@ -1,0 +1,1081 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>WEBfactory I4SCADA App</Name>
+    <Description>HTML5 / JavaScript Single Page Application / Website Template Version. 3.8.4.24 - 27.02.2019</Description>
+    <ProjectType>Web</ProjectType>
+    <ProjectSubType>CSharp</ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>WEBfactory I4SCADA App</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ProjectName.webproj" File="ProjectName.webproj" ReplaceParameters="true">
+      <Folder Name=".vscode" TargetFolderName=".vscode">
+        <ProjectItem ReplaceParameters="true" TargetFileName="launch.json">launch.json</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="settings.json">settings.json</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="tasks.json">tasks.json</ProjectItem>
+      </Folder>
+      <Folder Name="_gulp" TargetFolderName="_gulp">
+        <Folder Name="actions" TargetFolderName="actions">
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-app-bundle.js">build-app-bundle.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-brand-index.js">build-brand-index.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="create-script-bundle.js">create-script-bundle.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="extract-app-version.js">extract-app-version.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="run-ts-pipeline.js">run-ts-pipeline.js</ProjectItem>
+        </Folder>
+        <Folder Name="bundles" TargetFolderName="bundles">
+          <ProjectItem ReplaceParameters="true" TargetFileName="content-standalone.js">content-standalone.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="content.js">content.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="deployment.js">deployment.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="scripts.js">scripts.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="static-files.js">static-files.js</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="debug.js">debug.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="extract-include-path.js">extract-include-path.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="font2json.js">font2json.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="logging.js">logging.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="paths.js">paths.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="rjssetup.js">rjssetup.js</ProjectItem>
+        <Folder Name="tasks" TargetFolderName="tasks">
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-app-bundles.js">build-app-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-content-bundles.js">build-content-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-index.js">build-index.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-script-bundles.js">build-script-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-standalone-content-bundles.js">build-standalone-content-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build-ts.js">build-ts.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="build.js">build.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-app-bundles.js">clean-app-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-app.js">clean-app.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-content-bundles.js">clean-content-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-index.js">clean-index.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-script-bundles.js">clean-script-bundles.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-standalone.js">clean-standalone.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean-ts.js">clean-ts.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="clean.js">clean.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="copy-static-files.js">copy-static-files.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="lint-css.js">lint-css.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="publish-app.js">publish-app.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="publish-standalone.js">publish-standalone.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="set-index.js">set-index.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch-app.js">watch-app.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch-content.js">watch-content.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch-index.js">watch-index.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch-scripts.js">watch-scripts.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch-ts.js">watch-ts.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="watch.js">watch.js</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="_pageTemplates" TargetFolderName="_pageTemplates">
+        <ProjectItem ReplaceParameters="false" TargetFileName="index-app.tpl">index-app.tpl</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="index-standalone.tpl">index-standalone.tpl</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="splash.tpl">splash.tpl</ProjectItem>
+      </Folder>
+      <Folder Name="App" TargetFolderName="App">
+        <Folder Name="src" TargetFolderName="src">
+          <ProjectItem ReplaceParameters="true" TargetFileName="baseApplication.ts">baseApplication.ts</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="componentRegistry.ts">componentRegistry.ts</ProjectItem>
+          <Folder Name="components" TargetFolderName="components">
+            <ProjectItem ReplaceParameters="true" TargetFileName="_wf-log-browser.ts">_wf-log-browser.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="component-base.model.ts">component-base.model.ts</ProjectItem>
+            <Folder Name="control" TargetFolderName="control">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-buffer-button.component.html">wf-buffer-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-buffer-button.component.ts">wf-buffer-button.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-button.component.html">wf-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-button.component.ts">wf-button.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-combobox.component.html">wf-combobox.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-combobox.component.ts">wf-combobox.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-date-time-picker.component.html">wf-date-time-picker.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-date-time-picker.component.ts">wf-date-time-picker.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-input.component.html">wf-input.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-input.component.ts">wf-input.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-radio-buttons.component.html">wf-radio-buttons.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-radio-buttons.component.ts">wf-radio-buttons.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-slider.component.html">wf-slider.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-slider.component.ts">wf-slider.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-3-states.component.html">wf-switch-3-states.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-3-states.component.ts">wf-switch-3-states.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch.component.html">wf-switch.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch.component.ts">wf-switch.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-time-range.component.html">wf-time-range.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-time-range.component.ts">wf-time-range.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-toggle-button.component.html">wf-toggle-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-toggle-button.component.ts">wf-toggle-button.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="events" TargetFolderName="events">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-ack-button.component.html">wf-alarm-ack-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-ack-button.component.ts">wf-alarm-ack-button.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-ack-dialog-button.component.html">wf-alarm-ack-dialog-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-ack-dialog-button.component.ts">wf-alarm-ack-dialog-button.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-group-ack-button.component.html">wf-alarm-group-ack-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-group-ack-button.component.ts">wf-alarm-group-ack-button.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-state-manager.component.html">wf-alarm-state-manager.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-state-manager.component.ts">wf-alarm-state-manager.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-viewer.component.html">wf-alarm-viewer.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-viewer.component.ts">wf-alarm-viewer.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-events.component.html">wf-events.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-events.component.ts">wf-events.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook-viewer.component.html">wf-logbook-viewer.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook-viewer.component.ts">wf-logbook-viewer.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook.component.html">wf-logbook.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook.component.ts">wf-logbook.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="historical" TargetFolderName="historical">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_wf-chart-1.ts">_wf-chart-1.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-chart-1.component.html">wf-chart-1.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-chart-1.component.ts">wf-chart-1.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-table.component.html">wf-log-table.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-table.component.ts">wf-log-table.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-analytics.component.html">wf-logtag-analytics.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-analytics.component.ts">wf-logtag-analytics.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-arc.component.html">wf-logtag-arc.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-arc.component.ts">wf-logtag-arc.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="internationalisation" TargetFolderName="internationalisation">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-language-selector.component.html">wf-language-selector.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-language-selector.component.ts">wf-language-selector.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-symbolictext.component.html">wf-symbolictext.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-symbolictext.component.ts">wf-symbolictext.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="models" TargetFolderName="models">
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarm-horn.params.ts">alarm-horn.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="arc-base.params.ts">arc-base.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="array-signal-type.ts">array-signal-type.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="array-value-type.ts">array-value-type.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="changed-field-animation.params.ts">changed-field-animation.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="component-base.params.ts">component-base.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="configuration.params.ts">configuration.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="convert-csv.params.ts">convert-csv.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="convert-to-csv.params.ts">convert-to-csv.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="css-class-state.params.ts">css-class-state.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="knockout-value-or-observable.d.ts">knockout-value-or-observable.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="modal-dialog.params.ts">modal-dialog.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="output-write-buffering-mode.ts">output-write-buffering-mode.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="popover.params.ts">popover.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="recipe.model.ts">recipe.model.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signal-array.params.ts">signal-array.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="standalone-parameters.params.ts">standalone-parameters.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="svg-path.params.ts">svg-path.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="symbolic-text-state.params.ts">symbolic-text-state.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="time-ranges.params.ts">time-ranges.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="undefined-value-handling.ts">undefined-value-handling.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="utility-component-base.params.ts">utility-component-base.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="visual-security.params.ts">visual-security.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-array-splitter.params.ts">wf-local-array-splitter.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-script.params.ts">wf-local-script.params.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="write-secure.params.ts">write-secure.params.ts</ProjectItem>
+            </Folder>
+            <Folder Name="navigation" TargetFolderName="navigation">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-breadcrumb.component.html">wf-breadcrumb.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-breadcrumb.component.ts">wf-breadcrumb.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog-button.component.html">wf-modal-dialog-button.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog-button.component.ts">wf-modal-dialog-button.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="recipe" TargetFolderName="recipe">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe-management.component.html">wf-recipe-management.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe-management.component.ts">wf-recipe-management.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe.component.html">wf-recipe.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe.component.ts">wf-recipe.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="security" TargetFolderName="security">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-auto-login.component.html">wf-auto-login.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-auto-login.component.ts">wf-auto-login.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-enable-container.component.html">wf-enable-container.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-enable-container.component.ts">wf-enable-container.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-secured-container.component.html">wf-secured-container.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-secured-container.component.ts">wf-secured-container.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-authorizations-list.component.html">wf-user-authorizations-list.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-authorizations-list.component.ts">wf-user-authorizations-list.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-information.component.html">wf-user-information.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-information.component.ts">wf-user-information.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-login.component.html">wf-user-login.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-login.component.ts">wf-user-login.component.ts</ProjectItem>
+              <Folder Name="wf-user-manager" TargetFolderName="wf-user-manager">
+                <Folder Name="shared" TargetFolderName="shared">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="utils.ts">utils.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-authorization-obs-model.ts">wf-um-access-authorization-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-group-obs-model.ts">wf-um-access-group-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-authorization-group-obs-model.ts">wf-um-authorization-group-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-check-box-group.component.html">wf-um-check-box-group.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-check-box-group.component.ts">wf-um-check-box-group.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-check-box-obs-model.ts">wf-um-check-box-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-cloned-name-dialog.component.html">wf-um-cloned-name-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-cloned-name-dialog.component.ts">wf-um-cloned-name-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-confirmation-dialog.component.html">wf-um-confirmation-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-confirmation-dialog.component.ts">wf-um-confirmation-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-enyms.ts">wf-um-enyms.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-events-filter-obs-model.ts">wf-um-events-filter-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-interfaces.ts">wf-um-interfaces.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-project-authorization-obs-model.ts">wf-um-project-authorization-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-time-period-obs-model.ts">wf-um-time-period-obs-model.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-user-obs-model.ts">wf-um-user-obs-model.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-access-authorizations" TargetFolderName="wf-um-access-authorizations">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-authorizations.component.html">wf-um-access-authorizations.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-authorizations.component.ts">wf-um-access-authorizations.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-access-auth-dialog.component.html">wf-um-add-edit-access-auth-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-access-auth-dialog.component.ts">wf-um-add-edit-access-auth-dialog.component.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-access-groups" TargetFolderName="wf-um-access-groups">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-groups.component.html">wf-um-access-groups.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-access-groups.component.ts">wf-um-access-groups.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-access-group-dialog.component.html">wf-um-add-edit-access-group-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-access-group-dialog.component.ts">wf-um-add-edit-access-group-dialog.component.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-authorization-groups" TargetFolderName="wf-um-authorization-groups">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-auth-groups-dialog.component.html">wf-um-add-edit-auth-groups-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-auth-groups-dialog.component.ts">wf-um-add-edit-auth-groups-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-authorization-groups.component.html">wf-um-authorization-groups.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-authorization-groups.component.ts">wf-um-authorization-groups.component.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-projects-authorizations" TargetFolderName="wf-um-projects-authorizations">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-project-auth-dialog.component.html">wf-um-add-edit-project-auth-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-project-auth-dialog.component.ts">wf-um-add-edit-project-auth-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-projects-authorizations.component.html">wf-um-projects-authorizations.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-projects-authorizations.component.ts">wf-um-projects-authorizations.component.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-user-actions" TargetFolderName="wf-um-user-actions">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-filter-dialog.component.html">wf-um-filter-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-filter-dialog.component.ts">wf-um-filter-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-time-interval-dialog.component.html">wf-um-time-interval-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-time-interval-dialog.component.ts">wf-um-time-interval-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-user-actions.component.html">wf-um-user-actions.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-user-actions.component.ts">wf-um-user-actions.component.ts</ProjectItem>
+                </Folder>
+                <Folder Name="wf-um-users" TargetFolderName="wf-um-users">
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-user-dialog.component.html">wf-um-add-edit-user-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-add-edit-user-dialog.component.ts">wf-um-add-edit-user-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-change-password-dialog.component.html">wf-um-change-password-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-change-password-dialog.component.ts">wf-um-change-password-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-default-settings-dialog.component.html">wf-um-default-settings-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-default-settings-dialog.component.ts">wf-um-default-settings-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-password-policy-dialog.component.html">wf-um-password-policy-dialog.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-password-policy-dialog.component.ts">wf-um-password-policy-dialog.component.ts</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-users.component.html">wf-um-users.component.html</ProjectItem>
+                  <ProjectItem ReplaceParameters="true" TargetFileName="wf-um-users.component.ts">wf-um-users.component.ts</ProjectItem>
+                </Folder>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-manager.component.html">wf-user-manager.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-manager.component.ts">wf-user-manager.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-visibility-container.component.html">wf-visibility-container.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-visibility-container.component.ts">wf-visibility-container.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-write-secure-signal.component.html">wf-write-secure-signal.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-write-secure-signal.component.ts">wf-write-secure-signal.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="services" TargetFolderName="services">
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarm-horn.service.ts">alarm-horn.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="changed-field-animation.service.ts">changed-field-animation.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="convert-csv.service.ts">convert-csv.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="recipe-definition.service.ts">recipe-definition.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="recipe-json.service.ts">recipe-json.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="recipe.service.ts">recipe.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="secured.service.ts">secured.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signal-array.service.ts">signal-array.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="standalone-parameters-replacement.service.ts">standalone-parameters-replacement.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="states.service.ts">states.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="value-conversions.service.ts">value-conversions.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="visual-security.service.ts">visual-security.service.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="visual-states.service.ts">visual-states.service.ts</ProjectItem>
+            </Folder>
+            <Folder Name="svg" TargetFolderName="svg">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-path.component.html">wf-svg-path.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-path.component.ts">wf-svg-path.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-rectangle.component.html">wf-svg-rectangle.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-rectangle.component.ts">wf-svg-rectangle.component.ts</ProjectItem>
+            </Folder>
+            <Folder Name="utility" TargetFolderName="utility">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-array-splitter.component.html">wf-local-array-splitter.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-array-splitter.component.ts">wf-local-array-splitter.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-script.component.html">wf-local-script.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-script.component.ts">wf-local-script.component.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="utility-component-base.model.ts">utility-component-base.model.ts</ProjectItem>
+            <Folder Name="visualization" TargetFolderName="visualization">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-arc.component.html">wf-arc.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-arc.component.ts">wf-arc.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-bargraph.component.html">wf-bargraph.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-bargraph.component.ts">wf-bargraph.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-gauge-1.component.html">wf-gauge-1.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-gauge-1.component.ts">wf-gauge-1.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-meter.component.html">wf-meter.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-meter.component.ts">wf-meter.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-motion-container.html">wf-motion-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-motion-container.ts">wf-motion-container.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-popover.component.html">wf-popover.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-popover.component.ts">wf-popover.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-rotation-container.component.html">wf-rotation-container.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-rotation-container.component.ts">wf-rotation-container.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-sensor.component.html">wf-sensor.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-sensor.component.ts">wf-sensor.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information-popover.component.html">wf-signal-information-popover.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information-popover.component.ts">wf-signal-information-popover.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information.component.html">wf-signal-information.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information.component.ts">wf-signal-information.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-list.component.html">wf-signal-list.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-list.component.ts">wf-signal-list.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-indicator.component.html">wf-state-indicator.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-indicator.component.ts">wf-state-indicator.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-symbol.component.html">wf-state-symbol.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-symbol.component.ts">wf-state-symbol.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-text.component.html">wf-state-text.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-text.component.ts">wf-state-text.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-gear.component.html">wf-switch-gear.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-gear.component.ts">wf-switch-gear.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-symbol.component.html">wf-switch-symbol.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-symbol.component.ts">wf-switch-symbol.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-transformer.component.html">wf-switch-transformer.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-transformer.component.ts">wf-switch-transformer.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value-display.component.html">wf-value-display.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value-display.component.ts">wf-value-display.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value.component.html">wf-value.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value.component.ts">wf-value.component.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-watchdog.component.html">wf-watchdog.component.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-watchdog.component.ts">wf-watchdog.component.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-configuration.component.html">wf-configuration.component.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-configuration.component.ts">wf-configuration.component.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-browser.component.html">wf-log-browser.component.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-browser.component.ts">wf-log-browser.component.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog.component.html">wf-modal-dialog.component.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog.component.ts">wf-modal-dialog.component.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-signals-buffer-viewer.component.html">wf-signals-buffer-viewer.component.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-signals-buffer-viewer.component.ts">wf-signals-buffer-viewer.component.ts</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="customComponentRegistry.ts">customComponentRegistry.ts</ProjectItem>
+          <Folder Name="customComponents" TargetFolderName="customComponents">
+            <ProjectItem ReplaceParameters="true" TargetFileName="custom-value.component.html">custom-value.component.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="custom-value.component.ts">custom-value.component.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="custom-value.html">custom-value.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="custom-value.js">custom-value.js</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="README.md">README.md</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-bhkw.html">wf-demo-bhkw.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-bhkw.js">wf-demo-bhkw.js</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-building.html">wf-demo-building.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-building.js">wf-demo-building.js</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-hvac.html">wf-demo-hvac.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-hvac.js">wf-demo-hvac.js</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit-1.html">wf-demo-production-unit-1.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit-1.ts">wf-demo-production-unit-1.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit-2.html">wf-demo-production-unit-2.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit-2.ts">wf-demo-production-unit-2.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit.html">wf-demo-production-unit.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf-demo-production-unit.js">wf-demo-production-unit.js</ProjectItem>
+          </Folder>
+          <Folder Name="decorators" TargetFolderName="decorators">
+            <ProjectItem ReplaceParameters="true" TargetFileName="busyIndicator.ts">busyIndicator.ts</ProjectItem>
+          </Folder>
+          <Folder Name="knockoutExtenders" TargetFolderName="knockoutExtenders">
+            <ProjectItem ReplaceParameters="true" TargetFileName="eSmartZoom.ts">eSmartZoom.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="numeralNumber.ts">numeralNumber.ts</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="main-app.js">main-app.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="main-standalone.js">main-standalone.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="pluginRegistry.ts">pluginRegistry.ts</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="references.d.ts">references.d.ts</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="require.config.js">require.config.js</ProjectItem>
+          <Folder Name="services" TargetFolderName="services">
+            <ProjectItem ReplaceParameters="true" TargetFileName="_connector.ts">_connector.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_d3-localization.d.ts">_d3-localization.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="alarmDefinitionsService.ts">alarmDefinitionsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="alarmSource.ts">alarmSource.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="alarmsService.ts">alarmsService.ts</ProjectItem>
+            <Folder Name="api" TargetFolderName="api">
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarmDefinitionsServiceApi.ts">alarmDefinitionsServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarmServiceApi.ts">alarmServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="configurationsServiceApi.ts">configurationsServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="controlConfigurationsServiceApi.ts">controlConfigurationsServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="httpApi.ts">httpApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="logbookServiceApi.ts">logbookServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="operationDiaryServiceApi.ts">operationDiaryServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="securityServiceApi.ts">securityServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signalsServiceApi.ts">signalsServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="silverlightsToolsApi.ts">silverlightsToolsApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="symbolicTextsServiceApi.ts">symbolicTextsServiceApi.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="usersServiceApi.ts">usersServiceApi.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="api.ts">api.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="authorizationGroupService.ts">authorizationGroupService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="configurationsService.ts">configurationsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="connector.ts">connector.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="connectorBase.ts">connectorBase.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="connectorEnums.ts">connectorEnums.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="connectorService.ts">connectorService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="controlConfigurationsService.ts">controlConfigurationsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="d3Localization.ts">d3Localization.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="deferred.ts">deferred.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="errorCodeService.ts">errorCodeService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="exampleService.ts">exampleService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="http.ts">http.ts</ProjectItem>
+            <Folder Name="i4" TargetFolderName="i4">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_hubClient.ts">_hubClient.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="_proxyAcessor.ts">_proxyAcessor.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="connectionService.ts">connectionService.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="i4.api.d.ts">i4.api.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="i4Connector.ts">i4Connector.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="measurementService.ts">measurementService.ts</ProjectItem>
+              <Folder Name="models" TargetFolderName="models">
+                <ProjectItem ReplaceParameters="true" TargetFileName="_occurrence.ts">_occurrence.ts</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="_signalState.ts">_signalState.ts</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="proxyClient.ts">proxyClient.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="subscription.ts">subscription.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="localSymbolicTextService.ts">localSymbolicTextService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="logbookService.ts">logbookService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="logbookSource.ts">logbookSource.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="logger.ts">logger.ts</ProjectItem>
+            <Folder Name="models" TargetFolderName="models">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_signal-value-data.ts">_signal-value-data.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarmDefinitionDtos.d.ts">alarmDefinitionDtos.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="alarmsFilter.ts">alarmsFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="configurationDtos.d.ts">configurationDtos.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dto.d.ts">dto.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="logbookFilter.ts">logbookFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="logValuesFilter.ts">logValuesFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="nullSignal.ts">nullSignal.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="operationDiaryFilter.ts">operationDiaryFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signal.ts">signal.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signalDefinitionsFilter.ts">signalDefinitionsFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signalLogTagFilter.ts">signalLogTagFilter.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signals.ts">signals.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="state.d.ts">state.d.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="usersServiceDtos.d.ts">usersServiceDtos.d.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="offlineAlarmSource.ts">offlineAlarmSource.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="onlineAlarmSource.ts">onlineAlarmSource.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="operationDiaryService.ts">operationDiaryService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="operationDiarySource.ts">operationDiarySource.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="portableConsole.ts">portableConsole.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="scadaConnector.ts">scadaConnector.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="securityService.ts">securityService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="serialization.ts">serialization.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="sessionService.ts">sessionService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="sharedService.ts">sharedService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="signalDefinitionsService.ts">signalDefinitionsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="signalsBufferService.ts">signalsBufferService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="signalsService.ts">signalsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="silverlightToolsService.ts">silverlightToolsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="symbolicTextsService.ts">symbolicTextsService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="timingService.ts">timingService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="uniqueIdGenerator.ts">uniqueIdGenerator.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="usersService.ts">usersService.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="window.d.ts">window.d.ts</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="spaApplication.ts">spaApplication.ts</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="standaloneApplication.ts">standaloneApplication.ts</ProjectItem>
+          <Folder Name="viewModels" TargetFolderName="viewModels">
+            <ProjectItem ReplaceParameters="true" TargetFileName="componentsOverview.ts">componentsOverview.ts</ProjectItem>
+            <Folder Name="demos" TargetFolderName="demos">
+              <ProjectItem ReplaceParameters="true" TargetFileName="bhkw.js">bhkw.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="building.js">building.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="conveyer.ts">conveyer.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="hvac.js">hvac.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="overview.demos.ts">overview.demos.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="production.js">production.js</ProjectItem>
+            </Folder>
+            <Folder Name="dialogs" TargetFolderName="dialogs">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_alarmDetails.js">_alarmDetails.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="detailsDialog.js">detailsDialog.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-hvac-fan.js">dialog-hvac-fan.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-oee-kpi.js">dialog-oee-kpi.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-blind.js">dialog-room-blind.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-lights.js">dialog-room-lights.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-temperature.js">dialog-room-temperature.js</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="example.ts">example.ts</ProjectItem>
+            <Folder Name="examples" TargetFolderName="examples">
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesAlarms.ts">examplesAlarms.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesBindingHandlers.ts">examplesBindingHandlers.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesCharts.ts">examplesCharts.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesComponentsOverview.ts">examplesComponentsOverview.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesControl.ts">examplesControl.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesGraphicalComponents.ts">examplesGraphicalComponents.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesNavigation.ts">examplesNavigation.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesSecurity.ts">examplesSecurity.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesVisualisation.ts">examplesVisualisation.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="footer.ts">footer.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="home.ts">home.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="icons.ts">icons.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="shell.ts">shell.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="test.ts">test.ts</ProjectItem>
+            <Folder Name="tutorials" TargetFolderName="tutorials">
+              <ProjectItem ReplaceParameters="true" TargetFileName="buffer-write.tutorial.ts">buffer-write.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="changed-field-animation-service.tutorial.ts">changed-field-animation-service.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dynamic-properties.tutorial.ts">dynamic-properties.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="external-webservice.tutorial.ts">external-webservice.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="knockout.tutorial.ts">knockout.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="log-tags.tutorial.ts">log-tags.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="online-values.tutorial.ts">online-values.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="secured-service.tutorial.ts">secured-service.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signals.tutorial.ts">signals.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="states-service.tutorial.ts">states-service.tutorial.ts</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="visual-security-service.tutorial.ts">visual-security-service.tutorial.ts</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="viewModelBase.ts">viewModelBase.ts</ProjectItem>
+            <Folder Name="widgetsShowcase" TargetFolderName="widgetsShowcase">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-state-manager.js">wf-alarm-state-manager.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-viewer.js">wf-alarm-viewer.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-arc.js">wf-arc.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-bargraph.js">wf-bargraph.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-buffer-button.js">wf-buffer-button.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-button.js">wf-button.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-chart-1.js">wf-chart-1.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-combobox.js">wf-combobox.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-configuration.js">wf-configuration.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-date-time-picker.js">wf-date-time-picker.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-enable-container.js">wf-enable-container.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-gauge-1.js">wf-gauge-1.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-input.js">wf-input.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-language-selector.js">wf-language-selector.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-array-splitter.js">wf-local-array-splitter.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-script.js">wf-local-script.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-table.js">wf-log-table.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook-viewer.js">wf-logbook-viewer.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook.js">wf-logbook.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-analytics.js">wf-logtag-analytics.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-arc.js">wf-logtag-arc.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-meter.js">wf-meter.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog-button.js">wf-modal-dialog-button.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog.js">wf-modal-dialog.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-motion-container.js">wf-motion-container.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-popover.js">wf-popover.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-radio-buttons.js">wf-radio-buttons.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe-management.js">wf-recipe-management.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe.js">wf-recipe.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-rotation-container.js">wf-rotation-container.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-secured-container.js">wf-secured-container.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-sensor.js">wf-sensor.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information-popover.js">wf-signal-information-popover.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information.js">wf-signal-information.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-list.js">wf-signal-list.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-slider.js">wf-slider.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-indicator.js">wf-state-indicator.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-symbol.js">wf-state-symbol.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-text.js">wf-state-text.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-path.js">wf-svg-path.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-3-states.js">wf-switch-3-states.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-gear.js">wf-switch-gear.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-symbol.js">wf-switch-symbol.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-transformer.js">wf-switch-transformer.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch.js">wf-switch.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-symbolictext.js">wf-symbolictext.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-toggle-button.js">wf-toggle-button.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-authorizations-list.js">wf-user-authorizations-list.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-information.js">wf-user-information.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-login.js">wf-user-login.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-manager.js">wf-user-manager.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value-display.js">wf-value-display.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value.js">wf-value.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-visibility-container.js">wf-visibility-container.js</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-watchdog.js">wf-watchdog.js</ProjectItem>
+            </Folder>
+          </Folder>
+          <Folder Name="views" TargetFolderName="views">
+            <ProjectItem ReplaceParameters="true" TargetFileName="componentsOverview.html">componentsOverview.html</ProjectItem>
+            <Folder Name="demos" TargetFolderName="demos">
+              <ProjectItem ReplaceParameters="true" TargetFileName="bhkw.html">bhkw.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="building.html">building.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="conveyer.html">conveyer.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="hvac.html">hvac.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="overview.demos.html">overview.demos.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="production.html">production.html</ProjectItem>
+            </Folder>
+            <Folder Name="dialogs" TargetFolderName="dialogs">
+              <ProjectItem ReplaceParameters="true" TargetFileName="_alarmDetails.html">_alarmDetails.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="detailsDialog.html">detailsDialog.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-hvac-fan.html">dialog-hvac-fan.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-oee-kpi.html">dialog-oee-kpi.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-blind.html">dialog-room-blind.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-lights.html">dialog-room-lights.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dialog-room-temperature.html">dialog-room-temperature.html</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="example.html">example.html</ProjectItem>
+            <Folder Name="examples" TargetFolderName="examples">
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesAlarms.html">examplesAlarms.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesBindingHandlers.html">examplesBindingHandlers.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesCharts.html">examplesCharts.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesComponentsOverview.html">examplesComponentsOverview.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesControl.html">examplesControl.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesGraphicalComponents.html">examplesGraphicalComponents.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesNavigation.html">examplesNavigation.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesSecurity.html">examplesSecurity.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="examplesVisualisation.html">examplesVisualisation.html</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="footer.html">footer.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="home.html">home.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="icons.html">icons.html</ProjectItem>
+            <Folder Name="popovers" TargetFolderName="popovers">
+              <ProjectItem ReplaceParameters="true" TargetFileName="production-legend.html">production-legend.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="production-machine.html">production-machine.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signal-information.html">signal-information.html</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="shell.html">shell.html</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="test.html">test.html</ProjectItem>
+            <Folder Name="tutorials" TargetFolderName="tutorials">
+              <ProjectItem ReplaceParameters="true" TargetFileName="buffer-write.tutorial.html">buffer-write.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="changed-field-animation-service.tutorial.html">changed-field-animation-service.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="dynamic-properties.tutorial.html">dynamic-properties.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="external-webservice.tutorial.html">external-webservice.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="knockout.tutorial.html">knockout.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="log-tags.tutorial.html">log-tags.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="online-values.tutorial.html">online-values.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="secured-service.tutorial.html">secured-service.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="signals.tutorial.html">signals.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="states-service.tutorial.html">states-service.tutorial.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="visual-security-service.tutorial.html">visual-security-service.tutorial.html</ProjectItem>
+            </Folder>
+            <Folder Name="widgetsShowcase" TargetFolderName="widgetsShowcase">
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-state-manager.html">wf-alarm-state-manager.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-alarm-viewer.html">wf-alarm-viewer.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-arc.html">wf-arc.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-bargraph.html">wf-bargraph.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-buffer-button.html">wf-buffer-button.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-button.html">wf-button.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-chart-1.html">wf-chart-1.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-combobox.html">wf-combobox.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-configuration.html">wf-configuration.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-date-time-picker.html">wf-date-time-picker.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-enable-container.html">wf-enable-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-gauge-1.html">wf-gauge-1.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-input.html">wf-input.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-language-selector.html">wf-language-selector.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-array-splitter.html">wf-local-array-splitter.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-local-script.html">wf-local-script.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-log-table.html">wf-log-table.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook-viewer.html">wf-logbook-viewer.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logbook.html">wf-logbook.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-analytics.html">wf-logtag-analytics.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-logtag-arc.html">wf-logtag-arc.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-meter.html">wf-meter.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog-button.html">wf-modal-dialog-button.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-modal-dialog.html">wf-modal-dialog.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-motion-container.html">wf-motion-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-popover.html">wf-popover.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-radio-buttons.html">wf-radio-buttons.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe-management.html">wf-recipe-management.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-recipe.html">wf-recipe.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-rotation-container.html">wf-rotation-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-secured-container.html">wf-secured-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-sensor.html">wf-sensor.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information-popover.html">wf-signal-information-popover.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-information.html">wf-signal-information.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-signal-list.html">wf-signal-list.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-slider.html">wf-slider.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-indicator.html">wf-state-indicator.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-symbol.html">wf-state-symbol.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-state-text.html">wf-state-text.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-svg-path.html">wf-svg-path.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-3-states.html">wf-switch-3-states.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-gear.html">wf-switch-gear.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-symbol.html">wf-switch-symbol.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-transformer.html">wf-switch-transformer.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch.html">wf-switch.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-symbolictext.html">wf-symbolictext.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-toggle-button.html">wf-toggle-button.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-authorizations-list.html">wf-user-authorizations-list.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-information.html">wf-user-information.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-login.html">wf-user-login.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-user-manager.html">wf-user-manager.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value-display.html">wf-value-display.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-value.html">wf-value.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-visibility-container.html">wf-visibility-container.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="wf-watchdog.html">wf-watchdog.html</ProjectItem>
+            </Folder>
+          </Folder>
+          <Folder Name="widgets" TargetFolderName="widgets">
+            <Folder Name="demoWidgetsList" TargetFolderName="demoWidgetsList">
+              <ProjectItem ReplaceParameters="true" TargetFileName="view.html">view.html</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="viewmodel.js">viewmodel.js</ProjectItem>
+            </Folder>
+          </Folder>
+        </Folder>
+      </Folder>
+      <Folder Name="Content" TargetFolderName="Content">
+        <ProjectItem ReplaceParameters="true" TargetFileName="bootstrap-theme.min.css">bootstrap-theme.min.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="bootstrap.min.css">bootstrap.min.css</ProjectItem>
+        <Folder Name="custom" TargetFolderName="custom">
+          <ProjectItem ReplaceParameters="true" TargetFileName="animations.css">animations.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="app.css">app.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="bootstrap-extensions.css">bootstrap-extensions.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="colors.css">colors.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="components.css">components.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="media-queries.css">media-queries.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.animations.css">modifiers.animations.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.css">modifiers.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.flexbox.css">modifiers.flexbox.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.margin.css">modifiers.margin.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.padding.css">modifiers.padding.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.positioning.css">modifiers.positioning.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.sizing.css">modifiers.sizing.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="modifiers.transformation.css">modifiers.transformation.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="nav.css">nav.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="settings-bar.css">settings-bar.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="smart-editor.css">smart-editor.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="splash.css">splash.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="states-colors.css">states-colors.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-gear.components.css">wf-switch-gear.components.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-symbol.components.css">wf-switch-symbol.components.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="wf-switch-transformer.components.css">wf-switch-transformer.components.css</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="widgets.css">widgets.css</ProjectItem>
+        </Folder>
+        <Folder Name="fonts" TargetFolderName="fonts">
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFDetailedIconFont.eot">WFDetailedIconFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFDetailedIconFont.otf">WFDetailedIconFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFDetailedIconFont.svg">WFDetailedIconFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFDetailedIconFont.ttf">WFDetailedIconFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFDetailedIconFont.woff">WFDetailedIconFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFElectricSymbolsFont.eot">WFElectricSymbolsFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFElectricSymbolsFont.otf">WFElectricSymbolsFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFElectricSymbolsFont.svg">WFElectricSymbolsFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFElectricSymbolsFont.ttf">WFElectricSymbolsFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFElectricSymbolsFont.woff">WFElectricSymbolsFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACDynamic.eot">WFHVACDynamic.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACDynamic.svg">WFHVACDynamic.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACDynamic.ttf">WFHVACDynamic.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACDynamic.woff">WFHVACDynamic.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACSymbolsFont.eot">WFHVACSymbolsFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACSymbolsFont.otf">WFHVACSymbolsFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACSymbolsFont.svg">WFHVACSymbolsFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACSymbolsFont.ttf">WFHVACSymbolsFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFHVACSymbolsFont.woff">WFHVACSymbolsFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFIconFont.eot">WFIconFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFIconFont.otf">WFIconFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFIconFont.svg">WFIconFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFIconFont.ttf">WFIconFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFIconFont.woff">WFIconFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPIDSymbolsFont.eot">WFPIDSymbolsFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPIDSymbolsFont.otf">WFPIDSymbolsFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPIDSymbolsFont.svg">WFPIDSymbolsFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPIDSymbolsFont.ttf">WFPIDSymbolsFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPIDSymbolsFont.woff">WFPIDSymbolsFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPrimitivesFont.eot">WFPrimitivesFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPrimitivesFont.otf">WFPrimitivesFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPrimitivesFont.svg">WFPrimitivesFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPrimitivesFont.ttf">WFPrimitivesFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFPrimitivesFont.woff">WFPrimitivesFont.woff</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFValvesSymbolsFont.eot">WFValvesSymbolsFont.eot</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFValvesSymbolsFont.otf">WFValvesSymbolsFont.otf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFValvesSymbolsFont.svg">WFValvesSymbolsFont.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFValvesSymbolsFont.ttf">WFValvesSymbolsFont.ttf</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WFValvesSymbolsFont.woff">WFValvesSymbolsFont.woff</ProjectItem>
+        </Folder>
+        <Folder Name="images" TargetFolderName="images">
+          <ProjectItem ReplaceParameters="false" TargetFileName="apple-touch-icon-72x72-precomposed.png">apple-touch-icon-72x72-precomposed.png</ProjectItem>
+          <Folder Name="bootstrap-colorpicker" TargetFolderName="bootstrap-colorpicker">
+            <ProjectItem ReplaceParameters="false" TargetFileName="alpha-horizontal.png">alpha-horizontal.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="alpha.png">alpha.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="hue-horizontal.png">hue-horizontal.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="hue.png">hue.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="saturation.png">saturation.png</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="false" TargetFileName="favicon-16x16.png">favicon-16x16.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="favicon-32x32.png">favicon-32x32.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="favicon-96x96.png">favicon-96x96.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="favicon.ico">favicon.ico</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="icon.png">icon.png</ProjectItem>
+          <Folder Name="icons" TargetFolderName="icons">
+            <ProjectItem ReplaceParameters="false" TargetFileName="icon_alarm.png">icon_alarm.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="icon_gone.png">icon_gone.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="icon_maintain.png">icon_maintain.png</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ios-startup-image-landscape.png">ios-startup-image-landscape.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ios-startup-image-portrait.png">ios-startup-image-portrait.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Logo_WEBfactory500x80.png">Logo_WEBfactory500x80.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Logo_WEBfactory500x80_white.png">Logo_WEBfactory500x80_white.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="navbar-brand-logo.svg">navbar-brand-logo.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="splash_product_logo.svg">splash_product_logo.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="wingrip.png">wingrip.png</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.scrollbar.css">jquery.scrollbar.css</ProjectItem>
+        <Folder Name="svg" TargetFolderName="svg">
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_icon_css3.svg">svg_icon_css3.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_icon_html5.svg">svg_icon_html5.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_icon_js.svg">svg_icon_js.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_indicator_blue.svg">svg_indicator_blue.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_indicator_green.svg">svg_indicator_green.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_indicator_grey.svg">svg_indicator_grey.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_indicator_red.svg">svg_indicator_red.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_indicator_yellow.svg">svg_indicator_yellow.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_wf_i4_ribbon_logo.svg">svg_wf_i4_ribbon_logo.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_wf_logo.svg">svg_wf_logo.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="switch-neutral.svg">switch-neutral.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="switch-off.svg">switch-off.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="switch-on.svg">switch-on.svg</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wfelectricsymbolsfont.css">wfelectricsymbolsfont.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wfhvacfont.css">wfhvacfont.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wficonfont.css">wficonfont.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wfpidfont.css">wfpidfont.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wfprimitivesfont.css">wfprimitivesfont.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wfvalvesfont.css">wfvalvesfont.css</ProjectItem>
+      </Folder>
+      <Folder Name="ContentDemos" TargetFolderName="ContentDemos">
+        <ProjectItem ReplaceParameters="true" TargetFileName="demos.css">demos.css</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="graphical-components.css">graphical-components.css</ProjectItem>
+        <Folder Name="images" TargetFolderName="images">
+          <Folder Name="examples" TargetFolderName="examples">
+            <ProjectItem ReplaceParameters="false" TargetFileName="indicator_gray250.png">indicator_gray250.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="indicator_green250.png">indicator_green250.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="indicator_red250.png">indicator_red250.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="motor.png">motor.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="motor_grau.png">motor_grau.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="motor_gruen.png">motor_gruen.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="motor_rot.png">motor_rot.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="trafo_ri.png">trafo_ri.png</ProjectItem>
+          </Folder>
+          <Folder Name="machines" TargetFolderName="machines">
+            <ProjectItem ReplaceParameters="false" TargetFileName="machine_green.png">machine_green.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="machine_grey.png">machine_grey.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="machine_red.png">machine_red.png</ProjectItem>
+          </Folder>
+          <Folder Name="presentation" TargetFolderName="presentation">
+            <ProjectItem ReplaceParameters="false" TargetFileName="demo_bhkw_html_1.PNG">demo_bhkw_html_1.PNG</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="demo_hvac_html_1.png">demo_hvac_html_1.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="demo_production_html_1.png">demo_production_html_1.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="demo_smarthome_html_1.png">demo_smarthome_html_1.png</ProjectItem>
+          </Folder>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="reference.css">reference.css</ProjectItem>
+        <Folder Name="svg" TargetFolderName="svg">
+          <Folder Name="bhkw" TargetFolderName="bhkw">
+            <ProjectItem ReplaceParameters="false" TargetFileName="svg-arrow-right-accent1.svg">svg-arrow-right-accent1.svg</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="svg-arrow-right-accent2.svg">svg-arrow-right-accent2.svg</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="svg-arrow-right.svg">svg-arrow-right.svg</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="svg_pointer1.svg">svg_pointer1.svg</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="svg_wf_bhkw.svg">svg_wf_bhkw.svg</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="false" TargetFileName="building-floor-1.svg">building-floor-1.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="jigsaw_icon.svg">jigsaw_icon.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="production-floor-2.svg">production-floor-2.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_hex_icon.svg">svg_hex_icon.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_hex_icon_red.svg">svg_hex_icon_red.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_luftung-1.svg">svg_luftung-1.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_meter.svg">svg_meter.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_ribbon_element_1.svg">svg_ribbon_element_1.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_ribbon_element_2.svg">svg_ribbon_element_2.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_robo.svg">svg_robo.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="svg_tank.svg">svg_tank.svg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="trafo_ri.svg">trafo_ri.svg</ProjectItem>
+        </Folder>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="favicon.ico">favicon.ico</ProjectItem>
+      <Folder Name="fonts" TargetFolderName="fonts">
+        <ProjectItem ReplaceParameters="false" TargetFileName="fontawesome-webfont.eot">fontawesome-webfont.eot</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="fontawesome-webfont.svg">fontawesome-webfont.svg</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="fontawesome-webfont.ttf">fontawesome-webfont.ttf</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="fontawesome-webfont.woff">fontawesome-webfont.woff</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="fontawesome-webfont.woff2">fontawesome-webfont.woff2</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="FontAwesome.otf">FontAwesome.otf</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="gulpfile.js">gulpfile.js</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="package.json">package.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="README.md">README.md</ProjectItem>
+      <Folder Name="Scripts" TargetFolderName="Scripts">
+        <ProjectItem ReplaceParameters="true" TargetFileName="_references.js">_references.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_wf.extensions.string.js">_wf.extensions.string.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquerry.esmartzoom.js">jquerry.esmartzoom.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquerry.wf.viewbox.js">jquerry.wf.viewbox.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.draggable.js">jquery.draggable.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.hotkeys.js">jquery.hotkeys.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.panzoom.min.js">jquery.panzoom.min.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="jquery.resizable.js">jquery.resizable.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="knockout.bindinghandlers.js">knockout.bindinghandlers.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="knockout.extenders.js">knockout.extenders.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="knockout.punches.js">knockout.punches.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="knockout.punches.min.js">knockout.punches.min.js</ProjectItem>
+        <Folder Name="koValidation" TargetFolderName="koValidation">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ca-CA.js">ca-CA.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="cs-CZ.js">cs-CZ.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="da-DK.js">da-DK.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="de-DE.js">de-DE.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="el-GR.js">el-GR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="en-US.js">en-US.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="es-ES.js">es-ES.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fa-IR.js">fa-IR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="fr-FR.js">fr-FR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="he-IL.js">he-IL.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="hr-HR.js">hr-HR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="hu-HU.js">hu-HU.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="it-IT.js">it-IT.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ja-JP.js">ja-JP.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ko-KR.js">ko-KR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="lv-LV.js">lv-LV.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="nl-BE.js">nl-BE.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="nl-NL.js">nl-NL.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="no-NB.js">no-NB.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="pl-PL.js">pl-PL.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="pt-BR.js">pt-BR.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="pt-PT.js">pt-PT.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ru-RU.js">ru-RU.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="sv-SE.js">sv-SE.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="zh-CN.js">zh-CN.js</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="moment.extensions.js">moment.extensions.js</ProjectItem>
+        <Folder Name="signalr" TargetFolderName="signalr">
+          <ProjectItem ReplaceParameters="true" TargetFileName="hubs.js">hubs.js</ProjectItem>
+        </Folder>
+        <Folder Name="typings" TargetFolderName="typings">
+          <Folder Name="c3" TargetFolderName="c3">
+            <ProjectItem ReplaceParameters="true" TargetFileName="c3.d.ts">c3.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="jasmine" TargetFolderName="jasmine">
+            <ProjectItem ReplaceParameters="true" TargetFileName="jasmine.d.ts">jasmine.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="jsep" TargetFolderName="jsep">
+            <ProjectItem ReplaceParameters="true" TargetFileName="jsep.d.ts">jsep.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="knockout" TargetFolderName="knockout">
+            <ProjectItem ReplaceParameters="true" TargetFileName="knockout.d.ts">knockout.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="knockout.mapping" TargetFolderName="knockout.mapping">
+            <ProjectItem ReplaceParameters="true" TargetFileName="knockout.mapping.d.ts">knockout.mapping.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="knockout.postbox" TargetFolderName="knockout.postbox">
+            <ProjectItem ReplaceParameters="true" TargetFileName="knockout-postbox.d.ts">knockout-postbox.d.ts</ProjectItem>
+          </Folder>
+          <Folder Name="wf" TargetFolderName="wf">
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.knockout.d.ts">wf.extensions.knockout.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.moment.d.ts">wf.extensions.moment.d.ts</ProjectItem>
+          </Folder>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.activeUrl.js">wf.behaviors.activeUrl.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.addAuthorizationClass.js">wf.behaviors.addAuthorizationClass.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.draggable.js">wf.behaviors.draggable.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.fadeInText.js">wf.behaviors.fadeInText.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.fadeVisible.js">wf.behaviors.fadeVisible.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.fixTableHeader.js">wf.behaviors.fixTableHeader.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.hideIfEmpty.js">wf.behaviors.hideIfEmpty.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.infiniteScroll.js">wf.behaviors.infiniteScroll.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.inner-html-value-forwarder.js">wf.behaviors.inner-html-value-forwarder.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.modal.js">wf.behaviors.modal.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.popover.js">wf.behaviors.popover.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.randomPosition.js">wf.behaviors.randomPosition.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.resizable.js">wf.behaviors.resizable.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.setContrastColor.js">wf.behaviors.setContrastColor.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.setZIndexOnMouseOver.js">wf.behaviors.setZIndexOnMouseOver.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.slider.js">wf.behaviors.slider.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.sortTable.js">wf.behaviors.sortTable.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.toggleClass.js">wf.behaviors.toggleClass.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.toggleFullScreen.js">wf.behaviors.toggleFullScreen.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.behaviors.tooltip.js">wf.behaviors.tooltip.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.arc.js">wf.controls.arc.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.c3chart.js">wf.controls.c3chart.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.checkbox.js">wf.controls.checkbox.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.colorpicker.js">wf.controls.colorpicker.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.d3axis.js">wf.controls.d3axis.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.datepicker.js">wf.controls.datepicker.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.drawArc.js">wf.controls.drawArc.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.esmartzoom.js">wf.controls.esmartzoom.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.keyboard.js">wf.controls.keyboard.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.progress.js">wf.controls.progress.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.selectPicker.js">wf.controls.selectPicker.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.svgArc.js">wf.controls.svgArc.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.svgArcScale.js">wf.controls.svgArcScale.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.controls.viewbox.js">wf.controls.viewbox.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.js.map">wf.extensions.js.map</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.knockout.js">wf.extensions.knockout.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.math.js">wf.extensions.math.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.moment.js">wf.extensions.moment.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.string.js.map">wf.extensions.string.js.map</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.string.ts">wf.extensions.string.ts</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.extensions.ts">wf.extensions.ts</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.formating.js">wf.formating.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.fullScreenApi.js">wf.fullScreenApi.js</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="wf.utilities.js">wf.utilities.js</ProjectItem>
+      </Folder>
+      <Folder Name="translations" TargetFolderName="translations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="i4SCADA_translation_texts_SP12.xml">i4SCADA_translation_texts_SP12.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="i4SCADA_translation_texts_SP13.xml">i4SCADA_translation_texts_SP13.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations1.sql">translations1.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations10_SP11.sql">translations10_SP11.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations11_SP11.sql">translations11_SP11.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations12_SP11.sql">translations12_SP11.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations13_SP12.sql">translations13_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations14_SP12.sql">translations14_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations15_SP12.sql">translations15_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations16_SP12.sql">translations16_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations17_SP12.sql">translations17_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations18_SP12.sql">translations18_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations19_SP12.sql">translations19_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations2.sql">translations2.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations20_SP12.sql">translations20_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations21_SP12.sql">translations21_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations22_SP12.sql">translations22_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations23_SP12.sql">translations23_SP12.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations24_SP13.sql">translations24_SP13.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations25_SP13.sql">translations25_SP13.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations26_SP13.sql">translations26_SP13.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations27_SP13.sql">translations27_SP13.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations28_SP14.sql">translations28_SP14.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations29.sql">translations29.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations3.8.4.sql">translations3.8.4.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations3.8.5.sql">translations3.8.5.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations3_SP10.sql">translations3_SP10.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations30.sql">translations30.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations4_SP10.sql">translations4_SP10.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations5_SP10.sql">translations5_SP10.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations6_SP10.sql">translations6_SP10.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations7_SP11.sql">translations7_SP11.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations8_SP11.sql">translations8_SP11.sql</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="translations9_SP11.sql">translations9_SP11.sql</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="tsconfig.json">tsconfig.json</ProjectItem>
+      <Folder Name="typings" TargetFolderName="typings">
+        <Folder Name="globals" TargetFolderName="globals">
+          <Folder Name="c3" TargetFolderName="c3">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="d3" TargetFolderName="d3">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="durandal" TargetFolderName="durandal">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="jquery" TargetFolderName="jquery">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="jquery.cookie" TargetFolderName="jquery.cookie">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="moment" TargetFolderName="moment">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="numeral" TargetFolderName="numeral">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="signalr" TargetFolderName="signalr">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="toastr" TargetFolderName="toastr">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="underscore" TargetFolderName="underscore">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+          <Folder Name="underscore.string" TargetFolderName="underscore.string">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="typings.json">typings.json</ProjectItem>
+          </Folder>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="index.d.ts">index.d.ts</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

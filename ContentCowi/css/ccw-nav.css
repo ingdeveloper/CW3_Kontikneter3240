@@ -1,0 +1,39 @@
+.navbar {
+    height: auto !important;
+    overflow: hidden;
+}
+
+.navbar .navbar-collapse,
+.navbar-left .navbar-collapse {
+    padding: inherit !important;
+}
+
+.ccw-navbar {
+    z-index: 1000 !important;
+}
+
+.ccw-nav-body {
+    margin-top: 6px;
+}
+
+.ccw-navbar-hellgrau {
+    border-color: #b0b0b0 !important;
+    background-image: -webkit-linear-gradient(top, #c0c0c0 0, #a0a0a0 100%) !important;
+    background-image: -o-linear-gradient(top, #c0c0c0 0, #a0a0a0 100%) !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c0c0c0), to(#a0a0a0)) !important;
+    background-image: linear-gradient(to bottom, #c0c0c0 0, #a0a0a0 100%) !important;
+    background-repeat: repeat-x !important;
+}
+
+.ccw-navbar-hellgrau .navbar-nav>li>a {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+.ccw-navbar-hellgrau .navbar-nav>.active>a,
+.ccw-navbar-hellgrau .navbar-nav>.active>a:focus,
+.ccw-navbar-hellgrau .navbar-nav>.active>a:hover {
+    color: #ffffff !important;
+    background: #707070 !important;
+    text-shadow: none !important;
+}

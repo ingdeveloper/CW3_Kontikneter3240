@@ -1,0 +1,21 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">WEBfactory HTML/JS Workshop - StatesService</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wf-indicator" data-bind="css:states.currentState">
+                <div class="wf-indicator-background">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            {{states.currentState}}
+        </div>
+        <div class="col-xs-12">
+            <wf-button params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Setpoint 1 == 1'"></wf-button>
+            <wf-button params="signalName: 'Setpoint 1', writeValue: 2, buttonText: 'Setpoint 1 == 2'"></wf-button>
+        </div>
+    </div>
+</div>

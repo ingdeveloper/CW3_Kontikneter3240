@@ -1,0 +1,117 @@
+﻿/* .uebersichttableSpalte1 {
+    width: 3%;
+} */
+
+.uebersichttableSpalte2 {
+    width: 12%;
+}
+
+.uebersichttableSpalte3 {
+    width: 6%;
+}
+
+.uebersichttableSpalte4 {
+    width: 6%;
+}
+
+.uebersichttableSpalte5 {
+    width: 6%;
+}
+
+.uebersichttableSpalte6 {
+    width: 6%;
+}
+
+.uebersichttableSpalte7 {
+    width: 4%;
+}
+
+.uebersichttableSpalte8 {
+    width: 4%;
+}
+
+.uebersichttableSpalte9 {
+    width: 4%;
+}
+
+.uebersichttableSpalte10 {
+    width: 8%;
+}
+
+.uebersichttableSpalte11 {
+    width: 4%;
+}
+
+.uebersichttableSpalte12 {
+    width: 4%;
+}
+
+.uebersichttableSpalte13 {
+    width: 4%;
+}
+
+.uebersichttableSpalte14 {
+    width: 4%;
+}
+
+.uebersichttableSpalte15 {
+    width: 4%;
+}
+
+
+.uebersichtSeiteTd-icon {
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.uebersichtSeiteTd {
+    text-align: left;
+    vertical-align: middle;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.uebersichtBeschriftungTable {
+    font-size: 10px;
+    /* background: rgb(228, 228, 228); */
+    text-align: left;
+}
+
+.uebersichtindicator {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.ccw-icon {
+    font-size:20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

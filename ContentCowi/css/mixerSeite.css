@@ -1,0 +1,346 @@
+﻿/****************************************************
+    CSS für MIXER Seite
+*****************************************************/
+
+.mixerSeiteTable {
+    font-size: x-small;
+    /*margin-bottom: 3px;*/
+    line-height: 18px;
+    margin-top: 5px;
+    margin-bottom: 8px !important;
+}
+
+.mixerSeiteTable2 {
+    font-size: x-small;
+    /*margin-bottom: 3px;*/
+    line-height: 18px;
+    margin-top: 3px;
+    margin-bottom: 3px !important;
+}
+
+.mixerSeiteContainerZeitscheibe {
+    /*margin-left: 300px;*/
+    /*width: 717px;*/
+    /* float: right; */
+}
+
+.mixerSeiteTableBeschriftung {
+    font-size: 14px;
+}
+
+.mixerSeiteTableUeberschrift {
+    font-size: large;
+}
+
+.mixerSeiteTdInput {
+    padding: 1px 1px !important;
+    width: 95px;
+    font-size: 16px;
+}
+
+.mixerSeiteTdStationsNummerBreite {
+    padding: 1px 1px !important;
+    width: 25px;
+}
+
+.mixerSeiteTdStationNummer {
+    padding: 0px 1px !important;
+    float: left;
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*vertical-align: middle !important;*/
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.mixerSeiteTdBtnFeld {
+    padding: 1px 0px !important;
+    width: 20px;
+}
+
+.mixerSeiteTdBtnFeldLangsam {
+    padding: 1px 0px !important;
+    width: 20px;
+    background-color: #ffe4bc !important;
+}
+
+.mixerSeiteTdBtnFeldSackschuette {
+    background-color: #bcf7ff !important;
+    width: 40px !important;
+    height:20px;
+    padding: 1px 1px !important;
+    /* width: 85px; */
+    font-size: 14px !important;
+}
+
+.mixerSeiteToeranzSackschuette {
+    width: 40px;
+    height: 20px;
+    padding: 1px 1px !important;
+    font-size: 14px !important;
+}
+
+.mixerSeiteTdBtnFeldSchnell {
+    padding: 1px 0px !important;
+    width: 20px;
+    background-color: #daffbc !important;
+}
+
+.mixerSeiteTableBtn {
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin: 0px auto !important;
+    padding: 0px 0px !important;
+}
+
+span.css-vertical-text {
+    color: #333;
+    /*border: 1px solid red;*/
+    /*writing-mode:  vertical-rl;*/
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: normal;
+    /*text-shadow: 0px 0px 1px #333;*/
+    /*background-color: aquamarine;*/
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+span.css-vertical-textGrau {
+    color: rgb(165, 164, 164);
+    /*border: 1px solid red;*/
+    /*writing-mode:  vertical-rl;*/
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: normal;
+    /*text-shadow: 0px 0px 1px #333;*/
+    /*background-color: aquamarine;*/
+    margin: 0 auto;
+    padding: 0 0 0 5px;
+}
+
+th.mixerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+th.mixerSeiteTabellenUeberschrift {
+    padding: 0px !important;
+    font-size: small;
+}
+
+td.mixerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+tr.mixerSeiteTableRahmenUnten>td {
+    /* Rahmen unten*/
+    border-bottom: 1px solid black !important;
+}
+
+.mixerSeiteEinzelAnsichtTextSpalte1 {
+    text-align: right !important;
+    padding-right: 10px;
+}
+
+.mixerSeiteKomponentenSiloBreite {
+    width: 20px !important;
+}
+
+.ccw-MischerFeld {
+    padding: 1px 1px;
+    margin: 1px 1px;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(240, 240, 240);
+    border-radius: 2px;
+    font-size: 12px;
+    height: 23px;
+    text-align: center;
+}
+
+.mixerSeiteDivRezeptur {
+    /*background-color: rgba(127, 255, 212, 0.15);*/
+    border: 1px solid #808080;
+    height: 60px;
+    margin-left: 0px;
+}
+
+.mixerSeiteDivMixer {
+    /*background-color: rgba(255, 106, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin: 0px 0px;
+}
+
+.mixerSeiteDivRezeptnummer {
+    /*background-color: rgba(182, 255, 0, 0.15);*/
+    border: 1px solid #808080;
+    height: 50px;
+    margin-right: 15px;
+}
+
+div.mixerSeitePaddingAus {
+    padding: 0px !important;
+}
+
+.mixerSeiteBeschrVorValue {
+    text-align: left;
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+}
+
+.mixerSeiteValueRahmenFloatLeft {
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: white;*/
+    /*width: 100%;*/
+    float: left;
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.mixerSeiteFiexedTop {
+    background-color: antiquewhite;
+    padding: 0.25em 0;
+    text-align: center;
+    position: -webkit-sticky;
+    /* Fest an der Kante beim scrollen anheften */
+    position: sticky;
+    top: 1px;
+    z-index: 99;
+}
+
+#header_fixed.sticky {
+    position: fixed;
+    background-color: antiquewhite;
+    height: 50px;
+    z-index: 99;
+    /* Element wird aus Textfluss genommen, also mit diesen Werten arbeiten */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.mixerSeiteBtn {
+    padding: 2px 0px !important;
+    float: left;
+}
+
+.mixerSeiteProduktionsNummer {
+    width: 60px;
+    float: left;
+}
+
+.mixerSeiteZeitscheibeTabelleKopfHoehe1 {
+    height: 50px !important;
+}
+
+.mixerSeiteZeitscheibeTabelleKopfHoehe2 {
+    height: 45px;
+}
+
+.MixerTableZeile{
+    /* height: 30px !important; */
+    position:relative;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    height: 30px;
+    margin: 2px 2px;
+    padding: 0px 0px;
+}
+
+.MixerTabellenHoehe{
+    height: 30px;
+}
+
+.mixerSeiteValueRahmenKomponentenTabelle,
+.mixerSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #C6C6C6;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 16px;
+    /*width: 100%;*/
+    /* float: LEFT; */
+    margin: 1px 2px;
+    padding: 0px 2px;
+}
+
+.mixerSeiteValueRahmenKomponentenTabelleDisabled {
+    border: 1px solid #e2dada;
+    border-radius: 2px;
+    text-align: center;
+    /*background-color: #ebe8e4;*/
+    color: #C6C6C6;
+}
+
+.mixerSeiteKomponentenTabelleTextMinHeight {
+    height: 16px;
+}
+
+.mixerSeiteKomponentenSollIstBreite {
+    width: 75px !important;
+}
+
+.mixerSeiteKomponentenSollIstBreite2 {
+    width: 75px !important;
+    text-align: center;
+}
+
+.borderOff {
+    border: 0px !important;
+}
+
+.MixerPullDown {
+    padding: 1px 1px !important;
+    margin: 1px;
+    width:80px; 
+    height:22px;
+    font-size:10px;
+    /* border:1px solid rgb(100, 100, 100);  */
+    border-radius: 5px;
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+
+@media (max-width: 767px) {
+    /* Breite beträgt höchstens */
+    .mixerSeiteDivRezeptur {
+        margin-right: 15px;
+    }
+    .mixerSeiteDivMixer {
+        margin: 0px 15px;
+    }
+    .mixerSeiteDivRezeptnummer {
+        margin-left: 15px;
+    }
+}

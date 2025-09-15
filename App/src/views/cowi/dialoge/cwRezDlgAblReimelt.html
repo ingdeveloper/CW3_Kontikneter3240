@@ -1,0 +1,161 @@
+<section class="clRezeptDlg">
+  <div class="modal">
+    <div class="modal-dialog modal-top">
+      <div class="modal-content"
+        data-bind="ccwDraggable:{}, dragId: 'cwRezDlgAblieferzone', BGclose: true, ESCclose: true">
+        <div class="modal-header" id="cwRezDlgAblieferzone" style="background-color: DodgerBlue">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">
+            &times;
+          </button>
+          <span class="modal-title">
+            <h4>
+              <span>&nbsp;Ablieferzone/ Produktionszeit/ Planleistung</span>
+            </h4>
+          </span>
+        </div>
+        <form data-bind="submit: accept" autocomplete="off">
+          <fieldset>
+            <div class="modal-body">
+              <div class="well well-sm">
+                <h4>Ablieferzone</h4>
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="wf wf-split-3 fa-stack" style="font-size: 24px"></i>
+                  </div>
+                  <div class="col-xs-11">
+                    <table class="table table-bordered table-hover table-rezept"
+                      style="margin-bottom: 0; background-color: white">
+                      <thead data-bind="template: { name: 'headTplVarListe', foreach: ablieferHead }"></thead>
+                      <tbody data-bind="template: { name: 'zeileAblieferTpl', foreach: ablieferRows }"
+                        id="ablieferZonen"></tbody>
+                    </table>
+                    <input id="ablZonenValid" type="text" style="height: 0px; opacity: 0" />
+                  </div>
+                </div>
+              </div>
+              <div class="well well-sm">
+                <h4>Produktionszeit</h4>
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="wf wf-start-date-1 fa-stack" style="font-size: 24px"></i>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-xs-11" style="padding-bottom: 0.3vh">
+                      <div class="input-group date" id="dtPickerStart">
+                        <span class="input-group-addon">&ensp;Start&emsp;</span>
+                        <input class="form-control" title="geplanter Produktionsstart" type="datetime" required />
+                        <span class="input-group-addon" style="border-left: 0ch">
+                          <i class="wf wf-clock-o"></i>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn addon" type="button" data-bind="click:DateTimeUtil.setStart"
+                            title="aktuelles Datum/-Uhrzeit übernehmen">
+                            <i class="wf-lg wf-target" style="font-size: small"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-xs-11">
+                      <div class="input-group date" id="dtPickerStop">
+                        <span class="input-group-addon">&ensp;Stopp&ensp;</span>
+                        <input class="form-control" title="geplantes Produktionsende" type="datetime" required />
+                        <span class="input-group-addon" style="border-left: 0ch">
+                          <i class="wf wf-clock-o"></i>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn addon" type="button" data-bind="click:DateTimeUtil.setStop"
+                            title="aktuelles Datum/-Uhrzeit übernehmen">
+                            <i class="wf-lg wf-target" style="font-size: small"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="well well-sm">
+                <h4>Planleistung</h4>
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="wf wf-column-chart-3" style="font-size: 24px"></i>
+                  </div>
+                  <div class="col-xs-11">
+                    <div class="input-group">
+                      <input class="form-control" id="inPaLeistung" min="1" title="geplante Leistung" type="number"
+                        required />
+                      <span class="input-group-addon">Stk.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Sektion "Grundrezept" -->
+              <!-- ko if:PaData.rezInfo -->
+              <div class="well well-sm" style="margin-bottom: 1%">
+                <h4 data-bind="text:PaData.rezInfo"></h4>
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="wf wf-catalog-o" style="font-size: 24px"></i>
+                  </div>
+                  <div class="col-xs-9 col-xs-offset-2">
+                    <div class="input-group">
+                      <label class="radio-inline"><input value="true" data-bind="checked: visibReimelt" id="sendRezept"
+                          name="grundRezSend" type="radio" required />Übertragen&#160;&#160;&#160;&#160;</label>
+                      <label class="radio-inline"><input value="false" data-bind="checked: visibReimelt"
+                          name="grundRezSend" type="radio" required />nicht Übertragen</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /ko -->
+              <!-- Endsektion "Grundrezept" -->
+
+              <!-- Sektion "Reimelt/Schüttgut" -->
+              <!-- ko if:visib() -->
+              <div class="well well-sm" style="margin-bottom: 0%">
+                <h4 style="color: crimson">Achtung!</h4>
+                <div class="row">
+                  <div class="col-xs-1">
+                    <i class="wf-lg wf-alarm" style="font-size: 24px; color: crimson"></i>
+                  </div>
+                  <div class="col-xs-9 col-xs-offset-2">
+                    <p>Keine Freigabe von Reimelt/Schüttgut -Anlage.</p>
+                    <u style="color: crimson">Es werden die Rezeptwerte nur in Mixer übertragen.</u>
+                    <p>
+                      Vollständiges Rezeptladen kann später bei der Freigabe von
+                      Reimelt/Schüttgut wiederholt werden.
+                    </p>
+
+                    <p style="text-align: end; font-size: xx-small">
+                      *diese Aktion wird protokoliert
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- /ko -->
+              <!-- Endsektion "Reimelt/Schüttgut" -->
+            </div>
+          </fieldset>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="submit" data-bind="event: {mouseover: checkZone}">
+              Übernehmen
+            </button>
+            <button class="btn btn-default" data-dismiss="modal" data-bind="click: close">
+              Abbrechen
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Head-Template wird von rez-dlg.component genommen -->
+<!-- Zeilen/Zellen-Template -->
+<script type="text/html" id="zeileAblieferTpl">
+  <tr
+    data-bind="foreach: cells, attr:{id: cells[0]}, event: { click:function(){ $parent.zoneSelect(cells[0])} }"
+  >
+    <td data-bind="text: $data"></td>
+  </tr>
+</script>

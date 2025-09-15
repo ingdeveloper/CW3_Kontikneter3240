@@ -1,0 +1,189 @@
+﻿.ccw-input {
+    border: none;
+    vertical-align: middle;
+}
+
+.ccw-sensor-circle-collapse {
+    visibility: collapse;
+    height: 25px;
+    padding: 0 5px;
+    line-height: 23px;
+    min-width: 50px;
+    border: 1px solid #e4e4e4;
+    background-color: rgba(255, 255, 255, .23);
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    visibility: hidden;
+}
+
+.svginside {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.svginside svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.ccw-sensor-value-right-collapse {
+    visibility: collapse;
+}
+
+.ccw-sensor-value-left-collapse .wf-sensor-value-left {
+    visibility: collapse;
+}
+
+.ccw-sensor-label .wf-sensor-label {
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+    font-Size: 8px;
+}
+.ccw-sensor-label .wf-sensor-pointer {
+    margin-left: -4.5px;
+}
+.ccw-sensor-label-border-red .wf-sensor-value {
+    border-color: red;
+}
+
+.ccw-pilz-border{
+    /* border: 1px solid; */
+    border-radius: 4px;
+	border-color: black; 
+    background-color: #f4e241;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+
+.ccw-wf-indicator .wf-indicator{
+    height:16px;
+    width:16px;
+}
+.ccw-sensor-label-border-blue .wf-sensor-value {
+    border-color: blue;
+}
+
+.ccw-input-label {
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: darkgray;
+    background-color: #eeeeee;
+    font-size: 10px;
+    text-align: right;
+    padding-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    min-width: 40px;
+}
+
+.ccw-caption-small {
+    background-color: rgb(224, 224, 224);
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+
+.ccw-caption-statebar{
+    background-color: rgb(224, 224, 224);
+    font-size: 16px;
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+.ccw-table-border {
+    background-color: #eeeeee;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: darkgray;
+    padding: 3px;
+}
+
+.ccw-state-hkz {
+    font-size: 10px;  
+    float: right;
+    margin-right: 5px;  
+}
+.ccw-state-icon {
+    float: right;
+    margin-right: 5px;
+}
+.ccw-state-text {
+    width: 100%;    
+    font-size: 12px;
+    background-color: transparent;
+}
+
+.ccw-float-right {
+    float: right;
+    margin-right: 5px;
+}
+
+.draw {
+    stroke-dasharray: 30;
+    animation: dashdraw 3s linear infinite;
+}
+
+.ccw-cursor-hand {
+    cursor: pointer;
+}
+
+@keyframes dashdraw {
+    to {
+        stroke-dashoffset: 100
+    }
+}
+
+#overlay {
+    position: absolute;
+    left:0%;
+    top:0%;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(119, 119, 119);
+    opacity: 0.8;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ccw-lueftung-layer-vernebelung {
+    position: absolute;
+    left:15%;
+    top:30%;
+    font-size: 56px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}

@@ -1,0 +1,31 @@
+<div style="display:none">
+    <div class="modal fade" tabindex="-1" role="dialog" data-bind="modalDialog: {show: showModal}" style="display: none;">
+        <div class="modal-dialog modal-center">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255, 255, 255)" type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                    <div class="modal-title">{{connector.translate('I4SCADA_UM_CloneItem')()}}</div>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="form-group">
+                        <label for="clonedName">{{connector.translate('I4SCADA_UM_Name')()}}</label>
+                        <span data-bind="visible: !clonedNameIsUnique()" class="error-message">{{connector.translate('I4SCADA_UM_NameIsNotUnique')()}}</span>
+                        <input data-bind="value: clonedName, valueUpdate: 'afterkeydown', css: {'red-border': !clonedNameIsUnique()}" type="text" maxlength="32" class="form-control" id="clonedName" autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-primary" data-bind="enable: clonedNameIsUnique(), click: confirm">
+                        <i class="wf wf-check"></i>
+                        {{connector.translate('I4SCADA_UM_Confirm')()}}
+                    </button>
+                    <button class="btn btn-sm btn-default" data-bind="click: close">
+                        <i class="wf wf-close-round-o"></i>
+                        {{connector.translate('I4SCADA_UM_Cancel')()}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

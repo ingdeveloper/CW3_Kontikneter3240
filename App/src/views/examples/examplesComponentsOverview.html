@@ -1,0 +1,157 @@
+﻿<div class="container-fluid">
+    <header>
+        <h1 class="page-header">i4SCADA App - Reusable UI Components</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="m-y">WEBfactory Components</h3>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-value</h3>
+            <wf-value params="signalName: 'Local Second', unitLabel: true"></wf-value>
+            <wf-value params="signalName: 'Setpoint 1'"></wf-value>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-state-text</h3>
+            <wf-state-text params="conditionRule1: '%Setpoint 1% >= 1', symbolicTextState1: 'Status OK', symbolicTextNormalState: 'Defaulttext'"></wf-state-text>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-watchdog</h3>
+            <wf-watchdog class="wf-3x" params="signalName: 'Local Second'"></wf-watchdog>
+            <wf-watchdog class="wf-3x" params="signalName: 'Setpoint 1', period: 2000, onlineClass: 'wf-watchdog-online wf-lg wf-server', offlineClass: 'wf-watchdog-offline wf-lg wf-server-alert'"></wf-watchdog>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-signal-information</h3>
+            <wf-signal-information params="signalName: 'Setpoint 1', propertyName: 'Unit'"></wf-signal-information>
+            <div data-bind="component: {name: 'wf-signal-information', params: { signalName: 'Setpoint 1', propertyName: 'Unit'} }"></div>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-value-display</h3>
+            <wf-value-display params="signalName: 'Local Second', unitLabel: true, displayClass: 'label-primary'"></wf-value-display>
+            <wf-value-display params="signalName: 'Local Second', unitLabel: true"></wf-value-display>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-state-symbol </h3>
+            <wf-state-symbol params="stateSignalName1: 'Setpoint 1', maskSignal1: 0, cssClassState1: 'wf wf-light-bulb-o wf-2x',
+                                     stateSignalName2: 'Setpoint 1', maskSignal2: 1, cssClassState2: 'wf wf-light-bulb wf-2x text-danger'"></wf-state-symbol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-input</h3>
+            <wf-input params="signalName: 'Setpoint 1', unitLabel: true, label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan'"></wf-input>
+            <wf-input params="signalName: 'Setpoint 2', unitLabel: true, label: 'Label text', signalNameLabel: true, format: '0,0.00', iconClass: 'wf wf-fan', displayClass: 'label-danger'"></wf-input>
+        </div>
+
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-button</h3>
+            <div class="">
+                <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: 1, buttonText: 'Write 1 to Setpoint 1', iconClass: 'fa fa-eye', iconStyle: 'color: #2E6DA4'"></wf-button>
+                <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: 0,  writeUpValue: 1, buttonText: 'Write 0 and write 1', isTipModeEnabled: true, cssClass: 'btn-danger'"></wf-button>
+                <wf-button class="inline-block" params="signalName: 'Setpoint 1', writeValue: 0,  writeUpValue: 1, buttonText: 'Button with state', cssClassNormalState: 'btn btn-default', conditionRule1: '%Setpoint 1% != 0', cssClassState1: 'btn btn-warning'"></wf-button>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-switch</h3>
+            <div class="btn-group">
+                <wf-switch params="signalName: 'Setpoint 1', onValue: 1, offValue: 0"></wf-switch>
+                <br />
+                <wf-switch params="signalName: 'Setpoint 2', onValue: -1, offValue: 0, activeCssClass: 'btn btn-danger', defaultCssClass: 'btn btn-default'"></wf-switch>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-combobox</h3>
+            <wf-combobox params="symbolicTexts: ['Licht AUS', 'Licht AN'], symbolicTextNormalState: 'Licht schalten', signalNames: ['Setpoint 1', 'Setpoint 1'], signalValues: [0, 1], iconClass: ['wf wf-light-bulb-o', 'wf wf-light-bulb'], cssClass: 'btn-md btn-warning'"></wf-combobox>
+            <br />
+            <wf-combobox params="symbolicTexts: ['Rezept 1', 'Rezept 2', 'Rezept 3', 'Rezept 4'], symbolicTextNormalState: 'Rezeptauswahl', signalNames: ['Setpoint 3', 'Setpoint 3', 'Setpoint 3', 'Setpoint 3'], signalValues: [1, 2, 3, 4], iconClass: ['fa fa-tint', 'fa fa-coffee', 'fa fa-leaf', 'fa fa-glass'], cssClass: 'btn-md btn-primary'"></wf-combobox>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-slider</h3>
+            <wf-slider params="signalName: 'Setpoint 1'"></wf-slider>
+            <br />
+            <wf-slider params="signalName: 'Setpoint 1', showTickLabels: true, cssClass: 'slider-danger'"></wf-slider>
+        </div>
+
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-state-indicator</h3>
+            <wf-state-indicator class="indicator-lg inline-block" params="stateSignalName1: 'Setpoint 1', maskSignal1: 3, operator1: '<=', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+            <wf-state-indicator class="indicator-md inline-block" params="stateSignalName2: 'Setpoint 1', maskSignal2: 1, operator2: '=', iconClass: 'wf-lg wf-light-bulb-eco'"></wf-state-indicator>
+            <wf-state-indicator class="indicator-sm inline-block" params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+            <wf-state-indicator class="indicator-xs inline-block" params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf-lg wf-fan'"></wf-state-indicator>
+
+            <wf-state-indicator class="inline-block wf-4x" params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', conditionRule6: '%Setpoint 1% > 2', iconClass: 'wf wf-fan', iconSize: 46"></wf-state-indicator>
+        </div>
+        <div class="col-sm-2">
+
+            <h3 class="page-header">wf-state-text</h3>
+            <wf-state-text  params="conditionRule1: '%Setpoint 1% == 1', conditionRule2: '%Setpoint 1% == 2', symbolicTextNormalState: 'Licht', symbolicTextState1: 'Licht an', symbolicTextState2: 'Licht aus' "></wf-state-text>
+        </div>
+
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-bargraph</h3>
+            <wf-bargraph params="signalName: 'Local Second', unitLabel: true, titleText: 'Energiebedarf',  minRange: 0, maxRange: 60, cssClass: 'progress-bar-danger', iconClass: 'fa fa-bolt', showTickLabels: true"></wf-bargraph>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-gauge-1</h3>
+            <wf-gauge-1 params="signalName: 'Local Second'"></wf-gauge-1>
+        </div>
+
+        <div class="col-sm-3">
+            <h3 class="page-header">wf-arc</h3>
+            <wf-arc params="signalName: 'Local Second', startAngle: -180.0, endAngle: 90, maxRange: 90, width: 180, height: 150, innerRadius: 0.8, marginBottom: 5, backgroundColor: '#E6E6E6', foregroundColor: '#EB9316', iconClass: 'wf wf-flash fa-2x', showTickLabels: true, majorTicks: 9"></wf-arc>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-symbolictext</h3>
+            <wf-symbolictext params="symbolicText: 'I4SCADA_ON'"></wf-symbolictext>
+            <br />
+            <h3 class="page-header">wf-language-selector</h3>
+            <wf-language-selector params="symbolicText: 'I4SCADA_ON'"></wf-language-selector>
+        </div>
+
+        <div class="col-sm-2">
+            <h3 class="page-header">wf-user-login</h3>
+            <wf-user-login></wf-user-login>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="page-header">wf-chart-1</h3>
+
+            <wf-chart-1 params="signalName: 'Level 1', logTagName: 'LogTagLevel1',  trendColor: '#880000', buttonBarCss: 'btn-primary'"></wf-chart-1>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <h3 class="page-header">wf-alarm-viewer</h3>
+        <wf-alarm-viewer params="tableView: true, alarmGroups: ['Produktion.KR.203'], titleText: 'Meldungen für KR 203'"></wf-alarm-viewer>
+    </div>
+
+    <div class="col-xs-12">
+        <h3 class="page-header">wf-log-table</h3>
+        <wf-log-table params="logTags:[{signalName: 'Level 1', logTagName: 'LogTagLevel1'}], maxResults: 200 "></wf-log-table>
+    </div>
+
+    <br /><br /><br />
+</div>

@@ -1,0 +1,36 @@
+﻿<div class="container-fluid">
+    <h1 class="page-header">
+        Neustarts aller Clients auslösen
+    </h1>
+
+    <div class="row panel panel-danger">
+        <div class="panel-body col-xs-12">
+
+            <wf-user-login params="defaultText: 'Anmelden'"></wf-user-login>
+
+        </div>
+
+        <div class="panel-body col-xs-12">
+            <button class="btn-lg" data-bind="click: function(){writeSignal(25)}, css: statusStyle">
+                <span data-bind="text: buttonText"></span>
+            </button>
+        </div>
+
+
+        <div class="panel-body col-xs-12">
+            <strong><u>Bei Betätigung des Buttons wird ein Neustart aller verbundenen Clients ausgeführt!</u></strong><br />
+            Nach einem Klick wird der Button gelb angezeigt, dann wird nach ca. 3 Sekunden ein Reload der Seite gemacht.
+            Die Seiten werden mit der Javascript-Function <u>location.reload(true);</u> , also refresh der Server-Seiten, geladen.<br />
+            Durchführung ist in der <strong>shell.ts</strong> programmiert.<br />
+            <strong><a class="hidden-xs" href="https://wiki.selfhtml.org/wiki/JavaScript/Location/reload" target="_blank">https://wiki.selfhtml.org/wiki/JavaScript/Location/reload:</a> Optional kann dieser Funktion der Parameter true übergeben werden, um ein Neuladen der Seite vom Server zu erzwingen. Ohne diesen Parameter wird die Seite aus dem Zwischenspeicher des Browsers (Cache) neu geladen.</strong>
+        </div>
+
+
+        <!--<div class="panel-body col-xs-12">
+
+            <pre data-bind="text: ko.toJSON(signalBuffer,2,0)"></pre>
+            <pre data-bind="text: ko.toJSON(signalZeit,2,0)"></pre>
+        </div>-->
+    </div>
+
+</div>

@@ -1,0 +1,136 @@
+﻿/* CSS für cip2Rohrreinigungsweg */
+.cip2div{
+    border: 1px #cec9c9 solid;
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    border-radius: 3px;
+    background-color: rgb(255, 216, 0);
+}
+
+.cip2rrtabelle{
+    font-size: small;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+/*.cip2rrtdOn{
+    border: 0px #4cff00 solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: #18ed18;
+}*/
+.cip2rrtdRectOff{
+    border: 0px #808080 solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: #bbaeae;
+}
+.cip2rrth{
+    width:90px;
+    text-align:center;
+    vertical-align: central;
+}
+.cip2rrtrColor{
+    background-color:rgb(131, 198, 247);
+}
+.cip2rrSchrittzeit{
+    margin-left: 10px;
+    padding: 4px;
+    border: 1px #808080 solid;
+    border-radius: 3px;
+    background-color:rgb(131, 211, 247);
+    width: 200px;
+    
+}
+.cip2rrtd{
+    vertical-align: middle !important;
+}
+.cip2rrtdtemperatur{
+    border: 1px #808080 solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    border-radius: 3px;
+    text-align: center;
+}
+.cip2rrtdVorlZeitIst{
+    border: 1px #808080 solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    text-align: center;
+}
+.cip2rrtdVorlZeitSoll{
+    border: 1px #808080 solid;
+    margin: 0px;
+    padding: 0px;
+    background-color: #bbaeae;
+    border-radius: 3px;
+    text-align: center; 
+}
+.cip2rrStatus{
+    border: 1px #808080 solid;
+    margin: 10px;
+    padding: 1px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    text-align: center;
+    width: 60px;
+    height: 20px;
+}
+
+/*gleich breite Buttons*/
+.cip2BtnWidth1 {
+    width: 78px !important;
+}
+.cip2BtnWidth2 {
+    width: 65px !important;
+}
+
+#float_box1 {
+     float: left;
+     padding: 0px;
+     box-sizing: border-box;
+     vertical-align:central;
+}
+#float_box2 {
+     float: left;
+     padding: 0px;
+     box-sizing: border-box;
+}
+#box1, #box2, #box3, #box4, #box5 {
+     float: left;
+     padding: 0px;
+     box-sizing: border-box;
+}
+#box1 {
+    width: 200px;
+    padding: 2px 2px 2px 6px;
+}
+#box2 {
+    margin-left: 20px;
+}
+#box3 {
+    margin-left: 30px;
+    padding: 2px;
+}
+#box4 {
+    width: 300px;
+    padding: 2px 2px 2px 6px;
+}
+#box5 {
+    margin-left: 0px;
+    padding: 2px;
+}
+
+
+
+/* wenn sich die Bildschirmauflösung ändert */
+@media (max-width: 1024px ) { /* Breite beträgt höchstens */
+    .cip2rrtabelle
+    {
+       font-size: smaller;
+    }
+}
+

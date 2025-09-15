@@ -1,0 +1,22 @@
+﻿<div class="machine-popover-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="font-weight-bold m-b">
+                ID: <span data-bind="text: productionId"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <wf-bargraph class="block m-b" params="signalName: 'Local Second', unitLabel: true, signalUnit: 'Stk', titleText: 'Stückzahl IST', minRange: 0, maxRange: 200, cssClass: 'progress-bar-danger', progressBarSize: 'progress-sm'"></wf-bargraph>
+            <wf-bargraph class="block m-b" params="signalName: 'Local Hour', unitLabel: true, signalUnit: 'Sek', titleText: 'Taktzeit', minRange: 0, maxRange: 20, cssClass: 'progress-bar-warning', progressBarSize: 'progress-sm'"></wf-bargraph>
+        </div>
+    </div>
+    <div class="row m-y">
+        <div class="col-xs-12">
+            <div class="font-weight-bold m-b">ENERGIEBEDARF PRO TEIL</div>
+            <wf-bargraph class="block m-b" params="signalName: 'Servo 1', unitLabel: true, signalUnit: 'Wh', titleText: 'Elektrisch', minRange: 0, maxRange: 70, cssClass: 'progress-bar-info', progressBarSize: 'progress-sm'"></wf-bargraph>
+            <wf-bargraph class="block m-b" params="signalName: 'Sensor 2', unitLabel: true, signalUnit: 'L', titleText: 'Druckluft', minRange: 0, maxRange: 60, cssClass: 'progress-bar-info', progressBarSize: 'progress-sm'"></wf-bargraph>
+        </div>
+    </div>
+</div>

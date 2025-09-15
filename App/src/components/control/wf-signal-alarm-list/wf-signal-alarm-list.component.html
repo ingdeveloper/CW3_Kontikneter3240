@@ -1,0 +1,194 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization, parentIndex: 2} -->
+<!-- ko if: isVisible()-->
+<div class="wf-signal-alarm-list" data-bind="attr : {title: tooltipText}">
+    <div class="wf-signal-alarm-list-panel wf-panel panel" data-bind="css: panelBarCssClass">
+        <!-- ko if: headerVisibility -->
+        <div class="panel-heading" data-part="panelHeader">
+            <div class="pull-right wf-panel-toolbar">
+                <div class="m-r-sm inline-block">
+                    <!-- ko if: signalAlarmListService.items().length -->
+                    <label>{{connector.translate('I4SCADA_Signals')()}}</label>
+                    <span class="label label-default" data-bind="text: signalAlarmListService.items().length"></span>
+                    <!-- ko if: signalAlarmListService.hasMoreSignals -->
+                    <div class="label label-info">
+                            <i class="wf wf-info"></i>
+                            {{ connector.translate('I4SCADA_Has_more')() }}
+                        </div>
+                    <!--/ko-->
+                    <!--/ko-->   
+                </div>  
+
+                <!-- ko if: patternVisibility -->
+                <div class="wf-search-pattern">
+                    <div class="relative">
+                        <i class="wf wf-search wf-input-icon-right opacity-50"></i>                   
+                        <input type="text" class="form-control" data-bind="textInput: pattern, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_signal_name_or_description')()}"/>
+                    </div>
+                </div>   
+                <div class="m-r-sm inline-block"></div>
+                <!--/ko-->   
+
+                <!-- ko if: unitVisibility -->
+                <div class="wf-search-unit">
+                    <div class="relative">
+                        <i class="wf wf-search wf-input-icon-right opacity-50"></i>                   
+                        <input type="text" class="form-control" data-bind="textInput: unit, attr: {placeholder: connector.translate('I4SCADA_Input_a_part_of_a_unit')()}"/>
+                    </div>
+                </div>
+                <div class="m-r-sm inline-block"></div>
+                <!--/ko-->
+
+                <!-- ko if: exportButtonVisibility && hasExportAuthorization() -->
+                <button type="button" data-bind="css: buttonBarCssClass, click: handleExport" title="{{connector.translate('I4SCADA_Export')()}}">
+                    <span class="wf wf-download"></span>
+                </button>
+                <!-- /ko -->
+
+                <button type="button" data-bind="css: buttonBarCssClass, click: onRefresh" title="{{connector.translate('I4SCADA_Refresh')()}}">
+                    <i class="wf wf-arrow-refresh-right"></i>
+                </button>
+
+                <!-- ko if: configurationButtonVisibility && hasConfigurationAuthorization() -->
+                <wf-configuration params="controlType: controlType,
+                                        getConfiguration: function(){ return getConfig(); },
+                                        loadConfiguration: function(content){ applyConfigurationLoad(content); },
+                                        namespace : configurationNamespace,
+                                        buttonBarCssClass: buttonBarCssClass,
+                                        buttonBarIconClass: configurationButtonIconClass,
+                                        isModalDialogsDraggable: isModalDialogsDraggable,
+                                        showOnlyOwnConfigurations: showOnlyOwnConfigurations,
+                                        parameters: settings.parameters" ></wf-configuration>
+                <!-- /ko-->
+                <!--ko ifnot: connector.disableSignalBrowser-->
+                <!-- ko if: signalsButtonVisibility && hasSignalSelectionAuthorization() -->
+                <wf-signal-alarm-list-signals-browser-dialog params="buttonBarCssClass: buttonBarCssClass, onSignalsSelected: onSignalsSelected, maxSignalCount: maxSignalCount, maxSignalsForGroupAdd: maxSignalsForGroupAdd, aliasNames: signalAlarmListService.aliasNames, groupsFilter: groupsFilter, signalsFilter: signalsFilter, filterPattern: signalNamePattern, isModalDialogsDraggable: isModalDialogsDraggable,"></wf-signal-alarm-list-signals-browser-dialog>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: settingsButtonVisibility -->
+                <wf-signal-alarm-list-configuration-dialog params="buttonBarCssClass: buttonBarCssClass, onSettingsApplied: onSettingsApplied, columnsOrder: columns, maxSignalCount: signalAlarmListService.maxSignalCount, isModalDialogsDraggable: isModalDialogsDraggable, getColumnName: signalAlarmColumnNameService.getSymbolicText"></wf-signal-alarm-list-configuration-dialog>
+                <!-- /ko -->
+            </div>
+            <h3 class="panel-title p-r-md overflow-x-ellipsis" data-part="panelHeader">
+                <span>{{connector.translate(titleText)}}</span>
+            </h3>
+        </div>
+        <!-- /ko -->
+        <div class="panel-body relative overflow-y-scroll" data-part="tableBody" data-bind="attr: {id: 'wrap_' + id() }">
+            <div class="row">    
+                
+               <!-- ko ifnot: signalAlarmListService.busyContext.active -->
+               <div class="spinner">{{connector.translate('I4SCADA_Loading...')()}}</div>
+               <!-- /ko -->
+
+                <!-- ko ifnot: signalAlarmListService.items().length -->
+                <!-- ko if: signalAlarmListService.busyContext.active -->
+                <div class="alert alert-info text-center animated fadeIn m-x-md">
+                    <i class="wf wf-info"></i> {{ connector.translate('I4SCADA_No_data_available')() }}
+                </div>
+                <!--/ko-->
+                <!--/ko-->
+
+                <!-- ko if: signalAlarmListService.items().length -->
+                 <!-- ko if: signalAlarmListService.busyContext.active -->
+                <table class="table table-striped table-condensed table-bordered wf-signal-alarm-list-table" data-bind="css: cssClass">
+                    <thead>      
+                        <tr>
+                            <!-- ko foreach: signalAlarmListService.signalAlarmListHeaders -->
+                            <th data-bind="css:{'clickable': isSortable}, click: onOrder, class: cssName">{{$parent.connector.translate(displayName)()}}<span class="m-l-sm {{sortOrderIcon}}"></span></th>
+                            <!-- /ko -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: signalAlarmListService.items-->
+                        <tr data-bind="css: onlineAlarmStatus">       
+                            <!-- ko foreach: $parent.signalAlarmListService.signalAlarmListHeaders -->
+                            <!-- ko if: propertyName === 'AliasName'-->                   
+                            <td data-bind="style: { background-color: $parent.background, color: $parent.foreground }">{{$parent.aliasName}}</td>
+                            <!-- /ko-->
+                            <!-- ko if: propertyName === 'Description'-->                   
+                            <td data-bind="style: { background-color: $parent.background, color: $parent.foreground }">{{$parent.description}}</td>
+                            <!-- /ko-->
+                            <!-- ko if: propertyName === 'Value'-->       
+                            <td class="property-value" data-bind="style: { background-color: $parent.background, color: $parent.foreground }">
+                                <!-- ko if: $parent.isDateTime -->    
+                                <div class="discrete-value">   
+                                    <wf-value class="pull-right" params="signalName: $parent.aliasName, isDateTime: true, dateTimeFormat: $parents[1].dateTimeFormat"></wf-value>
+                                </div>
+                                <!-- /ko-->
+                                <!-- ko ifnot: $parent.isDateTime -->    
+                                <!-- ko ifnot: $parent.discreteValueTypeID-->
+                                <wf-input class="wf-table-input" params="signalName: $parent.aliasName, unitLabel: false, autoDetectType: true, inputSize: 'sm', format: $parents[1].format, popoverPosition: 'bottom'"></wf-input>
+                                <!--/ko-->
+                                <!-- ko if: $parent.discreteValueTypeID-->
+                                <div class="discrete-value">
+                                    <wf-combobox-discrete-value params="cssClass:'btn-default btn-sm', signalName: $parent.aliasName"></wf-combobox-discrete-value>
+                                    <wf-value class="pull-right" params="signalName: $parent.aliasName, format: $parents[1].format"></wf-value>
+                                </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </td>
+                            <!-- /ko-->
+                            <!-- ko if: propertyName === 'Unit'-->                   
+                            <td data-bind="style: { background-color: $parent.background, color: $parent.foreground }">{{$parent.unit ? $parent.unit: '-'}}</td>
+                            <!-- /ko-->
+                            <!-- ko if: propertyName === 'AlarmStatus'-->        
+                            <td data-bind="style: { background-color: $parent.background, color: $parent.foreground }">
+                                <!--ko if: $parent.offCount -->
+                                <span class="badge badge-success" title="{{$parents[1].connector.translate('Off')}}">{{$parent.offCount}}</span>
+                                <!--/ko-->
+                                <!--ko if: $parent.acknowledgedCount -->
+                                <span class="badge badge-warning" title="{{$parents[1].connector.translate('Acknowledge')}}">{{$parent.acknowledgedCount}}</span>
+                                <!--/ko-->
+                                <!--ko if: $parent.onCount -->
+                                <span class="badge badge-danger" title="{{$parents[1].connector.translate('On')}}">{{$parent.onCount}}</span>
+                                <!--/ko-->
+                                <!--ko if: $parent.inactiveCount -->
+                                <span class="badge badge-default" title="{{$parents[1].connector.translate('Inactive')}}">{{$parent.inactiveCount}}</span>
+                                <!--/ko-->   
+                            </td>     
+                            <!-- /ko-->
+                            <!-- ko if: propertyName === 'AlarmProcessingAndDisplayStatus'--> 
+                            <td class="wf-table-input property-value" data-bind="style: { background-color: $parent.background, color: $parent.foreground }">    
+                                <!--ko if: $parent.notProcessedButVisibleCount() || $parent.processedAndVisibleCount() || $parent.notProcessedAndNotVisibleCount() || $parent.processedButNotVisibleCount() -->
+                                <div class="form-group input-group-sm inline-block">
+                                    <select class="form-control" data-bind="value: $parent.alarmProcessingAndDisplayStatus, event:{ change: function(data, event){ $parent.onChangeProcessingAndDisplayState($parent, event); }}, disable: !$parents[1].connector.currentLoggedInUser(), css:{ disabled: !$parents[1].connector.currentLoggedInUser()}">
+                                        <option value="0">{{$parents[1].connector.translate($parent.getStateText(0))}}</option>
+                                        <option value="1">{{$parents[1].connector.translate($parent.getStateText(1))}}</option>
+                                        <option value="2">{{$parents[1].connector.translate($parent.getStateText(2))}}</option>
+                                        <option value="3">{{$parents[1].connector.translate($parent.getStateText(3))}}</option>
+                                        <!--ko if: $parent.alarmProcessingAndDisplayStatus() === 4 -->
+                                        <option value="4">{{$parents[1].connector.translate($parent.getStateText(4))}}</option>
+                                        <!--/ko-->
+                                    </select>
+                                </div>
+                                <!--/ko-->
+
+                                <div class="inline-block m-l-md">
+                                    <!--ko if: $parent.notProcessedButVisibleCount -->
+                                    <span class="badge badge-default" title="{{$parents[1].connector.translate('I4SCADA_NotProcessedButVisible')}}">{{$parent.notProcessedButVisibleCount}}</span>
+                                    <!--/ko-->
+                                    <!--ko if: $parent.processedAndVisibleCount -->
+                                    <span class="badge badge-success" title="{{$parents[1].connector.translate('I4SCADA_ProcessedAndVisible')}}">{{$parent.processedAndVisibleCount}}</span>
+                                    <!--/ko-->
+                                    <!--ko if: $parent.notProcessedAndNotVisibleCount -->
+                                    <span class="badge badge-danger" title="{{$parents[1].connector.translate('I4SCADA_NotProcessedAndNotVisible')}}">{{$parent.notProcessedAndNotVisibleCount}}</span>
+                                    <!--/ko-->
+                                    <!--ko if: $parent.processedButNotVisibleCount -->
+                                    <span class="badge badge-warning" title="{{$parents[1].connector.translate('I4SCADA_ProcessedButNotVisible')}}">{{$parent.processedButNotVisibleCount}}</span>
+                                    <!--/ko-->
+                                </div>             
+                            </td>
+                            <!-- /ko-->
+                            <!--/ko-->
+                        </tr>                 
+                        <!--/ko-->
+                    </tbody>
+                </table>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<!-- /ko -->

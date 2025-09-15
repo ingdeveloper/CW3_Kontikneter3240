@@ -1,0 +1,70 @@
+<!-- ko if: hasAuthorization && isVisible-->
+<div class="relative">
+
+    <div class="input-group" data-bind="css: inputSize, attr : {title: tooltipText}, style: {width: elemWidth().all, fontSize: fontSize}">
+        <!-- ko if: iconClass || label || signalNameLabel -->
+        <span class="input-group-addon label wf-label-addon">
+            <span class="">
+                <!-- ko if: iconClass -->
+                <i class="label wf-label-icon" data-bind="css: iconClass, attr: { style: iconStyle }"></i>
+                <!-- /ko -->
+                <!-- ko if: label -->
+                <span>{{connector.translate(label)()}}</span>
+                <!-- /ko -->
+                <!-- ko if: signalNameLabel -->
+                <span data-bind="text: signalName, visible: signalNameLabel, style:{fontSize: fontSize}"></span>
+                <!-- /ko -->
+            </span>
+        </span>
+        <!-- /ko -->
+
+        <div class="ccw-wf-input-tastatur nowrap" data-bind="css: displayClassNames">
+            <input onClick="this.select();" class="ccw-form-control ccw-wf-input-tastatur-display" data-bind="click: function(data, event) { openPopup(data, event) }, value: signalValue, css: displayClassNames, attr: { style: textStyle, type: textType, id: inputId, readOnly: isDisabled },
+                            hasfocus: isSelected, valueUpdate: 'keyup',
+                            event: { keyup: keyupEventHandler, contextmenu: function(){aliasInfo()}}, style:{width: elemWidth().val, textAlign:textAlign, fontSize: fontSize }"
+                oncontextmenu="return false" style="border: 0px solid black !important;" />
+
+            <!-- ko if: staticUnitText -->
+            <div class="ccw-wf-input-tastatur-display" data-bind="text: staticUnitText, visible: settings.staticUnitText, style:{fontSize: fontSize }"></div>
+            <!-- /ko -->
+        </div>
+        <!-- ko if: unitLabel -->
+        <!--geändert am 2.02.2018-->
+        <!-- ko ifnot: staticUnitText -->
+        <span>
+            <wf-signal-information params="signalName: signalName, propertyName: 'Unit'"></wf-signal-information>
+        </span>
+        <!-- /ko -->
+        <!-- /ko -->
+
+    </div>
+
+
+
+    <!-- Hier das kleine Popover direkt über dem Eingabefeld -->
+    <div class="input-popover popover top" style="display: none;" data-bind="visible: isEditing">
+        <div class="arrow"></div>
+        <div class="popover-content">
+            <div class="btn-group">
+                <button class="btn btn-success" type="button" data-bind="click: writeInputValue, visible: isEditing">
+                    <i class="wf wf-check"></i>
+                </button>
+                <button class="btn btn-default" type="button" data-bind="click: resetInputValue, visible: isEditing">
+                    <i class="wf wf-arrow-undo"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hier Information, wenn Anzahl-Ziffern nicht stimmt -->
+    <div class="ccw-wf-input-tastatur-popover popover bottom" style="display: none;" data-bind="visible: isAnzahlStellenFehler().anzeigen">
+        <div class="arrow"></div>
+        <div class="ccw-wf-input-tastatur-popover-content">
+            <div class="ccw-wf-input-tastatur-popover-content2 text-center" data-bind="text: isAnzahlStellenFehler().text">
+            
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--/ko-->

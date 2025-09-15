@@ -1,0 +1,207 @@
+
+/*--------------------------------------------------------------------------------------------------
+ *  WEBfactory Primitives Symbols - Icon Font Version 1.1.0 by WEBfactory GmbH - http://webfactory-world.de
+ *  Copyright  WEBfactory GmbH - http://webfactory-world.de
+ *--------------------------------------------------------------------------------------------------*/
+
+@font-face {
+  font-family: 'WFPrimitivesFont';
+  src:  url('fonts/WFPrimitivesFont.eot?3ttveq');
+  src:  url('fonts/WFPrimitivesFont.eot?3ttveq#iefix') format('embedded-opentype'),
+    url('fonts/WFPrimitivesFont.ttf?3ttveq') format('truetype'),
+    url('fonts/WFPrimitivesFont.woff?3ttveq') format('woff'),
+    url('fonts/WFPrimitivesFont.svg?3ttveq#WFPrimitivesFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wf-primitives
+{
+    font-family: 'WFPrimitivesFont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    position: relative;
+}
+
+.wf-primitives:after {
+    position:absolute;
+    left: 0;
+    top: 0;
+}
+
+.wf-primitives:before {
+    color:lightgrey; 
+    z-index:-1;
+}
+
+/*css colision fix for wf-hexagon*/
+.wf-primitives.wf-hexagon{
+    font-size: 56px;
+    background: none;
+    width: initial;
+    margin: 0;
+    height: initial;
+}
+
+/* ICONS
+ * -------------------------- */
+
+
+.wf-primitives.wf-90deg-triangle:before {
+  content: "\e600";
+}
+.wf-primitives.wf-90deg-triangle:after {
+  content: "\e601";
+}
+.wf-primitives.wf-circle:before {
+  content: "\e602";
+}
+.wf-primitives.wf-circle:after {
+  content: "\e603";
+}
+.wf-primitives.wf-hexagon:before {
+  content: "\e604";
+}
+.wf-primitives.wf-hexagon:after {
+  content: "\e605";
+}
+.wf-primitives.wf-parallelogram:before {
+  content: "\e606";
+}
+.wf-primitives.wf-parallelogram:after {
+  content: "\e607";
+}
+.wf-primitives.wf-pentagon:before {
+  content: "\e608";
+}
+.wf-primitives.wf-pentagon:after {
+  content: "\e609";
+}
+.wf-primitives.wf-rectangle:before {
+  content: "\e60a";
+}
+.wf-primitives.wf-rectangle:after {
+  content: "\e60b";
+}
+.wf-primitives.wf-rhombus:before {
+  content: "\e60c";
+}
+.wf-primitives.wf-rhombus:after {
+  content: "\e60d";
+}
+.wf-primitives.wf-square:before {
+  content: "\e60e";
+}
+.wf-primitives.wf-square:after {
+  content: "\e60f";
+}
+.wf-primitives.wf-trapeze:before {
+  content: "\e610";
+}
+.wf-primitives.wf-trapeze:after {
+  content: "\e611";
+}
+.wf-primitives.wf-trapezoid:before {
+  content: "\e612";
+}
+.wf-primitives.wf-trapezoid:after {
+  content: "\e613";
+}
+.wf-primitives.wf-triangle:before {
+  content: "\e614";
+}
+.wf-primitives.wf-triangle:after {
+  content: "\e615";
+}
+.wf-primitives.wf-half-circle:before {
+  content: "\e616";
+}
+.wf-primitives.wf-half-circle:after {
+  content: "\e617";
+}
+.wf-primitives.wf-rounded-square:before {
+  content: "\e618";
+}
+.wf-primitives.wf-rounded-square:after {
+  content: "\e619";
+}
+.wf-primitives.wf-rounded-rectangle:before {
+  content: "\e61a";
+}
+.wf-primitives.wf-rounded-rectangle:after {
+  content: "\e61b";
+}
+.wf-primitives.wf-ellipse:before {
+  content: "\e61c";
+}
+.wf-primitives.wf-ellipse:after {
+  content: "\e61d";
+}
+.wf-primitives.wf-arc:before {
+  content: "\e61e";
+}
+.wf-primitives.wf-arc:after {
+  content: "\e61f";
+}
+.wf-primitives.wf-octogon:before {
+  content: "\e620";
+}
+.wf-primitives.wf-octogon:after {
+  content: "\e621";
+}
+.wf-primitives.wf-rectagle-trapeze:before {
+  content: "\e622";
+}
+.wf-primitives.wf-rectagle-trapeze:after {
+  content: "\e623";
+}
+.wf-primitives.wf-kite:before {
+  content: "\e624";
+}
+.wf-primitives.wf-kite:after {
+  content: "\e625";
+}
+.wf-primitives.wf-diamond:before {
+  content: "\e626";
+}
+.wf-primitives.wf-diamond:after {
+  content: "\e627";
+}
+.wf-primitives.wf-5-corner-star:before {
+  content: "\e628";
+}
+.wf-primitives.wf-5-corner-star:after {
+  content: "\e629";
+}
+.wf-primitives.wf-6-corner-star:before {
+  content: "\e62a";
+}
+.wf-primitives.wf-6-corner-star:after {
+  content: "\e62b";
+}
+.wf-primitives.wf-8-corner-star:before {
+  content: "\e62c";
+}
+.wf-primitives.wf-8-corner-star:after {
+  content: "\e62d";
+}
+.wf-primitives.wf-circle-sector:before {
+  content: "\e62e";
+}
+.wf-primitives.wf-circle-sector:after {
+  content: "\e62f";
+}
+.wf-primitives.wf-pie:after {
+  content: "\e631";
+}
+.wf-primitives.wf-pie:before {
+  content: "\e630";
+}

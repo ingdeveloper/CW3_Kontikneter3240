@@ -1,0 +1,335 @@
+<div class="container-fluid">
+
+    <div class="wf-ribbon wf-ribbon-r-b m-y">
+
+        WEBfactory i4SCADA Icons and Symbols &copy;
+        <button type="button" class="btn btn-sm btn-default" data-toggle="collapse" data-bind="bsPopover: { template: 'icon-settings' , options: {  placement:  'bottom' }, data: { fontSize:  fontSize, cssClassNameVisible: cssClassNameVisible, iconClasses:iconClasses, selectedIconClass: selectedIconClass, selectedAnimationClass: selectedAnimationClass,animationDurations:animationDurations, selectedAnimationDuration:selectedAnimationDuration, animationCounts:animationCounts, selectedAnimationCount:selectedAnimationCount, iconClass: iconClass }}">
+            <span class="fa fa-cog"></span>
+        </button>
+
+    </div>
+
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs " role="tablist">
+        <li role="presentation" class="active">
+            <a href="#wf-icons-list" aria-controls="wf-icons-list" role="tab" data-toggle="tab">WEBfactory Icons</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-lg-icons-list" aria-controls="wf-lg-icons-list" role="tab" data-toggle="tab">WEBfactory Detailed Icons</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-hvac-icons-list" aria-controls="wf-hvac-icons-list" role="tab" data-toggle="tab">WEBfactory HVAC Symbols</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-electric-icons-list" aria-controls="wf-electric-icons-list" role="tab" data-toggle="tab">WEBfactory Electrotechnic Symbols</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-pid-icons-list" aria-controls="wf-pid-icons-list" role="tab" data-toggle="tab">WEBfactory P&ID Symbols</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-valves-icons-list" aria-controls="wf-valves-icons-list" role="tab" data-toggle="tab">WEBfactory Valves Symbols</a>
+        </li>
+        <li role="presentation">
+            <a href="#wf-primitives-icons-list" aria-controls="wf-primitives-icons-list" role="tab" data-toggle="tab">WEBfactory Primitives Symbols</a>
+        </li>
+        <li role="presentation">
+            <a href="#fa-icons-list" aria-controls="fa-icons-list" role="tab" data-toggle="tab">Font Awesome Icons</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <br/>
+
+        <div role="tabpanel" class="tab-pane active" id="wf-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: wfIcons">
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text:  $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-lg-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory Icon Fonts - Detailed version</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: wfIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-lg ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-lg ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="fa-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">Font Awesome Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: faIcons">
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'fa ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'fa ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-hvac-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory HVAC Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: hvacIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-hvac ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-hvac ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-electric-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory Electrotechnic Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: electricIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-electric ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-electric ' +  $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-pid-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory PID Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: pidIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-pid ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-pid ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-valves-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory Valves Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: valvesIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-valves ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-valves ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="wf-primitives-icons-list">
+            <div class="row">
+                <h3 class="col-xs-12">WEBfactory Primitives Icon Fonts</h3>
+            </div>
+            <div class="row wf-icons-list" data-bind="foreach: primitivesIcons">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="wf-icon-item">
+                        <i data-bind="css: 'wf-primitives ' + $data + $parent.iconClass(), style: { fontSize: $parent.fontSize() + 'px' }"></i>
+                        <span class="wf-icon-css-class label" data-bind="text: 'wf-primitives ' + $data, visible: $parent.cssClassNameVisible"></span>
+                        <span class="wf-icon-index" data-bind="text: $index()+1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script id="icon-settings" type="text/html">
+
+    <div style="color: #555; font-size: 14px;">
+        <h5>Icons size</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="number" class="form-control" data-bind="value: fontSize" />
+                <span class="input-group-addon">px</span>
+            </div>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" data-bind="checked: cssClassNameVisible"> View CSS class names
+            </label>
+        </div>
+
+        <h5>State class</h5>
+        <div class="form-group">
+            <select class="form-control" id="icon-class" data-bind="options: iconClasses, value: selectedIconClass"></select>
+        </div>
+
+        <h5>Animation duration</h5>
+        <div class="form-group">
+            <select class="form-control" id="icon-class" data-bind="options: animationDurations, value: selectedAnimationDuration">
+            </select>
+        </div>
+
+        <h5>Animation count</h5>
+        <div class="form-group">
+            <select class="form-control" id="icon-class" data-bind="options: animationCounts, value: selectedAnimationCount">
+            </select>
+        </div>
+
+        <h5>Animation class</h5>
+        <div class="form-group">
+            <select data-bind="value: selectedAnimationClass" class="form-control">
+                <option value="none">none</option>
+                <optgroup label="Attention Seekers">
+                    <option value="bounce">bounce</option>
+                    <option value="flash">flash</option>
+                    <option value="pulse">pulse</option>
+                    <option value="rubberBand">rubberBand</option>
+                    <option value="shake">shake</option>
+                    <option value="swing">swing</option>
+                    <option value="tada">tada</option>
+                    <option value="wobble">wobble</option>
+                    <option value="jello">jello</option>
+                </optgroup>
+
+                <optgroup label="Bouncing Entrances">
+                    <option value="bounceIn">bounceIn</option>
+                    <option value="bounceInDown">bounceInDown</option>
+                    <option value="bounceInLeft">bounceInLeft</option>
+                    <option value="bounceInRight">bounceInRight</option>
+                    <option value="bounceInUp">bounceInUp</option>
+                </optgroup>
+
+                <optgroup label="Bouncing Exits">
+                    <option value="bounceOut">bounceOut</option>
+                    <option value="bounceOutDown">bounceOutDown</option>
+                    <option value="bounceOutLeft">bounceOutLeft</option>
+                    <option value="bounceOutRight">bounceOutRight</option>
+                    <option value="bounceOutUp">bounceOutUp</option>
+                </optgroup>
+
+                <optgroup label="Fading Entrances">
+                    <option value="fadeIn">fadeIn</option>
+                    <option value="fadeInDown">fadeInDown</option>
+                    <option value="fadeInDownBig">fadeInDownBig</option>
+                    <option value="fadeInLeft">fadeInLeft</option>
+                    <option value="fadeInLeftBig">fadeInLeftBig</option>
+                    <option value="fadeInRight">fadeInRight</option>
+                    <option value="fadeInRightBig">fadeInRightBig</option>
+                    <option value="fadeInUp">fadeInUp</option>
+                    <option value="fadeInUpBig">fadeInUpBig</option>
+                </optgroup>
+
+                <optgroup label="Fading Exits">
+                    <option value="fadeOut">fadeOut</option>
+                    <option value="fadeOutDown">fadeOutDown</option>
+                    <option value="fadeOutDownBig">fadeOutDownBig</option>
+                    <option value="fadeOutLeft">fadeOutLeft</option>
+                    <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+                    <option value="fadeOutRight">fadeOutRight</option>
+                    <option value="fadeOutRightBig">fadeOutRightBig</option>
+                    <option value="fadeOutUp">fadeOutUp</option>
+                    <option value="fadeOutUpBig">fadeOutUpBig</option>
+                </optgroup>
+
+                <optgroup label="Flippers">
+                    <option value="flip">flip</option>
+                    <option value="flipInX">flipInX</option>
+                    <option value="flipInY">flipInY</option>
+                    <option value="flipOutX">flipOutX</option>
+                    <option value="flipOutY">flipOutY</option>
+                </optgroup>
+
+                <optgroup label="Lightspeed">
+                    <option value="lightSpeedIn">lightSpeedIn</option>
+                    <option value="lightSpeedOut">lightSpeedOut</option>
+                </optgroup>
+
+                <optgroup label="Rotating Entrances">
+                    <option value="rotateIn">rotateIn</option>
+                    <option value="rotateInDownLeft">rotateInDownLeft</option>
+                    <option value="rotateInDownRight">rotateInDownRight</option>
+                    <option value="rotateInUpLeft">rotateInUpLeft</option>
+                    <option value="rotateInUpRight">rotateInUpRight</option>
+                </optgroup>
+
+                <optgroup label="Rotating Exits">
+                    <option value="rotateOut">rotateOut</option>
+                    <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+                    <option value="rotateOutDownRight">rotateOutDownRight</option>
+                    <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+                    <option value="rotateOutUpRight">rotateOutUpRight</option>
+                </optgroup>
+
+                <optgroup label="Sliding Entrances">
+                    <option value="slideInUp">slideInUp</option>
+                    <option value="slideInDown">slideInDown</option>
+                    <option value="slideInLeft">slideInLeft</option>
+                    <option value="slideInRight">slideInRight</option>
+
+                </optgroup>
+                <optgroup label="Sliding Exits">
+                    <option value="slideOutUp">slideOutUp</option>
+                    <option value="slideOutDown">slideOutDown</option>
+                    <option value="slideOutLeft">slideOutLeft</option>
+                    <option value="slideOutRight">slideOutRight</option>
+
+                </optgroup>
+
+                <optgroup label="Zoom Entrances">
+                    <option value="zoomIn">zoomIn</option>
+                    <option value="zoomInDown">zoomInDown</option>
+                    <option value="zoomInLeft">zoomInLeft</option>
+                    <option value="zoomInRight">zoomInRight</option>
+                    <option value="zoomInUp">zoomInUp</option>
+                </optgroup>
+
+                <optgroup label="Zoom Exits">
+                    <option value="zoomOut">zoomOut</option>
+                    <option value="zoomOutDown">zoomOutDown</option>
+                    <option value="zoomOutLeft">zoomOutLeft</option>
+                    <option value="zoomOutRight">zoomOutRight</option>
+                    <option value="zoomOutUp">zoomOutUp</option>
+                </optgroup>
+
+                <optgroup label="Specials">
+                    <option value="hinge">hinge</option>
+                    <option value="jackInTheBox">jackInTheBox</option>
+                    <option value="rollIn">rollIn</option>
+                    <option value="rollOut">rollOut</option>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <h5>Icon class</h5>
+            <span data-bind="text: iconClass"></span>
+        </div>
+    </div>
+</script>

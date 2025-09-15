@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12"
+             data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component
+                        <span class="label label-warning">wf-local-array-splitter</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfLocalArraySplitter_Component_Header")()}}</h4>
+                            <br/>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <wf-local-script params="inputSignalNames: [
+                                'Local Hour',
+                                'Local Minute',
+                                'Local Second'
+                            ],
+                            outputSignalName: 'local://LocalTimeArray'">
+                                return valuesArray;
+                            </wf-local-script>
+
+                            <wf-local-array-splitter params="inputSignalName: 'local://LocalTimeArray',
+                                inputArrayType:'Native',
+                                arrayValueType:'Integer',
+                                arrayMaxSize: 3,
+                                arrayMinSize: 3,
+                                arrayNameTemplate: 'LocalTime-{Index}',
+                                outputSignalName: 'local://LocalTimeString',
+                                outputArrayType: 'String',
+                                outputArrayLeftDelimiter: '',
+                                outputArrayRightDelimiter: '',
+                                outputArrayElementSeparator: ':',
+                                outputArrayElementQuote:'',
+                                outputWriteBufferingMode: 'None',
+                                writeOnRead: true">
+                            </wf-local-array-splitter>
+
+                            <wf-signal-list params="signals: [
+                                { signalName: 'local://LocalTime-1' },
+                                { signalName: 'local://LocalTime-2' },
+                                { signalName: 'local://LocalTime-3' },
+                                { signalName: 'local://LocalTimeString', isAlphanumeric: true }
+                            ]"></wf-signal-list>
+                        </div>
+                        <div class="col-xs-12 col-md-10">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-local-array-splitter params="inputSignalName: 'local://LocalTimeArray',
+                                inputArrayType:'Native',
+                                arrayValueType:'Integer',
+                                arrayMaxSize: 3,
+                                arrayMinSize: 3,
+                                arrayNameTemplate: 'LocalTime-{Index}',
+                                outputSignalName: 'local://LocalTimeString',
+                                outputArrayType: 'String',
+                                outputArrayLeftDelimiter: '',
+                                outputArrayRightDelimiter: '',
+                                outputArrayElementSeparator: ':',
+                                outputArrayElementQuote:'',
+                                outputWriteBufferingMode: 'None',
+                                writeOnRead: true"&gt;
+&lt;/wf-local-array-splitte&gt;
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar"
+                                          params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                        <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                    <tr>
+                        <td data-bind="text: name"></td>
+                        <td data-bind="text: type"></td>
+                        <td data-bind="text: defaultValue"></td>
+                        <!-- ko if: $parent.selectedLanguageId() === 7-->
+                        <td data-bind="html: description"></td>
+                        <!-- /ko -->
+                        <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                        <td data-bind="html: descriptionEN"></td>
+                        <!-- /ko -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

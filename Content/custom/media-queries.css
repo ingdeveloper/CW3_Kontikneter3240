@@ -1,0 +1,107 @@
+/*---------------------------------------------
+  Layout Media Queries 
+---------------------------------------------*/
+@media (max-width: 480px) {
+    .page-header {
+        margin-top: 80px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .c3 svg {
+        font: 8px sans-serif;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .page-header {
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 80px;
+    }
+
+        .c3 svg {
+        font: 8px sans-serif;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .page-header {
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 80px;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+}
+
+/*---------------------------------------------
+  Navbar Media Queries 
+---------------------------------------------*/
+@media (max-width: 768px) {
+
+    .navbar-nav {
+        float: none;
+    }
+
+    .navbar-nav-main {
+        padding-right: 0;
+    }
+
+
+    .navbar-left + .page-host {
+        margin: 0;
+        padding-left: 15px;
+    }
+
+    .navbar-nav.navbar-nav-main > li > a,
+    .navbar-nav-linkicon:before {
+        line-height: 40px;
+    }
+
+
+    .navbar-left {
+        position: relative;
+        z-index: 1000;
+        left: 0;
+        overflow-y: visible;
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .nav.navbar-nav.navbar-nav-main {
+        margin: 0;
+    }
+
+    .navbar-left > .container .navbar-brand,
+    .navbar-left > .container-fluid .navbar-brand {
+        float: left;
+        width: 200px;
+    }
+
+    .navbar-nav.navbar-nav-main > li > a:after {
+        display: none;
+    }
+
+    .loader {
+        position: absolute;
+        top: 5px;
+        right: 50%;
+        margin-right: -5px;
+        border-width: 0.2em;
+    }
+}

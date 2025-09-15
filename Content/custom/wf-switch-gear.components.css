@@ -1,0 +1,251 @@
+﻿ /*---------------------------------------------------------------------- 
+    wf-switch-gear
+----------------------------------------------------------------------*/
+.wf-switch-gear{
+    position: relative;
+}
+.wf-switch-gear svg {
+    overflow: visible !important;
+}
+
+.wf-switch-gear svg .wf-switch-gear-box-group{
+    transition: transform .5s ease;
+}
+
+.wf-switch-gear .wf-switch-gear-base,
+.wf-switch-gear .wf-switch-gear-feed,
+.wf-switch-gear .wf-switch-gear-measuments,
+.wf-switch-gear .wf-switch-gear-box,
+.wf-switch-gear .wf-switch-gear-box-fuse,
+
+.wf-switch-gear .wf-switch-gear-breaker-group,
+.wf-switch-gear .wf-switch-gear-breaker-closed,
+.wf-switch-gear .wf-switch-gear-breaker-opened,
+
+.wf-switch-gear .wf-switch-gear-switch-disconector-group,
+.wf-switch-gear .wf-switch-gear-switch-disconector-group .wf-switch-gear-switch-disconector-closed,
+.wf-switch-gear .wf-switch-gear-switch-disconector-group .wf-switch-gear-switch-disconector-opened,
+
+.wf-switch-gear .wf-switch-gear-disconector-group,
+.wf-switch-gear .wf-switch-gear-disconector-group .wf-switch-gear-disconector-closed,
+.wf-switch-gear .wf-switch-gear-disconector-group .wf-switch-gear-disconector-opened,
+
+.wf-switch-gear .wf-switch-gear-switch-group,
+.wf-switch-gear .wf-switch-gear-switch-group .wf-switch-gear-switch-closed, 
+.wf-switch-gear .wf-switch-gear-switch-group .wf-switch-gear-switch-opened,
+
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-switch-gear-fuse-disconector-closed,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-switch-gear-fuse-disconector-opened,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-fuse-closed-intact,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-fuse-closed-blown,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-fuse-opened-intact,
+.wf-switch-gear .wf-switch-gear-fuse-disconector-group .wf-fuse-opened-blown,
+
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group,
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-switch-gear-fuse-switch-disconector-1-closed, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-switch-gear-fuse-switch-disconector-1-opened, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-fuse-closed-intact, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-fuse-closed-blown, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-fuse-opened-intact, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-1-group .wf-fuse-opened-blown, 
+
+
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-2-group,
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-2-group .wf-switch-gear-fuse-switch-disconector-2-closed, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-2-group .wf-switch-gear-fuse-switch-disconector-2-opened, 
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-2-group .wf-fuse-blown,
+.wf-switch-gear .wf-switch-gear-fuse-switch-disconector-2-group .wf-fuse-intact
+{   
+    visibility: hidden;
+    display: none;
+}
+
+
+/* Position - in or out */
+.wf-switch-gear-box-group {}
+
+.in .wf-switch-gear-measuments,
+.in .wf-switch-gear-box-group{
+    transform: translateX(0%);
+}
+.out .wf-switch-gear-measuments,
+.out .wf-switch-gear-box-group{
+    transform: translateX(100%);
+}
+
+.wf-switch-gear-feed{
+    stroke: #000;
+}
+.wf-switch-gear-base {
+    stroke: #000;
+}
+.wf-switch-gear-measuments{
+    stroke: #000;
+}
+
+.wf-fuse-intact,
+.wf-fuse-closed-intact,
+.wf-fuse-opened-intact{
+    stroke: #000;
+    fill: #eee;
+}
+
+.wf-fuse-blown,
+.wf-fuse-closed-blown,
+.wf-fuse-opened-blown{
+    stroke: #000;
+    fill:#eee;
+}
+
+.wf-switch-gear .switch-gear-base .wf-switch-gear-base{
+    visibility: visible;
+    display: block;
+}
+.wf-switch-gear .switch-gear-feed .wf-switch-gear-feed{
+    visibility: visible;
+    display: block;
+}
+.wf-switch-gear .switch-gear-measuments .wf-switch-gear-measuments{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-box .wf-switch-gear-box,
+.wf-switch-gear .switch-gear-box-fuse .wf-switch-gear-box-fuse{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-switch .wf-switch-gear-switch-group,
+.wf-switch-gear .switch-gear-switch .closed .wf-switch-gear-switch-closed,
+.wf-switch-gear .switch-gear-switch .opened .wf-switch-gear-switch-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-breaker .wf-switch-gear-breaker-group,
+.wf-switch-gear .switch-gear-breaker .closed .wf-switch-gear-breaker-closed,
+.wf-switch-gear .switch-gear-breaker .opened .wf-switch-gear-breaker-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-switch-disconector .wf-switch-gear-switch-disconector-group,
+.wf-switch-gear .switch-gear-switch-disconector .closed .wf-switch-gear-switch-disconector-closed,
+.wf-switch-gear .switch-gear-switch-disconector .opened .wf-switch-gear-switch-disconector-opened{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-disconector .wf-switch-gear-disconector-group,
+.wf-switch-gear .switch-gear-disconector .closed .wf-switch-gear-disconector-closed,
+.wf-switch-gear .switch-gear-disconector .opened .wf-switch-gear-disconector-opened{
+    visibility: visible;
+    display: block;
+}
+
+
+.wf-switch-gear .switch-gear-fuse-disconector .wf-switch-gear-fuse-disconector-group,
+.wf-switch-gear .switch-gear-fuse-disconector .closed .wf-switch-gear-fuse-disconector-closed,
+.wf-switch-gear .switch-gear-fuse-disconector .closed.fuse-intact .wf-fuse-closed-intact,
+.wf-switch-gear .switch-gear-fuse-disconector .closed.fuse-blown .wf-fuse-closed-blown,
+.wf-switch-gear .switch-gear-fuse-disconector .opened .wf-switch-gear-fuse-disconector-opened,
+.wf-switch-gear .switch-gear-fuse-disconector .opened.fuse-intact .wf-fuse-opened-intact,
+.wf-switch-gear .switch-gear-fuse-disconector .opened.fuse-blown .wf-fuse-opened-blown
+{
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .wf-switch-gear-fuse-switch-disconector-1-group,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .closed .wf-switch-gear-fuse-switch-disconector-1-group .wf-switch-gear-fuse-switch-disconector-1-closed,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .closed.fuse-intact .wf-fuse-closed-intact,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .closed.fuse-blown .wf-fuse-closed-blown,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .opened .wf-switch-gear-fuse-switch-disconector-1-group .wf-switch-gear-fuse-switch-disconector-1-opened,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .opened.fuse-intact .wf-fuse-opened-intact,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-1 .opened.fuse-blown .wf-fuse-opened-blown {
+    visibility: visible;
+    display: block;
+}
+
+
+.wf-switch-gear .switch-gear-fuse-switch-disconector-2 .wf-switch-gear-fuse-switch-disconector-2-group,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-2 .closed .wf-switch-gear-fuse-switch-disconector-2-group .wf-switch-gear-fuse-switch-disconector-2-closed,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-2 .opened .wf-switch-gear-fuse-switch-disconector-2-group .wf-switch-gear-fuse-switch-disconector-2-opened,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-2 .fuse-intact .wf-fuse-intact,
+.wf-switch-gear .switch-gear-fuse-switch-disconector-2 .fuse-blown .wf-fuse-blown {
+    visibility: visible;
+    display: block;
+}
+
+.wf-switch-gear-box{
+    stroke: #000;
+    fill: #eeeeee;
+}
+.wf-switch-gear-box-fuse{
+    stroke: #000;
+    fill: #eeeeee;
+}
+
+
+.wf-switch-gear-switch-group{
+}
+.wf-switch-gear-switch-closed {
+    stroke:#000;
+}
+.wf-switch-gear-switch-opened {
+    stroke:#000;
+}
+
+
+.wf-switch-gear-breaker-group {}
+.wf-switch-gear-breaker-closed{
+    stroke:#000;;   
+}
+.wf-switch-gear-breaker-opened{
+    stroke:#000;
+}
+
+
+.wf-switch-gear-switch-disconector-group {}
+.wf-switch-gear-switch-disconector-closed {
+    stroke:#000;
+}
+.wf-switch-gear-switch-disconector-opened {
+    stroke:#000;
+}
+
+
+.wf-switch-gear-disconector-group {}
+.wf-switch-gear-disconector-closed{
+    stroke:#000;
+}
+.wf-switch-gear-disconector-opened{
+    stroke:#000;
+}
+
+
+.wf-switch-gear-fuse-disconector-group{}
+.wf-switch-gear-fuse-disconector-opened{
+    stroke:#000;
+}
+.wf-switch-gear-fuse-disconector-closed{
+    stroke:#000;
+}
+
+.wf-switch-gear-fuse-switch-disconector-1-group {}
+.wf-switch-gear-fuse-switch-disconector-1-closed{
+    stroke:#000;
+}
+.wf-switch-gear-fuse-switch-disconector-1-opened{
+    stroke:#000;
+}
+
+.wf-switch-gear-fuse-switch-disconector-2-group {}
+.wf-switch-gear-fuse-switch-disconector-2-closed{
+    stroke:#000;
+}
+.wf-switch-gear-fuse-switch-disconector-2-opened{
+    stroke:#000;
+}

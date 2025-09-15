@@ -1,0 +1,124 @@
+/*-----------------------
+    Styles der shell.html  AM
+-----------------------*/
+
+body {
+    padding-bottom: 50px;
+}
+
+#class_header_anmeldung {
+    height: 78px;
+    font-size: small;
+}
+
+#class_header_alarm {
+    height: 78px;
+    font-size: small;
+    /* position: relative;  */
+}
+
+#class_header_alarm .ueberschriftRahmen {
+    color: red;
+    -webkit-box-shadow: inset -1px -1px 17px 2px rgba(255, 0, 0, 0.38);
+    -moz-box-shadow: inset -1px -1px 17px 2px rgba(255, 0, 0, 0.38);
+    box-shadow: inset -1px -1px 17px 2px rgba(255, 0, 0, 0.38);
+    margin: 3px;
+    /* position: relative; */
+    /* box-sizing: border-box; */
+    /* width: 100%; */
+    /* clear: both; */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+#class_header_alarm .serverZeit {
+    color: rgb(0, 47, 255) !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    text-shadow: 1px 1px 1px #6e6d6d;
+}
+
+#class_header_alarm .anlagenname {
+    color: rgb(248, 22, 15) !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    text-shadow: 1px 1px 1px #6e6d6d;
+}
+
+#class_header_alarm .header-serverzeit-rahmen {
+    /* border: 1px solid rgb(212, 212, 212); */
+    border-left: 1px solid rgb(212, 212, 212);
+    border-right: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    background-color:white;
+    
+
+}
+#class_header_alarm .btnAlarmViewerAusklappen {
+    position: absolute; 
+    top: 0px; 
+    right: 30px;
+}
+.ueberschriftRahmen:hover {
+    /* color: green !important; */
+    /* -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    transform: scale(1.4); */
+
+    font-size: 18px !important; 
+}
+
+#class_header_watchdog {
+    height: 78px;
+    font-size: small;
+}
+.header-shadow{
+-webkit-box-shadow: 0px 9px 18px -11px rgba(0,0,0,0.56);
+-moz-box-shadow: 0px 9px 18px -11px rgba(0,0,0,0.56);
+box-shadow: 0px 9px 18px -11px rgba(0,0,0,0.56);
+}
+/* Positions-Anzeige des Cursors */
+
+.positionTooltip {
+    text-decoration: none;
+    position: absolute;
+    border: 1px solid #dcd5d5;
+    background-color: #f3eee5;
+    border-radius: 2px;
+}
+
+.positionTooltip span {
+    display: normal;
+}
+
+/* wenn sich die Bildschirmauflösung ändert */
+
+@media (max-width: 1023px) {
+    /* Breite beträgt höchstens */
+    #class_header_anmeldung {
+        height: 66px;
+        font-size: x-small;
+    }
+    #class_header_alarm {
+        height: 66px;
+        font-size: x-small;
+        padding: 0px;
+    }
+    #class_header_watchdog {
+        height: 66px;
+        font-size: x-small;
+    }
+    #class_header_alarm .btnAlarmViewerAusklappen {
+        top: -2px; 
+    }
+}

@@ -1,0 +1,19 @@
+<!-- ko if: typeof($$SCOPE$$) !== "undefined" && $$SCOPE$$ === "I4SCADA" -->
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<span data-bind="attr : {title: tooltipText}, css: cssClass">
+    <span data-bind="text: signalValue"></span>
+    <!-- ko if: unitLabel -->
+    <!-- ko if: staticUnitText -->
+    <span data-bind="text: staticUnitText"></span>
+    <!-- /ko -->
+    <!-- ko ifnot: staticUnitText -->
+    <span>
+        <wf-signal-information params="signalName: signalName, propertyName: 'Unit'"></wf-signal-information>
+    </span>
+    <!-- /ko -->
+    <!-- /ko -->
+</span>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->

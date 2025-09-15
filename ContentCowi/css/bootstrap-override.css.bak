@@ -1,0 +1,132 @@
+﻿/*Überschreibe "main" in der Datei app.css */
+
+.main {
+    padding-bottom: 0px;
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.panel-heading.ccw-panel-header {
+    padding: 5px 15px !important;
+    /* background-color: rgba(100, 148, 237, 0.945) !important;   */
+    /* background-image: linear-gradient(to bottom,#5472f5 0,#bbb3b385 100%) !important;   */
+    background: -moz-linear-gradient(top, rgba(112, 176, 224, 1) 0%, rgba(136, 191, 232, 0.7) 94%) !important;
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(112, 176, 224, 1) 0%, rgba(136, 191, 232, 0.7) 94%) !important;
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(112, 176, 224, 1) 0%, rgba(136, 191, 232, 0.7) 94%) !important;
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70b0e0', endColorstr='#b388bfe8', GradientType=0) !important;
+    /* IE6-9 */
+}
+
+tbody>tr>td {
+    padding: 2px !important;
+}
+
+.navbar {
+    height: 50px;
+}
+
+.navbar-brand {
+    height: 50px;
+}
+
+.navbar-nav-linkicon:before {
+    line-height: 50px;
+}
+
+.navbar-nav.navbar-nav-main>li>a {
+    line-height: 50px;
+}
+
+.navbar .navbar-collapse,
+.navbar-left .navbar-collapse {
+    margin: 0px;
+}
+
+.navbar>.container .cw-navbar-brand,
+.navbar>.container-fluid .cw-navbar-brand {
+    margin: 0px;
+}
+
+#toast-container>div {
+    /* toastr hier überschreiben, das ist die Breite der Info-Anzeige */
+    padding: 5px 5px 5px 50px;
+    width: 80% !important;
+    margin-top: 5px !important;
+}
+
+@media (max-width: 992px) {
+    .navbar-nav-linkicon:before {
+        line-height: 28px;
+    }
+    .nav>li>a {
+        padding-top: 3px;
+        padding-right: 5px;
+        padding-bottom: 2px;
+        padding-left: 25px;
+    }
+    .navbar {
+        min-height: 50px;
+    }
+    .btn.btn-link {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}

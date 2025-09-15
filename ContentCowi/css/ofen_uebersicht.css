@@ -1,0 +1,302 @@
+﻿.ccw-input {
+    border: none;
+    vertical-align: middle;
+}
+.ccw-ofen-table-body {
+	text-align: left;
+	vertical-align: middle;
+	padding: 2px;
+}
+.ccw-ofen-table-head {
+    font-size: 16px;
+    color: rgb(129, 129, 129);
+}
+.ccw-ofen-border-none {
+    border-bottom: 0;
+    border-top: 0;
+}
+.ccw-ofen-table-head-second-row {
+    color: rgb(129, 129, 129);
+    font-size: 10px;
+    padding: 2px !important;
+}
+
+.ccw-ofen-modal-table-spalte1 {
+    width: 20%;
+}
+.ccw-ofen-modal-table-spalte2 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte3 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte4 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte5 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte6 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte7 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte8 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte9 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte10 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte11 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte12 {
+    width: 6%;
+}
+.ccw-ofen-modal-table-spalte13 {
+    width: 6%;
+}
+
+.ccw-ofen-table-spalte1 {
+    width: 16%;
+}
+.ccw-ofen-table-spalte2 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte3 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte4 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte5 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte6 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte7 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte8 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte9 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte10 {
+    width: 4%;
+}
+.ccw-ofen-table-spalte11 {
+    width: 4%;
+}
+.ccw-ofen-status-header {
+    border-bottom: 2px solid darkgray;
+    color: darkgray;
+    font-Size: 16px;
+    width: 100%;
+    padding-left: 10px;
+    margin-top:30px;
+}
+.ccw-ofen-status-body {
+    font-Size: 12px;
+    padding: 5px;
+    vertical-align: center;
+}
+.ccw-ofen-status-zeile1 {
+    border-left: 6px solid green;
+}
+.ccw-ofen-status-zeile1-bc {
+    background-color: rgba(0, 128, 0, 0.4);
+}
+
+.ccw-ofen-status-zeile2 {
+    border-left: 6px solid orange;
+}
+.ccw-ofen-status-zeile2-bc {
+    background-color: rgba(255, 166, 0, 0.4);
+}
+.ccw-ofen-status-zeile3 {
+    border-left: 6px solid rgb(0, 60, 255);
+}
+.ccw-ofen-status-zeile3-bc {
+    background-color: rgb(0, 60, 255, 0.4);
+}
+.ccw-ofen-status-spalte1 {
+    width: 30%;
+}
+
+.ccw-ofen-status-spalte2 {
+    width: 25%;
+}
+
+.ccw-ofen-status-spalte3 {
+    width: 25%;
+}
+
+.ccw-ofen-status-spalte4 {
+    width: 20%;
+}
+
+.ccw-ofen-Vorhang {
+    background-color: lightgray;
+    font-size: 10px;
+    width:100%;
+    text-align: center;
+}
+.ccw-ofen-success {
+    background-color: limegreen;
+    color: black;
+}
+
+.ccw-ofen-danger {
+    background-color: red;
+    color: black;
+}
+.ccw-ofen-warning {
+    background-color: orange;
+    color: black;
+}
+.ccw-ofen-default {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+.ccw-ofen-primary {
+    background-color: blue;
+    color: white;
+}
+
+.ccw-sensor-circle-collapse {
+    visibility: collapse;
+    height: 25px;
+    padding: 0 5px;
+    line-height: 23px;
+    min-width: 50px;
+    border: 1px solid #e4e4e4;
+    background-color: rgba(255, 255, 255, .23);
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.ccw-zone1{
+    color: rgb(74, 255, 74)
+}
+.ccw-bandvorheizung{
+    color: rgb(61, 121, 250)
+}
+.ccw-zone2{
+    color: rgb(250, 58, 58)
+}
+.ccw-zone3{
+    color: rgb(250, 184, 62)
+}
+.ccw-zone4{
+    color: rgb(66, 196, 248)
+}
+.ccw-ofen-table-data {
+	text-align: left;
+	vertical-align: middle;
+	/* padding: 2px; */
+}
+.ccw-sensor-value-right-collapse {
+    visibility: collapse;
+}
+.ccw-sensor-value-left-collapse .wf-sensor-value-left{
+    visibility: collapse;
+}
+
+.ccw-ofen-sensor-label .wf-sensor-label{
+    width: 18px;
+    height: 18px;
+    line-height: 17px;
+    font-Size: 8px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.ccw-ofen-sensor-value .wf-sensor-value{
+    position: absolute;
+    height:20px;
+    /* top: 40%; */
+    line-height: 20px;
+    font-Size: 10px;
+    text-align: center;
+}
+.ccw-sensor-label-border-red .wf-sensor-value{
+    	border-color: red;
+}
+.ccw-sensor-label-border-blue .wf-sensor-value{
+    border-color: blue;
+}
+
+.ccw-input-label{
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: darkgray;
+    background-color: #eeeeee;
+    font-size: 10px;
+    text-align: right;
+    padding-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    min-width:40px;
+}
+.ccw-caption-small {
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+.ccw-table-border{
+    background-color: #eeeeee;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: darkgray;
+    padding: 3px;
+}
+.ccw-state-text{
+    font-size:10px; 
+}
+.ccw-float-right{
+    float:right; 
+    margin-right:5px;
+}
+.ccw-state-background-green{
+    background-color: #00ff00;
+}
+.draw {
+    stroke-dasharray: 30;
+    animation: dashdraw 3s linear infinite;
+}
+.ccw-cursor-hand{
+    cursor: pointer;
+}
+@keyframes dashdraw {
+    to {
+        stroke-dashoffset: 100
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

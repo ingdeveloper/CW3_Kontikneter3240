@@ -1,0 +1,87 @@
+<!--
+ *********************************************
+ * View für das modale Fenster Rezept Setup  *
+ *********************************************
+-->
+<style>
+  #table-container {
+    padding: 0 0.5em 0.5em;
+  }
+
+  .panel-body {
+    padding: 0px;
+  }
+
+  #table-container h2 {
+    font-style: italic;
+  }
+
+  table.blueTable {
+    border: 1px solid #1c6ea4;
+    background-color: #eeeeee;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  table.blueTable td,
+  table.blueTable th {
+    border: 1px solid #aaaaaa;
+    padding: 3px 2px;
+    text-align: center;
+  }
+
+  table.blueTable tbody td {
+    font-size: 13px;
+  }
+
+  table.blueTable thead {
+    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
+    border-bottom: 1px solid #444444;
+  }
+
+  table.blueTable thead th {
+    font-size: 15px;
+    font-weight: normal;
+    color: #ffffff;
+    border-left: 2px solid #d0e4f5;
+  }
+
+  table.blueTable thead th:first-child {
+    border-left: none;
+  }
+
+  .modal-header {
+    background-color: dodgerblue;
+  }
+
+  .modal-title {
+    color: white;
+  }
+</style>
+
+<div class="modal">
+  <div class="modal-dialog modal-top" style="width: 70vmax;">
+    <div class="modal-content" data-bind="ccwDraggable:{}, dragId: 'dlg_cnfg', BGclose: false, ESCclose: true">
+      <!-- header -->
+      <div class="modal-header" id="dlg_cnfg">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: close">
+          &times;
+        </button>
+        <h4 class="modal-title">
+          <i class="wf wf-cogs-o"></i>
+          <span> Einstellungen</span>
+        </h4>
+      </div>
+      <!-- body -->
+      <div class="panel-body">
+        <div id="table-container" style="overflow:auto; max-width: 100%; box-sizing: content-box; max-height: 40vmax;">
+        </div>
+      </div>
+      <!-- footer -->
+      <!-- <div class="panel-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: close">Ok</button>
+      </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<!-- ko if: isVisible()-->
+<div class="inline-block" data-bind="disable: isDisabled, foreach: buttons">
+   <!-- ko ifnot: name === 'devider'-->
+   <!-- ko component: {name: name, params: $data} -->
+   <!-- /ko -->
+   <!-- /ko -->
+   <!-- ko if: name === 'devider'-->
+   <div class="inline-block m-x-sm"></div>
+   <!-- /ko -->
+</div>
+<!-- /ko -->

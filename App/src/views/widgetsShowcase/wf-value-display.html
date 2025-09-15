@@ -1,0 +1,120 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" data-bind="demoWidgetsList:{ selectedWidgetName: widgetName, selectedCategory: widgetCategory}"></div>
+        <div class="col-xs-12">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#componentTab" aria-controls="componentTab" role="tab" data-toggle="tab">Component <span class="label label-warning">wf-value-display</span></a></li>
+            </ul>
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane active" id="componentTab">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{connector.translate("I4SCADA_scwfValueDisplay_Component_Header")()}}</h4>
+                            <br />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <wf-value-display params="signalName: 'Local Minute'"></wf-value-display>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div>
+                                <pre class="prettyprint">
+&lt;wf-value-display params=&quot;signalName: &#39;Local Minute&#39;&quot;&gt;&lt;/wf-value-display&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="wf-panel panel panel-default">
+                <div class="panel-heading">
+                    <wf-language-selector class="pull-right wf-panel-toolbar" params="dropdownAlignment: 'right'"></wf-language-selector>
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Table_Headline")()}}</h3>
+                </div>
+                <!--<div class="panel-body"></div>-->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{connector.translate("I4SCADA_Properties")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Type")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Default_Value")()}}</th>
+                            <th>{{connector.translate("I4SCADA_Description")()}}</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: widgetProperties">
+                        <tr>
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: type"></td>
+                            <td data-bind="text: defaultValue"></td>
+                            <!-- ko if: $parent.selectedLanguageId() === 7-->
+                            <td data-bind="text: description"></td>
+                            <!-- /ko -->
+                            <!-- ko if: ($parent.selectedLanguageId() !== 9 && $parent.selectedLanguageId() !== 7) || $parent.selectedLanguageId() === 9  -->
+                            <td data-bind="text: descriptionEN"></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1' "></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', unitLabel: true "></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true "></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', signalNameLabel: true, unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', iconClass: 'fa fa-lightbulb-o', unitLabel: true"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', iconClass: 'fa fa-lightbulb-o', signalNameLabel: true, unitLabel: true"></wf-value-display>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_StaticUnitText")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, staticUnitText:'°C', signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'sm'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, staticUnitText:'l', signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'sm'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, staticUnitText:'bar', signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'sm'"></wf-value-display>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_DisplayClass")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-default'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-primary'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-success'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-warning'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-danger'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displayClass: 'label-info' "></wf-value-display>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{connector.translate("I4SCADA_Examples_DisplaySize")()}}</h3>
+                </div>
+                <div class="panel-body">
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'sm'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'md'"></wf-value-display>
+                    <wf-value-display class="signalDisplay" params="signalName: 'Setpoint 1', label: 'Label', unitLabel: true, signalNameLabel: true, iconClass: 'fa fa-lightbulb-o', displaySize: 'lg' "></wf-value-display>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

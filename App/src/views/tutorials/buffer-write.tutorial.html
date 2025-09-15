@@ -1,0 +1,73 @@
+<div class="container">
+    <header>
+        <h1 class="page-header">{{connector.translate("I4SCADA_tutorialBufferWrite_Page_Header")()}}</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="alert alert-warning">{{connector.translate("I4SCADA_tutorialBufferWrite_Buffer_Description")()}}</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{connector.translate("I4SCADA_tutorialBufferWrite_Buffer_Panel_Title")()}}</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 1</span> <span class="label label-important">writeToBuffer: true</span></p>
+                            <wf-input params=" signalName: 'Setpoint 1', unitLabel: true, staticUnitText: 'kg', writeSecure: false, label: 'I4SCADA_tutorialBufferWrite_Signal_Label1', writeToBuffer: true"></wf-input>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 2</span> <span class="label label-important">writeToBuffer: true</span></p>
+                            <wf-input params=" signalName: 'Setpoint 2', unitLabel: true, staticUnitText: 'kg', writeSecure: false, label: 'I4SCADA_tutorialBufferWrite_Signal_Label2', writeToBuffer: true"></wf-input>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 3</span> <span class="label label-important">writeToBuffer: true</span></p>
+                            <wf-input params=" signalName: 'Setpoint 3', unitLabel: true, staticUnitText: 'kg', writeSecure: false, label: 'I4SCADA_tutorialBufferWrite_Signal_Label3', writeToBuffer: true"></wf-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <wf-buffer-button params="buttonText: 'I4SCADA_tutorialBufferWrite_Write_Buffer', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                    <wf-buffer-button params="buttonText: 'I4SCADA_tutorialBufferWrite_Reset_Buffer', iconClass: 'wf wf-arrow-undo', cssClass: 'btn-default', clearBuffer: true"></wf-buffer-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{connector.translate("I4SCADA_tutorialBufferWrite_Write_Description")()}}</p>
+                    <br />
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{connector.translate("I4SCADA_tutorialBufferWrite_Written_Panel_Title")()}}</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 1</span></p>
+                            <wf-value-display params="signalName: 'Setpoint 1', label: 'I4SCADA_tutorialBufferWrite_Signal_Label1', unitLabel: true, staticUnitText: 'kg', signalChangedClass: 'label-warning', changedCssDuration: 600"></wf-value-display>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 2</span></p>
+                            <wf-value-display params="signalName: 'Setpoint 2', label: 'I4SCADA_tutorialBufferWrite_Signal_Label2', unitLabel: true, staticUnitText: 'kg', signalChangedClass: 'label-warning', changedCssDuration: 600"></wf-value-display>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <p><span class="label label-info">Setpoint 3</span></p>
+                            <wf-value-display params="signalName: 'Setpoint 3', label: 'I4SCADA_tutorialBufferWrite_Signal_Label3', unitLabel: true, staticUnitText: 'kg', signalChangedClass: 'label-warning', changedCssDuration: 600"></wf-value-display>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

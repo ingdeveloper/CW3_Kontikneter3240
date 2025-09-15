@@ -1,0 +1,34 @@
+﻿<div class="container-fluid">
+
+    <header>
+        <h1 class="page-header">i4SCADA App - HTML5 Components for Historical Data</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <wf-chart-1 params="lines: [{signalName: 'MachineOP', logTagName: 'LogTagMachOP', color: '#880000', axis: 'y1'}],  chartType: 'line', title: 'Temperatur', maxResults: 500, pointsVisible: true, pointsRadius: 3.0, settingsVisibility: true, showLegend: true, statisticsVisibility: true, autoUpdate: true"></wf-chart-1>
+        </div>
+
+        <div class="col-lg-6">
+            <wf-chart-1 params="lines: [{signalName: 'Vibration 1', logTagName: 'LogTag', color: '#2175d1', axis: 'y1'},{signalName: 'MachineOP', logTagName: 'LogTagMachOP', color: '#880000', axis: 'y1'}], maxResults: 200, chartType: 'step', x1AxisLabel: 'X-Achsentitel',  y1AxisLabel: 'Y-Achsentitel', legendVisible: true, subChartVisible: false,  chartHeight: 250,  headerVisibility: false, footerVisibility: false, autoUpdate: true "></wf-chart-1>
+        </div>
+
+        <div class="col-xs-12">
+            <h5 class="text-info">
+                <i class="wf wf-info"></i>
+                <span calss="muted">Chart mit optionalem Zoom, steuerbar über Maus Scrollrad.</span>
+            </h5>
+            <wf-chart-1 params="lines: [{signalName: 'Vibration 1', logTagName: 'LogTag', color: '#2175d1', axis: 'y1'}], maxResults: 100, zoomEnabled: true, zoomRescale: true, chartType: 'area', x1GridVisible: true, y1GridVisible: true, x1AxisLabel: 'X-Achsentitel',  y1AxisLabel: 'Y-Achsentitel', subChartVisible: false,  chartHeight: 250,  headerVisibility: false, footerVisibility: true "></wf-chart-1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 ">
+            <wf-log-table params="logTags:[{signalName: 'Vibration 1', logTagName: 'LogTag'}], title: 'Füllstand', maxResults: 10, startOffset: 'minutes', startOffsetIntervall: 5, getLatestLogdata: true, settingsVisibility: false "></wf-log-table>
+        </div>
+        <div class="col-sm-6 col-xs-12 ">
+            <wf-log-table params=" logTags:[{signalName: 'Temperature 1', logTagName: 'LogTagTemp1'}], title: 'Temperatur', maxResults: 10, settingsVisibility: true  "></wf-log-table>
+        </div>
+    </div>
+
+</div>

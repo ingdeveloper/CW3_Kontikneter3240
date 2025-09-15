@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 65">
+<defs>
+    <linearGradient id="bg_grey1" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#ffffff" offset="0%"/>
+      <stop stop-color="#828282" offset="100%"/>
+    </linearGradient>
+
+    <linearGradient id="bg_grey2" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#1B1B1B" offset="0%"/>
+      <stop stop-color="#343434" offset="50%"/>
+      <stop stop-color="#1F1F1F" offset="100%"/>
+    </linearGradient>
+
+     <linearGradient id="bg_grey3" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#545454" offset="0%"/>
+      <stop stop-color="#565656" offset="50%"/>
+      <stop stop-color="#393939" offset="50%"/>
+      <stop stop-color="#323232" offset="100%"/>
+    </linearGradient>
+
+    <linearGradient id="bg_grey4" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop stop-color="#EDEEEC" offset="0%"/>
+      <stop stop-color="#D6D6D5" offset="50%"/>
+      <stop stop-color="#BFC1C2" offset="50%"/>
+      <stop stop-color="#BFC1C2" offset="100%"/>
+    </linearGradient>
+</defs>
+
+
+<g transform="translate(3,0)">
+  <path style="stroke: #B3B3B3; stroke-width: 2px" fill="url(#bg_grey4)" 
+  d="M1,6C1,3.23858 3.23858,1 6,1L234,1C236.761,1 239,3.23858 239,6L241.5,24.6667L239,45C239,47.7614 236.761,50 234,50L6,50C3.23858,50 1,47.7614 1,45L-1.5,24.8333z"/>
+</g>
+</svg>

@@ -1,0 +1,50 @@
+
+/*-----------------------
+    Slash Screen Styles
+-----------------------*/
+
+.splash {
+    margin: 5% 0 0 0;
+    text-align: center;
+}
+
+.wf-spalsh-logo {
+    background: url("../images/splash_product_logo.svg") no-repeat center center;
+    background-size: contain;
+    width: 300px;
+    height: 170px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: relative;
+    width: 80px;
+    height: 110px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+    .logo.logo-html5 {
+        background: url("../svg/svg_icon_html5.svg") no-repeat center center;
+    }
+
+    .logo.logo-css3 {
+        background: url("../svg/svg_icon_css3.svg") no-repeat center center;
+    }
+
+    .logo.logo-js {
+        background: url("../svg/svg_icon_js.svg") no-repeat center center;
+    }
+
+.logo-webfactory {
+    background: url("../svg/svg_wf_i4_ribbon_logo.svg") no-repeat center center;
+    background-size: contain;
+    width: 225px;
+    height: 170px;
+    margin: 0 auto;
+}
+
+.spinner {
+    margin: 1em auto;
+    position: relative;
+}

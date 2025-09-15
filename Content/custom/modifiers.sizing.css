@@ -1,0 +1,133 @@
+
+/*---------------------------------------------
+  Sizing modifiers 
+---------------------------------------------*/
+
+.wf-1x {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+}
+
+.wf-2x {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.wf-3x {
+    font-size: 42px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.wf-4x {
+    font-size: 56px;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+}
+
+.wf-5x {
+    font-size: 70px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+}
+
+.wf-6x {
+    font-size: 84px;
+    width: 84px;
+    height: 84px;
+    line-height: 84px;
+}
+
+.wf-7x {
+    font-size: 98px;
+    width: 98px;
+    height: 98px;
+    line-height: 98px;
+}
+.wf-8x {
+    font-size: 112px;
+    width: 112px;
+    height: 112px;
+    line-height: 112px;
+}
+.wf-9x {
+    font-size: 126px;
+    width: 126px;
+    height: 126px;
+    line-height: 126px;
+}
+.wf-10x {
+    font-size: 140px;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+}
+
+/*---------------------------------------------
+  Width modifiers 
+---------------------------------------------*/
+
+.wf-width-xs {
+    width: 120px;
+}
+
+.wf-width-sm {
+    width: 185px
+}
+
+.wf-width-md {
+    width: 250px;
+}
+
+.wf-width-lg {
+    width: 380px;
+}
+
+.wf-width-xlg {
+    width:510px;
+}
+
+.wf-width-2xlg,
+.wf-width-xxlg {
+    width:640px;
+}
+
+.wf-width-3xlg {
+    width:770px;
+}
+
+.wf-max-width-xs {
+    width: 120px;
+}
+
+.wf-max-width-sm {
+    max-width: 185px
+}
+
+.wf-max-width-md {
+    max-width: 250px;
+}
+
+.wf-max-width-lg {
+    max-width: 380px;
+}
+
+.wf-max-width-xlg {
+    max-width:510px;
+}
+
+.wf-max-width-2xlg,
+.wf-max-width-xxlg {
+    max-width:640px;
+}
+
+.wf-max-width-3xlg {
+    max-width:770px;
+}

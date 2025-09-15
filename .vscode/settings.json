@@ -1,0 +1,11 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
+{
+    "files.exclude": {
+    //    "App/src/**/*.js": { "when": "$(basename).ts"},
+        "App/src/**/*.js.map": false,
+        ".vscode":false,
+        "App/dist":false,
+        "node_modules":false,
+        "translations":false
+    }
+}

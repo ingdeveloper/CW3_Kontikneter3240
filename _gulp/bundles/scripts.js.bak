@@ -1,0 +1,130 @@
+"use strict";
+
+var paths = require("../paths").paths;
+
+let scriptRoot = `${paths.scripts}`;
+let npmRoot = `${paths.node}`;
+let scriptCowiRoot = `${paths.scriptsCowi}`;
+exports.bundles = [{
+    name: "vendor1",
+    root: scriptRoot,
+    files: [
+        `${paths.node}/es5-shim/es5-shim.js`,
+        `${paths.node}/es6-shim/es6-shim.js`,
+        `${paths.node}/jquery/dist/jquery.js`,
+        `${paths.node}/signalr/jquery.signalR.js`,
+        `${paths.node}/moment/min/moment-with-locales.js`,
+        `${paths.node}/bootstrap/dist/js/bootstrap.js`,
+        `${paths.node}/knockout/build/output/knockout-latest.debug.js`,
+        `${paths.node}/knockout-punches/knockout.punches.js`,
+        `${paths.node}/knockout-postbox/build/knockout-postbox.js`,
+        `${paths.node}/underscore/underscore.js`,
+        `${paths.node}/underscore.string/dist/underscore.string.js`,
+        `${scriptRoot}/knockout.extenders.js`,
+        `${scriptRoot}/knockout.bindinghandlers.js`,
+        `${scriptRoot}/moment.extensions.js`,
+        `${paths.node}/node-uuid/uuid.js`,
+        `${paths.node}/bluebird/js/browser/bluebird.js`,
+        `${paths.node}/virtual-keyboard/dist/js/jquery.keyboard.js`,
+        //`${paths.node}/virtual-keyboard/dist/js/jquery.keyboard.extension-all.min.js`
+    ]
+}, {
+    name: "vendor2",
+    root: scriptRoot,
+    files: [
+        `${scriptRoot}/signalr/hubs.js`,
+        `${paths.node}/toastr/toastr.js`,
+        `${paths.node}/q/q.js`,
+        `${paths.node}/jsep/build/jsep.js`
+    ]
+}, {
+    name: "vendor3",
+    root: scriptRoot,
+    files: [
+        `${paths.node}/d3/d3.js`,
+        `${paths.node}/c3/c3.js`,
+        `${paths.node}/dc-json-cycle/cycle.js`,
+        `${paths.node}/jquery.cookie/jquery.cookie.js`,
+        `${scriptRoot}/jquery.resizable.js`,
+        `${paths.node}/jquery.hotkeys/jquery.hotkeys.js`,
+        `${scriptRoot}/jquery.draggable.js`,
+        `${paths.node}/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js`,
+        `${paths.node}/bootstrap-slider/dist/bootstrap-slider.js`,
+        `${paths.node}/jquery-mousewheel/jquery.mousewheel.js`,
+        `${scriptRoot}/jquerry.esmartzoom.js`,
+        `${scriptRoot}/jquerry.wf.viewbox.js`,
+        `${paths.node}/bootstrap-select/dist/js/bootstrap-select.js`,
+        `${paths.node}/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js`,
+        `${paths.node}/numeral/numeral.js`,
+        `${paths.node}/numeral/locales.js`,
+        `${paths.node}/code-prettify/loader/prettify.js`
+    ]
+}, {
+    name: "core",
+    root: scriptRoot,
+    files: [
+        `${scriptRoot}/wf.extensions.string.js`,
+        `${scriptRoot}/wf.extensions.underscore.js`,
+        `${scriptRoot}/wf.extensions.knockout.js`,
+        `${scriptRoot}/wf.extensions.math.js`,
+        `${scriptRoot}/wf.extensions.moment.js`,
+        `${scriptRoot}/wf.extensions.uri.js`,
+        `${scriptRoot}/wf.extensions.js`,
+        `${scriptRoot}/wf.behaviors.setZIndexOnMouseOver.js`,
+        `${scriptRoot}/wf.behaviors.popover.js`,
+        `${scriptRoot}/wf.behaviors.modal.js`,
+        `${scriptRoot}/wf.behaviors.slider.js`,
+        `${scriptRoot}/wf.behaviors.infiniteScroll.js`,
+        `${scriptRoot}/Enums.js`,
+        `${scriptRoot}/wf.controls.datepicker.js`,
+        `${scriptRoot}/wf.controls.progress.js`,
+        `${scriptRoot}/wf.controls.checkbox.js`,
+        `${scriptRoot}/wf.controls.arc.js`,
+        `${scriptRoot}/wf.controls.drawArc.js`,
+        `${scriptRoot}/wf.controls.svgArc.js`,
+        `${scriptRoot}/wf.controls.svgArcScale.js`,
+        `${scriptRoot}/wf.controls.esmartzoom.js`,
+        `${scriptRoot}/wf.controls.viewbox.js`,
+        `${scriptRoot}/wf.controls.c3chart.js`,
+        `${scriptRoot}/wf.controls.selectpicker.js`,
+        `${scriptRoot}/wf.controls.colorpicker.js`,
+        `${scriptRoot}/wf.controls.keyboard.js`,
+        `${scriptRoot}/wf.formating.js`,
+        `${scriptRoot}/wf.utilities.js`,
+        `${scriptRoot}/wf.fullScreenApi.js`,
+        `${scriptRoot}/wf.behaviors.toggleFullScreen.js`,
+        `${scriptRoot}/wf.behaviors.hideIfEmpty.js`,
+        `${scriptRoot}/wf.controls.d3axis.js`,
+        `${scriptRoot}/wf.behaviors.activeUrl.js`,
+        `${scriptRoot}/wf.behaviors.resizable.js`,
+        `${scriptRoot}/wf.behaviors.setContrastColor.js`,
+        `${scriptRoot}/wf.behaviors.sortTable.js`,
+        `${scriptRoot}/wf.behaviors.fixTableHeader.js`,
+        `${scriptRoot}/wf.behaviors.draggable.js`,
+        `${scriptRoot}/wf.behaviors.randomPosition.js`,
+        `${scriptRoot}/wf.behaviors.tooltip.js`,
+        `${scriptRoot}/wf.behaviors.fadeInText.js`,
+        `${scriptRoot}/wf.behaviors.fadeVisible.js`,
+        `${scriptRoot}/wf.behaviors.toggleClass.js`,
+        `${scriptRoot}/wf.behaviors.addAuthorizationClass.js`,
+        `${scriptRoot}/wf.behaviors.inner-html-value-forwarder.js`,
+    ]
+}, {
+    name: "require",
+    root: scriptRoot,
+    files: [
+        `${paths.node}/requirejs/require.js`
+    ]
+    }, {
+        name: "cowi",
+        root: scriptCowiRoot + '/scripts/',
+        files: [
+            `${scriptCowiRoot}/scripts/ccwKnockoutExtenders.js`,
+            `${scriptCowiRoot}/scripts/ccwBindingHandlers.js`,
+            `${scriptCowiRoot}/scripts/html2canvas.min.js`,
+            `${scriptCowiRoot}/scripts/ccwBcd2Number.js`,
+            `${scriptCowiRoot}/scripts/jquery.fullscreen.min.js`,
+            `${scriptCowiRoot}/app-config.js`
+        ]
+    }
+];

@@ -1,0 +1,25 @@
+﻿<!-- Dieses Fenster funktioniert nicht richtig auf Mobilen Geräten, Scrolling ist nur dann auf dem Body möglich, siehe Internet bootstrap -->
+<div class="modal">
+    <div class="modal-dialog modal-top modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 5px 15px;">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="false" data-bind="click: close">&times;</button>-->
+                <h4 class="modal-title">
+                    Rezept-Anzeige:
+                    <button class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                </h4>
+            </div>
+
+            <div class="modal-body" style="overflow-y: auto;overflow-x: auto; max-height:600px;">
+                <div >
+                    <div data-bind="html: ergASPAnfrage"></div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="padding: 5px 15px; text-align: left;">
+                <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>
+

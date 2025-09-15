@@ -1,0 +1,28 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible()-->
+<button type="button" class="modalButton btn" style="overflow: hidden" data-target="#wfModal"
+        data-bind="css: statusClass, attr: { title: tooltipText,
+        data-header-class: headerClass,
+        data-toggle: dataToggle,
+        data-class: dialogClassName,
+        data-src: dataSource,
+        data-height: bodyHeight,
+        data-width: bodyWidth,
+        data-title: dataTitle,
+        data-placement: dataPlacement
+        }">
+
+    <!-- ko if: showIcon()-->
+    <i class="icon" data-bind="style: iconStyle, css: iconClass"></i>
+    <!-- /ko -->
+
+    <span data-bind="style: {fontSize: fontSize, fontFamily: fontFamily, fontWeight: fontWeight}">
+        <!-- ko component: {  name: 'wf-symbolictext', params: { symbolicText: buttonText(), objectID: objectID}} -->
+        <!--/ko-->
+    </span>
+
+    <!-- ko template: { nodes: $componentTemplateNodes} --><!-- /ko -->
+
+</button>
+<!-- /ko -->
+<!-- /ko -->

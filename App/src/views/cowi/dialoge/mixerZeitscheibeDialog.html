@@ -1,0 +1,52 @@
+﻿
+<div class="modal">
+    <div class="modal-dialog modal-top modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 5px 15px;">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="false" data-bind="click: close">&times;</button>-->
+                <h4 class="modal-title">
+                    Zeitscheibe-Dialog:
+                    <button class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-hidden="true" data-bind="click: close">&times;</button>
+                </h4>
+            </div>
+
+            <div class="modal-body" style="overflow-y: auto; max-height:600px;">
+                <div class="text-center">
+                    <h4>Sprung zum angegebenen Schritt</h4>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="text-center">Soll-Schritt:</div>
+                        <div>
+                            <ccw-wf-input-tastatur params="signalName: sollIstSchritt.signalName(), format: '0,0.[0]', isAlphanumeric: true, writeToBuffer: true,
+                                                   displayClass: 'ccw-wf-input-tastatur-displayClass-xs ccw-wf-input-tastatur-displayClass-fullWidth',
+                                                   isBufferedClass: 'ccw-wf-input-tastatur-isBufferesClass-xs ccw-wf-input-tastatur-displayClass-fullWidth',
+                                                   isDisabledClass: 'ccw-wf-input-tastatur-disabledClass-xs ccw-wf-input-tastatur-displayClass-fullWidth',
+                                                   isMarkierungsClass: 'ccw-wf-input-tastatur-markierungsClass-xs ccw-wf-input-tastatur-displayClass-fullWidth',
+                                                   disableInputFeld: !userFreigabe()"></ccw-wf-input-tastatur>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="text-center">
+                            Ist-Schritt:
+                        </div>
+                        <div class="ccw-value-OnlyRead ccw-bg-noInput ccwHandCursor" data-bind="text: sollIstSchritt.value()"></div>
+                    </div>
+                </div>
+                <!-- ko if: aktiv() == false -->
+                <div class="bg-danger text-center">Sprung nur bei gestartetem Programm möglich</div>
+                <!-- /ko -->
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-success pull-right" type="submit" data-bind="enable: userFreigabe(), click: function (){sendWerteZurSps()}, css: sendBtnCss">Springe zu</button>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 5px 15px;">
+                <!--<wf-buffer-button class="btn-xs inline" data-bind="css: sendBtnCss" params="buttonText: 'Senden ', iconClass: 'wf wf-check', cssClass: 'btn-success'"></wf-buffer-button>
+                <wf-buffer-button class="btn-xs inline" params="buttonText: 'Lösche Buffer', iconClass: 'wf wf-arrow-undo', clearBuffer: true, cssClass: 'btn-default'"></wf-buffer-button>-->
+
+                <button class="btn btn-primary btn-xs" data-dismiss="modal" aria-hidden="true" data-bind="click: close">Schlie&szlig;en</button>
+            </div>
+        </div>
+    </div>
+</div>
+

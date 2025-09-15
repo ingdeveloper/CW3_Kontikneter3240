@@ -1,0 +1,152 @@
+/*---------------------------------------------
+  Animations related modifiers 
+---------------------------------------------*/
+
+.wf-animation-duration-05s {
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+}
+
+.wf-animation-duration-075s {
+    animation-duration: 0.75s;
+    -webkit-animation-duration: 0.75s;
+}
+
+.wf-animation-duration-1s {
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+}
+
+.wf-animation-duration-2s {
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+}
+
+.wf-animation-duration-4s {
+    animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+}
+
+.wf-animation-duration-6s {
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+}
+
+.wf-animation-duration-8s {
+    animation-duration: 8s;
+    -webkit-animation-duration: 8s;
+}
+
+.wf-animation-duration-10s {
+    animation-duration: 10s;
+    -webkit-animation-duration: 10s;
+}
+
+.wf-animation-count-infinite {
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.wf-animation-count-1 {
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+}
+
+.wf-animation-count-2 {
+    animation-iteration-count: 2;
+    -webkit-animation-iteration-count: 2;
+}
+
+.wf-animation-count-3 {
+    animation-iteration-count: 3;
+    -webkit-animation-iteration-count: 3;
+}
+
+.wf-animation-count-4 {
+    animation-iteration-count: 4;
+    -webkit-animation-iteration-count: 4;
+}
+
+.wf-animation-count-5 {
+    animation-iteration-count: 5;
+    -webkit-animation-iteration-count: 5;
+}
+
+.wf-animation-count-10 {
+    animation-iteration-count: 10;
+    -webkit-animation-iteration-count: 10;
+}
+
+.wf-animation-transition-transform-05s {
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+
+.wf-animation-transition-transform-075s {
+    transition: transform .75s;
+    -webkit-transition: transform .75s;
+}
+
+.wf-animation-transition-transform-1s {
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+}
+
+.wf-animation-transition-transform-2s {
+    transition: transform 2s;
+    -webkit-transition: transform 2s;
+}
+
+.wf-animation-transition-transform-3s {
+    transition: transform 3s;
+    -webkit-transition: transform 3s;
+}
+
+.wf-animation-transition-transform-4s {
+    transition: transform 4s;
+    -webkit-transition: transform 4s;
+}
+
+.wf-animation-transition-transform-5s {
+    transition: transform 5s;
+    -webkit-transition: transform 5s;
+}
+
+/*---------------------------------------------
+  Animations delay related modifiers 
+---------------------------------------------*/
+
+.animated-delay-500 {
+    -moz-animation-delay: .5s;
+    -o-animation-delay: .5s;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+
+.animated-delay-750 {
+    -moz-animation-delay: .75s;
+    -o-animation-delay: .75s;
+    -webkit-animation-delay: .75s;
+    animation-delay: .75s;
+}
+
+.animated-delay-1000 {
+    -moz-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.animated-delay-1500 {
+    -moz-animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+
+.animated-delay-2000 {
+    -moz-animation-delay: 2s;
+    -o-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}

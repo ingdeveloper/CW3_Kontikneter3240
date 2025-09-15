@@ -1,0 +1,197 @@
+<!-- ko if: isVisible()-->
+<button type="button" data-bind="disable: isDisabled() || isLoading(), css: css, click: onClicked"
+    title="{{connector.translate('I4SCADA_Series_dialog')()}}">
+    <span class="wf wf-sine-wave"></span>
+    <!-- ko if: showLabel-->
+    {{connector.translate('I4SCADA_Series_dialog')()}}
+    <!--/ko-->
+</button>
+<!-- /ko -->
+
+<span data-bind="attr: { id: 'modal-dialog-back-container-' + id() }">
+    <div class="modal fade wf-panel-dialog wf-component-configuration-dialog" tabindex="-1" role="dialog"
+        data-bind="modalDialog: {show: dialog, draggable: isModalDialogsDraggable} , attr: { id: 'modal-dialog-' + id() }"
+        style="display: none;">
+        <div class="modal-dialog modal-lg modal-top">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+                    <button style="color: rgb(255,255,255)" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true" data-bind="click: onClose">&times;</button>
+                    <div class="modal-title">
+                        <strong>{{connector.translate('I4SCADA_Series_dialog')()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-body wf-panel-settings">
+                    <div class="row">
+                        <div class="overflow-y-scroll">
+                            <div class="col-md-5">
+                                <h4>{{connector.translate('I4SCADA_Series')()}}</h4>
+                                <div class="wf-historical-series-wrapper m-t-md">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px">{{connector.translate('I4SCADA_Color')()}}</th>
+                                                <th>{{connector.translate('I4SCADA_Axis')()}}</th>
+                                                <th>{{connector.translate('I4SCADA_Name')()}}</th>
+                                                <th style="width: 34px">
+                                                    <button type="button" class="btn btn-success pull-right btn-xs" title="{{connector.translate('I4SCADA_Add')()}}" data-bind="click: onAdd">
+                                                        <span class="wf wf-add"></span>
+                                                    </button>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- ko foreach: items-->
+                                            <tr class="clickable"
+                                                data-bind="click: $parent.onSelected, css:{'selected': $data === $parent.item() }">
+                                                <td>
+                                                    <span
+                                                        style="display: inline-block; height: 21px; width: 21px; border-radius: 50%;"
+                                                        data-bind="style:{backgroundColor:strokeColor||fillColor}"></span>
+                                                </td>
+                                                <td>{{axis}}</td>
+                                                <td>{{name}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-xs btn-danger"
+                                                        data-bind="click: $parent.onDelete, disable: !isDeletable()"
+                                                        title="{{ $parent.connector.translate('I4SCADA_Delete')()}}">
+                                                        <span class="wf wf-bin"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <!--/ko-->
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+     
+                            <div class="col-md-7">
+                                <h4>{{connector.translate('I4SCADA_Series_configuration')()}}</h4>
+                                <!-- ko if: item -->
+                                <!-- ko with: item -->
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="form-group col-xs-6">
+                                            <label for="name">{{$parent.connector.translate('I4SCADA_Name')()}}</label>
+                                            <div class="relative">
+                                                <input type="name" class="form-control" id="name"
+                                                        data-bind="textInput: name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <label for="axis">{{$parent.connector.translate('I4SCADA_Axis')()}}</label>
+                                            <select class="form-control" id="axis" data-bind="options: $parent.axes,
+                                        optionsText: 'name',
+                                        optionsValue:'name',
+                                        value: axis"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="log">{{$parent.connector.translate('I4SCADA_Log')()}}</label>
+                                        <div class="relative">
+                                            <wf-historical-data-log-selector params="signal: signalName, tag: tag">
+                                            </wf-historical-data-log-selector>
+                                            <!-- ko template: {name: 'validationErrorTemplate', data: {field: tag}} -->
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="axis">{{$parent.connector.translate('I4SCADA_Display_as')()}}</label>
+                                        <select class="form-control" id="axis" data-bind="options: $parent.displays,
+                                        optionsText: 'text',
+                                        optionsValue: 'id',
+                                        value: display"></select>
+                                    </div>
+
+                                    <wf-historical-data-color-picker params="color: strokeColor, symbolicText: 'I4SCADA_Stroke_color'">
+                                    </wf-historical-data-color-picker>
+
+                                    <wf-historical-data-color-picker params="color: fillColor, symbolicText: 'I4SCADA_Fill_color'">
+                                    </wf-historical-data-color-picker>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-6">
+                                            <label for="thickness">{{$parent.connector.translate('I4SCADA_Thickness')()}}</label>
+                                            <div class="relative">
+                                                <input type="number" class="form-control" id="thickness"
+                                                        data-bind="value: thickness" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-xs-6">
+                                            <label for="chartTypes">{{$parent.connector.translate('I4SCADA_Chart_type')()}}</label>
+                                            <select class="form-control" id="chartTypes" data-bind="options: $parent.chartTypes,
+                                            optionsText: 'text',
+                                            optionsValue: 'id',
+                                            value: chartType"></select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-xs-6">
+                                            <label class="clickable">
+                                                <input type="checkbox" data-bind="checked: digital" />
+                                                {{$parent.connector.translate('I4SCADA_Digital')()}}
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <label class="clickable">
+                                                <input type="checkbox" data-bind="checked: invertDigitalRepresentation" />
+                                                {{$parent.connector.translate('I4SCADA_Invert_digital_representation')()}}
+                                            </label>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-xs-6">
+                                            <label for="digitalBit">{{$parent.connector.translate('I4SCADA_Digital_bit')()}}</label>
+                                            <div class="relative">
+                                                <input type="number" class="form-control" id="digitalBit"
+                                                        data-bind="value: digitalBit" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <label for="digits">{{$parent.connector.translate('I4SCADA_Digits')()}}</label>
+                                            <div class="relative">
+                                                <input type="number" class="form-control" id="digits"
+                                                        data-bind="value: digits" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="form-group">
+                                            <wf-historical-data-horizontal-line params="configuration: horizontalLines">
+                                            </wf-historical-data-horizontal-line>
+                                        </div>
+                                        <div class="form-group">
+                                            <wf-historical-data-cursors params="configuration: cursors">
+                                            </wf-historical-data-cursors>
+                                        </div>
+
+                                    </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                                <!-- ko ifnot: item -->
+                                <div class="wf-historical-dialog-no-content-box"></div>
+                                <!--/ko-->
+                            </div>                      
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-primary" data-bind="click: onDialog, disable: errors().length">
+                            <i class="wf-lg wf-check"></i>
+                            {{connector.translate('I4SCADA_Apply')()}}
+                        </button>
+                        <button class="btn btn-default" data-bind="click: onClose">
+                            <i class="wf wf-close-round-o"></i>
+                            {{connector.translate('I4SCADA_Close')()}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>

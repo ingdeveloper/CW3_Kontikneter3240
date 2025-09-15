@@ -1,0 +1,47 @@
+<!-- ko addAuthorizationClass: { hasNoAuthorization: hasNoAuthorization} -->
+<!-- ko if: isVisible() -->
+<div class="relative wf-arc" data-bind="style: {marginBottom: marginBottom, width: width + 'px'}, attr : {title: tooltipText}">
+
+    <!--<div data-bind="text: maxRangeSignalValue"></div>
+    <div data-bind="text: maxRange"></div>-->
+
+
+    <div data-bind="arc: currentAngle, arcOptions: {
+            width: width,
+            height: height,
+            paddings: paddings,
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor,
+            foregroundStrokeColor: foregroundStrokeColor,
+            backgroundStrokeColor: backgroundStrokeColor,
+            strokeWidth: strokeWidth,
+            innerRadius: innerRadius,
+            startAngle: startAngle,
+            endAngle: endAngle,
+            minRange: minRangeValue,
+            maxRange: maxRangeValue,
+            majorTicks: majorTicks,
+            showTickLines: showTickLines,
+            showTickLabels: showTickLabels,
+            labelformat: labelFormat,
+            hideFirstTickLabel: hideFirstTickLabel,
+            hideLastTickLabel: hideLastTickLabel}"></div>
+
+        <!-- ko template: { nodes: $componentTemplateNodes, data: $data } --><!-- /ko -->
+
+    <!-- ko if: iconClass -->
+    <div class="wf-arc-icon">
+        <i data-bind="css: iconClass,  attr: {style:  'color:' + iconColor +';' + iconStyle}"></i>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: showValueLabel -->
+    <div class="wf-arc-value">
+        <span data-bind="text: formattedSignalValue"></span>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: showSignalUnit -->
+    <span class="wf-arc-label wf-arc-unit" data-bind="component: {name: 'wf-signal-information', params: { signalName: signalName, propertyName: 'Unit' }}"></span>
+    <!-- /ko -->
+</div>
+<!--/ko-->
+<!--/ko-->

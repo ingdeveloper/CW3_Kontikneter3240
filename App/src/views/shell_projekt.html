@@ -1,0 +1,257 @@
+﻿<div id="main-wrapper" style="height: 100%">
+    <!-- Navigation is not essential for the application and can be replaced (e.g. with custom navigation bar) or removed -->
+
+    <!-- Navigationsleiste, hier unten dargestellt -->
+    <div class="navbar navbar-inverse" data-bind="css: navbarClass" id="myNav">
+        <div class="container-fluid">
+
+            <div class="nav navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar"
+                    data-bind="toggleClass: 'active'" aria-expanded="false" aria-controls="mynavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <a class="btn btn-link" data-bind="click: function() {histback();}">
+                    <i class="wf wf-arrow-undo"></i> Zurück</a>
+                <ul class="nav navbar-nav" data-bind="foreach: router.navigationModel">
+                    <li data-bind="css: { active: isActive }">
+                        <a data-bind="attr: { href: hash }" data-toggle="collapse" data-target="#mynavbar">
+                            <!-- ko if: settings.iconClass -->
+                            <i class="navbar-nav-linkicon" data-bind="css: settings.iconClass"></i>
+                            <!-- /ko -->
+                            <span class="navbar-nav-linktext" data-bind="html: title"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!-- ... container-fluid-->
+    </div>
+    <!-- Ende Navigationsleise -->
+
+    <!--Main content area - essential part-->
+    <div class="page-host">
+        <section class="container-fluid">
+            <div class="row">
+                <!-- Anmelde-Button -->
+                <div class="col-sm-2 col-xs-6" id="class_header_anmeldung">
+                    <div class="btn-group">
+                        <!-- Anmeldebutton -->
+                        <wf-user-login params="defaultText: 'Anmelden'"></wf-user-login>
+                        <!-- Button für umschalten der Input-Tastatur -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs"
+                                data-bind="click: function() {SetVirtuelleTastatur()}" data-toggle="tooltip"
+                                data-placement="bottom" title="Bildschirmtastatur">
+                                <i class="fa fa-keyboard-o fa-2x" data-bind="style:{color: virtuelleTastaturStyle}"></i>
+                            </button>
+                            <!-- Button für Toggle Fullscreen -->
+                            <!-- <button type="button"class="btn btn-default btn-xs" data-bind="ccwToggleFullScreen: { }, tooltip: { title: 'Vollbildmodus', placement: 'bottom' }" -->
+                            <button type="button" class="btn btn-default btn-xs" data-bind="ccwToggleFullScreen: { }"
+                                data-toggle="tooltip" data-placement="bottom" title="Vollbild"
+                                style="height: 29px; width:28px;">
+                                <i class="wf-lg wf-full-screen"></i>
+                            </button>
+                            <!-- Button für Refresh der Seite -->
+                            <button type="button" class="btn btn-default btn-xs"
+                                data-bind="click: function(){neustart()}" data-toggle="tooltip" data-placement="bottom"
+                                title="Seite neu laden" style="height: 29px; width:28px;">
+                                <i class="wf-lg wf wf-arrow-refresh-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- <button class="btn btn-default btn-xs" data-bind="click: function() {setFuellscreen()}, tooltip: { title: 'Vollbildmodus', placement: 'bottom' }"
+                            style="height: 28px; width:28px;">
+                            <i class="wf-lg wf-full-screen"></i>
+                        </button> -->
+                    </div>
+                    <!-- Content below is not essential for the application and can be replaced or removed-->
+                    <!-- Das Spinner Loader Symbol wird bei laden der Seite angezeigt -->
+                    <div class="ccw-loader" data-bind="css: { active: router.isNavigating }"></div>
+                </div>
+
+                <!--Alarm-Viewer im oberen Bereich anzeigen-->
+                <div class="col-sm-8 hidden-xs" id="class_header_alarm" style="z-index: 2;">
+
+                    <div id="idAlarmViewerImHeader">
+                        <wf-alarm-viewer params="   height: 48, 
+                                                    alarmStatusFilter: 'Active', 
+                                                    alarmGroups:[   'Kontikneter', 
+                                                                    'Gärschrank'], 
+                                                    tableView: true, 
+                                                    columns: ['StatusText', 'Active', 'Group', 'Type', 'AlarmTag', 'Text'],
+                                                    maxRowCount: 7, 
+                                                    headerVisibility: alarmViewerHeaderVisibility(), 
+                                                    columnsHeaderVisibility:false, 
+                                                    updateRate: 3000"></wf-alarm-viewer>
+                    </div>
+
+                    <div class="header-serverzeit-rahmen">
+                        <div class="row">
+                            <div id="anlagenname" class="col-sm-6 hidden-xs anlagenname">
+                                Kontikneter 3240
+                            </div>
+                            <div class="col-sm-6 hidden-xs serverZeit">
+                                <wf-value class="inline"
+                                    params="signalName: 'Local Time', isDateTime: true, dateTimeFormat: 'DD.MM.YYYY HH:mm:ss'">
+                                </wf-value>
+                            </div>
+                        </div>
+                        <div class="btnAlarmViewerAusklappen">
+                            <button class="btn btn-default btn-xs" style="width: 30px; height: 22px;"
+                                data-bind="click: function(){toggleAlarmViewerHoehe()}">
+                                <i class="wf wf-xs wf-chevron-down" data-bind="css: cssBtnToggleAlarmViewerHoehe"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ccw-wf-sps-stoer-kommunikation params="signalName: 'VMI3240DB1DBB4', text:'FEHLER SPS KOMMUNIKATION KONTIKNETER 3240!', zaehler: 10"></ccw-wf-sps-stoer-kommunikation>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watchdog Anzeige auf der rechten Seite -->
+                <div class="col-sm-2 col-xs-6" id="class_header_watchdog">
+                    <!-- Watchdog-Components -->
+                    <div class="row" data-bind="click: showBufferTabelle" style="width:36px;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <ccw-wf-watchdog
+                                params="signalName: 'VMI3240DB1DBB4', onlineClass: 'wf wf-watchdog-online wf-server wf-2x', offlineClass: 'wf wf-watchdog-offline wf-server-alert wf-2x', tooltipText: 'Verbindung zur SPS Kontikneter 3230 (IP: 10.200.9.43)', period: 10000">
+                            </ccw-wf-watchdog>                             
+                        </div>
+                    </div>
+                    <!-- Button für Print -->
+                    <div class="row">
+                        <button class="btn btn-default btn-xs"
+                            data-bind="click: seiteDrucken, tooltip: { title: 'Seite drucken', placement: 'bottom' }">
+                            <i class="wf-lg wf-printer" style="font-size: 16px;"></i>
+                        </button>
+                        <button class="btn btn-default btn-xs inline" style="height:28px;" id="btnStoerungen"
+                            title="Störmeldeauswertung VMI 3240" data-bind="click: function(){goToStoerungen()}">
+                            <span class="hidden-md hidden-sm">Störungen&nbsp;</span>
+                            <span class="hidden-lg hidden-xs">Stör.&nbsp;</span>
+                            <span class="badge" id="btnStoerungenAnz"></span>
+                        </button>                         
+                        <!-- <button class="btn btn-default btn-xs" id="btnLogbuch" style="font-size: 14px;"
+                            data-bind="click: function(){goToLogbuch()}">Logbuch</button> -->
+                    </div>
+                    <div style="position: absolute; right: 0px; top: 0px;">
+                        <a data-bind="click: function(){goToMTInfo()}">
+                            <img src="./ContentCowi/images/CCW-Logo_200px_96dpi.png"
+                                class="img-responsive" alt="" title="Link zu MT-Info" style="max-height: 70px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- der vertikal mittlere Bereich der Seite -->
+    <section id="content" class="main" data-bind="router: {transition: 'entrance' }"></section>
+
+
+    <!--ko compose: false -->
+    <!--'src/viewModels/footer' FOOTER ausgeblendet mit false   -->
+    <div>
+        <!--Collapsible content boxes will be placed below -->
+        <div id="wf-app-settings-bar" class="wf-app-settings-bar btn-group hidden-xs">
+            <button class="btn" data-toggle="collapse" data-target="#app-settings" aria-expanded="false"
+                aria-controls="app-settings">
+                <i class="wf wf-cogs"></i>
+            </button>
+
+            <button class="btn" data-toggle="collapse" data-target="#app-testsignals" aria-expanded="false"
+                aria-controls="app-testsignals">
+                <i class="fa fa-power-off"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="wf-app-settings-wrapper">
+        <div id="app-settings" class="wf-app-settings collapse">
+            <div class="wf-collapse-content">
+
+                <div class="btn-group btn-group-sm">
+
+                    <button class="btn btn-default"
+                        data-bind="click: function() { setNavbarType('navbar-left')}, css: {'btn-primary': (navbarClass() === 'navbar-left') }">
+                        <svg viewBox="0 0 2000 2000">
+                            <path d="M0 0v2000h2000V0H0zm1857.143 1857.143H660.5V142.857h1196.643v1714.286z" />
+
+                        </svg>
+                        Sidebar
+                    </button>
+
+                    <button class="btn btn-default"
+                        data-bind="click: function() { setNavbarType('navbar-top')}, css: {'btn-primary': (navbarClass() === 'navbar-top')  }">
+                        <svg viewBox="0 0 2000 2000">
+                            <path d="M0 0v2000h2000V0H0zm142.857 1857.143V472.5h1714.285v1384.643H142.857z" />
+                        </svg>
+                        Topbar
+                    </button>
+
+                    <button class="btn btn-default"
+                        data-bind="click: function() { setNavbarType('navbar-bottom')}, css: {'btn-primary': (navbarClass() === 'navbar-bottom')  }">
+                        <svg viewBox="0 0 2000 2000" style="transform: scaleY(-1)">
+                            <path d="M0 0v2000h2000V0H0zm142.857 1857.143V472.5h1714.285v1384.643H142.857z" />
+                        </svg>
+                        Footer
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div id="app-testsignals" class="wf-app-settings collapse">
+            <div class="wf-collapse-content">
+                <h5>i4SCADA Application Demo Signals</h5>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <!--/ko-->
+
+    <!-- Bei Muasklick auf x<=8 && y<=8, dann wird ein kleines Fenster an dem Cursor mit den X/Y-Positionen angezeigt -->
+    <div id="positionAnzeige" class="positionTooltip" data-bind="if: cursorPositionAnzeigeEin" style="z-index: 2000;">
+        x=
+        <span id="positionAnzeigeX"></span>
+        <br /> y=
+        <span id="positionAnzeigeY"></span>
+    </div>
+    <!-- Zwischenpuffer-Tabelle mit nicht gesendendeten Variablenwerten -->
+    <div id="bufferTabelle" class="positionTooltip" data-bind="if: showBufferTabelleToggle">
+        <div class="modal">
+            <div class="modal-dialog modal-top">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-bind="click: showBufferTabelle">
+                            <i class="wf wf-2x wf-close-round-o" style="color: black;"></i>
+                        </button>
+                        <div class="inline-block" style="font-size: large; vertical-align: bottom;">Sendetabelle</div>
+                        <div class="inline-block"
+                            style="vertical-align: top; width: 28px; text-align: center; margin-left: 20px;">
+                            <wf-watchdog
+                                params="signalName: 'VMI3240DB1DBB4', onlineClass: 'wf wf-watchdog-online wf-server wf-2x', offlineClass: 'wf wf-watchdog-offline wf-server-alert wf-2x', tooltipText: 'Verbindung zur SPS Kontikneter 3240 (DB1-Lebensbyte)'">
+                            </wf-watchdog>
+                            <wf-value params="signalName: 'VMI3240DB1DBB4'"></wf-value>
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+                        <wf-signals-buffer-viewer params="tableHeight:150"></wf-signals-buffer-viewer>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

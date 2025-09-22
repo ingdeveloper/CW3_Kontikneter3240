@@ -15,7 +15,8 @@ var config = {
   host: 'wf-broet3240',
   port: 21,
   localRoot: `releases/${version}/app`,
-  remoteRoot: 'Kontikneter',
+  remoteRoot: 'rezept',
+  // remoteRoot: 'Kontikneter',
   include: ['*.*', '**/*'],
   exclude: ['.git', '.idea', 'tmp/*', 'node_modules/*'],
   /** delete ALL existing files at destination before uploading, if true */

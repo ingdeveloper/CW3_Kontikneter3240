@@ -153,8 +153,8 @@ class Shell extends ViewModelBase {
             
         );
 
-        this.RezNrValue = this.connector.getSignal("VMI3240DB220DBD0").value;
-        this.PaNrValue = this.connector.getSignal("VMI3240DB1DBD80").value;  //PA-Nr von der Linie
+        this.RezNrValue = this.connector.getSignal("Fritsch3240DB1DBD60").value;
+        this.PaNrValue = this.connector.getSignal("Fritsch3240DB4DINT28").value;  //PA-Nr von der Linie
 
         return router.activate();
     }
@@ -597,10 +597,10 @@ class Shell extends ViewModelBase {
             // { route: "myAntriebe", title: "Antriebe", moduleId: "src/viewModels/cowi/myAntriebe", nav: true, settings: { iconClass: "" } },
             // { route: "myWartung", title: "Wartung", moduleId: "src/viewModels/cowi/wartung/myWartung", nav: true, settings: { iconClass: "" } },
             // { route: "charts(/:id)", title: "Trend", moduleId: "src/viewModels/cowi/charts", nav: true, hash: '#charts',settings: { iconClass: "wf wf-analysis ccw-color-magenta" } },
-            { route: "rezepturVMI", title: "Rezepte Kontikneter", moduleId: "src/viewModels/cowi/rezeptur_VMI", nav: false, settings: { iconClass: "wf wf-logtag-1 ccw-color-light-blue" } },
-            { route: "rezepturLinie", title: "Rezepte Linie", moduleId: "src/viewModels/cowi/rezeptur_Linie", nav: false, settings: { iconClass: "wf wf-logtag-1 ccw-color-light-blue" } },
-            // { route: "meldeanzeige", title: "Meldungen", moduleId: "src/viewModels/cowi/meldungen/meldeanzeige", nav: true, settings: { iconClass: "wf-lg wf-alarm ccw-color-yellow" } },
-            // { route: "historischeMeldeanzeige", title: "Historische Meldungen", moduleId: "src/viewModels/cowi/meldungen/historischeMeldeanzeige", nav: false, settings: { iconClass: "" } },            
+            { route: "rezepturVMI", title: "Rezept Kontikneter", moduleId: "src/viewModels/cowi/rezepturVMI", nav: true, settings: { iconClass: "wf wf-logtag-1 ccw-color-light-blue" } },
+            { route: "rezepturLinie", title: "Rezept Linie", moduleId: "src/viewModels/cowi/rezepturLinie", nav: true, settings: { iconClass: "wf wf-logtag-1 ccw-color-light-blue" } },
+            { route: "meldeanzeige", title: "Meldungen", moduleId: "src/viewModels/cowi/meldungen/meldeanzeige", nav: true, settings: { iconClass: "wf-lg wf-alarm ccw-color-yellow" } },
+            { route: "historischeMeldeanzeige", title: "Historische Meldungen", moduleId: "src/viewModels/cowi/meldungen/historischeMeldeanzeige", nav: false, settings: { iconClass: "" } },            
             // { route: "bindinghandler", title: "bindings", moduleId: "src/viewModels/cowi/bindingHandler", nav: false, settings: { iconClass: "wf wf-attach" } },
         ];
         router.reset();

@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "plugins/router", "./viewModelBase", "../../src/viewModels/cowi/services/ccw-contextmenu"], function (require, exports, router, ViewModelBase, CcwContextmenu) {
+define(["require", "exports", "plugins/router", "./viewModelBase", "./cowi/services/ccw-contextmenu"], function (require, exports, router, ViewModelBase, CcwContextmenu) {
     "use strict";
     var Shell = /** @class */ (function (_super) {
         __extends(Shell, _super);

@@ -3,7 +3,7 @@
 import router = require("plugins/router");
 import ViewModelBase = require("./viewModelBase");
 
-import CcwContextmenu = require("../../src/viewModels/cowi/services/ccw-contextmenu");
+import CcwContextmenu = require("./cowi/services/ccw-contextmenu");
 
 declare let window: any;
 class Shell extends ViewModelBase {

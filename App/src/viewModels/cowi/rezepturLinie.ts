@@ -1,5 +1,5 @@
 ﻿import { userLogHandle } from "./services/logonHandling";
-import CcwContextmenu = require("../../../src/viewModels/cowi/services/ccw-contextmenu");
+import CcwContextmenu = require("./services/ccw-contextmenu");
 import Connector = require("../../services/connector");
 import Signal = require("../../services/models/signal");
 

@@ -1,4 +1,4 @@
-define(["require", "exports", "./services/logonHandling", "../../../src/viewModels/cowi/services/ccw-contextmenu", "../../services/connector"], function (require, exports, logonHandling_1, CcwContextmenu, Connector) {
+define(["require", "exports", "./services/logonHandling", "./services/ccw-contextmenu", "../../services/connector"], function (require, exports, logonHandling_1, CcwContextmenu, Connector) {
     "use strict";
     var rezepturVMI = /** @class */ (function () {
         function rezepturVMI() {

@@ -85,7 +85,7 @@
                         <wf-alarm-viewer params="   height: 48, 
                                                     alarmStatusFilter: 'Active', 
                                                     alarmGroups:[   'Kontikneter', 
-                                                                    'Gärschrank'], 
+                                                                    'Gärschrank', 'Fritsch'], 
                                                     tableView: true, 
                                                     columns: ['StatusText', 'Active', 'Group', 'Type', 'AlarmTag', 'Text'],
                                                     maxRowCount: 7, 
@@ -136,7 +136,7 @@
                             <i class="wf-lg wf-printer" style="font-size: 16px;"></i>
                         </button>
                         <button class="btn btn-default btn-xs inline" style="height:28px;" id="btnStoerungen"
-                            title="Störmeldeauswertung VMI 3240" data-bind="click: function(){goToStoerungen()}">
+                            title="Störmeldeauswertung Linie 3240" data-bind="click: function(){goToStoerungen()}">
                             <span class="hidden-md hidden-sm">Störungen&nbsp;</span>
                             <span class="hidden-lg hidden-xs">Stör.&nbsp;</span>
                             <span class="badge" id="btnStoerungenAnz"></span>
